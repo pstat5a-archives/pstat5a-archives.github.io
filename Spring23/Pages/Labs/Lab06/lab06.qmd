@@ -1,0 +1,342 @@
+---
+title: "Lab06"
+subtitle: "Loops"
+author:
+  - name: "PSTAT 5A, with Ethan Marzban"
+    affiliations:
+      - name: "Spring 2023"
+author-title: "Course"
+affiliation-title: "Quarter"
+format: html
+title-block-banner: "#4144a6"
+css: styles.css
+---
+
+------------------------------------------------------------------------
+
+## Introduction to Loops
+
+Suppose we have the following outcomes of an experiment:
+
+```{python}
+x = ['success', 'failure', 'failure', 'success', 'failure', 'failure', 'failure', 'success']
+```
+
+How might we write code to count the number of successes in this string of outcomes? There are several different ways to accomplish this: one involves the main topic of today's lab, which is a **`for` loop**.
+
+![figure source: https://i.kym-cdn.com/photos/images/newsfeed/001/393/656/da7.jpg](https://i.kym-cdn.com/photos/images/newsfeed/001/393/656/da7.jpg){width="50%"}
+
+Here's the general idea: we would like to perform an element-wise comparison; that is, we would like to iteratively check whether *each element* of `x` is a success or a failure. The "brute-force" way would be to check each element individually, using comparisons:
+
+```{python}
+x[0] == 'success'
+```
+
+```{python}
+x[1] == 'success'
+```
+
+```{python}
+x[2] == 'success'
+```
+
+As you can imagine, though, this would get incredibly tedious, especially if `x` were large! This is where `for` loops become useful: they allow us to automate this iterative process.
+
+Before returning to this success/failure problem, let's look at an example to see how `for` loops work.
+
+```{python}
+for fruit in ['apple', 'banana', 'pear']:
+  print(fruit)
+```
+
+Here are how the different components work:
+
+1)  The `for` keyword signifies the beginning of the `for` loop.
+2)  The name `fruit` is the variable.
+3)  The list following the `in` keyword contains all of the different values the variable will take during the execution of the for loop.
+4)  The code after the initial colon `:` is called the **body** of the loop. (Note that the body of a for loop *must* be indented properly!) Here is how the body is executed:
+    -   First, the variable `fruit` is assigned the first value in the list of possible values specified in the first line of the loop
+    -   Then, after assigning `fruit` this value, the code in the body is executed once.
+    -   Next, the variable `fruit` is assigned the *second* value of the list of values, and the body is run again.
+    -   This continues until the list of all possible values is exhausted.
+
+Sometimes, it may be useful to sketch a diagram/table to keep track of the code at each iteration of the loop:
+
+
+<table style="border: 1px solid black;">
+  <tr>
+    <td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2"><b>FIRST ITERATION</b></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>Start of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>fruit</code>: <code>'apple'</code> </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>End of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>fruit</code>: <code>'apple'</code> </li>
+      </ul>
+    </td>
+  </tr>
+  <!-- second iteration -->
+  <tr>
+    <td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2"><b>SECOND ITERATION</b></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>Start of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>fruit</code>: <code>'banana'</code> </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>End of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>fruit</code>: <code>'banana'</code> </li>
+      </ul>
+    </td>
+  </tr>
+  
+  <!-- third iteration -->
+  
+  <tr>
+    <td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2"><b>THIRD ITERATION</b></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>Start of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>fruit</code>: <code>'pear'</code> </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>End of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>fruit</code>: <code>'pear'</code> </li>
+      </ul>
+    </td>
+  </tr>
+  
+</table>
+
+It may seem strange to keep track of the values of the variables at the end of each iteration. The reason we do so is because sometimes the body of the loop will actually change the value of a variable! For example, consider the code
+
+```{python}
+for n in [1, 2, 3]:
+  n += 2
+  print(n)
+```
+
+the associated diagram would look like
+
+<table style="border: 1px solid black;">
+  <tr>
+    <td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2"><b>FIRST ITERATION</b></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>Start of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>n</code>: <code>1</code> </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>End of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>n</code>: <code>3</code> </li>
+      </ul>
+    </td>
+  </tr>
+  <!-- second iteration -->
+  <tr>
+    <td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2"><b>SECOND ITERATION</b></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>Start of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>n</code>: <code>2</code> </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>End of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>n</code>: <code>4</code> </li>
+      </ul>
+    </td>
+  </tr>
+  
+  <!-- third iteration -->
+  
+  <tr>
+    <td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2"><b>THIRD ITERATION</b></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>Start of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>n</code>: <code>3</code> </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding-right:15px;  padding-left:25px"><b>End of Iteration</b></td>
+    <td style="border: 1px solid black;">
+      <ul>
+        <li style="padding-right:15px"> <code>n</code>: <code>5</code> </li>
+      </ul>
+    </td>
+  </tr>
+  
+</table>
+
+By the way, notice the shorthand notation `+=` that was used above:
+
+:::{.callout-tip}
+The code `x += y` is equivalent to `x = x + y`.
+:::
+
+Finally, one thing that should be mentioned is that you can call the variable in a loop whatever you like!
+
+```{python}
+for yummy in ['apple', 'banana', 'pear']:
+  print(yummy)
+```
+
+::: callout-important
+## Task 1
+
+Copy-paste the code
+```{python}
+x = ['success', 'failure', 'failure', 'success', 'failure', 'failure', 'failure', 'success']
+```
+into a cell, and run it. Then, create a `for` loop that iterates through the elements of `x` and at each iteration prints `True` if the corresponding element of `x` is a `'success'` and `False` if the corresponding element of `x` is a `'failure'`. Your final output should look like:
+```{python}
+#| echo: False
+for k in x:
+  print(k == 'success')
+```
+:::
+
+By the way, the set of values a variable will take during a `for` loop doesn't have to be a list- it could also be an array! This is particularly useful when there are multiple things we would like to iterate over. For example:
+```{python}
+import datascience as ds
+credit_scores = ds.make_array(
+  ["Anne", 750],
+  ["Barbara", 755],
+  ["Cassandra", 745]
+)
+
+for k in credit_scores:
+  print(k[0], "has a credit score of", k[1])
+```
+
+::: callout-important
+## Task 2
+Make a table like the one above that keeps track of the variables and their values in the above loop. **You do not need to turn this in; do it on a separate sheet of paper** and in your `.ipynb` file simply state "I have done Task 2 on a separate sheet of paper."
+:::
+
+Now, we never quite finished our problem of counting the number of successes in the variable `x`. We were able to iterate through the elements of `x` to determine which were successes and which were failures, but we never *counted* the number of successes. \
+
+Here is the general idea:
+
+1) We initialize a *counter* variable, which starts off with the value of `0`.
+2) Then, we iterate through the elements of `x` as we did in Task 1 above. Instead of printing `True` or `False`, however, we use a *conditional* statement to add `1` to `count` if the corresponding element of `x` (i.e. the element of `x` under consideration in the current iteration of the loop).
+3) Finally, we see what the value of our counter variable is- this will be exactly the number of successes in `x`!
+
+::: callout-important
+## Task 3
+Combine everything we've learned so far to count the number of successes in `x`. Here is a rough template of how your code should look:
+
+```{python}
+#| eval: False
+
+count = 0     # initialize the counter variable
+
+<for loop code here, containing a conditional and a 'count += 1'>
+
+count       # display the final value of our counter variable
+```
+:::
+
+There is another way to iterate through the elements in a list, and this is to use indexing. Before talking about how this works, we should quickly introduce another function: the `arange()` function from the `numpy` module.  Here is how a general call to `numpy.arange()` works:
+```{python}
+#| eval: False
+numpy.arange(a, b, n)
+```
+This code returns the array of evenly spaced integers between `a` and `b` - including `a` but *excluding* `b`, where each element is `s` more than the previous element. That is, the code above is equivalent to `array([a, a+s, a+2s, ...])` As a concrete example:
+```{python}
+import numpy as np
+np.arange(0, 5, 2)
+```
+The `arange()` function is particularly useful when we are iterating using indices. For example, given a list `x = [1, 2, 3, 4, 5]`, we can loop through the entries of `x` using:
+```{python}
+#| echo: False
+
+x = [1, 2, 3, 4, 5]
+```
+```{python}
+for k in np.arange(0, len(x)):
+  print(x[k])
+```
+
+Note that this is equivalent to
+```{python}
+for k in x:
+  print(k)
+```
+
+::: callout-important
+## Task 4
+Rewrite your loop from Task 3, except now iterate through the *indices* of `x`. Check that your output is the same as in Task 3. 
+:::
+
+### Quick Aside: `arange()` vs `linspace()`
+
+Some of you may recall that we previously used the `numpy.linspace()` function to generate a list of numbers between two specified endpoints. The key difference between these two functions is that:
+
+- `arange()` allows you to specify the *step size*
+- `linspace()` allows you to specify *the final number of elements*
+
+::: callout-important
+## Task 5
+
+Generate the list of numbers `[1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 2.9, 2]` in two ways: one using `arange()` and the other using `linspace()`.
+:::
+
+
+## Sampling from a Population
+
+To sample `k` numbers from a list of numbers called `y`, we can use the `choices()` function from the module called `random`. Specifically, if we import `random` as `rnd`, the command
+
+```{python}
+#| eval: False
+
+rnd.choices(y, k)
+```
+
+generates a list of `k` elements, all sampled from `y`.
+
+::: callout-important
+## Task 6
+
+Simulate rolling a fair 6-sided die 100 times, and store the results of these rolls in a variable called `x`. (**Hint:** Think how you can use the `choices()` function to do this.)
+:::
+
+
+## Looking Ahead
+
+On the upcoming homework, you will work toward recreating the simulation we did back in Lecture 10 to construct the sampling distribution of $\widehat{P}$. This will involve using loops, so please make sure you understand the above material well!

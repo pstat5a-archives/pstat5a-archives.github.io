@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 890.13 408.31">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-1, .cls-5 {
+        stroke: #000;
+      }
+
+      .cls-6, .cls-7, .cls-8 {
+        font-family: TimesNewRomanPS-BoldItalicMT, 'Times New Roman';
+        font-style: italic;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-9 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-9 {
+        stroke: #ff2600;
+        stroke-width: 3px;
+      }
+
+      .cls-10, .cls-7, .cls-11 {
+        font-size: 40px;
+      }
+
+      .cls-10, .cls-7, .cls-11, .cls-8 {
+        font-weight: 700;
+      }
+
+      .cls-10, .cls-12 {
+        font-family: TimesNewRomanPS-BoldMT, 'Times New Roman';
+      }
+
+      .cls-3 {
+        stroke-dasharray: 0 0 11.73 6.84;
+      }
+
+      .cls-4 {
+        stroke-dasharray: 0 0 11.53 6.72;
+      }
+
+      .cls-5 {
+        stroke-width: 2px;
+      }
+
+      .cls-9 {
+        fill: red;
+      }
+
+      .cls-8 {
+        font-size: 30px;
+      }
+    </style>
+  </defs>
+  <g>
+    <line class="cls-1" x1="400.91" y1="346.53" x2="843.87" y2="346.53"/>
+    <path d="m840.28,346.53l-4.38-7.21.25-.16,11.75,4.67c4.09.9,8.19,1.8,12.28,2.7-4.09.9-8.19,1.8-12.28,2.7l-11.75,4.67-.25-.12,4.38-7.25Z"/>
+  </g>
+  <line class="cls-1" x1="167.35" y1="346.53" x2="400.91" y2="346.53"/>
+  <line class="cls-1" x1="111.73" y1="346.53" x2="167.35" y2="346.53"/>
+  <g>
+    <line class="cls-1" x1="111.73" y1="344.53" x2="111.73" y2="70.59"/>
+    <path d="m111.73,74.18l-7.21,4.38-.16-.25,4.67-11.75c.9-4.09,1.8-8.19,2.7-12.28.9,4.09,1.8,8.19,2.7,12.28l4.67,11.75-.12.25-7.25-4.38Z"/>
+  </g>
+  <text class="cls-7" transform="translate(869.81 355.82)"><tspan x="0" y="0">x</tspan></text>
+  <text class="cls-11" transform="translate(85.7 33.24)"><tspan class="cls-6" x="0" y="0" xml:space="preserve">f  </tspan><tspan class="cls-12" x="33.32" y="0">(</tspan><tspan class="cls-6" x="46.64" y="0">x</tspan><tspan class="cls-12" x="66.64" y="0">)</tspan></text>
+  <line class="cls-5" x1="227.17" y1="335.7" x2="227.17" y2="358.47"/>
+  <line class="cls-5" x1="664.45" y1="337.83" x2="664.45" y2="358.47"/>
+  <line class="cls-2" x1="226.97" y1="154.97" x2="663.97" y2="154.97"/>
+  <line class="cls-2" x1="111.97" y1="346.97" x2="220.97" y2="346.97"/>
+  <line class="cls-2" x1="669.97" y1="346.97" x2="832.97" y2="346.97"/>
+  <circle class="cls-2" cx="226.97" cy="346.97" r="6"/>
+  <circle class="cls-2" cx="663.97" cy="346.97" r="6"/>
+  <circle class="cls-9" cx="226.97" cy="154.97" r="6"/>
+  <circle class="cls-9" cx="664.97" cy="154.97" r="6"/>
+  <g>
+    <line class="cls-2" x1="226.97" y1="154.97" x2="226.97" y2="160.97"/>
+    <line class="cls-4" x1="226.97" y1="167.69" x2="226.97" y2="328.6"/>
+    <line class="cls-2" x1="226.97" y1="331.97" x2="226.97" y2="337.97"/>
+  </g>
+  <g>
+    <line class="cls-2" x1="664.97" y1="154.97" x2="664.97" y2="160.97"/>
+    <line class="cls-3" x1="664.97" y1="167.81" x2="664.97" y2="331.54"/>
+    <line class="cls-2" x1="664.97" y1="334.97" x2="664.97" y2="340.97"/>
+  </g>
+  <text class="cls-7" transform="translate(215 395.16)"><tspan x="0" y="0">a</tspan></text>
+  <text class="cls-7" transform="translate(654 396.05)"><tspan x="0" y="0">b</tspan></text>
+  <text class="cls-7" transform="translate(0 190.05)"><tspan x="0" y="0">b – a</tspan></text>
+  <line class="cls-5" x1=".47" y1="154.47" x2="85.47" y2="154.47"/>
+  <text class="cls-10" transform="translate(32.08 145.38)"><tspan x="0" y="0">1</tspan></text>
+  <line class="cls-5" x1="105.47" y1="154.47" x2="117.47" y2="154.47"/>
+  <text class="cls-8" transform="translate(96.19 48.6)"><tspan x="0" y="0">X</tspan></text>
+</svg>

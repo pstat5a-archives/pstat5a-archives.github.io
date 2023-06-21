@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../../Images/Logos_Icons/5a_hex.png" rel="icon" type="image/png">
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.2.335">
+
+  <meta name="author" content="Ethan P. Marzban">
+  <title>PSTAT 5A: Spring 2023 (Section 200) - PSTAT 5A: Lecture 08</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script type="module" src="../../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="../../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="5a_hex.png" data-background-opacity="0.5" data-background-position="left" data-background-size="contain" class="center">
+  <h1 class="title" style="text-align: right">PSTAT 5A: Lecture 08</h1>
+  <h2 class="subtitle" style="text-align: right">Discrete Random Variables</h2>
+  <p class="author" style="text-align: right">Ethan P. Marzban</p>
+  <p class="date" style="text-align: right">4/18/23</p>
+</section>
+<section id="recap-of-probability" class="slide level2">
+<h2>Recap of Probability</h2>
+<ul>
+<li class="fragment">Recall the basic ingredients of probability we have discussed so far:
+<ul>
+<li class="fragment"><strong>Experiment:</strong> any procedure we can repeat an infinite number of times, where on each reptition there is a fixed set of <em>things</em> (called <strong>outcomes</strong>) that can happen.</li>
+<li class="fragment"><strong>Outcome space (<span class="math inline">\(\boldsymbol{\Omega}\)</span>):</strong> the set of all outcomes associated with a particular experiment</li>
+<li class="fragment"><strong>Event:</strong> a subset of the outcome space</li>
+<li class="fragment"><strong>Probability:</strong> a <em>function</em> that maps events to a number; specifically, one that quantifies our beliefs about a particular event</li>
+</ul></li>
+</ul>
+</section>
+<section id="an-experiment" class="slide level2">
+<h2>An Experiment</h2>
+<ul>
+<li class="fragment">Let’s actually conduct an experiment together!</li>
+<li class="fragment">Specifically, suppose we toss a coin 3 times and record the outcomes.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="42" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 41;"><span id="cb1-42"><a href="#cb1-42"></a>viewof toss <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">button</span>(<span class="st">"Toss"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="47" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 46;"><span id="cb2-47"><a href="#cb2-47"></a>dummy <span class="op">=</span> toss <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb2-48"><a href="#cb2-48"></a>coin <span class="op">=</span> [<span class="st">"H"</span><span class="op">,</span> <span class="st">"T"</span>]</span>
+<span id="cb2-49"><a href="#cb2-49"></a>s1 <span class="op">=</span> coin[<span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>()<span class="op">*</span>coin<span class="op">.</span><span class="at">length</span><span class="op">*</span>dummy<span class="op">/</span>dummy)]<span class="op">;</span></span>
+<span id="cb2-50"><a href="#cb2-50"></a>s2 <span class="op">=</span> coin[<span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>()<span class="op">*</span>coin<span class="op">.</span><span class="at">length</span><span class="op">*</span>dummy<span class="op">/</span>dummy)]<span class="op">;</span></span>
+<span id="cb2-51"><a href="#cb2-51"></a>s3 <span class="op">=</span> coin[<span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>()<span class="op">*</span>coin<span class="op">.</span><span class="at">length</span><span class="op">*</span>dummy<span class="op">/</span>dummy)]<span class="op">;</span></span>
+<span id="cb2-52"><a href="#cb2-52"></a>s4 <span class="op">=</span> coin[<span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>()<span class="op">*</span>coin<span class="op">.</span><span class="at">length</span><span class="op">*</span>dummy<span class="op">/</span>dummy)]<span class="op">;</span></span>
+<span id="cb2-53"><a href="#cb2-53"></a>[s1<span class="op">,</span> s2<span class="op">,</span> s3]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-5" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-6" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-7" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Additionally, let’s keep track of the number of heads we observe each time we run this experiment.
+<ul>
+<li class="fragment">In fact, let’s do this on the chalkboard.</li>
+</ul></li>
+</ul>
+</section>
+<section id="an-experiment-1" class="slide level2">
+<h2>An Experiment</h2>
+<div>
+<ul>
+<li>Alright, let’s make note of a few things.</li>
+</ul>
+</div>
+<ul>
+<li class="fragment">Note that each time we run this experiment, we (sure enough) get an element of the outcome space, which is</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-fig-width="10" data-fig-height="4">
+<div class="cell-output-display">
+<div>
+<p>
+<svg width="960" height="384" viewbox="0.00 0.00 566.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style=" display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>
+tree_diagram
+</title>
+<polygon fill="#f0ebd8" stroke="transparent" points="-4,4 -4,-256 562,-256 562,4 -4,4"></polygon> <!-- base --> <g id="node1" class="node">
+<title>
+base
+</title>
+<text text-anchor="middle" x="279" y="-229.8" font-family="Times,serif" font-size="14.00">o</text> </g> <!-- H1 --> <g id="node2" class="node">
+<title>
+H1
+</title>
+<text text-anchor="middle" x="207" y="-157.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- base&#45;&gt;H1 --> <g id="edge1" class="edge">
+<title>
+base-&gt;H1
+</title>
+<path fill="none" stroke="#8b3e2f" d="M261.2,-215.7C251.26,-206.03 238.81,-193.93 228.35,-183.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="229.4,-182.34 224.59,-180.1 226.96,-184.84 229.4,-182.34"></polygon> </g> <!-- T1 --> <g id="node3" class="node">
+<title>
+T1
+</title>
+<text text-anchor="middle" x="351" y="-157.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- base&#45;&gt;T1 --> <g id="edge2" class="edge">
+<title>
+base-&gt;T1
+</title>
+<path fill="none" stroke="#8b3e2f" d="M296.8,-215.7C306.74,-206.03 319.19,-193.93 329.65,-183.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="331.04,-184.84 333.41,-180.1 328.6,-182.34 331.04,-184.84"></polygon> </g> <!-- H21 --> <g id="node4" class="node">
+<title>
+H21
+</title>
+<text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H1&#45;&gt;H21 --> <g id="edge3" class="edge">
+<title>
+H1-&gt;H21
+</title>
+<path fill="none" stroke="#8b3e2f" d="M180.58,-143.88C165.28,-133.96 145.95,-121.43 129.94,-111.05"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="130.67,-109.44 125.52,-108.19 128.77,-112.38 130.67,-109.44"></polygon> </g> <!-- T21 --> <g id="node5" class="node">
+<title>
+T21
+</title>
+<text text-anchor="middle" x="207" y="-85.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H1&#45;&gt;T21 --> <g id="edge4" class="edge">
+<title>
+H1-&gt;T21
+</title>
+<path fill="none" stroke="#8b3e2f" d="M207,-143.7C207,-134.46 207,-122.98 207,-113.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="208.75,-113.1 207,-108.1 205.25,-113.1 208.75,-113.1"></polygon> </g> <!-- H22 --> <g id="node6" class="node">
+<title>
+H22
+</title>
+<text text-anchor="middle" x="351" y="-85.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T1&#45;&gt;H22 --> <g id="edge5" class="edge">
+<title>
+T1-&gt;H22
+</title>
+<path fill="none" stroke="#8b3e2f" d="M351,-143.7C351,-134.46 351,-122.98 351,-113.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="352.75,-113.1 351,-108.1 349.25,-113.1 352.75,-113.1"></polygon> </g> <!-- T22 --> <g id="node7" class="node">
+<title>
+T22
+</title>
+<text text-anchor="middle" x="459" y="-85.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T1&#45;&gt;T22 --> <g id="edge6" class="edge">
+<title>
+T1-&gt;T22
+</title>
+<path fill="none" stroke="#8b3e2f" d="M377.42,-143.88C392.72,-133.96 412.05,-121.43 428.06,-111.05"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="429.23,-112.38 432.48,-108.19 427.33,-109.44 429.23,-112.38"></polygon> </g> <!-- H311 --> <g id="node8" class="node">
+<title>
+H311
+</title>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H21&#45;&gt;H311 --> <g id="edge7" class="edge">
+<title>
+H21-&gt;H311
+</title>
+<path fill="none" stroke="#8b3e2f" d="M81.2,-71.7C71.26,-62.03 58.81,-49.93 48.35,-39.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="49.4,-38.34 44.59,-36.1 46.96,-40.84 49.4,-38.34"></polygon> </g> <!-- T311 --> <g id="node9" class="node">
+<title>
+T311
+</title>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H21&#45;&gt;T311 --> <g id="edge8" class="edge">
+<title>
+H21-&gt;T311
+</title>
+<path fill="none" stroke="#8b3e2f" d="M99,-71.7C99,-62.46 99,-50.98 99,-41.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="100.75,-41.1 99,-36.1 97.25,-41.1 100.75,-41.1"></polygon> </g> <!-- H321 --> <g id="node10" class="node">
+<title>
+H321
+</title>
+<text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T21&#45;&gt;H321 --> <g id="edge9" class="edge">
+<title>
+T21-&gt;H321
+</title>
+<path fill="none" stroke="#8b3e2f" d="M198.1,-71.7C193.26,-62.29 187.23,-50.56 182.09,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="183.64,-39.75 179.8,-36.1 180.53,-41.35 183.64,-39.75"></polygon> </g> <!-- T321 --> <g id="node11" class="node">
+<title>
+T321
+</title>
+<text text-anchor="middle" x="243" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T21&#45;&gt;T321 --> <g id="edge10" class="edge">
+<title>
+T21-&gt;T321
+</title>
+<path fill="none" stroke="#8b3e2f" d="M215.9,-71.7C220.74,-62.29 226.77,-50.56 231.91,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="233.47,-41.35 234.2,-36.1 230.36,-39.75 233.47,-41.35"></polygon> </g> <!-- H312 --> <g id="node12" class="node">
+<title>
+H312
+</title>
+<text text-anchor="middle" x="315" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H22&#45;&gt;H312 --> <g id="edge11" class="edge">
+<title>
+H22-&gt;H312
+</title>
+<path fill="none" stroke="#8b3e2f" d="M342.1,-71.7C337.26,-62.29 331.23,-50.56 326.09,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="327.64,-39.75 323.8,-36.1 324.53,-41.35 327.64,-39.75"></polygon> </g> <!-- T312 --> <g id="node13" class="node">
+<title>
+T312
+</title>
+<text text-anchor="middle" x="387" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H22&#45;&gt;T312 --> <g id="edge12" class="edge">
+<title>
+H22-&gt;T312
+</title>
+<path fill="none" stroke="#8b3e2f" d="M359.9,-71.7C364.74,-62.29 370.77,-50.56 375.91,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="377.47,-41.35 378.2,-36.1 374.36,-39.75 377.47,-41.35"></polygon> </g> <!-- H322 --> <g id="node14" class="node">
+<title>
+H322
+</title>
+<text text-anchor="middle" x="459" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T22&#45;&gt;H322 --> <g id="edge13" class="edge">
+<title>
+T22-&gt;H322
+</title>
+<path fill="none" stroke="#8b3e2f" d="M459,-71.7C459,-62.46 459,-50.98 459,-41.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="460.75,-41.1 459,-36.1 457.25,-41.1 460.75,-41.1"></polygon> </g> <!-- T322 --> <g id="node15" class="node">
+<title>
+T322
+</title>
+<text text-anchor="middle" x="531" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T22&#45;&gt;T322 --> <g id="edge14" class="edge">
+<title>
+T22-&gt;T322
+</title>
+<path fill="none" stroke="#8b3e2f" d="M476.8,-71.7C486.74,-62.03 499.19,-49.93 509.65,-39.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="511.04,-40.84 513.41,-36.1 508.6,-38.34 511.04,-40.84"></polygon> </g> </g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="an-experiment-2" class="slide level2" style="font-size:30px">
+<h2>An Experiment</h2>
+<div>
+<ul>
+<li>But, also note that each time we run the experiment, the number of heads doesn’t necessarily remain fixed.</li>
+</ul>
+</div>
+<ul>
+<li class="fragment">In fact, each outcome in the outcome space corresponds to a different number of heads:</li>
+</ul>
+<div class="fragment" style="font-size:25px">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Outcome</strong></th>
+<th style="text-align: center;"><strong>Number of Heads</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">(<code>H</code>, &nbsp;<code>H</code>, &nbsp; <code>H</code>)</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">(<code>H</code>, &nbsp; <code>H</code>, &nbsp; <code>T</code>)</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">(<code>H</code>, &nbsp; <code>T</code>, &nbsp; <code>H</code>)</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">(<code>T</code>, &nbsp; <code>H</code>, &nbsp; <code>H</code>)</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">(<code>H</code>, &nbsp; <code>T</code>, &nbsp; <code>T</code>)</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">(<code>T</code>, &nbsp; <code>H</code>, &nbsp; <code>T</code>)</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">(<code>T</code>, &nbsp; <code>T</code>, &nbsp; <code>H</code>)</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">(<code>T</code>, &nbsp; <code>T</code>, &nbsp; <code>T</code>)</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="random-variables" class="slide level2">
+<h2>Random Variables</h2>
+<ul>
+<li class="fragment"><p>This leads us to the notion of <strong>random variables</strong>.</p></li>
+<li class="fragment"><p>Loosely speaking, a random variable is a variable or process with a numerical outcome.</p></li>
+<li class="fragment"><p>We denote random variables using capital letters; e.g.&nbsp;<span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, <span class="math inline">\(Z\)</span>, <span class="math inline">\(W\)</span>, etc.</p></li>
+<li class="fragment"><p>So, for example, <span class="math inline">\(X =\)</span> “the number of heads in 3 tosses of a coin” is a random variable because (a) it is a numerical outcome of an experiment and (b) it is random (i.e.&nbsp;its value changes depending on the outcome of the experiment).</p></li>
+</ul>
+</section>
+<section id="state-space" class="slide level2" style="font-size:32px">
+<h2>State Space</h2>
+<ul>
+<li class="fragment"><p>A key part of the definition of random variables is that they must be <em>numerical</em>.</p></li>
+<li class="fragment"><p>What this means is we can always look at the set of values a random variable <em>could</em> take: this is what we call the <strong>state space</strong> of a random variable.</p></li>
+<li class="fragment"><p>For example: if <span class="math inline">\(X =\)</span> “number of heads in 3 tosses of a coin”, we see that <span class="math inline">\(X\)</span> will only ever be <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, or <span class="math inline">\(3\)</span>.</p>
+<ul>
+<li class="fragment">This is because it is not possible to toss 3 coins and get, say, 5 heads, or a negative number of heads!</li>
+</ul></li>
+<li class="fragment"><p>We often denote the state space of a random variable using the notation <span class="math inline">\(S_{\verb|&lt;variable&gt;|}\)</span>; e.g.&nbsp;<span class="math inline">\(S_X\)</span> to mean the state space of <span class="math inline">\(X\)</span>, <span class="math inline">\(S_Y\)</span> to mean the state space of <span class="math inline">\(Y\)</span>, etc.</p></li>
+</ul>
+</section>
+<section id="classifying-random-variables" class="slide level2" style="font-size:30px">
+<h2>Classifying Random Variables</h2>
+<ul>
+<li class="fragment"><p>Because random variables are numerical, their state spaces will always be numerical sets of values.</p></li>
+<li class="fragment"><p>This means we can classify state spaces using our Variable Classification scheme from Week 1!</p>
+<ul>
+<li class="fragment">Specifically: the state space <span class="math inline">\(S_X\)</span> of a random variable will either have “jumps”, or not.</li>
+</ul></li>
+<li class="fragment"><p>We extend the same classification language to random variables:</p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Definition</strong></strong></p>
+</div>
+<div class="callout-content">
+<div style="font-size: 28px">
+<p>Given a random variable <span class="math inline">\(X\)</span>, we say that:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(X\)</span> is a <strong>discrete random variable</strong> (or just “<span class="math inline">\(X\)</span> is <strong>discrete</strong>) if <span class="math inline">\(S_X\)</span> is has jumps</li>
+<li class="fragment"><span class="math inline">\(X\)</span> is a <strong>continuous random variable</strong> (or just “<span class="math inline">\(X\)</span> is <strong>continuous</strong>) if <span class="math inline">\(S_X\)</span> has no jumps</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="leadup" class="slide level2" style="font-size:32px">
+<h2>Leadup</h2>
+<ul>
+<li class="fragment"><p>Let’s return to our coin tossing example.</p></li>
+<li class="fragment"><p>What is the probability that we observe zero heads?</p></li>
+<li class="fragment"><p>Well, in the language of our random variable <span class="math inline">\(X\)</span> (which counts the number of heads in these three tosses of our fair coin), we can translate “zero heads” to the event “<span class="math inline">\(\{X = 0\}\)</span>’’, meaning we want to find <span class="math inline">\(\mathbb{P}(X = 0)\)</span>.</p></li>
+<li class="fragment"><p>Observing zero heads is equivalent to observing <em>all</em> tails, meaning the event <span class="math inline">\(\{X = 0\}\)</span> is equivalent to the event { (<code>T</code>, &nbsp;<code>T</code>, &nbsp;<code>T</code>) }.</p></li>
+<li class="fragment"><p>Now, up to this point I have been careful to avoid explicitly mentioning whether our coin is fair or not.</p>
+<ul>
+<li class="fragment">For the time being, let’s assume that the probability our coin lands ‘heads’ on any given toss is some fixed value <span class="math inline">\(p\)</span>.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div style="font-size:32px">
+<div>
+<ul>
+<li>Now, we <em>have</em> assumed that the coin tosses are performed independently of each other.</li>
+</ul>
+</div>
+<ul>
+<li class="fragment">What this means is the probability of the outcome (<code>T</code>, &nbsp;<code>T</code>, &nbsp;<code>T</code>) is simply <span class="math inline">\((1-p)^3\)</span>
+<ul>
+<li class="fragment">If it’s not clear why, think of it this way: (<code>T</code>, &nbsp;<code>T</code>, &nbsp;<code>T</code>) means “<code>T</code> first <strong>and</strong> <code>T</code> second <strong>and</strong> <code>T</code> third’’. By independence, the probability of this string of occurrences is simply <span class="math display">\[ \mathbb{P}(\text{\texttt{T} first}) \times \mathbb{P}(\text{\texttt{T} second}) \times \mathbb{P}(\text{\texttt{T} third}) \]</span> which is just <span class="math inline">\((1 - p) \times (1 - p) \times (1 - p) = (1 - p)^3\)</span>.</li>
+</ul></li>
+<li class="fragment">Hence, <span class="math inline">\(\mathbb{P}(X = 0) = (1 - p)^3\)</span>.
+<ul>
+<li class="fragment">For example, <em>if</em> the coin were fair (i.e.&nbsp;<span class="math inline">\(p = 1/2\)</span>), then <span class="math inline">\(\mathbb{P}(X = 0) = (1/2)^3 = (1/8)\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:30px">
+<div>
+<ul>
+<li>What about the probability of observing exactly 1 head?</li>
+</ul>
+</div>
+<ul>
+<li class="fragment"><p>I.e., how would we go about computing <span class="math inline">\(\mathbb{P}(X = 1)\)</span>?</p></li>
+<li class="fragment"><p>Well, let’s use the same logic we used before: that is, let’s see what outcomes comprise the event <span class="math inline">\(\{X = 1\}\)</span>.</p></li>
+<li class="fragment"><p>Upon inspection, we see that the event <span class="math inline">\(\{X = 1\}\)</span> is equivalent to the event {(<code>H</code>, &nbsp;<code>T</code>, &nbsp;<code>T</code>), &nbsp;(<code>T</code>, &nbsp;<code>H</code>, &nbsp;<code>T</code>), &nbsp;(<code>T</code>, &nbsp;<code>T</code>, &nbsp;<code>H</code>) &nbsp;}.</p>
+<ul>
+<li class="fragment">The probability of the outcome (<code>H</code>, &nbsp;<code>T</code>, &nbsp;<code>T</code>) is <span class="math inline">\(p \times (1 - p) \times (1 - p) = p \times (1 - p)^2\)</span></li>
+<li class="fragment">The probability of the outcome (<code>T</code>, &nbsp;<code>H</code>, &nbsp;<code>T</code>) is <span class="math inline">\((1 - p) \times p \times (1 - p) = p \times (1 - p)^2\)</span></li>
+<li class="fragment">The probability of the outcome (<code>T</code>, &nbsp;<code>T</code>, &nbsp;<code>H</code>) is <span class="math inline">\((1 - p)^2 \times p = p \times (1 - p)^2\)</span></li>
+</ul></li>
+<li class="fragment"><p>Therefore, putting these facts together, we find <span class="math display">\[ \mathbb{P}(X = 1) = 3 \times p \times (1 - p)^2 \]</span></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:32px">
+<div>
+<ul>
+<li>We could play the same game to find <span class="math inline">\(\mathbb{P}(X = 2)\)</span> and <span class="math inline">\(\mathbb{P}(X = 3)\)</span>:</li>
+</ul>
+</div>
+<div class="fragment">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Probability</strong></th>
+<th style="text-align: center;"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbb{P}(X = 0)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((1 - p)^3\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbb{P}(X = 1)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3 \times p \times (1 - p)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathbb{P}(X = 2)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3 \times p^2 \times (1 - p)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathbb{P}(X = 3)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p^3\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br>
+</p>
+<ul>
+<li class="fragment">Another way to display these results is in the following format:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\begin{array}{r|cccc}
+  \boldsymbol{k}    &amp;     0   &amp; 1   &amp; 2   &amp; 3   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   &amp; (1 - p)^3   &amp; 3  p (1 - p)^2  &amp; 3  p^2 (1 - p) &amp;  p^3
+\end{array}\]</span></p>
+</div>
+</div>
+</section>
+<section id="probability-mass-function" class="slide level2">
+<h2>Probability Mass Function</h2>
+<ul>
+<li class="fragment"><p>The table on the previous slide is called a <strong>probability mass function</strong>, and is often abbreviated as p.m.f..</p></li>
+<li class="fragment"><p>In general, the p.m.f. of an arbitrary random variable <span class="math inline">\(X\)</span> is a table or formula that specifies all the possible values a random variable can take (i.e.&nbsp;the state space), along with the probability with which the random variable attains those values.</p></li>
+<li class="fragment"><p>We use the term “function” to describe this because, in abstraction, we can notate the p.m.f. as <span class="math display">\[ p_X(k) := \mathbb{P}(X = k) \]</span> where <span class="math inline">\(k\)</span> can be any value in the state space of <span class="math inline">\(X\)</span>.</p></li>
+</ul>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Worked-Out Example 1</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 30px">
+<p>Suppose we toss three fair coins independently, and let <span class="math inline">\(X\)</span> denote the number of heads observed. Construct the p.m.f. (probability mass function) of <span class="math inline">\(X\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>By our work from above, the p.m.f. of <span class="math inline">\(X\)</span> is given by <span class="math display">\[\begin{array}{r|cccc}
+\boldsymbol{k}    &amp;     0   &amp; 1   &amp; 2   &amp; 3   \\
+\hline
+\boldsymbol{\mathbb{P}(X = k)}   &amp; 1/8   &amp; 3/8  &amp; 3/8 &amp;  1/8
+\end{array}\]</span></p></li>
+<li class="fragment"><p>By the way, notice that the probabilities in the p.m.f. sum up to 1.</p>
+<ul>
+<li class="fragment">This is not a coincidence! Because the probabilities represent the probabilities of <em>all</em> values <span class="math inline">\(X\)</span> can take, they <em>must</em> sum up to 1.</li>
+</ul></li>
+</ul>
+</section>
+<section id="properties-of-pmfs" class="slide level2" style="font-size:32px">
+<h2>Properties of PMF’s</h2>
+<ul>
+<li class="fragment">This leads us to posit the following two properties of probability mass functions:</li>
+</ul>
+<div class="fragment">
+<div>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Properties of a PMF</strong></p>
+</div>
+<div class="callout-content">
+<div style="font-size: 28px">
+<ol type="1">
+<li>The values in a PMF must sum to 1</li>
+<li>The values in a PMF must always be nonnegative</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Also: we implicitly set probabilities not contained in the p.m.f. to be zero.
+<ul>
+<li class="fragment">For instance: in our coin tossing example, <span class="math inline">\(\mathbb{P}(X = 1.5) = 0\)</span>.</li>
+<li class="fragment">This makes sense! If <span class="math inline">\(k \notin S_X\)</span>, then by <em>definition</em> of the state space it is <em>impossible</em> for <span class="math inline">\(X\)</span> to attain the value <span class="math inline">\(k\)</span>, and so <span class="math inline">\(\mathbb{P}(X = k) = 0\)</span>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="worked-out-example" class="slide level2" style="font-size:30px">
+<h2>Worked-Out Example</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Worked-Out Example 2</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 28px">
+<p>A random variable <span class="math inline">\(X\)</span> has the following p.m.f.: <span class="math display">\[\begin{array}{r|cccc}
+  \boldsymbol{k}    &amp;     -1.4   &amp; 0   &amp; 3   &amp; 4.15   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   &amp; 0.1 &amp; 0.2 &amp; \boldsymbol{a} &amp; 0.6
+\end{array}\]</span> What must be the value of <span class="math inline">\(\boldsymbol{a}\)</span>?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Because the values in a p.m.f. must sum to 1, we must have <span class="math display">\[ 0.1 + 0.2 + a + 0.6 = 1 \]</span> which means <span class="math display">\[ a = 1 - (0.1 + 0.2 + 0.6) = \boxed{0.1} \]</span></li>
+</ul>
+</section>
+<section id="worked-out-example-3" class="slide level2">
+<h2>Worked-Out Example</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Worked-Out Example 3</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 30px">
+<p>A random variable <span class="math inline">\(X\)</span> has the following p.m.f.: <span class="math display">\[\begin{array}{r|cccc}
+  \boldsymbol{k}    &amp;     -1.4   &amp; 0   &amp; 3   &amp; 4.15   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   &amp; 0.1 &amp; 0.2 &amp; 0.1 &amp; 0.6
+\end{array}\]</span> Compute both <span class="math inline">\(\mathbb{P}(X = 0)\)</span> and <span class="math inline">\(\mathbb{P}(X \leq 0)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">For <span class="math inline">\(\mathbb{P}(X = 0)\)</span>, we can simply read off the corresponding element from the p.m.f.: </li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div style="font-size:30px">
+<div>
+<ul>
+<li>Now, <span class="math inline">\(\mathbb{P}(X \leq 0)\)</span> means “what’s the probability that <span class="math inline">\(X\)</span> is less than or equal to <span class="math inline">\(0\)</span>”?</li>
+</ul>
+</div>
+<ul>
+<li class="fragment"><p>There are only two values in <span class="math inline">\(S_X\)</span> [by the way, as an aside, can anyone tell me what <span class="math inline">\(S_X\)</span> is in this problem?] that are less than or equal to <span class="math inline">\(0\)</span>: <span class="math inline">\(0\)</span> itself, and <span class="math inline">\(-1.4\)</span>.</p></li>
+<li class="fragment"><p>Hence, saying that <span class="math inline">\(X\)</span> was less than or equal to <span class="math inline">\(0\)</span> is equivalent to saying <span class="math inline">\(X\)</span> was either <span class="math inline">\(-1.4\)</span> or <span class="math inline">\(0\)</span>.</p></li>
+<li class="fragment"><p>Therefore, <span class="math display">\[ \mathbb{P}(X \leq 0) = \mathbb{P}(X = -1.4) + \mathbb{P}(X = 0) = 0.1 + 0.2 = \boxed{0.3} \]</span></p></li>
+</ul>
+<div class="fragment">
+<div>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Computing <span class="math inline">\(\mathbb{P}(X \leq k)\)</span></strong></p>
+</div>
+<div class="callout-content">
+<div style="font-size: 28px">
+<p>To compute <span class="math inline">\(\mathbb{P}(X \leq k)\)</span>, we sum up the values <span class="math inline">\(\mathbb{P}(X = x)\)</span> for all values of <span class="math inline">\(x\)</span> in the state space that are less than or equal to <span class="math inline">\(k\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="expected-value" class="slide level2">
+<h2>Expected Value</h2>
+<div class="fragment">
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Definition</strong></strong></p>
+</div>
+<div class="callout-content">
+<div style="font-size: 30px">
+<p>The <strong>expected value</strong> (or just <strong>expectation</strong>) of a discrete random variable <span class="math inline">\(X\)</span> is <span class="math display">\[ \mathbb{E}[X] = \sum_{\text{all $k$}} k \cdot \mathbb{P}(X = k) \]</span> where the sum ranges over all values of <span class="math inline">\(k\)</span> in the state space.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>In words: multiply each value in the state space by the corresponding probability, and then sum.</p></li>
+<li class="fragment"><p>The expected value is a sort of ‘center’ of a random variable.</p></li>
+</ul>
+</section>
+<section id="worked-out-example-4" class="slide level2" style="font-size:24px">
+<h2>Worked-Out Example</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Worked-Out Example 4</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 24px">
+<p>A random variable <span class="math inline">\(X\)</span> has the following p.m.f.: <span class="math display">\[\begin{array}{r|cccc}
+  \boldsymbol{k}    &amp;     -1.4   &amp; 0   &amp; 3   &amp; 4.15   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   &amp; 0.1 &amp; 0.2 &amp; 0.1 &amp; 0.6
+\end{array}\]</span> Compute <span class="math inline">\(\mathbb{E}[X]\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">We compute <span class="math display">\[\begin{align*}
+\mathbb{E}[X]   &amp; = \sum_{\text{all $k$}} k \cdot \mathbb{P}(X = k)   \\[5mm]
+  &amp; = (-1.4) \cdot \mathbb{P}(X = -1.4) + (0) \cdot \mathbb{P}(X = 0) + (3) \cdot \mathbb{P}(X = 3)   \\
+    &amp; \hspace{10mm} + (4.15) \cdot \mathbb{P}(X = 4.15)    \\[5mm]
+    &amp; = (-1.4) \cdot (0.1) + (0) \cdot (0.2) + (3) \cdot (0.1) + (4.15) \cdot (0.6) = \boxed{2.65}
+\end{align*}\]</span></li>
+</ul>
+</section>
+<section id="variance-and-sd" class="slide level2" style="font-size:30px">
+<h2>Variance and SD</h2>
+<div class="fragment">
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Definition</strong></strong></p>
+</div>
+<div class="callout-content">
+<div style="font-size: 23px">
+<p>The <strong>variance</strong> of a discrete random variable <span class="math inline">\(X\)</span> is <span class="math display">\[ \mathrm{Var}(X) = \sum_{\text{all $k$}} (k - \mathbb{E}[X])^2 \cdot \mathbb{P}(X = k) \]</span> where the sum ranges over all values of <span class="math inline">\(k\)</span> in the state space. The <strong>standard deviation</strong> is the square root of the variance: <span class="math display">\[ \mathrm{SD}(X) = \sqrt{\mathrm{Var}(X)} \]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Second Formula for Variance</strong></strong></p>
+</div>
+<div class="callout-content">
+<div style="font-size: 23px">
+<p><span class="math display">\[ \mathrm{Var}(X) = \left( \sum_{\text{all $k$}} k^2 \cdot \mathbb{P}(X = k) \right) - \left( \mathbb{E}[X] \right)^2 \]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="worked-out-example-5" class="slide level2" style="font-size:24px">
+<h2>Worked-Out Example</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Worked-Out Example 5</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 24px">
+<p>A random variable <span class="math inline">\(X\)</span> has the following p.m.f.: <span class="math display">\[\begin{array}{r|cccc}
+  \boldsymbol{k}    &amp;     -1.4   &amp; 0   &amp; 3   &amp; 4.15   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   &amp; 0.1 &amp; 0.2 &amp; 0.1 &amp; 0.6
+\end{array}\]</span> Compute <span class="math inline">\(\mathrm{Var}(X)\)</span> and <span class="math inline">\(\mathrm{SD}(X)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">We previously found that <span class="math inline">\(\mathbb{E}[X] = 2.65\)</span>.</li>
+<li class="fragment">Hence, we need only to find <span class="math inline">\(\sum_{k} k^2 \cdot \mathbb{P}(X = x)\)</span>: <span class="math display">\[\begin{align*}
+\sum_{\text{all $k$}} k^2 \cdot \mathbb{P}(X = k) &amp; = (-1.4)^2 \cdot \mathbb{P}(X = -1.4) + (0)^2 \cdot \mathbb{P}(X = 0) + (3)^2 \cdot \mathbb{P}(X = 3)   \\
+    &amp; \hspace{10mm} + (4.15)^2 \cdot \mathbb{P}(X = 4.15)    \\[5mm]
+    &amp; = (-1.4)^2 \cdot (0.1) + (0)^2 \cdot (0.2) + (3)^2 \cdot (0.1) + (4.15)^2 \cdot (0.6) = 11.4295
+\end{align*}\]</span></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div style="font-size:28px">
+<div>
+<ul>
+<li>Therefore, by the second formula for variance, <span class="math display">\[ \mathrm{Var}(X) = 11.4295 - (2.65)^2 = \boxed{4.407} \]</span> and so <span class="math inline">\(\mathrm{SD}(X) = \sqrt{4.407} \approx \boxed{2.099}\)</span></li>
+</ul>
+</div>
+<ul>
+<li class="fragment">We could have used the definition of variance as well: <span class="math display">\[\begin{align*}
+\mathrm{Var}(X)   &amp; = \sum_{\text{all $k$}} (k - \mathbb{E}[X])^2 \cdot \mathbb{P}(X = k)   \\[3mm]
+  &amp; = (-1.4 - 2.65)^2 \cdot \mathbb{P}(X = -1.4) + (0 - 2.65)^2 \cdot \mathbb{P}(X = 0)  \\
+  &amp; \hspace{10mm}  + (3 - 2.65)^2 \cdot \mathbb{P}(X = 3)  + (4.15 - 2.65)^2 \cdot \mathbb{P}(X = 4.15)    \\[5mm]
+  &amp; = (-1.4 - 2.65)^2 \cdot (0.1) + (0 - 2.65)^2 \cdot (0.2) + (3 - 2.65)^2 \cdot (0.1)     \\
+  &amp; \hspace{10mm} + (4.15 - 2.65)^2 \cdot (0.6)   = 4.407
+\end{align*}\]</span></li>
+</ul>
+</div>
+</section>
+<section id="your-turn" class="slide level2" style="font-size:28px">
+<h2>Your Turn!</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exercise 1</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 25px">
+<p>Suppose <span class="math inline">\(X\)</span> is a random variable with p.m.f. (probability mass function) given by <span class="math display">\[\begin{array}{r|cccc}
+  \boldsymbol{k}    &amp;     -1 &amp; 0 &amp; 1 &amp; 2   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   &amp; 0.3 &amp; 0.2 &amp; 0.1 &amp; \boldsymbol{a}
+\end{array}\]</span></p>
+<ol type="a">
+<li>Find the state space <span class="math inline">\(S_X\)</span> of <span class="math inline">\(X\)</span>.</li>
+<li>Find the value of <span class="math inline">\(\boldsymbol{a}\)</span></li>
+<li>Find <span class="math inline">\(\mathbb{P}(X = 0.5)\)</span></li>
+<li>Find <span class="math inline">\(\mathbb{P}(X \leq 1)\)</span></li>
+<li>Find <span class="math inline">\(\mathbb{P}(X &gt; 1)\)</span></li>
+<li>Find <span class="math inline">\(\mathbb{E}[X]\)</span></li>
+<li>Find <span class="math inline">\(\mathrm{Var}(X)\)</span> and <span class="math inline">\(\mathrm{SD}(X)\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn-1" class="slide level2" style="font-size:30px">
+<h2>Your Turn!</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exercise 2</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 28px">
+<p>Consider the following game: a fair six-sided die is rolled. If the number showing is <code>1</code> or <code>2</code>, you win a dollar; if the number showing is <code>3</code>, <code>4</code>, or <code>5</code> you win 2 dollars; if the number showing is <code>6</code>, you lose 1 dollar. Let <span class="math inline">\(W\)</span> denote your net winnings after playing this game once.</p>
+<ol type="a">
+<li>Write down the state space <span class="math inline">\(S_W\)</span> of <span class="math inline">\(W\)</span>.</li>
+<li>Find the p.m.f. of <span class="math inline">\(W\)</span>.</li>
+<li>What are your expected winnings after one round of the game?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="back-to-coins" class="slide level2" style="font-size:30px">
+<h2>Back to Coins</h2>
+<ul>
+<li class="fragment"><p>Alright, let’s close out this lecture by returning to our coin tossing example.</p></li>
+<li class="fragment"><p>As a reminder: if we let <span class="math inline">\(X\)</span> denote the number of heads in 3 tosses of a <span class="math inline">\(p-\)</span>coin (i.e.&nbsp;a coin that lands ‘heads’ with probability <span class="math inline">\(p\)</span>), the p.m.f. of <span class="math inline">\(X\)</span> is given by</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\begin{array}{r|cccc}
+  \boldsymbol{k}    &amp;     0   &amp; 1   &amp; 2   &amp; 3   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   &amp; (1 - p)^3   &amp; 3  p (1 - p)^2  &amp; 3  p^2 (1 - p) &amp;  p^3
+\end{array}\]</span></p>
+</div>
+<ul>
+<li class="fragment"><p>What if instead of tossing 3 coins, we had tossed 4? Or 5? Or 10?</p></li>
+<li class="fragment"><p>We could go through the same steps we did before, when deriving the p.m.f. for three tosses, but let’s be a little smarter about this; let’s answer the following more general question:</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div style="font-size:28px">
+<blockquote>
+<p>If <span class="math inline">\(X\)</span> denotes the number of heads in <span class="math inline">\(n\)</span> tosses of a <span class="math inline">\(p-\)</span>coin, what is the p.m.f. of <span class="math inline">\(X\)</span>?</p>
+</blockquote>
+<ul>
+<li class="fragment"><p>It’s always a good idea to start with the support. If we are tossing <span class="math inline">\(n\)</span> coins, we cannot observe any more than <span class="math inline">\(n\)</span> heads, nor can we observe any less than <span class="math inline">\(0\)</span> heads. As such, <span class="math display">\[ S_X = \{0, 1, 2, \cdots, n\} \]</span></p></li>
+<li class="fragment"><p>Now, let’s consider an arbitrary <span class="math inline">\(k \in S_X\)</span>, and examine the event <span class="math inline">\(\{X = k \}\)</span>.</p></li>
+<li class="fragment"><p>In words, <span class="math inline">\(\{X = k \}\)</span> means “we observe exactly <span class="math inline">\(k\)</span> heads”, which is equivalent to “we observe exactly <span class="math inline">\(k\)</span> heads and <span class="math inline">\((n - k)\)</span> tails.”</p></li>
+<li class="fragment"><p>Suppose, for the moment, that these <span class="math inline">\(k\)</span> heads occurred consecutively, and at the beginning of our tosses. I.e., suppose we have the outcome <span class="math display">\[ (\underbrace{H, \ H, \ \cdots, \ H}_{\text{$k$ heads}}, \ \underbrace{T, \ T, \ \cdots, \ T}_{\text{$n - k$ tails}}) \]</span></p>
+<ul>
+<li class="fragment">The probability of this outcome is <span class="math inline">\(p^k \cdot (1 - p)^{n - k}\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:28px">
+<div>
+<ul>
+<li>However, the event <span class="math inline">\(\{X = k\}\)</span> does not mean “<span class="math inline">\(k\)</span> heads <em>at the beginning</em> followed by <span class="math inline">\((n - k)\)</span> tails”; it just means “<span class="math inline">\(k\)</span> heads <em>anywhere among our <span class="math inline">\(n\)</span> tosses</em> and <span class="math inline">\((n - k)\)</span> tails”.</li>
+</ul>
+</div>
+<ul>
+<li class="fragment"><p>As such, there are <span class="math inline">\(\binom{n}{k}\)</span> other outcomes in the event <span class="math inline">\(\{X = k\}\)</span>, corresponding to the <span class="math inline">\(\binom{n}{k}\)</span> different ways to place the <span class="math inline">\(k\)</span> heads among the <span class="math inline">\(n\)</span> tosses.</p></li>
+<li class="fragment"><p>So, what we have is <span class="math display">\[ \mathbb{P}(X = k) = \binom{n}{k} \cdot p^k \cdot (1 - p)^{n - k} \]</span></p>
+<ul>
+<li class="fragment">As an aside, note that this agrees with our three-coin case from above: plugging in <span class="math inline">\(n = 3\)</span> yields exactly the same p.m.f. we found before.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="binomial-distribution" class="slide level2">
+<h2>Binomial Distribution</h2>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Binomial Distribution</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 28px">
+<p>Suppose the probability of a single trial resulting in a ‘success’ is <span class="math inline">\(p\)</span>. Letting <span class="math inline">\(X\)</span> denote the number of successes in <span class="math inline">\(n\)</span> independent trials, then we say that <span class="math inline">\(X\)</span> follows the <strong>Binomial Distribution</strong> with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>. We use the notation <span class="math inline">\(X \sim \mathrm{Bin}(n, p)\)</span> to denote this.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Facts about the Binomial Distribution</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 28px">
+<p>If <span class="math inline">\(X \sim \mathrm{Bin}(n, p)\)</span>, then</p>
+<ul>
+<li><span class="math inline">\(\displaystyle \mathbb{P}(X = k) = \binom{n}{k} \cdot p^k \cdot (1 - p)^{n - k}\)</span></li>
+<li><span class="math inline">\(\mathbb{E}[X] = np\)</span> and <span class="math inline">\(\mathrm{Var}(X) = np(1 - p)\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="binomial-conditions" class="slide level2">
+<h2>Binomial Conditions</h2>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Four Conditions to Check</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 28px">
+<p>If <span class="math inline">\(X\)</span> counts the number of successes in <span class="math inline">\(n\)</span> trials, there are four conditions that need to be satisfied in order for <span class="math inline">\(X\)</span> to follow the Binomial Distribution:</p>
+<ol type="1">
+<li>The trials must be independent</li>
+<li>The number of trials, <span class="math inline">\(n\)</span>, must be fixed</li>
+<li>There should be a well-defined notion of “success” and “failure” on each trial</li>
+<li>The probability of “success” must remain constant across trials.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">So, remember: <span class="math inline">\(X \sim \mathrm{Bin}(n, p)\)</span> just means “<span class="math inline">\(X\)</span> counts the number of successes in <span class="math inline">\(n\)</span> trials, where success occurs with probability <span class="math inline">\(p\)</span> on any given trial, subject to the four conditions above being satisfied.</li>
+</ul>
+</section>
+<section id="worked-out-example-6" class="slide level2">
+<h2>Worked-Out Example</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Worked-Out Example 6</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 30px">
+<ol type="a">
+<li><p>If we roll a fair <span class="math inline">\(6-\)</span>sided die <span class="math inline">\(13\)</span> times (assume rolls are independent of each other) and let <span class="math inline">\(X\)</span> denote the number of times we observe an even number, is <span class="math inline">\(X\)</span> binomially distributed?</p></li>
+<li><p>In a large population of <span class="math inline">\(100\)</span> students, of which <span class="math inline">\(70\)</span> own Android phones, we draw a random sample of 10 without replacement and let <span class="math inline">\(Y\)</span> denote the number of students in this sample that have Android phones. Is <span class="math inline">\(Y\)</span> binomially distributed?</p></li>
+<li><p>Consider the same setup as in part (b) above, except this time suppose students are selected <em>with</em> replacement. Is <span class="math inline">\(Y\)</span> binomially distributed?</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="part-a" class="slide level2">
+<h2>Part (a)</h2>
+<ul>
+<li class="fragment">We check the Binomial Conditions.
+<ol type="1">
+<li class="fragment">Independent trials? Yup!</li>
+<li class="fragment">Fixed number of trials? Yup! (<span class="math inline">\(n = 13\)</span>)</li>
+<li class="fragment">Well-defined notion of success? Yup! (“success” = “rolling an even number” and “failure” = “rolling an odd number”)</li>
+<li class="fragment">Fixed probability of success? Yup! (<span class="math inline">\(p = 1/2\)</span>).</li>
+</ol></li>
+<li class="fragment">Since all 4 conditions are satisfied, <span class="math inline">\(X\)</span> binomially distributed: specifically, <span class="math display">\[ X \sim \mathrm{Bin}(13, \ 1/2) \]</span></li>
+</ul>
+</section>
+<section id="part-b" class="slide level2">
+<h2>Part (b)</h2>
+<ul>
+<li class="fragment">We check the Binomial Conditions.
+<ol type="1">
+<li class="fragment">Independent trials? ; because sampling is done without replacement, trials are no longer independent (i.e.&nbsp;the result of our second trial is very much dependent on the result of our first).</li>
+</ol></li>
+<li class="fragment">Since at least one condition is violated, <span class="math inline">\(Y\)</span> does follow the binomial distribution.</li>
+</ul>
+</section>
+<section id="part-c" class="slide level2">
+<h2>Part (c)</h2>
+<ul>
+<li class="fragment">We check the Binomial Conditions.
+<ol type="1">
+<li class="fragment">Independent trials? Yup!</li>
+<li class="fragment">Fixed number of trials? Yup! (<span class="math inline">\(n = 10\)</span>)</li>
+<li class="fragment">Well-defined notion of success? Yup! (“success” = “owning an Android phone” and “failure” = “not owning an Android phone”)</li>
+<li class="fragment">Fixed probability of success? Yup! (<span class="math inline">\(p = 7/10\)</span>).</li>
+</ol></li>
+<li class="fragment">Since all 4 conditions are satisfied, <span class="math inline">\(Y\)</span> binomially distributed: specifically, <span class="math display">\[ Y \sim \mathrm{Bin}(10, \ 7/10) \]</span></li>
+</ul>
+</section>
+<section id="your-turn-2" class="slide level2" style="font-size:30px">
+<h2>Your Turn!</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exercise 3</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<div style="font-size: 28px">
+<p>Suppose Jana toss <span class="math inline">\(65\)</span> different <span class="math inline">\(12-\)</span>sided dice, independently of each other; let <span class="math inline">\(Z\)</span> denote the number of times a multiple of three results.</p>
+<ol type="a">
+<li>Verify that <span class="math inline">\(Z\)</span> follows the Binomial Distribution, and identify its parameters.</li>
+<li>What is the probability that Jana observes exactly 23 multiples of three?</li>
+<li>What is the expected number of multiples of three Jana will observe?</li>
+<li>What is the standard deviation of the number of multiples of three Jana will observe?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<img src="5a_hex.png" class="slide-logo r-stretch"><div class="footer footer-default">
+
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script type="ojs-module-contents">
+    {"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"viewof toss = Inputs.button(\"Toss\")\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"dummy = toss + 1\ncoin = [\"H\", \"T\"]\ns1 = coin[Math.floor(Math.random()*coin.length*dummy/dummy)];\ns2 = coin[Math.floor(Math.random()*coin.length*dummy/dummy)];\ns3 = coin[Math.floor(Math.random()*coin.length*dummy/dummy)];\ns4 = coin[Math.floor(Math.random()*coin.length*dummy/dummy)];\n[s1, s2, s3];\n"},{"methodName":"interpretQuiet","source":"shinyInput('toss')"}]}
+    </script>
+    <script type="module">
+    window._ojs.paths.runtimeToDoc = "../../Pages/Lectures/Lecture08";
+    window._ojs.paths.runtimeToRoot = "../..";
+    window._ojs.paths.docToRoot = "../../..";
+    window._ojs.selfContained = false;
+    window._ojs.runtime.interpretFromScriptTags();
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

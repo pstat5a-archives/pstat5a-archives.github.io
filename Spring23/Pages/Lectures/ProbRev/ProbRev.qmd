@@ -1,0 +1,448 @@
+---
+title: "PSTAT 5A: Lecture 21"
+subtitle: "Review of Probability"
+author: "Ethan P. Marzban"
+date: "6/12/23"
+format: 
+    revealjs:
+      html-math-method: mathjax
+      theme: [default, custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+```
+
+# Probability
+
+## Basics of Probability
+
+- **Experiment:** A procedure we can repeat and infinite number of times, where each time we repeat the procedure the same fixed set of *things* (i.e. **outcomes**) can occur.
+
+    - **Outcome Space:** The set of all outcomes associated with an experiment
+    
+- Different ways to express an outcome space: as a set, using a table (for two-stage experiments), or using a tree.
+
+- **Event:** A subset of $\Omega$
+
+    - I.e. an event is a set comprised of outcomes.
+
+## Example
+
+**Toss a fair coin twice, and record the outcome of each toss**
+
+- Outcome Space:
+
+    - As a set: $\Omega = \{(H, H), \ (H, T), \ (T, H), \ (T, T) \}$
+    - As a table:
+
+:::{.fragment}
+<table>
+	<tr>
+    	<td></td>
+        <td style="text-align:center">H</td>
+        <td style="text-align:center">T</td>
+    </tr>
+    <tr>
+    	<td>H</td>
+        <td>(H, H)</td>
+        <td>(H, T)</td>
+    </tr>
+    <tr>
+    	<td>T</td>
+        <td>(T, H)</td>
+        <td>(T, T)</td>
+    </tr>
+</table>
+:::
+
+
+## Example
+
+**Toss a fair coin twice, and record the outcome of each toss**
+
+:::{.nonincremental}
+- Outcome Space:
+
+    - As a tree:
+:::
+
+:::{.fragment}
+```{dot}
+//| fig-width: 10
+//| fig-height: 4
+digraph tree_diagram {
+    layout = dot
+    rankdir = UD
+    splines = false
+    bgcolor = "#f0ebd8"
+    edge [arrowsize = 0.5, color = coral4]
+    node [shape=plaintext]
+
+base [label = "o"]
+
+H1 [label = "H"]
+T1 [label = "T"]
+
+H21 [label = "H"]
+T21 [label = "T"]
+H22 [label = "H"]
+T22 [label = "T"]
+
+base -> {H1, T1}
+
+H1 -> {H21, T21}
+T1 -> {H22, T22}
+
+
+}
+```
+:::
+
+## Example
+
+**Toss a fair coin twice, and record the outcome of each toss**
+
+- Some events:
+
+    - "At least one heads:" $\{(H, T), \ (T, H), \ (H, H)\}$
+    - "At most one heads:" $\{(T, T), \ (T, H), \ (H, T)\}$
+    - "No heads and no tails:" $\varnothing$
+    
+## Unions, Intersections, Complements
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](VennDiagrams/a_complement.svg){width=50%}
+:::
+
+::: {.column width="50%"}
+:::{style="text-align:center"}
+
+<br />
+$A^\complement$ <br /> (complement)
+:::
+:::
+
+::::
+
+::::{.columns}
+
+::: {.column width="50%"}
+![](VennDiagrams/ab_intersect_shaded.svg){width=50%}
+:::
+
+::: {.column width="50%"}
+:::{style="text-align:center"}
+
+<br />
+$A \cap B$ <br /> (intersection)
+:::
+:::
+
+::::
+
+::::{.columns}
+
+::: {.column width="50%"}
+![](VennDiagrams/ab_union.svg){width=50%}
+:::
+
+::: {.column width="50%"}
+:::{style="text-align:center"}
+
+<br />
+$A \cup B$ <br /> (union)
+:::
+:::
+
+::::
+
+## DeMorgan's Laws
+
+- $(E \cap F)^\complement = (E^\complement) \cup (F^\complement)$
+
+    - The opposite of "*E* and *F*" is "either *E* did not occur, or *F* did not occur (or both)"
+  
+\
+
+- $(E \cup F)^\complement = (E^\complement) \cap (F^\complement)$
+
+    - The opposite of "*E* or *F*" is "neither *E* nor *F* occur"
+    
+
+## Probability
+
+- Two main ways of defining the **probability** of an event $E$.
+
+- **Classical Approach:** $\displaystyle \mathbb{P}(E) = \frac{\#(E)}{\#(\Omega)}$
+
+    - Can be used only when we have equally likely outcomes.
+    
+    - Keywords to look out for: at random, randomly, uniformly, etc.
+    
+- **Long-Run Relative Frequency Approach:** Define $\mathbb{P}(E)$ to be the relative frequency of the times we observe $E$, after an infinite number of repetitions of our experiment.
+
+## Relative Frequencies
+
+Suppose we toss a coin and record whether the outcome lands `heads` or `tails`, and further suppose we observe the following tosses:
+
+:::{.fragment}
+:::{style="text-align:center"}
+`H`, \ `T`, \  `T`, \  `H`, \  `T`, \  `H`, \  `H`, \  `H`, \  `T`, \  `T`
+:::
+:::
+
+- To compute the relative frequency of `heads` after each toss, we count the number of times we observed `heads` and divide by the total number of tosses observed.
+
+---
+
+| Toss | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|:----:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| Outcome| `H` | `T` | `T` | `H` | `T` | `H` | `H` | `H` | `T` | `T` | 
+| Raw freq. of `H` | 1 | 1 | 1 | 2 | 2 | 3 | 4 | 5 | 5 | 5 |
+| Rel. freq of `H` | 1/1 | 1/2 | 1/3 | 2/4 | 2/5 | 3/6 | 4/7 | 5/8 | 5/9 | 5/10 |
+
+```{r, fig.height = 3.5}
+#| echo: false
+
+library(tidyverse)
+library(ggthemes)
+
+x <- 1:10
+y <- c(1, 1/2, 1/3, 2/4, 2/5, 3/6, 4/7, 5/8, 5/9, 5/10)
+
+data.frame(x = x, y = y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 2) +
+  geom_line() +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16)
+  ) +
+  ggtitle("Relative Frequencies of Heads")
+```
+
+---
+
+:::{.nonincremental}
+- It turns out (by what is known as the **Weak Law of Large Numbers**) that, regardless of the experiment and event, the relative frequencies will converge to some fixed value.
+:::
+
+- What the long-run frequencies approach to probability says is to define this value to be the probability of the event.
+
+:::{.fragment}
+```{r, fig.height = 3.5}
+#| echo: false
+
+library(tidyverse)
+library(ggthemes)
+
+set.seed(5)
+
+x <- 1:200
+y <- cumsum(sample(c(0, 1), size = 200, replace = T))/x
+
+data.frame(x = x, y = y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_line() +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16)
+  ) +
+  ggtitle("Relative Frequencies of Heads")
+```
+:::
+
+## Conditional Probability
+
+- $\mathbb{P}(E \mid F)$: represents our updated beliefs on $E$, in the presence of the information contained in $F$.
+    
+    - Only defined when $\mathbb{P}(F) \neq 0$
+    
+    - Computed as $\displaystyle \mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)}$
+    
+- **Multiplication Rule:** $\mathbb{P}(E \cap F) = \mathbb{P}(E \mid F) \cdot \mathbb{P}(F) = \mathbb{P}(F \mid E) \cdot \mathbb{P}(E)$
+
+- **Bayes' Rule:** $\displaystyle \mathbb{P}(E \mid F) = \frac{\mathbb{P}(F \mid E) \cdot \mathbb{P}(E)}{\mathbb{P}(F)}$
+
+- **Law of Total Probability:** $\displaystyle \mathbb{P}(E) = \mathbb{P}(E \mid F) \cdot \mathbb{P}(F) + \mathbb{P}(E \mid F^\complement) \cdot \mathbb{P}(F^\complement)$
+
+## Independence
+
+- Two events $E$ and $F$ are **independent** if any of the following are true:
+
+    - $\mathbb{P}(E \mid F) = \mathbb{P}(E)$
+    - $\mathbb{P}(F \mid E) = \mathbb{P}(F)$
+    - $\mathbb{P}(E \cap F) = \mathbb{P}(E) \cdot \mathbb{P}(F)$
+
+# Counting
+
+
+## Fundamental Principle of Counting
+
+:::{.nonincremental}
+::: callout-important
+## Fundamental Principle of Counting
+
+::: {style="font-size: 30px"}
+If an experiment consists of $k$ stages, where the $i$^th^ stage has $n_i$ possible configurations, then the total number of elements in the outcome space is
+$$ n_1 \times n_2 \times \cdots \times n_k $$
+
+:::
+:::
+:::
+
+- E.g.: number of ice cream scoops consisting of one flavor (Vanilla, Chocolate, or Matcha) and the one topping (sprinkles or coconut) is $3 \times 2 = 6$.
+
+
+
+
+## Counting Formulas
+
+- **_n_ factorial:** $n! = n \times (n - 1) \times \cdots \times (3) \times (2) \times (1)$
+
+    - $0! = 1$
+    
+- **_n_ order _k_**: $\displaystyle (n)_k = \frac{n!}{(n - k)!}$
+
+- **_n_ choose _k_**: $\displaystyle \binom{n}{k} = \frac{n!}{k! \cdot (n - k)!}$
+
+
+\
+
+- For more practice, I encourage you to take a look at Homework 2, along with some of the MT1 practice problems.
+
+
+## Example (Chalkboard)
+
+
+::: callout-tip
+## Chalkboard Exercise 1
+
+::: {style="font-size: 25px"}
+An observational study tracked whether or not a group of individuals were taking a particular drug, along with whether or not they had high blood pressure. 
+
+```{r}
+#| echo: false
+
+df <- matrix(c(
+  rep(c("Taking", "High"), 10),
+  rep(c("Taking", "Low"), 20),
+  rep(c("Not Taking", "High"), 10),
+  rep(c("Not Taking", "Low"), 10)
+), ncol = 2, byrow = T)
+colnames(df) <- c("Drug", "Blood Pressure")
+df <- data.frame(df)
+df$Drug <- factor(df$Drug)
+df$Blood.Pressure <- factor(df$Blood.Pressure)
+
+table(df)
+```
+
+A participant is selected at random.
+
+- What is the probability that they have high blood pressure?
+- What is the probability that they have either high blood pressure or are taking the drug?
+- If they have high blood pressure, what is the probability that they are taking the drug?
+- Are the events "taking the drug" and "having high blood pressure" independent?
+:::
+:::
+
+
+
+## Example (Chalkboard)
+
+::: callout-tip
+## Chalkboard Exercise 2
+
+::: {style="font-size: 25px"}
+A recent survey at *Ralph*'s grocery store revealed that 25\% of people buy soda and 40\% of people by fruit. Additionally, 40\% of people who buy soda also buy fruit. If a customer at *Ralph's* is selected at random....
+
+- ... what is the probability that they buy either soda or fruit?
+- ... what is the probability that they buy neither soda nor fruit?
+:::
+:::
+
+
+
+# Random Variables
+
+## Random Variables
+
+- A **random variable**, loosely speaking, is a variable that tracks some sort of outcome of an experiment.
+
+    - E.g. "number of heads in 10 coin tosses"
+    - E.g. "height of a randomly-selected building from downtown Santa Barbara"
+    
+- Every random variable has a **state space**, which is the set of values the random variable can attain. We use the notation $S_X$ to denote the state space of the random variable $X$.
+
+    - If $S_X$ has jumps, we say $X$ is **discrete**.
+    - Otherwise, we say $X$ is **continuous**
+    
+## Discrete Random Variables {style="font-size:32px"}
+
+- Discrete random variables are characterized by a **probability mass function** (p.m.f.), which expresses not only the values the random variable can take but also the probability with which it attains those values.
+
+    - We use the notation $\mathbb{P}(X = k)$ to denote the probability that a random variable $X$ attains the value of $k$.
+    
+- **Expected Value:** $\displaystyle \mathbb{E}[X] = \sum_{\text{all $k$}} k \cdot \mathbb{P}(X = k)$
+
+- **Variance:** 
+
+    - $\displaystyle \mathrm{Var}(X) = \sum_{\text{all $k$}}(k - \mathbb{E}[X])^2 \cdot \mathbb{P}(X = k)$
+    
+    - $\displaystyle \mathrm{Var}(X) = \left( \sum_{\text{all $k$}} k^2 \cdot \mathbb{P}(X = k) \right) - (\mathbb{E}[X])^2$
+    
+## Continuous Random Variables
+
+- Continuous random variables are characterized by a **probability density function** (p.d.f.), which is a function $f_X(x)$ satisfying:
+
+    - nonnegativity: $f_X(x) \geq 0$ for all $x \in \mathbb{R}$
+    - area equals 1: the area under the graph of $f_X(x)$ should be 1
+    
+- The term **density curve** refers to the graph of the p.d.f.
+
+    - Probabilities are found as areas underneath the density curve
+    
+- **Cumulative Distribution Function:** $F_X(x) = \mathbb{P}(X \leq)
+
+- $\mathbb{P}(X = k) = 0$ if $X$ is continuous.
+
+## Distributions
+
+- Binomial: $X \sim \mathrm{Bin}(n, \ p)$
+
+- Uniform: $X \sim \mathrm{Unif}(a, \ b)$
+
+- Normal: $X \sim \mathcal{N}(\mu, \ \sigma)$
+
+    - Standardization

@@ -1,0 +1,160 @@
+---
+title: "PSTAT 5A: Understanding Data"
+subtitle: "Course Staff"
+author:
+  - name: "Ethan Marzban"
+    affiliations:
+      - name: "Spring 2023"
+author-title: "Instructor"
+affiliation-title: "Quarter"
+format: html
+linkcolor: "#ffa07a"
+---
+
+## Instructor
+
+:::{.callout-note collapse="false"}
+## Instructor: Ethan P. Marzban
+<table>
+  <tr>
+    <td style = "padding-right: 10pt">
+      <img src = "../Images/Profiles/placeholder.png" width = 175>
+    </td>
+    <td>
+      <p style = "font-size:24px"><b>Ethan P. Marzban</b></p>
+      <p>
+        Hello! I am currently in the 3rd year of my PhD program here in the PSTAT department, having joined back in 2020 (after having completed my undergraduate degree in Statistics as well). Outside of school I enjoy playing the piano, drinking boba, and talking about cats!
+      </p>
+      <table>
+        <tr>
+          <td><b>Email:</b></td>
+          <td><a href = "mailto:epmarzban@pstat.ucsb.edu">epmarzban@pstat.ucsb.edu</a></td>
+        </tr>
+        <tr>
+          <td><b>OH:</b></td>
+          <td><u>HW Clinic:</u> Tuesdays, 4:30 - 5:30 in ELLSN 2626 <br /> <u>OH:</u> Fridays, 12 - 1pm in SH 5607F (Sobel)</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+:::
+
+## Teaching Assistants (TAs)
+
+<!-- TA 1 -->
+:::{.callout-note collapse="false"}
+## TA: Nickolas Thiessen
+<table>
+  <tr>
+    <td style = "padding-right: 10pt">
+      <img src = "../Images/Profiles/placeholder.png" width = 175>
+    </td>
+    <td>
+      <p style = "font-size:24px"><b>Nickolas Thiessen</b></p>
+      <p>
+        Nickolas is currently a student in the BS/MS program in Actuarial Science, in the PSTAT department.
+      </p>
+      <table>
+        <tr>
+          <td><b>Email:</b></td>
+          <td><a href="mailto:nickolas@ucsb.edu">nickolas@ucsb.edu</a></td>
+        </tr>
+        <tr>
+          <td><b>OH:</b></td>
+          <td>Fridays, 9 - 11am in Building 434 Rm 113 </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+:::
+
+<!-- Jason Teng -->
+:::{.callout-note collapse="false"}
+## TA: Jason Teng
+<table>
+  <tr>
+    <td style = "padding-right: 10pt">
+      <img src = "../Images/Profiles/placeholder.png" width = 175>
+    </td>
+    <td>
+      <p style = "font-size:24px"><b>Jason Teng</b></p>
+      <p>
+        Jason is currently a student in the Masters Program in the PSTAT department.
+      </p>
+      <table>
+        <tr>
+          <td><b>Email:</b></td>
+          <td><a href="mailto:jteng@ucsb.edu">jteng@ucsb.edu</a></td>
+        </tr>
+        <tr>
+          <td><b>OH:</b></td>
+          <td>Thursdays, 11am - noon in South Hall 5421 (the StatLab)</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+:::
+
+<!-- Yuan Zhou -->
+:::{.callout-note collapse="false"}
+## TA: Yuan Zhou
+<table>
+  <tr>
+    <td style = "padding-right: 10pt">
+      <img src = "../Images/Profiles/placeholder.png" width = 175>
+    </td>
+    <td>
+      <p style = "font-size:24px"><b>Yuan Zhou</b></p>
+      <p>
+        Yuan is currently a student in the Masters program in the PSTAT department.
+      </p>
+      <table>
+        <tr>
+          <td><b>Email:</b></td>
+          <td><a href="mailto:yuan_zhou@ucsb.edu">yuan_zhou@ucsb.edu</a></td>
+        </tr>
+        <tr>
+          <td><b>OH:</b></td>
+          <td>Tuesdays, 10 - 11am in South Hall 5421 (the StatLab)</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+:::
+
+## Undergraduate Learning Assistants (ULAs)
+
+<!-- ULA 1 -->
+:::{.callout-note collapse="false"}
+## ULA: Catherine Li
+<table>
+  <tr>
+    <td style = "padding-right: 10pt">
+      <img src = "../Images/Profiles/placeholder.png" width = 175>
+    </td>
+    <td>
+      <p style = "font-size:24px"><b>Catherine Li</b></p>
+      <p>
+        More information coming soon!
+      </p>
+      <table>
+        <tr>
+          <td><b>Email:</b></td>
+          <td><a href="mailto:catherine_li@umail.ucsb.edu">catherine_li@umail.ucsb.edu</a></td>
+        </tr>
+        <tr>
+          <td><b>OH:</b></td>
+          <td>M 2 - 4pm, Th 9 - 11am ([Zoom](https://ucsb.zoom.us/j/84381539895?pwd=U1kzUDB0c3h1VTl3ajY4cDdHWXdHQT09)) </td>
+        </tr>
+        <td><b>Study Groups:</b></td>
+          <td>T 3:30 - 4:30pm (ELLSN 2626), Th 3:30 - 5:30 (SH 5421) </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+:::

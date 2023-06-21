@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 507 307.17">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        font-size: 50px;
+        font-weight: 700;
+      }
+
+      .cls-2, .cls-4 {
+        font-family: TimesNewRomanPS-BoldItalicMT, 'Times New Roman';
+        font-style: italic;
+      }
+
+      .cls-3 {
+        font-family: TimesNewRomanPS-BoldMT, 'Times New Roman';
+      }
+
+      .cls-4 {
+        letter-spacing: -.06em;
+      }
+    </style>
+  </defs>
+  <path d="m504,3v300H3V3h501m3-3H0v306h507V0h0Z"/>
+  <text class="cls-3" transform="translate(458.18 291.84)"><tspan x="0" y="0">Ω</tspan></text>
+  <path class="cls-1" d="m190.77,28.72c59.15,9.89,104.23,61.32,104.23,123.28,0,69.04-55.96,125-125,125s-125-55.96-125-125c0-62.72,46.19-114.65,106.4-123.63"/>
+  <text class="cls-4" transform="translate(152.98 44.1)"><tspan x="0" y="0">A</tspan></text>
+  <path class="cls-1" d="m362.98,28.79c59.15,9.89,104.23,61.32,104.23,123.28,0,69.04-55.96,125-125,125s-125-55.96-125-125c0-62.72,46.19-114.65,106.4-123.63"/>
+  <text class="cls-2" transform="translate(325.19 44.17)"><tspan x="0" y="0">B</tspan></text>
+</svg>

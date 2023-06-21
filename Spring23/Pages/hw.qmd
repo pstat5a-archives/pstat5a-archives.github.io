@@ -1,0 +1,32 @@
+---
+title: "PSTAT 5A: Understanding Data"
+subtitle: "Homework and Homework Solutions"
+author:
+  - name: "Ethan Marzban"
+    affiliations:
+      - name: "Spring 2023"
+author-title: "Instructor"
+affiliation-title: "Quarter"
+format: html
+css: "../schedule.css"
+---
+
+Here you will find all homework assignments and their solutions.
+
+-   **Homework 1:** due by 11:59pm on Tuesday, April 11 <a href = "../Files/HW/HW01.pdf" class = "button label-outline" target = "_blank">.pdf</a> <a href = "../Files/HW/HW01_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+-   **Homework 2:** due by 11:59pm on Tuesday, April 18 <a href = "../Files/HW/HW02.pdf" class = "button label-outline" target = "_blank">.pdf</a> <a href = "../Files/HW/HW02_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+-   **Homework 3:** due by 11:59pm on **MONDAY, APRIL 24** <a href = "../Files/HW/HW03.pdf" class = "button label-outline" target = "_blank">.pdf</a> <a href = "../Files/HW/HW03_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+-   **Homework 4:** due by 11:59pm on Tuesday, May 2 <a href = "../Files/HW/HW04.pdf" class = "button label-outline" target = "_blank">.pdf</a> <a href = "../Files/HW/HW04_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+-   **Homework 5:** due by 11:59pm on Wednesday, May 10 <a href = "../Files/HW/HW05.pdf" class = "button label-outline" target = "_blank">.pdf</a> <a href = "../Files/HW/HW05_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+-   **Homework 6:** due by 11:59pm on Tuesday, May 16 <a href = "../Files/HW/HW06.pdf" class = "button label-outline" target = "_blank">.pdf</a> <a href = "../Files/HW/HW06_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+-   **Homework 7:** due by 11:59pm on **MONDAY, MAY 22** <a href = "../Files/HW/HW07.pdf" class = "button label-outline" target = "_blank">.pdf</a> <a href = "../Files/HW/HW07_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+-   **Homework 8:** due by 11:59pm on Wednesday, May 31 <a href = "../Files/HW/HW08.pdf" class = "button label-outline" target = "_blank">.pdf</a> <a href = "../Files/HW/HW08_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+-   **Homework 9:** due by 11:59pm on Wednesday, June 7 <a href = "../Files/HW/HW09.pdf" class = "button label-outline" target = "_blank">.pdf</a> <a href = "../Files/HW/HW09_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />

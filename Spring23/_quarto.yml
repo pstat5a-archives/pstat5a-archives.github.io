@@ -1,0 +1,36 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "PSTAT 5A: Spring 2023 (Section 200)"
+
+  sidebar:
+    title: "PSTAT 5A: Understanding Data (Section 200)"
+    style: "docked"
+    search: true
+    contents:
+      - section: "Course Info"
+        contents:
+          - href: Pages/syllabus.qmd
+            text: Syllabus
+          - href: Pages/schedule.qmd
+            text: Schedule of Topics
+          - href: Pages/calendar.qmd
+            text: Sections and Calendar
+          - href: Pages/course_staff.qmd
+            text: Course Staff / OH
+      - section: "Homework"
+        contents:
+          - href: Pages/hw.qmd
+            text: HW and Solns
+    logo: "Images/Logos_Icons/5a_hex.png"
+
+  page-footer: "Site Designed by Ethan Marzban using Quarto; ©2023"
+  favicon: "Images/Logos_Icons/5a_hex.png"
+
+format:
+  html:
+    theme: sandstone
+    css: styles.css
+    toc: true

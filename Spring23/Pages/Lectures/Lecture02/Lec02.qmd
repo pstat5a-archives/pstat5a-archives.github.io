@@ -1,0 +1,774 @@
+---
+title: "PSTAT 5A: Lecture 02"
+subtitle: "Descriptive Statistics, Part II"
+author: "Ethan P. Marzban"
+date: "04/06/23"
+format: 
+    revealjs:
+      html-math-method: mathjax
+      theme: [default, custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+```
+
+# Where We Left Off
+
+## Last Time
+
+- Last time we started discussing how to produce and interpret visual summaries for datasets consisting of only one variable.
+
+    - We learned that histograms and boxplots are good visualizers for numerical variables and barplots are good visualizers for categorical data.
+    
+- But, as we also saw (in the `palmerpenguins` dataset), data is usually comprised of *several* variables. 
+
+- A natural question therefore arises: how might we visualize the *relationship* between multiple variables?
+
+## Multiple Variables
+
+- Perhaps unsurprisingly, visualizing the relationship between 3 or more variables can be a bit tricky.
+
+- As such, we will restrict ourselves to comparing only two variables.
+
+- Even if we compare only two variables, three cases arise:
+
+    - Comparing two numerical variables
+    - Comparing one numerical and one categorical variable
+    - Comparing two categorical variables
+
+- We will examine the first two cases above, and save the third for later.
+
+## Two Numerical Variables {style="font-size:28px"}
+
+- Let's say we have two variables, and we want to visualize their relationship.
+
+- As an example, let's return to the `palmerpenguins` dataset and compare the `bill_length_mm` and `bill_depth_mm` variables. Let's also restrict ourselves to Gentoo penguins. 
+
+
+:::{.fragment}
+```{r, message = F, echo = F}
+#| class-output: hscroll
+
+library(palmerpenguins)
+library(tibble)
+
+# cat(format(as_tibble(mtcars))[-3L], sep = "\n")
+gentoo <- penguins %>% filter(species == "Gentoo")
+
+cat(format(as_tibble(gentoo[,3:4]))[-c(3L, 1L)], sep = "\n")
+```
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+:::
+
+---
+
+:::: {.columns}
+
+::: {.column width="40%"}
+:::{.nonincremental}
+- Notice that each observational unit of this data matrix (consisting only of the `bill_length_mm` and `bill_depth_mm` variables) is a pair of numbers.
+:::
+
+- It is fairly natural, then, to imagine plotting these pair of numbers on a Cartesian coordinate system.
+:::
+
+::: {.column width="60%"}
+
+\
+\
+
+:::{.fragment}
+```{r, fig.height = 7}
+library(tidyverse)
+
+penguins %>% filter(species == "Gentoo") %>%
+  ggplot(aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(size = 3) +
+  theme_economist(base_size = 24) +
+  ggtitle("Bill Depth vs. Length in Gentoo Penguins") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+::::
+
+## Scatterplot
+
+- This type of visualization is called a **scatterplot**.
+
+- Specifically, when comparing two numerical variables of the same length, we generate a scatterplot by plotting each observational unit on a Cartesian coordinate system where the axes are prescribed by the variables in question.
+
+:::{.fragment}
+:::{.callout-note}
+## **Result**
+::: {style="font-size: 30px"}
+When comparing two numerical variables (of the same length), a scatterplot is the best visulization tool.
+:::
+:::
+:::
+
+## Interpreting Scatterplots
+
+:::: {.columns}
+
+:::{.column width="70%"}
+:::{.nonincremental}
+- Let's return to the scatterplot we generated before:
+:::
+
+```{r, fig.height = 7}
+library(tidyverse)
+
+gentoo %>%
+  ggplot(aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(size = 3) +
+  theme_economist(base_size = 24) +
+  ggtitle("Bill Depth vs. Length in Gentoo Penguins") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+
+::: {.column width="30%"}
+- Notice how as the values of `bill_length_mm` increase, the corresponding values of `bill_depth_mm` also increase on average?
+
+    - This makes intutive sense: longer bills are probably deeper!
+:::
+
+::::
+
+## Trend
+
+- This is an example of what we call a **trend**; specifically, a **positive linear trend.**
+
+    - A trend is, loosely speaking, any relationship we observe between the two variables in a scatterplot.
+    
+    - A trend is said to be **linear** if a one-unit change in one variable corresponds to a fixed amount of change in the other (we'll talk about nonlinear trends in a bit)
+    
+    - A trend is said to be **positive** (or **increasing**) if a one-unit increase in one variable corresponds to a one-unit *increase* in the other.
+    
+---
+
+:::: {.columns}
+
+:::{.column width="50%"} 
+- Linear **Negative** Trend:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rnorm(100)
+y <- -2 * x + rnorm(100, 0, 2)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+:::{.column width="50%"}
+- Nonlinear **Negative** Trend:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rchisq(100, 20)
+y <- (1 / x^2) + rnorm(100, 0, 0.0005)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+::::
+
+
+:::: {.columns}
+
+:::{.column width="50%"} 
+- Nonlinear **Positive** Trend:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rchisq(100, 20)
+y <- 1 - (1/x^2)  + rnorm(100, 0, 0.0007)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+:::{.column width="50%"}
+- No Discernable Trend
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rchisq(100, 20)
+y <- rchisq(100, 20)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+::::
+
+---
+
+## Associations
+
+- Another way to talk about trends is to phrase things in terms of the variables being compared. 
+
+    - For example, if the scatterplot of two variables displays a positive linear trend, we might say that the two variables have a positive linear **association**. 
+    
+    - As a concrete example: bill length and bill depth appear to have a positive linear association, as seen in the scatterplot from a few slides ago.
+
+---
+
+:::{.nonincremental}
+- The trends/associations illustrated on the previous slide are probably a little unrealistically clear- most data is "messy", and it can sometimes be difficult to determine whether or not there is a trend (let alone whether it is linear/nonlinear and positive/negative). 
+:::
+
+- We will revisit the notion of trend in the last week of the course, when we talk about something called **regression**.
+
+- Regression will provide us with a tool for statistically testing for the presence of a trend.
+
+- So, stay tuned!
+
+## A Numerical and a Categorical Variable {style="font-size:30px"}
+
+- The final case we will consider today is comparing a numerical variable to a categorical one.
+
+- As a concrete example, here is a (mock) dataset comprised of the following variables:
+
+:::{.fragment}
+| **Variable Name** | **Description** |
+|:-----------------:|:---------------:|
+| `stdy_hrs` | average amount of time (in hrs) a student spent studying for a particular class each week |
+| `ltr_grd` | the final letter grade (`A+`, `A`, `A-`, etc.) the student received in the class |
+:::
+
+---
+
+```{r}
+dat <- read.csv("grade_data.csv", header = T)
+dat
+```
+
+::: {style="font-size:30px"}
+- Note that `ltr_grd` is categorical (in fact, it is ordinal) and `stdy_hrs` is numerical (specifically, continuous).
+
+- Now, even though the observational units of our data matrix are pairs of quantities, they are no longer pairs of **numbers** and it therefore no longer makes sense to plot them as points on a Cartesian coordinate system.
+:::
+
+---
+
+:::{.nonincremental}
+- The way we get around this is, perhaps surprisingly... boxplots!
+:::
+
+:::{.fragment}
+```{r}
+
+dat %>%
+  ggplot(aes(x = ltr_grd, y = stdy_hrs)) +
+  stat_boxplot(geom = "errorbar", 
+               width = 0.25,
+               linewidth = 1) +
+  geom_boxplot(fill =  "#7f9ab5", 
+               size = 1,
+               outlier.size = 4) +
+  theme_economist(base_size = 18) +
+  ggtitle("Weekly Study Hrs vs. Letter Grade") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 0,
+                                      b = 10, 
+                                      l = 0))
+  ) 
+```
+:::
+
+- This type of plot is called a **side-by-side boxplot**
+
+## Side-by-Side Boxplots
+
+:::{.fragment}
+:::{.callout-note}
+## **Result**
+::: {style="font-size: 30px"}
+When comparing one numerical and one categorical variable, it is best to visualize their relationship using a side-by-side boxplot.
+:::
+:::
+:::
+
+- Though the notion of trend is slightly different in the context of a side-by-side boxplot, we can still use them to determine relationships.
+
+- For example, from the plot on the previous slide, we can see that, on average, students who received lower grades tended to study less than those students who received higher grades.
+
+## Causality
+
+- I should make a very important point: identifying trends is not the same thing as identifying **causal relationships**.
+
+- For example, the side-by-side boxplot from a few slides ago does not tell us that "studying less causes your grade to decrease" 
+
+    - There are a lot of other **confounding variables** that could contribute to the decrease in grade.
+    
+- We won't talk too much about causality in this course, but it is an important thing to be aware of: association is not the same thing as causation!
+
+
+# Data, Revisited
+
+## Quantifying Data {style="font-size:28px"}
+
+- Let's once again consider a *single* numerical variable.
+
+- As a concrete example, we can consider the exam scores variable from the previous slides:
+
+:::{.fragment}
+```{r, message = F, echo = F}
+#| class-output: hscroll
+
+set.seed(130)
+x <- rnorm(140, 80, 5)
+x <- round(x, 3)
+x
+```
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+:::
+
+
+---
+
+::: {style="font-size:30px"}
+:::{.nonincremental}
+- Note that this is really just a list of numbers!
+:::
+
+- Indeed, any numerical variable (or, equivalently, any variable consisting of just a single numerical variable) will just be a list (or *set*) of numbers
+$$ X = \{x_1, x_2, \cdots, x_n\} $$
+where I have adopted the standard mathematical convention of denoting the elements of a set between curly braces.
+
+    - We can use the following notational shorthand:
+    $$ X = \{x_i\}_{i=1}^{n} $$
+    where:
+    
+        - $n$ denotes the total number of elements in the dataset
+        - $x_i$ denotes the $i$^th^ observation
+
+:::
+
+---
+
+:::{.nonincremental}
+- For example, in the context of the scores dataset, $x_1$ denotes the score of the first student (88.236%), $x_4$ denotes the score of the fourth student (74.431%), and $x_i$ denotes the score of the $i$^th^ student for an *arbitrary* index $i$
+:::
+
+- We can further borrow the notation of set theory to talk about **data aggregation**: given a set of data $X = \{x_i\}_{i=1}^{n}$ and another set of data $Y = \{y_i\}_{i=1}^{m}$, we can denote the aggregated set $Z$, consisting of the elements $x_1, \cdots, x_n, y_1, \cdots, y_m$, by
+$$ Z = X \cup Y $$
+
+    - For example, $\{1, 2, 3\} \cup \{4, 5\} = \{1, 2, 3, 4, 5\}$.
+    
+    - Mathematically, we call this the **union** of two sets.
+
+## Summarizing Data
+
+- The remainder of today's lecture will be devoted to finding *numerical* summaries of a dataset $X = \{x_i\}_{i=1}^{n}$.
+
+- This will lead us to several different **summary statistics**, which are mathematical quantities that seek to describe different aspects of our data. 
+
+
+# Measures of Central Tendency
+
+## Quantifying "Center" {style="font-size:30px"}
+
+- Here is a very broad question: what is the *center* of a dataset $X = \{x_i\}_{i=1}^{n}$?
+
+- Perhaps the scores dataset from earlier is a bit too complicated- let's simplify things and look at the dataset
+$$ X = \{1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 6\} $$
+
+- As a starting point, I can "plot" these points on a number line (to produce what is known as a **dotplot**):
+
+:::{.fragment}
+![](data.svg){width=65% fig-align="center"}
+:::
+
+
+---
+
+## Quantifying "Center" {style="font-size:30px"}
+
+:::{.nonincremental}
+- Back to our question: what is the *center* of this dataset?
+:::
+
+- Perhaps we can think of *center* as a *balancing point*. In other words: where should I place a fulcrum to ensure this number line remains balanced?
+
+:::{.fragment}
+![](mean.svg){width=65% fig-align="center"}
+:::
+- We call this balancing point the **arithmetic mean** (or just **mean**, or **average**, for short), and denote it $\overline{x}$.
+
+---
+
+:::{nonincremental}
+- This notion of a "balancing point" applies to any set of numbers! For example, the dotplot of the exam scores dataset from before looks like:
+:::
+
+:::{.fragment}
+![](scores.svg){width=85% fig-align="center"}
+:::
+
+---
+
+
+## The Mean {style="font-size: 28px"}
+
+::: callout-note
+## **Formula:** The Mean
+
+::: {style="font-size: 28px"}
+Given a set of data $x = \{x_i\}_{i=1}^{n}$, we compute its **mean**, denoted $\overline{x}$, using the formula
+$$ \overline{x} = \frac{1}{n} (x_1 + \cdots + x_n) $$
+which can be equivalently written as
+$$ \overline{x} = \frac{1}{n} \sum_{i=1}^{n} x_i $$
+:::
+:::
+
+- In words: we compute the mean by adding up all of the points included in our dataset, and dividing by the total number of points.
+
+## A Note on Notation
+
+- Perhaps you haven't seen the notation $\sum_{i=1}^{n} x_i$ before. Don't get scared by it! It's just a shorthand notation for the sum of the points $\{x_1, x_2, \cdots, x_n\}$. 
+
+- So, if it's easier for you, you can always think of $(x_1 + \cdots x_n)$ in place of $\sum_{i=1}^{n} x_i$.
+
+- Having said that, I will often use this notation (called **sigma notation**, as the symbol $\sum$ is the capital Greek letter "sigma") as it saves quite a bit of time in the long run.
+
+    - I also urge you to familiarze yourself with $\Sigma$ notation, as I'm sure you will encounter it even beyond this course!
+
+## Time for an Exercise!
+
+::: callout-tip
+## Exercise 1
+
+::: {style="font-size: 30px"}
+Compute the mean of the set $B = \{-1, 0, 1, 1, 2, 4\}$. Discuss with your neighbors!
+:::
+:::
+
+## Another One!
+
+::: callout-tip
+## Exercise 2
+
+::: {style="font-size: 30px"}
+A collection of $n = 42$ exam scores have an average 50%. Two additional scores of 100% are reported. How does the average of scores change with the addition of these two new scores?
+:::
+:::
+
+# Measures of Spread
+
+## Range
+
+- Another way we can summarize a dataset $X = \{x_i\}_{i=1}^{n}$ is to describe how *spread out* it is. 
+
+-  One idea on how we can capture the spread is to say: how far apart is the *smallest* value from the *largest* value? 
+
+- Indeed, this statistic has a name: the **range**.
+
+:::{.fragment}
+::: callout-note
+## **Formula:** Range
+
+::: {style="font-size: 28px"}
+Given a set of numbers $X = \{x_1, x_2, \cdots, x_n\}$, we compute the **range** of $X$ as: $$ \mathrm{range}(X) = \max\{x_1, \cdots, x_n\} - \min\{x_1, \ \cdots, \ x_n\} $$ i.e. the largest value minus the smallest value.
+:::
+:::
+:::
+
+## Leadup
+
+
+- Now, there is another way to think about spread: suppose we look at the average distance of points from their mean.
+
+- More specifically: define $d_i := x_i - \overline{x}$ to be the **deviation** of the $i$^th^ point from the mean:
+
+:::{.fragment}
+![](sd.svg){width=65% fig-align="center"}
+:::
+
+---
+
+:::{.nonincremental}
+- The distance between $x_i$ and $\overline{x}$ is thus the squared deviance $d_i^2$.
+:::
+
+- Therefore, the average distance of each point from the mean would be
+$$ \frac{1}{n} \sum_{i=1}^{n} d_i^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \overline{x})^2 $$
+
+- For reasons that are slightly beyond the scope of this course, we will actually divide by $n - 1$ as opposed to $n$. (It turns out that this yields a measure that has some slightly nicer properties than the one containing $1/n$ in place of $1/(n - 1)$):
+$$ \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \overline{x})^2 $$
+
+## The Variance
+
+:::{.nonincremental}
+- This is what we call the **variance** of the set $X$, denoted by $s_x^2$. 
+:::
+
+::: callout-note
+## **Formula:** Variance, and Standard Deviation
+
+::: {style="font-size: 28px"}
+Given a set of data $X = \{x_i\}_{i=1}^{n}$, we compute the **variance** of $X$ by
+$$ s_x^2 = \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \overline{x})^2 $$
+We define the **standard deviation**, denoted by $s_x$, to be $\sqrt{s_X^2}$; i.e.
+$$ s_x := \sqrt{\frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \overline{x})^2} $$
+:::
+:::
+
+## Time for an Exercise!
+
+::: callout-tip
+## Exercise 3
+
+::: {style="font-size: 30px"}
+For the set $X = \{1, 2, 3, 4, 5\}$, compute $s_x$. Discuss with your neighbor!
+:::
+:::
+
+## IQR
+
+- There is yet another way to quantify the spread of a dataset, and that is what is known as the **Interquartile Range** (IQR, for short). 
+
+:::{.fragment}
+::: callout-note
+## **Formula:** The IQR
+
+::: {style="font-size: 28px"}
+Given a set of data $x = \{x_i\}_{i=1}^{n}$, we compute its **interquartile range** using the formula
+$$ \mathrm{IQR} = Q_3 - Q_1 $$
+where $Q_1$ and $Q_3$ denote the first and third quartiles, respectively.
+:::
+:::
+:::
+
+- In other words, the IQR is just the width of the box in a boxplot!
+
+## Five Number Summary
+
+- Speaking of boxplots, there is a set of numbers that occurs frequently when summarizing numerical data, collectively called the **five number summary**. The elements of the five number summary are:
+
+    1) The minimum
+    2) The first quartile
+    3) The median
+    4) The third quartile
+    5) The maximum
+
+## Time for an Exercise!
+
+::: callout-tip
+## Exercise 4
+
+::: {style="font-size: 30px"}
+Consider a dataset $X$ that has boxplot given by:
+
+```{r, fig.height = 3}
+set.seed(123)
+x <- rnorm(100, 6)
+data.frame(x) %>%
+  ggplot(aes(x = x)) +
+  stat_boxplot(geom = "errorbar", 
+               width = 0.25,
+               linewidth = 1) +
+  geom_boxplot(fill =  "#7f9ab5", 
+               size = 1,
+               outlier.size = 4) +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16),
+        axis.text.y = element_blank()
+  ) +
+  ylim(c(-0.75, 0.75)) +
+  ggtitle("Boxplot of X")
+```
+
+Provide the five number summary, along with the IQR. Discuss with your Neighbors!
+:::
+:::
+
+# Lecture Summary
+
+## Summary {style="font-size:30px"}
+
+- We started off by finishing our discussion of data visualizing, identifying ways to visualize the relationship between two variables.
+
+    - Such visualizations included: scatterplots and side-by-side boxplots.
+    
+    - We also discussed notions of trend.
+
+- Next, we discussed various numerical summaries of data. 
+
+    - These included measures of central tendency (like the mean or the median), along with measures of spread (like the variance, standard deviation, or IQR).
+    
+    - We were also introduced to the five number summary, which is closely related to boxplots.
+
+- Next time we'll begin our discussion on Probability, which, as we will see, provides a rigorous way of quantifying uncertainty.

@@ -1,0 +1,255 @@
+---
+title: "PSTAT 5A: Lecture 10"
+subtitle: "Introduction to Inferential Statistics"
+author: "Ethan P. Marzban"
+date: "5/4/23"
+format: 
+    revealjs:
+      html-math-method: mathjax
+      theme: [default, custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+```
+
+## Leadup {style="font-size:32px"}
+
+- Let's, for the moment, don our Sociology hats and say we're interested in estimating the average monthly income of US Citizens.
+- Surveying *every* *single* US Citizen and recording their income is not feasible- doing so would be far too expensive (both in terms of monetary cost as well as temporal cost)
+- Instead, a natural idea is to take a **sample** of some subset of US Citizens, and record the average monthly income of these sampled individuals. 
+- Now, here's a question: given two separate samples of, say, 125 US Citizens- do we expect the average income of these two samples to be exactly the same, or slightly different?
+    - Probably slightly different!
+
+## Leadup {style="font-size:32px"}
+
+- So, it seems we have two things to keep track of:
+    - The true average monthly income of US Citizens
+    - The average monthly income of a *sample* of US Citizens.
+- By the last point on the previous slide, we can see that the second quantity above [is a random variable]{.underline}.
+    - This is an example of a **sample statistic**, which is basically any quantity that is computed from our data.
+- The true average monthly income of US Citizens is a fixed number, which we call a **population parameter**.
+    - In general, a population parameter is just a parameter that relates to the population (e.g. mean, median, variance, etc.)
+
+
+
+## Inferential Statistics {style="font-size:32px"}
+
+- We consider the **population** to be some large group we are interested in studying.
+    - The population is governed by some set of **parameters** (e.g. mean, median, variance, etc.)
+- From the population we draw a **sample** (which is random!), and compute **sample statistics** to try and make inference about the population parameters. 
+- This is the structure of **inferential statistics**.
+
+---
+
+:::{style="text-align:center"}
+![](sampling_2.svg){width="70%"}
+:::
+
+## Parameter vs. Statistic {style="font-size:30px"}
+
+- It is *extremely* important to be able to distinguish what is a *population parameter* from what a *statistic* is.
+- There are a couple of ways to do this.
+- The first is to consider the general structure of the situation: if a given quatntity is describing the *population*, then it must be a *population parameter*.
+    - If, instead, it is describing a *sample*, then it must be a *sample statistic*.
+- The other way to think about this is through randomness: remember that different samples correspond to different observed values of our sample statistic.
+    - So, imagine asking yourself: "if I took a different sample, would this quantity change?" If so, then it is a sample statistic.
+
+## Worked-Out Example
+
+:::{.fragment}
+::: callout-tip
+## Worked-Out Example 1
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+A veterinarian wishes to determine the true proportion of cats that suffer from FIV (Feline Immunodeficiency Virus). To that end, she takes a representative sample of 100 cats and finds that 3.2\% of cats in this sample have FIV.
+
+a. Identify the population.
+b. Identify the sample.
+c. Identify the population parameter of interest.
+d. Is the value of $3.2\%$ a population parameter, or an observed instance of a sample statistic?
+
+:::
+:::
+:::
+:::
+
+## Solution {style="font-size:30px"}
+
+a. the population is the corpus of all cats in the world, since we the veterinarian seeks to describe the prevalence of FIV among *all cats*.
+
+b. In this context, the sample is the set of 100 cats the veterinarian examined.
+
+c. The population parameter of interest is $p =$ "the true proportion of cats that suffer from FIV".
+
+d. The value of 3.2\% is a **sample statistic**, because if the veterinarian had taken a *different* sample of 100 cats she likely would have observed a different proportion of FIV-positive cats.
+
+
+## Your Turn!
+:::{.fragment}
+::: callout-tip
+## Exercise 1
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+A group of (slightly bored) college students would like to determine the true average amount of soda (in liters) in 1-liter soda bottles. To that effect, they purchas 12 different 1-liter soda bottles and find the average amount of soda in these 12 bottles is 0.98L.
+
+a. Identify the population.
+b. Identify the sample.
+c. Identify the population parameter of interest.
+d. Is the value of 0.98 a population parameter, or an observed instance of a sample statistic?
+
+:::
+:::
+:::
+:::
+
+## Different Population Parameters {style="font-size:30px"}
+
+- So far we've seen examples of two different population parameters:
+    - A **population proportion**
+    - A **population mean**
+- Other population parameters exist! For instance, we could talk about the population *median*, the population *variance*, or even the population *IQR*.
+
+- Up until now, I've been pretty vague about what "inferences" mean. This is because "making inferences" is a broad term!
+- One part of making inferences is trying to **estimate** the value of a population parameter.
+    - This process is called **parameter estimation**.
+
+## Parameter Estimation {style="font-size:30px"}
+
+- Both Worked-Out Example 1 and Exercise 1 were (implicitly) problems about parmaeter estimation.
+    - In Worked-Out Example 1, the veterinarian wanted to *estimate* the true proportion of FIV-positive cats
+    - In Exercise 1, the college students wanted to *estimate* the true average amount of soda in 1L soda bottles.
+- In general, we use a sample statistic to estimate a population parameter. Some common estimators of some population parameters are:
+
+---
+
+:::{style="font-size:30px"}
+| Parameter | Symbol | Estimator |
+|:---------:|:------:|:---------:|
+| Mean | $\mu$ | $\displaystyle \overline{x} = \frac{1}{n} \sum_{i=1}^{n}$ <br /> (the sample mean) |
+| Proportion | $p$ | $\widehat{p}$ <br /> (the sample proportion) |
+| Variance | $\sigma^2$ | $\displaystyle s_x^2 = \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \overline{x})^2$ <br /> (the sample variance) |
+| Std. Dev | $\sigma$ | $\displaystyle s_x = \sqrt{\frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \overline{x})^2}$ <br /> (the sample std. dev.) |
+:::
+
+## A Wrench in the Spanner {style="font-size:30px"}
+
+- Now, can anyone see a potential problem in using a sample statistic to estimate a population parameter?
+    - That's right- the sample statistics are *random*!
+    - For example, every time the veterinarian in Worked-Out Example 1 took a new sample of 100 cats she would obtain a different estimate for the true proportion of cats that have FIV.
+    - So, we need some way to express the uncertainty that comes from the randomness of these sample statistics.
+
+- To explore this, let's do a live demo using Python.
+    - In the demo, I will *simulate* drawing several samples of 500 cats, recording the proportion of FIV-positive cats, and drawing the distribution of these sample proportions.
+
+- By the way, the distribution of a sample statistic is called the **sampling distribution** of that statistic.
+
+## Result {style="font-size:30px"}
+
+- Before we summarize these results, we should introduce a bit of notation.
+    - We let $\widehat{P}$, read "p-hat" denote the *random variable* that is the proportion of a hypothetical sample.
+    - We let $\widehat{p}$ denote an *observed instance* of $\widehat{P}$; i.e. the sample proportion of a *particular* sample.
+    
+- With this notation in mind, we can see that the demo illustrated the following fact: $\widehat{P}$ is normally distributed!
+    - It turns out that the expected value of $\widehat{P}$ is $p$, the true population proportion, and the standard deviation (which, in the context of estimation, is sometimes called the **standard error**) is
+    $$ \sqrt{\frac{p(1 - p)}{n} } $$
+
+## Central Limit Theorem for Proportions {style="font-size:30px"}
+
+:::{.callout-important}
+::: {style="font-size: 24px"}
+If we have reasonably representative samples taken from a population with true proportion $p$ and let $\widehat{P}$ denote the sample proportion, then
+$$ \widehat{P} \sim \mathcal{N}\left( p, \ \sqrt{ \frac{p(1 - p)}{n} } \right) $$
+**provided that**
+
+:::{.nonincremental}
+1) $np \geq 10$
+2) $n(1 - p) \geq 10$ [note that this has been changed from the version presented in lecture last week; please see the corresponding course announcement]{style="color:red"}
+:::
+:::
+:::
+
+- The two conditions above are sometimes referred to as the **success-failure conditions**, and must be satisfied in order to invoke the Central Limit Theorem for Proportions (CLTP).
+    - We'll talk a bit more about "reasonably representative" samples later in the course (time-permitting).
+
+## Worked-Out Example {style="font-size:32px"}
+
+:::{.fragment}
+::: callout-tip
+## Worked-Out Example 1
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+Suppose a recent study has revealed that 87\% of Americans are in favor of offering more healthy options at fast-food restaurants. A surveyor takes a representative sample of size 120 Americans, and records the proportion of these Americans that support offering more healthy options at fast-food restaurants.
+
+a. Define the random variable of interest.
+b. What is the probability that fewer than 90% of people in the sample support offering more healthy options at fast-food restaurants?
+c. What is the probability that the proportion of people in the sample who support offering more healthy options at fast-food restaurants lies within 2\% of the true proportion of 87\%?
+
+:::
+:::
+:::
+:::
+
+## Solutions {style="font-size:30px"}
+
+a) Let $\widehat{P} =$ the proportion of Americans in the sample of size $n = 100$ that support offering more healthy options at fast-food restaurants.
+
+## Solutions {style="font-size:28px"}
+
+b) We would like to utilize the Central Limit Theorem for Proportions. First, we check:
+    1) $np = (100) \cdot (0.87) = 87 \geq 10 \ \checkmark$
+    2) $np(1 - p) = (100) \cdot (0.87) \cdot (1 - 0.87) \approx 11.31 \geq 10 \ \checkmark$ [these are the old conditions; I encourage you to check the new ones on your own!]{style="color:red"}
+    
+    - Since both of the success-failure conditions are satisfied, we know that
+$$ \widehat{P} \sim \mathcal{N}\left(0.87, \ \sqrt{\frac{0.87 \cdot (1 - 0.87)}{100}} \right) \sim \mathcal{N}\left(0.87, \ 0.0336 \right) $$
+and so
+$$ \mathbb{P}(\widehat{P} \leq 0.9) = \mathbb{P}\left( \frac{\widehat{P} - 0.87}{0.0336} \leq \frac{0.9 - 0.87}{0.0336} \right) = \mathbb{P}\left( \frac{\widehat{P} - 0.87}{0.0336} \leq 0.89 \right) $$
+which equates to around $\boxed{0.8133 = 81.33\%}$
+
+## Solutions {style="font-size:30px"}
+
+c. We seek $\mathbb{P}(0.85 \leq \widehat{P} \leq 0.89)$. 
+    - First, we write this as $\mathbb{P}(\widehat{P} \leq 0.89) - \mathbb{P}(\widehat{P} \leq 0.85)$
+    - Next, we standardize:
+    \begin{align*}
+      z_1 & = \frac{0.89 - 0.87}{0.0336} \approx 0.60   \\
+      z_2 & = \frac{0.5 - 0.87}{0.0336} \approx -0.60
+    \end{align*}
+    - Finally, we consult a table to see that the desired probability is
+    $$ 0.7257 - 0.2743 = \boxed{0.4514 = 45.14\%} $$
+
+## Your Turn!
+:::{.fragment}
+::: callout-tip
+## Exercise 2
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+At a certain company, it is known that 65\% of employees are from underrepresented minorities (UMs). A representative sample of 80 employees is taken, and the proportion of people from UMs is recorded.
+
+a. Define the random variable of interest.
+b. What is the probability that greater than than 50% of people in the sample are from UMs?
+c. What is the probability that the proportion of people in the sample who are from UMs lies within 5\% of the true proportion of 65\%?
+
+:::
+:::
+:::
+
+[Due to the retroactive change in the success-failure conditions, I will post the written-out solutions to this exercise before Lecture 11.]{style="color:red"}
+
+:::

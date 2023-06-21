@@ -1,0 +1,703 @@
+---
+title: "PSTAT 5A: Lecture 08"
+subtitle: "Discrete Random Variables"
+author: "Ethan P. Marzban"
+date: "04/18/23"
+format: 
+    revealjs:
+      html-math-method: mathjax
+      theme: [default, custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+```
+
+## Recap of Probability
+
+- Recall the basic ingredients of probability we have discussed so far:
+    - **Experiment:** any procedure we can repeat an infinite number of times, where on each reptition there is a fixed set of *things* (called **outcomes**) that can happen.
+    - **Outcome space ($\boldsymbol{\Omega}$):** the set of all outcomes associated with a particular experiment
+    - **Event:** a subset of the outcome space
+    - **Probability:** a *function* that maps events to a number; specifically, one that quantifies our beliefs about a particular event
+    
+## An Experiment
+
+- Let's actually conduct an experiment together!
+- Specifically, suppose we toss a coin 3 times and record the outcomes.
+
+:::{.fragment}
+```{ojs}
+viewof toss = Inputs.button("Toss")
+```
+
+```{ojs}
+dummy = toss + 1
+coin = ["H", "T"]
+s1 = coin[Math.floor(Math.random()*coin.length*dummy/dummy)];
+s2 = coin[Math.floor(Math.random()*coin.length*dummy/dummy)];
+s3 = coin[Math.floor(Math.random()*coin.length*dummy/dummy)];
+s4 = coin[Math.floor(Math.random()*coin.length*dummy/dummy)];
+[s1, s2, s3];
+```
+:::
+
+- Additionally, let's keep track of the number of heads we observe each time we run this experiment.
+    - In fact, let's do this on the chalkboard.
+
+---
+
+## An Experiment
+
+:::{.nonincremental}
+- Alright, let's make note of a few things.
+:::
+
+- Note that each time we run this experiment, we (sure enough) get an element of the outcome space, which is
+
+:::{.fragment}
+```{dot}
+//| fig-width: 10
+//| fig-height: 4
+digraph tree_diagram {
+    layout = dot
+    rankdir = UD
+    splines = false
+    bgcolor = "#f0ebd8"
+    edge [arrowsize = 0.5, color = coral4]
+    node [shape=plaintext]
+
+base [label = "o"]
+
+H1 [label = "H"]
+T1 [label = "T"]
+
+H21 [label = "H"]
+T21 [label = "T"]
+H22 [label = "H"]
+T22 [label = "T"]
+
+H311 [label = "H"]
+T311 [label = "T"]
+H321 [label = "H"]
+T321 [label = "T"]
+H312 [label = "H"]
+T312 [label = "T"]
+H322 [label = "H"]
+T322 [label = "T"]
+
+base -> {H1, T1}
+
+H1 -> {H21, T21}
+T1 -> {H22, T22}
+
+H21 -> {H311, T311}
+T21 -> {H321, T321}
+H22 -> {H312, T312}
+T22 -> {H322, T322}
+
+
+}
+```
+:::
+
+## An Experiment {style="font-size:30px"}
+
+:::{.nonincremental}
+- But, also note that each time we run the experiment, the number of heads doesn't necessarily remain fixed.
+:::
+
+- In fact, each outcome in the outcome space corresponds to a different number of heads:
+
+::: {.fragment style="font-size:25px"}
+| **Outcome** | **Number of Heads** |
+|:-----------:|:-------------------:|
+| (`H`, \ `H`, \  `H`) | 3 |
+| (`H`, \  `H`, \  `T`) | 2 |
+| (`H`, \  `T`, \  `H`) | 2 |
+| (`T`, \  `H`, \  `H`) | 2 |
+| (`H`, \  `T`, \  `T`) | 1 |
+| (`T`, \  `H`, \  `T`) | 1 |
+| (`T`, \  `T`, \  `H`) | 1 |
+| (`T`, \  `T`, \  `T`) | 0 |
+:::
+
+## Random Variables
+
+- This leads us to the notion of **random variables**.
+
+- Loosely speaking, a random variable is a variable or process with a numerical outcome. 
+
+- We denote random variables using capital letters; e.g. $X$, $Y$, $Z$, $W$, etc.
+
+- So, for example, $X =$ "the number of heads in 3 tosses of a coin" is a random variable because (a) it is a numerical outcome of an experiment and (b) it is random (i.e. its value changes depending on the outcome of the experiment).
+
+## State Space {style="font-size:32px"}
+
+- A key part of the definition of random variables is that they must be *numerical*.
+
+- What this means is we can always look at the set of values a random variable *could* take: this is what we call the **state space** of a random variable.
+
+- For example: if $X =$ "number of heads in 3 tosses of a coin", we see that $X$ will only ever be $0$, $1$, $2$, or $3$.
+    - This is because it is not possible to toss 3 coins and get, say, 5 heads, or a negative number of heads!
+
+- We often denote the state space of a random variable using the notation $S_{\verb|<variable>|}$; e.g. $S_X$ to mean the state space of $X$, $S_Y$ to mean the state space of $Y$, etc.
+    
+## Classifying Random Variables {style="font-size:30px"}
+
+- Because random variables are numerical, their state spaces will always be numerical sets of values.
+
+- This means we can classify state spaces using our Variable Classification scheme from Week 1!
+
+    - Specifically: the state space $S_X$ of a random variable will either have "jumps", or not.
+
+- We extend the same classification language to random variables:
+
+:::{.fragment}
+:::{.callout-note}
+## **Definition**
+::: {style="font-size: 28px"}
+Given a random variable $X$, we say that:
+
+- $X$ is a **discrete random variable** (or just "$X$ is **discrete**) if $S_X$ is has jumps
+- $X$ is a **continuous random variable** (or just "$X$ is **continuous**) if $S_X$ has no jumps
+:::
+:::
+:::
+
+## Leadup {style="font-size:32px"}
+
+- Let's return to our coin tossing example.
+
+- What is the probability that we observe zero heads?
+- Well, in the language of our random variable $X$ (which counts the number of heads in these three tosses of our fair coin), we can translate "zero heads" to the event "$\{X = 0\}$'', meaning we want to find $\mathbb{P}(X = 0)$.
+- Observing zero heads is equivalent to observing *all* tails, meaning the event $\{X = 0\}$ is equivalent to the event \{ (`T`, \ `T`, \ `T`) \}.
+
+- Now, up to this point I have been careful to avoid explicitly mentioning whether our coin is fair or not.
+    - For the time being, let's assume that the probability our coin lands 'heads' on any given toss is some fixed value $p$.
+    
+---
+
+:::{style="font-size:32px"}
+:::{.nonincremental}
+- Now, we *have* assumed that the coin tosses are performed independently of each other.
+:::
+
+- What this means is the probability of the outcome (`T`, \ `T`, \ `T`) is simply $(1-p)^3$
+    - If it's not clear why, think of it this way: (`T`, \ `T`, \ `T`) means "`T` first **and** `T` second **and** `T` third''. By independence, the probability of this string of occurrences is simply 
+    $$ \mathbb{P}(\text{\texttt{T} first}) \times \mathbb{P}(\text{\texttt{T} second}) \times \mathbb{P}(\text{\texttt{T} third}) $$
+    which is just $(1 - p) \times (1 - p) \times (1 - p) = (1 - p)^3$.
+    
+- Hence, $\mathbb{P}(X = 0) = (1 - p)^3$.
+    - For example, *if* the coin were fair (i.e. $p = 1/2$), then $\mathbb{P}(X = 0) = (1/2)^3 = (1/8)$.
+:::
+
+---
+
+:::{style="font-size:30px"}
+:::{.nonincremental}
+- What about the probability of observing exactly 1 head?
+:::
+- I.e., how would we go about computing $\mathbb{P}(X = 1)$?
+
+- Well, let's use the same logic we used before: that is, let's see what outcomes comprise the event $\{X = 1\}$.
+
+- Upon inspection, we see that the event $\{X = 1\}$ is equivalent to the event \{(`H`, \ `T`, \ `T`), \ (`T`, \ `H`, \ `T`), \ (`T`, \ `T`, \ `H`) \ }.
+    - The probability of the outcome (`H`, \ `T`, \ `T`) is $p \times (1 - p) \times (1 - p) = p \times (1 - p)^2$
+    - The probability of the outcome (`T`, \ `H`, \ `T`) is $(1 - p) \times p \times (1 - p) = p \times (1 - p)^2$
+    - The probability of the outcome (`T`, \ `T`, \ `H`) is $(1 - p)^2  \times p = p \times (1 - p)^2$
+- Therefore, putting these facts together, we find
+$$ \mathbb{P}(X = 1) = 3 \times p \times (1 - p)^2 $$
+:::
+
+---
+
+:::{style="font-size:32px"}
+:::{.nonincremental}
+- We could play the same game to find $\mathbb{P}(X = 2)$ and $\mathbb{P}(X = 3)$:
+:::
+
+:::{.fragment}
+| **Probability** | **Value** |
+|:----:|:-----:|
+| $\mathbb{P}(X = 0)$ | $(1 - p)^3$ |
+| $\mathbb{P}(X = 1)$ | $3 \times p \times (1 - p)^2$ |
+| $\mathbb{P}(X = 2)$ | $3 \times p^2 \times (1 - p)$ |
+| $\mathbb{P}(X = 3)$ | $p^3$ |
+:::
+
+\
+
+- Another way to display these results is in the following format:
+
+:::{.fragment}
+$$\begin{array}{r|cccc}
+  \boldsymbol{k}    &     0   & 1   & 2   & 3   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   & (1 - p)^3   & 3  p (1 - p)^2  & 3  p^2 (1 - p) &  p^3 
+\end{array}$$
+:::
+:::
+
+## Probability Mass Function
+
+- The table on the previous slide is called a **probability mass function**, and is often abbreviated as p.m.f.. 
+
+- In general, the p.m.f. of an arbitrary random variable $X$ is a table or formula that specifies all the possible values a random variable can take (i.e. the state space), along with the probability with which the random variable attains those values.
+
+- We use the term "function" to describe this because, in abstraction, we can notate the p.m.f. as
+$$ p_X(k) := \mathbb{P}(X = k) $$ 
+where $k$ can be any value in the state space of $X$.
+
+## Example
+
+::: callout-tip
+## Worked-Out Example 1
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+Suppose we toss three fair coins independently, and let $X$ denote the number of heads observed. Construct the p.m.f. (probability mass function) of $X$.
+:::
+:::
+:::
+
+- By our work from above, the p.m.f. of $X$ is given by
+$$\begin{array}{r|cccc}
+  \boldsymbol{k}    &     0   & 1   & 2   & 3   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   & 1/8   & 3/8  & 3/8 &  1/8
+\end{array}$$
+
+- By the way, notice that the probabilities in the p.m.f. sum up to 1.
+    - This is not a coincidence! Because the probabilities represent the probabilities of *all* values $X$ can take, they *must* sum up to 1.
+    
+## Properties of PMF's {style="font-size:32px"}
+
+- This leads us to posit the following two properties of probability mass functions:
+
+:::{.fragment}
+:::{.nonincremental}
+::: callout-important
+## Properties of a PMF
+
+::: {style="font-size: 28px"}
+1) The values in a PMF must sum to 1
+2) The values in a PMF must always be nonnegative
+:::
+:::
+:::
+:::
+
+- Also: we implicitly set probabilities not contained in the p.m.f. to be zero.
+    - For instance: in our coin tossing example, $\mathbb{P}(X = 1.5) = 0$. 
+    - This makes sense! If $k \notin S_X$, then by *definition* of the state space it is *impossible* for $X$ to attain the value $k$, and so $\mathbb{P}(X = k) = 0$.
+
+## Worked-Out Example {style="font-size:30px"}
+
+::: callout-tip
+## Worked-Out Example 2
+
+:::{.nonincremental}
+::: {style="font-size: 28px"}
+A random variable $X$ has the following p.m.f.:
+$$\begin{array}{r|cccc}
+  \boldsymbol{k}    &     -1.4   & 0   & 3   & 4.15   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   & 0.1 & 0.2 & \boldsymbol{a} & 0.6
+\end{array}$$
+What must be the value of $\boldsymbol{a}$?
+:::
+:::
+:::
+
+- Because the values in a p.m.f. must sum to 1, we must have
+$$ 0.1 + 0.2 + a + 0.6 = 1 $$
+which means
+$$ a = 1 - (0.1 + 0.2 + 0.6) = \boxed{0.1} $$
+
+## Worked-Out Example
+
+::: callout-tip
+## Worked-Out Example 3
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+A random variable $X$ has the following p.m.f.:
+$$\begin{array}{r|cccc}
+  \boldsymbol{k}    &     -1.4   & 0   & 3   & 4.15   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   & 0.1 & 0.2 & 0.1 & 0.6
+\end{array}$$
+Compute both $\mathbb{P}(X = 0)$ and $\mathbb{P}(X \leq 0)$.
+:::
+:::
+:::
+
+- For $\mathbb{P}(X = 0)$, we can simply read off the corresponding element from the p.m.f.: \boxed{\mathbb{P}(X = 0) = 0.2}
+
+---
+
+:::{style="font-size:30px"}
+
+:::{.nonincremental}
+- Now, $\mathbb{P}(X \leq 0)$ means "what's the probability that $X$ is less than or equal to $0$"?
+:::
+
+- There are only two values in $S_X$ [by the way, as an aside, can anyone tell me what $S_X$ is in this problem?] that are less than or equal to $0$: $0$ itself, and $-1.4$.
+
+- Hence, saying that $X$ was less than or equal to $0$ is equivalent to saying $X$ was either $-1.4$ or $0$.
+
+- Therefore,
+$$ \mathbb{P}(X \leq 0) = \mathbb{P}(X = -1.4) + \mathbb{P}(X = 0) = 0.1 + 0.2 = \boxed{0.3} $$
+
+:::{.fragment}
+:::{.nonincremental}
+::: callout-tip
+## Computing $\mathbb{P}(X \leq k)$
+
+::: {style="font-size: 28px"}
+To compute $\mathbb{P}(X \leq k)$, we sum up the values $\mathbb{P}(X = x)$ for all values of $x$ in the state space that are less than or equal to $k$.
+:::
+:::
+:::
+:::
+
+:::
+
+
+## Expected Value
+
+:::{.fragment}
+:::{.callout-note}
+## **Definition**
+::: {style="font-size: 30px"}
+The **expected value** (or just **expectation**) of a discrete random variable $X$ is 
+$$ \mathbb{E}[X] = \sum_{\text{all $k$}} k \cdot \mathbb{P}(X = k) $$ 
+where the sum ranges over all values of $k$ in the state space.
+:::
+:::
+:::
+
+- In words: multiply each value in the state space by the corresponding probability, and then sum.
+
+- The expected value is a sort of 'center' of a random variable.
+
+
+## Worked-Out Example {style="font-size:24px"}
+
+::: callout-tip
+## Worked-Out Example 4
+
+:::{.nonincremental}
+::: {style="font-size: 24px"}
+A random variable $X$ has the following p.m.f.:
+$$\begin{array}{r|cccc}
+  \boldsymbol{k}    &     -1.4   & 0   & 3   & 4.15   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   & 0.1 & 0.2 & 0.1 & 0.6
+\end{array}$$
+Compute $\mathbb{E}[X]$.
+:::
+:::
+:::
+
+- We compute
+\begin{align*}
+  \mathbb{E}[X]   & = \sum_{\text{all $k$}} k \cdot \mathbb{P}(X = k)   \\[5mm]
+    & = (-1.4) \cdot \mathbb{P}(X = -1.4) + (0) \cdot \mathbb{P}(X = 0) + (3) \cdot \mathbb{P}(X = 3)   \\
+      & \hspace{10mm} + (4.15) \cdot \mathbb{P}(X = 4.15)    \\[5mm]
+      & = (-1.4) \cdot (0.1) + (0) \cdot (0.2) + (3) \cdot (0.1) + (4.15) \cdot (0.6) = \boxed{2.65}
+\end{align*}
+
+## Variance and SD {style="font-size:30px"}
+
+:::{.fragment}
+:::{.callout-note}
+## **Definition**
+::: {style="font-size: 23px"}
+The **variance** of a discrete random variable $X$ is 
+$$ \mathrm{Var}(X) = \sum_{\text{all $k$}} (k - \mathbb{E}[X])^2 \cdot \mathbb{P}(X = k) $$ 
+where the sum ranges over all values of $k$ in the state space. The **standard deviation** is the square root of the variance:
+$$ \mathrm{SD}(X) = \sqrt{\mathrm{Var}(X)} $$
+:::
+:::
+:::
+
+
+:::{.fragment}
+:::{.callout-important}
+## **Second Formula for Variance**
+::: {style="font-size: 23px"}
+$$ \mathrm{Var}(X) = \left( \sum_{\text{all $k$}} k^2 \cdot \mathbb{P}(X = k) \right) - \left( \mathbb{E}[X] \right)^2 $$ 
+:::
+:::
+:::
+
+## Worked-Out Example {style="font-size:24px"}
+
+::: callout-tip
+## Worked-Out Example 5
+
+:::{.nonincremental}
+::: {style="font-size: 24px"}
+A random variable $X$ has the following p.m.f.:
+$$\begin{array}{r|cccc}
+  \boldsymbol{k}    &     -1.4   & 0   & 3   & 4.15   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   & 0.1 & 0.2 & 0.1 & 0.6
+\end{array}$$
+Compute $\mathrm{Var}(X)$ and $\mathrm{SD}(X)$.
+:::
+:::
+:::
+
+- We previously found that $\mathbb{E}[X] = 2.65$.
+- Hence, we need only to find $\sum_{k} k^2 \cdot \mathbb{P}(X = x)$:
+\begin{align*}
+  \sum_{\text{all $k$}} k^2 \cdot \mathbb{P}(X = k) & = (-1.4)^2 \cdot \mathbb{P}(X = -1.4) + (0)^2 \cdot \mathbb{P}(X = 0) + (3)^2 \cdot \mathbb{P}(X = 3)   \\
+      & \hspace{10mm} + (4.15)^2 \cdot \mathbb{P}(X = 4.15)    \\[5mm]
+      & = (-1.4)^2 \cdot (0.1) + (0)^2 \cdot (0.2) + (3)^2 \cdot (0.1) + (4.15)^2 \cdot (0.6) = 11.4295
+\end{align*}
+
+---
+
+:::{style="font-size:28px"}
+:::{.nonincremental}
+- Therefore, by the second formula for variance,
+$$ \mathrm{Var}(X) = 11.4295 - (2.65)^2 = \boxed{4.407} $$
+and so $\mathrm{SD}(X) = \sqrt{4.407} \approx \boxed{2.099}$
+:::
+
+- We could have used the definition of variance as well:
+\begin{align*}
+  \mathrm{Var}(X)   & = \sum_{\text{all $k$}} (k - \mathbb{E}[X])^2 \cdot \mathbb{P}(X = k)   \\[3mm]
+    & = (-1.4 - 2.65)^2 \cdot \mathbb{P}(X = -1.4) + (0 - 2.65)^2 \cdot \mathbb{P}(X = 0)  \\
+    & \hspace{10mm}  + (3 - 2.65)^2 \cdot \mathbb{P}(X = 3)  + (4.15 - 2.65)^2 \cdot \mathbb{P}(X = 4.15)    \\[5mm]
+    & = (-1.4 - 2.65)^2 \cdot (0.1) + (0 - 2.65)^2 \cdot (0.2) + (3 - 2.65)^2 \cdot (0.1)     \\
+    & \hspace{10mm} + (4.15 - 2.65)^2 \cdot (0.6)   = 4.407
+\end{align*}
+:::
+
+## Your Turn! {style="font-size:28px"}
+
+::: callout-tip
+## Exercise 1
+
+:::{.nonincremental}
+::: {style="font-size: 25px"}
+Suppose $X$ is a random variable with p.m.f. (probability mass function) given by
+$$\begin{array}{r|cccc}
+  \boldsymbol{k}    &     -1 & 0 & 1 & 2   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   & 0.3 & 0.2 & 0.1 & \boldsymbol{a}
+\end{array}$$
+
+a. Find the state space $S_X$ of $X$.
+b. Find the value of $\boldsymbol{a}$
+c. Find $\mathbb{P}(X = 0.5)$
+d. Find $\mathbb{P}(X \leq 1)$
+e. Find $\mathbb{P}(X > 1)$
+f. Find $\mathbb{E}[X]$
+f. Find $\mathrm{Var}(X)$ and $\mathrm{SD}(X)$
+:::
+:::
+:::
+
+
+## Your Turn! {style="font-size:30px"}
+
+::: callout-tip
+## Exercise 2
+
+:::{.nonincremental}
+::: {style="font-size: 28px"}
+Consider the following game: a fair six-sided die is rolled. If the number showing is `1` or `2`, you win a dollar; if the number showing is `3`, `4`, or `5` you win 2 dollars; if the number showing is `6`, you lose 1 dollar. Let $W$ denote your net winnings after playing this game once.
+
+a. Write down the state space $S_W$ of $W$.
+b. Find the p.m.f. of $W$.
+c. What are your expected winnings after one round of the game?
+:::
+:::
+:::
+
+## Back to Coins {style="font-size:30px"}
+
+- Alright, let's close out this lecture by returning to our coin tossing example.
+
+- As a reminder: if we let $X$ denote the number of heads in 3 tosses of a $p-$coin (i.e. a coin that lands 'heads' with probability $p$), the p.m.f. of $X$ is given by
+
+:::{.fragment}
+$$\begin{array}{r|cccc}
+  \boldsymbol{k}    &     0   & 1   & 2   & 3   \\
+  \hline
+  \boldsymbol{\mathbb{P}(X = k)}   & (1 - p)^3   & 3  p (1 - p)^2  & 3  p^2 (1 - p) &  p^3 
+\end{array}$$
+:::
+
+- What if instead of tossing 3 coins, we had tossed 4? Or 5? Or 10?
+
+- We could go through the same steps we did before, when deriving the p.m.f. for three tosses, but let's be a little smarter about this; let's answer the following more general question:
+
+---
+
+:::{style="font-size:28px"}
+> If $X$ denotes the number of heads in $n$ tosses of a $p-$coin, what is the p.m.f. of $X$?
+
+- It's always a good idea to start with the support. If we are tossing $n$ coins, we cannot observe any more than $n$ heads, nor can we observe any less than $0$ heads. As such,
+$$ S_X = \{0, 1, 2, \cdots, n\} $$
+
+- Now, let's consider an arbitrary $k \in S_X$, and examine the event $\{X = k \}$.
+
+- In words, $\{X = k \}$ means "we observe exactly $k$ heads", which is equivalent to "we observe exactly $k$ heads and $(n - k)$ tails."
+
+- Suppose, for the moment, that these $k$ heads occurred consecutively, and at the beginning of our tosses. I.e., suppose we have the outcome
+$$ (\underbrace{H, \ H, \ \cdots, \ H}_{\text{$k$ heads}}, \ \underbrace{T, \ T, \ \cdots, \ T}_{\text{$n - k$ tails}}) $$
+
+    - The probability of this outcome is $p^k \cdot (1 - p)^{n - k}$.
+:::
+
+---
+
+:::{style="font-size:28px"}
+:::{.nonincremental}
+- However, the event $\{X = k\}$ does not mean "$k$ heads *at the beginning* followed by $(n - k)$ tails"; it just means "$k$ heads *anywhere among our $n$ tosses* and $(n - k)$ tails".
+:::
+
+- As such, there are $\binom{n}{k}$ other outcomes in the event $\{X = k\}$, corresponding to the $\binom{n}{k}$ different ways to place the $k$ heads among the $n$ tosses.
+
+- So, what we have is
+$$ \mathbb{P}(X = k) = \binom{n}{k} \cdot p^k \cdot (1 - p)^{n - k} $$
+
+    - As an aside, note that this agrees with our three-coin case from above: plugging in $n = 3$ yields exactly the same p.m.f. we found before.
+:::
+
+## Binomial Distribution
+
+::: callout-note
+## The Binomial Distribution
+
+:::{.nonincremental}
+::: {style="font-size: 28px"}
+
+Suppose the probability of a single trial resulting in a 'success' is $p$. Letting $X$ denote the number of successes in $n$ independent trials, then we say that $X$ follows the **Binomial Distribution** with parameters $n$ and $p$. We use the notation $X \sim \mathrm{Bin}(n, p)$ to denote this.
+:::
+:::
+:::
+
+:::{.fragment}
+::: callout-note
+## Facts about the Binomial Distribution
+
+:::{.nonincremental}
+::: {style="font-size: 28px"}
+If $X \sim \mathrm{Bin}(n, p)$, then
+
+-  $\displaystyle \mathbb{P}(X = k) = \binom{n}{k} \cdot p^k \cdot (1 - p)^{n - k}$
+- $\mathbb{E}[X] = np$ and $\mathrm{Var}(X) = np(1 - p)$
+:::
+:::
+:::
+:::
+
+
+
+## Binomial Conditions
+
+::: callout-important
+## Four Conditions to Check
+
+:::{.nonincremental}
+::: {style="font-size: 28px"}
+
+If $X$ counts the number of successes in $n$ trials, there are four conditions that need to be satisfied in order for $X$ to follow the Binomial Distribution:
+
+1) The trials must be independent
+2) The number of trials, $n$, must be fixed
+3) There should be a well-defined notion of "success" and "failure" on each trial
+4) The probability of "success" must remain constant across trials.
+:::
+:::
+:::
+
+- So, remember: $X \sim \mathrm{Bin}(n, p)$ just means "$X$ counts the number of successes in $n$ trials, where success occurs with probability $p$ on any given trial, subject to the four conditions above being satisfied.
+
+## Worked-Out Example
+::: callout-tip
+## Worked-Out Example 6
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+a. If we roll a fair $6-$sided die $13$ times (assume rolls are independent of each other) and let $X$ denote the number of times we observe an even number, is $X$ binomially distributed?
+
+b. In a large population of $100$ students, of which $70$ own Android phones, we draw a random sample of 10 without replacement and let $Y$ denote the number of students in this sample that have Android phones. Is $Y$ binomially distributed?
+
+c. Consider the same setup as in part (b) above, except this time suppose students are selected *with* replacement. Is $Y$ binomially distributed?
+
+:::
+:::
+:::
+
+
+## Part (a)
+
+- We check the Binomial Conditions.
+    1) Independent trials? Yup!
+    2) Fixed number of trials? Yup! ($n = 13$)
+    3) Well-defined notion of success? Yup! ("success" = "rolling an even number" and "failure" = "rolling an odd number")
+    4) Fixed probability of success? Yup! ($p = 1/2$).
+
+- Since all 4 conditions are satisfied, $X$ \emph{is} binomially distributed: specifically,
+$$ X \sim \mathrm{Bin}(13, \ 1/2) $$
+
+
+## Part (b)
+
+- We check the Binomial Conditions.
+    1) Independent trials? \textbf{Nope}; because sampling is done without replacement, trials are no longer independent (i.e. the result of our second trial is very much dependent on the result of our first).
+
+- Since at least one condition is violated, $Y$ does \emph{not} follow the binomial distribution.
+
+
+
+## Part (c)
+
+- We check the Binomial Conditions.
+    1) Independent trials? Yup!
+    2) Fixed number of trials? Yup! ($n = 10$)
+    3) Well-defined notion of success? Yup! ("success" = "owning an Android phone" and "failure" = "not owning an Android phone")
+    4) Fixed probability of success? Yup! ($p = 7/10$).
+
+- Since all 4 conditions are satisfied, $Y$ \emph{is} binomially distributed: specifically,
+$$ Y \sim \mathrm{Bin}(10, \ 7/10) $$
+
+
+
+
+## Your Turn! {style="font-size:30px"}
+
+::: callout-tip
+## Exercise 3
+
+:::{.nonincremental}
+::: {style="font-size: 28px"}
+Suppose Jana toss $65$ different $12-$sided dice, independently of each other; let $Z$ denote the number of times a multiple of three results. 
+
+a. Verify that $Z$ follows the Binomial Distribution, and identify its parameters.
+b. What is the probability that Jana observes exactly 23 multiples of three?
+c. What is the expected number of multiples of three Jana will observe?
+d. What is the standard deviation of the number of multiples of three Jana will observe?
+:::
+:::
+:::

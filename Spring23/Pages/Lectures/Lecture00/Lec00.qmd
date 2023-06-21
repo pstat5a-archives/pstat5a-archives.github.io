@@ -1,0 +1,207 @@
+---
+title: "PSTAT 5A: Lecture 00"
+subtitle: "Introduction to Data Science"
+author: "Ethan P. Marzban"
+date: "04/04/23"
+format: 
+    revealjs:
+      theme: [default, custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+# Welcome!
+
+## Course Staff
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+:::{.nonincremental}
+- **Instructor:**
+    - Ethan (He/Him)
+    - epmarzban@pstat.ucsb.edu
+    - OH: [HW Clinic:]{.underline} Tuesdays, 4:30 - 5:30pm in ELLSN 2626 <br /> [OH:]{.underline} Fridays, 12 - 1pm in SH 5607F
+
+:::
+:::
+
+::: {.column width="40%"}
+
+![](ethan.svg){width=60% fig-align="center"}
+
+:::
+
+::::
+
+- What is a HW Clinic?
+
+    - Basically, it will be like a regular office hours but with a focus on Homework (along with a possible short review at the start).
+
+---
+
+## Course Staff 
+
+
+\
+
+**Teaching Assistants:**
+
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+:::{.nonincremental}
+
+- **Nickolas Thiessen**
+- nickolas@ucsb.edu
+- OH: F, 9 - 11am in B434 Rm 113
+
+:::
+:::
+
+::: {.column width="40%"}
+
+:::{.nonincremental}
+
+- **Jason Teng**
+- jteng@ucsb.edu
+- OH: Th, 10 - 11am in SH 5421
+
+:::
+
+:::
+
+::::
+
+:::{.nonincremental}
+- **Yuan Zhou**
+- yuan_zhou@ucsb.edu
+- OH: T, 11am - 12pm in SH 5421
+:::
+
+
+## Course Staff 
+
+**Undergraduate Learning Assistant:**
+
+:::{.nonincremental}
+- **Catherine Li**
+- catherine_li@ucsb.edu
+- OH: T, 2 - 4pm and Th, 9 - 11am (over Zoom)
+- Study Groups: 
+    - T 3:30 - 4:30pm (location TBD)
+    - Th 3:30 - 5:30pm (location TBD)
+:::
+
+\
+
+_**Catherine's Help Hours will begin Next Week**_
+
+
+
+## Course Resources
+
+- **Canvas**: for grades and quizzes
+- **Gradescope:** for homeworks and exams
+- **Course Website:** <a href = "https://pstat5a.github.io" target = "_blank">https://pstat5a.github.io</a>
+    - All relevant course material will be posted to the website!
+    - One exception: quizzes, which will be randomized across students and administered over Canvas.
+
+- Please read the syllabus fully and carefully!
+
+    - Especially when it comes to switching Sections!
+
+## Discord
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](discord.svg)
+:::
+
+::: {.column width="50%"}
+
+\
+\
+\
+\
+
+## bit.ly/sp235adisc
+
+:::
+
+::::
+
+# Any Questions about the syllabus?
+
+# What is Data Science
+
+---
+
+![](datasci_def.svg){width=80% fig-align="center"}
+
+## What is Data Science? {style="font-size:33px"}
+
+- Not a bad definition!
+
+- Though, there isn't a single agreed-upon definition of what data science is.
+
+- Most people agree that Data science is **cross-disciplinary**, drawing experience and expertise from a wide variety of different fields.
+
+    - Perhaps the two main fields from which Data Science draws are Statistics and Computer Science
+
+- Like ChatGPT suggested, computation is an integral part of Data Science.
+
+    - As we will soon see, the data that is being analyzed these days is *huge*; certainly too large to be able to do anything with it on pen and paper.
+  
+---
+
+:::{.nonincremental}
+- However, Data Science is not just running things through computer programs.
+:::
+
+- An equally integral part of Data Science is the **theory** that surrounds data, modeling, and randomness- theory that comes from the field of **Statistics**.
+
+- Even if you are planning on going into industry right after university, you will still need to know some of the theory.
+
+    - One of my undergrad professors put it well- companies don't want to hire people to mindlessly pass data through computer programs. Rather, they want people that are not only well-versed in the programmatic applications of data but also the reasons behind *why* they are applying the programming tools they are applying!
+
+## The Path Forward
+
+- So, how does this course factor into things?
+
+- From the course description:
+
+:::{.fragment}
+> Introduction to data science. Concepts of statistical thinking. Topics include random variables, sampling distributions, hypothesis testing, correlation and regression. Visualizing, analyzing and interpreting real world data using Python. Computing labs required.
+:::
+
+- So this course is designed to be an introduction to data science.
+
+---
+
+:::{.nonincremental}
+- We will start with **Descriptive Statistics**, a branch of statistics designed to try and *describe* or *summarize* data.
+:::
+
+- We will then devote some time to talking about **Probability**, which is in many ways the theory behind randomness and uncertainty.
+
+- Next, we will use **Inferential Statistics** to discuss how we can use data to draw conclusions (i.e. *inferences*) about the world around us.
+
+    - This will include both **Confidence Intervals** as well as **Hypothesis Testing**.
+
+- Finally, we will discuss a topic known as **Regression** which will be our first (and only, for this class) foray into statistical modeling.
+
+# So, without further ado.... Let's Get Started!

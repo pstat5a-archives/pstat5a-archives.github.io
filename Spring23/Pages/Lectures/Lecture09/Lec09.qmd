@@ -1,0 +1,1157 @@
+---
+title: "PSTAT 5A: Lecture 09"
+subtitle: "Continuous Random Variables"
+author: "Ethan P. Marzban"
+date: "5/2/23"
+format: 
+    revealjs:
+      html-math-method: mathjax
+      theme: [default, custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+```
+
+## Last Time {style="font-size:32px"}
+
+- Last lecture we started talking about random variables.
+- A random variable is a *numeric* outcome of some random process or experiment.
+    - For example, "number of heads observed in $5$ independent tosses of a fair coin"
+- The state space of a random variable $X$ is the set $S_X$ of possible values the random variable could attain.
+    - If $S_X$ has jumps, we say $X$ is a "discrete random variable"
+    - Otherwise, we say $X$ is a "continuous random variable."
+
+- Today we'll talk about continuous random variables.
+
+---
+
+:::{.fragment}
+:::{.callout-tip}
+## **Rule-of-Thumb**
+::: {style="font-size: 30px"}
+Here is a quick way to determine whether a random variable is continuous or discrete:
+
+- If the random variable is something you can *count*, then it is discrete.
+- If the random variable is something you can *measure*, then it is continuous.
+:::
+:::
+:::
+
+- I'd like to stress, though- this is only a rule-of-thumb. If we ask you to *justify* your choice of classification of a random variable as either discrete or continuous, your argument **must** make mention of the state space (as this is the true *definitional* way of classifying random variables.)
+
+
+## Continuous Random Variables {style="font-size:28px"}
+
+- Continuous random variables are described by their so-called **probability density function** (or p.d.f. for short). 
+    - The graph of a p.d.f. is called the **density curve**.
+- The p.d.f. is such that probabilities are found as areas underneath the density curve.
+- For example, if the random variable $X$ has the following density curve...
+
+:::{.fragment}
+```{r, fig = T, fig.align = 'center', fig.width = 7, fig.height = 4}
+#| echo: False
+
+f <- function(x){
+  0.3 * dbeta(x, 2, 6) + 0.7 * dbeta(x, 6, 2)
+}
+
+x <- seq(0, 1, by = 0.1)
+data.frame(x) %>% ggplot(aes(x = x)) +
+  stat_function(fun = f,
+                size = 1) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") 
+```
+:::
+
+---
+
+:::{.nonincremental}
+- ...then the probability $\mathbb{P}(0.25 \leq X \leq 0.75)$ is represented by the following area:
+
+:::{.fragment}
+```{r, fig = T, fig.align = 'center', fig.width = 7, fig.height = 4}
+#| echo: False
+
+f <- function(x){
+  0.3 * dbeta(x, 2, 6) + 0.7 * dbeta(x, 6, 2)
+}
+
+x <- seq(0, 1, by = 0.1)
+data.frame(x) %>% ggplot(aes(x = x)) +
+  stat_function(fun = f,
+                xlim = c(0.25, 0.75),
+                geom = "area",
+                fill = "#a4caeb") +
+  stat_function(fun = f,
+                size = 1) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") 
+```
+:::
+
+:::
+
+## Two Properties {style="font-size:30px"}
+
+- Since probabilities are areas underneath the density curve, we arrive at the following two properties (which themselves follow from the Axioms of Probability):
+
+:::{.fragment}
+:::{.callout-important}
+## **Properties of a P.D.F.**
+::: {style="font-size: 30px"}
+1) Density curves must always be nonnegative; i.e. the corresponding p.d.f. $f_X(x)$ must obey $f_X(x) \geq 0$ for every $x$.
+2) The area underneath a density curve must be $1$.
+:::
+:::
+:::
+
+- In this lecture, we will examine two continuous distributions: the uniform distribution, and the normal distribution.
+    - We will see that the density curves/p.d.f.'s of these two distributions will satisfy the above two properties.
+
+# Uniform Distribution
+
+## Uniform Distribution
+
+- The **uniform distribution** takes two parameters: $a$ and $b$, with $a < b$. 
+    - We denote the fact that a random variable $X$ follows the uniform distribution with parameters $a$ and $b$ using the notation $$ X \sim \mathrm{Unif}(a, \ b) $$
+- The $\mathrm{Unif}(a, \ b)$ distribution has the following p.d.f.:
+$$ f_X(x) = \begin{cases} \displaystyle \frac{1}{b - a} & \text{if } a \leq x \leq b \\[3mm] 0 & \text{otherwise} \\ \end{cases} $$ 
+which corresponds to a rectangular density curve:
+
+---
+
+:::{style="font-size:29px"}
+
+:::{style="text-align:center"}
+![](unif.svg){width="78%"}
+:::
+
+- Note that the area under this density curve is (using the formula for the area of a rectangle)
+$$ (b - a) \times \left( \frac{1}{b - a} \right) = 1 $$
+as we expected!
+
+:::
+
+## Uniform Density Curves {style="font-size:30px"}
+
+- Oftentimes, we will be a bit lazy with our density curve and omit the open/closed circles. For example, we might sketch the density curve of the $\mathrm{Unif}(1, \ 2.15)$ distribution as
+
+:::{.fragment}
+```{r}
+#| echo: False
+#| fig.align: 'center'
+
+ggplot(data.frame(x = c(0, 3)), aes(x)) +
+  stat_function(fun = dunif,
+                args = list(1, 2.5),
+                size = 1.5,
+                n = 200) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  ylim(c(0, 1)) +
+  scale_x_continuous(breaks = round(
+    seq(0, 3, by = 0.5), 
+    1)
+  )
+```
+:::
+
+
+## Effect of Changing $a$ and $b$
+
+```{ojs}
+viewof a = Inputs.range(
+  [-3, 3], 
+  {value: 0, step: 0.1, label: "a="}
+)
+
+viewof b = Inputs.range(
+  [-3, 3], 
+  {value: 1, step: 0.1, label: "b="}
+)
+```
+
+```{ojs}
+margin2 = ({top: 20, right: 30, bottom: 30, left: 40})
+
+height2 = 400
+
+x_values2 = d32.scaleLinear()
+.domain(d32.extent(data2, d => d.x))
+.range([margin2.left, width - margin2.right])
+
+y_values2 = d32.scaleLinear()
+.domain([Math.min(d32.min(data2, d => d.y),0), Math.max(1,d32.max(data2, d => d.y))]).nice()
+.range([height2 - margin2.bottom, margin2.top])
+
+line2 = d32.line()
+.x(d => x_values2(d.x))
+.y(d => y_values2(d.y))
+
+xAxis2 = g => g
+.attr("transform", `translate(0,${height2 - margin2.bottom})`)
+.call(d32.axisBottom(x_values2)
+      .ticks(width / 80)
+      .tickSizeOuter(0))
+
+yAxis2 = g => g
+.attr("transform", `translate(${margin2.left},0)`)
+.call(d32.axisLeft(y_values2)
+      .tickValues(d32.scaleLinear().domain(y_values2.domain()).ticks()))
+
+function unif_pdf (input_value, mu, sigsq) {
+if(input_value < a){
+  return 0
+} else if(input_value > b){
+  return 0
+} else{
+  return 1 / (b - a)
+}
+}
+
+abs_x2=6
+
+data2 = {
+  let values = [];
+  for (let x = -abs_x2; x < abs_x2; x=x+0.01) values.push({"x":x,"y":unif_pdf(x, µ, sigsquared)});
+  return values;
+}
+
+d32 = require("https://d3js.org/d3.v5.min.js")
+
+chart2 = {
+  const svg = d32.select(DOM.svg(width, height2));
+  
+  svg.append("g")
+  .call(xAxis2);
+  
+  svg.append("g")
+  .call(yAxis2);
+  
+  svg.append("path")
+  .datum(data2)
+  .attr("fill", "none")
+  .attr("stroke", "steelblue")
+  .attr("stroke-width", 4)
+  .attr("stroke-linejoin", "round")
+  .attr("stroke-linecap", "round")
+  .attr("d", line);
+  
+  return svg.node();
+}
+
+```
+
+:::{style="font-size:18px; text-align:right"}
+*Credit to https://observablehq.com/@dswalter/normal-distribution for the base of the applet code*
+:::
+
+## Uniform Probabilities
+
+- Recall, from our initial discussion on continuous random variables, that probabilities are found as areas underneath the density curve.
+- Due to the rectangular shape of the Uniform density curves, finding probabilities under the Uniform distribution ends up being relatively straightforward (so long as we remember how to find the area of a rectangle!)
+
+- Let's work through an example together.
+
+:::{.fragment}
+::: callout-tip
+## Worked-Out Example 1
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+If $X \sim \mathrm{Unif}(-1, \ 1)$, compute $\mathbb{P}(X \leq 0.57)$.
+:::
+:::
+:::
+:::
+
+## Solution {style="font-size:28px"}
+
+- When working through probability problems involving continuous distributions, sketching a picture is **always** a good first step.
+    - Sometimes, we will explicitly make that the first step of a problem, meaning failure to sketch a relevant picture may result in less-than-full marks!
+- The density curve of the $\mathrm{Unif}(-1, \ 1)$ distribution is given by
+
+:::{.fragment}
+```{r}
+#| fig.height = 3,
+#| fig.width = 7,
+#| fig.align = 'center'
+
+ggplot(data.frame(x = c(-1.5, 1.5)), aes(x)) +
+  stat_function(fun = dunif,
+                args = list(-1, 1),
+                size = 1.5,
+                n = 250) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  ylim(c(0, 0.75)) +
+  scale_x_continuous(breaks = round(
+    seq(-1, 1, by = 0.5), 
+    1)
+  ) +
+  theme(plot.margin = margin(-1, 0, 0, 0, "cm"))
+
+```
+:::
+
+## Solution {style="font-size:28px"}
+
+- The desired probability is thus
+
+:::{.fragment}
+```{r}
+#| fig.height = 3,
+#| fig.width = 7,
+#| fig.align = 'center'
+
+ggplot(data.frame(x = c(-1.5, 1.5)), aes(x)) +
+  stat_function(fun = dunif,
+                args = list(-1, 1),
+                xlim = c(-1, 0.57),
+                geom = "area",
+                fill = "#a4caeb",
+                n = 250) +
+  stat_function(fun = dunif,
+                args = list(-1, 1),
+                size = 1.5,
+                n = 250) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  ylim(c(0, 0.75)) +
+  scale_x_continuous(breaks = round(
+    seq(-1, 1, by = 0.5), 
+    1)
+  ) +
+  theme(plot.margin = margin(-1, 0, 0, 0, "cm"))
+
+```
+:::
+
+- This is a rectangle with base $(0.57 - (-1)) = 1.57$ and height $1 / (1 - (-1)) = 1/2$. Therefore, the area of this rectangle - and, also, the desired probability - is 
+$$ (1.57) \times \frac{1}{2} = \boxed{0.785 = 78.5\%} $$
+
+## Another Example {style="font-size:30px"}
+
+:::{.fragment}
+::: callout-tip
+## Worked-Out Example 2
+
+:::{.nonincremental}
+::: {style="font-size: 28px"}
+If $X \sim \mathrm{Unif}(0, 1)$, compute $\mathbb{P}(0.25 \leq X \leq 0.75)$.
+:::
+:::
+:::
+:::
+
+- We are going to solve this problem in two different ways.
+- Again, we always begin with a sketch of the desired probability as an area underneath the density curve:
+
+:::{.fragment}
+```{r}
+#| fig.height = 3,
+#| fig.width = 7,
+#| fig.align = 'center'
+
+ggplot(data.frame(x = c(-0.5, 1.5)), aes(x)) +
+  stat_function(fun = dunif,
+                args = list(0, 1),
+                xlim = c(0.25, 0.75),
+                geom = "area",
+                fill = "#a4caeb",
+                n = 250) +
+  stat_function(fun = dunif,
+                args = list(0, 1),
+                size = 1.5,
+                n = 250) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  ylim(c(0, 1.25)) +
+  scale_x_continuous(breaks = round(
+    seq(-0.5, 1.5, by = 0.5), 
+    1)
+  ) +
+  theme(plot.margin = margin(-1, 0, 0, 0, "cm"))
+
+```
+:::
+
+---
+
+:::{style="font-size:28px"}
+
+:::{.nonincremental}
+- This is a rectangle with base $(0.75 - 0.25) = 0.5$ and height $1 / (1 - 0) = 1$, meaning its area is
+$$ (0.5) \cdot \left(1 \right) = \boxed{0.5 = 50\%} $$
+:::
+
+- Another way we can think about this area, however, is as a difference of two areas:
+
+::::{.columns}
+
+:::{.column width="30%"}
+:::
+
+:::{.column width="40%"}
+:::{.fragment}
+```{r}
+#| fig.height = 3,
+#| fig.width = 7,
+#| fig.align = 'center'
+
+ggplot(data.frame(x = c(-0.5, 1.5)), aes(x)) +
+  stat_function(fun = dunif,
+                args = list(0, 1),
+                xlim = c(0.25, 0.75),
+                geom = "area",
+                fill = "#a4caeb",
+                n = 250) +
+  stat_function(fun = dunif,
+                args = list(0, 1),
+                size = 1.5,
+                n = 250) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  ylim(c(0, 1.25)) +
+  scale_x_continuous(breaks = round(
+    seq(-0.5, 1.5, by = 0.5), 
+    1)
+  ) +
+  theme(plot.margin = margin(-1, 0, 0, 0, "cm"))
+
+```
+:::
+:::
+
+
+:::{.column width="30%"}
+:::
+
+::::
+
+
+::::{.columns}
+
+:::{.column width="40%"}
+:::{.fragment}
+```{r}
+#| fig.height = 3,
+#| fig.width = 7,
+#| fig.align = 'center'
+
+ggplot(data.frame(x = c(-0.5, 1.5)), aes(x)) +
+  stat_function(fun = dunif,
+                args = list(0, 1),
+                xlim = c(0, 0.75),
+                geom = "area",
+                fill = "#a4caeb",
+                n = 250) +
+  stat_function(fun = dunif,
+                args = list(0, 1),
+                size = 1.5,
+                n = 250) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  ylim(c(0, 1.25)) +
+  scale_x_continuous(breaks = round(
+    seq(-0.5, 1.5, by = 0.5), 
+    1)
+  ) +
+  theme(plot.margin = margin(-1, 0, 0, 0, "cm"))
+
+```
+:::
+:::
+
+
+:::{.column width="20%"}
+:::{.fragment}
+\
+$$ \huge - $$
+:::
+:::
+
+:::{.column width="40%"}
+:::{.fragment}
+```{r}
+#| fig.height = 3,
+#| fig.width = 7,
+#| fig.align = 'center'
+
+ggplot(data.frame(x = c(-0.5, 1.5)), aes(x)) +
+  stat_function(fun = dunif,
+                args = list(0, 1),
+                xlim = c(0, 0.25),
+                geom = "area",
+                fill = "#a4caeb",
+                n = 250) +
+  stat_function(fun = dunif,
+                args = list(0, 1),
+                size = 1.5,
+                n = 250) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  ylim(c(0, 1.25)) +
+  scale_x_continuous(breaks = round(
+    seq(-0.5, 1.5, by = 0.5), 
+    1)
+  ) +
+  theme(plot.margin = margin(-1, 0, 0, 0, "cm"))
+
+```
+:::
+:::
+
+::::
+
+:::
+
+## Tail Probabilities {style="font-size:28px"}
+
+- This is not a coincidence!
+- For a more arbitrary distribution:
+
+::::{.columns}
+
+:::{.column width="30%"}
+\
+:::
+
+:::{.column width="40%"}
+:::{.fragment}
+```{r}
+#| fig.height = 3,
+#| fig.width = 7,
+#| fig.align = 'center'
+
+f <- function(x){
+  0.3 * dbeta(x, 2, 6) + 0.7 * dbeta(x, 6, 2)
+}
+
+x <- seq(0, 1, by = 0.1)
+data.frame(x) %>% ggplot(aes(x = x)) +
+  stat_function(fun = f,
+                xlim = c(0.12, 0.85),
+                geom = "area",
+                fill = "#a4caeb") +
+  stat_function(fun = f,
+                size = 1) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("")  
+```
+:::
+:::
+
+
+:::{.column width="30%"}
+:::{.fragment}
+\
+can be decomposed as
+:::
+:::
+
+::::
+
+
+::::{.columns}
+
+:::{.column width="40%"}
+:::{.fragment}
+```{r}
+#| fig.height = 3,
+#| fig.width = 7,
+#| fig.align = 'center'
+
+f <- function(x){
+  0.3 * dbeta(x, 2, 6) + 0.7 * dbeta(x, 6, 2)
+}
+
+x <- seq(0, 1, by = 0.1)
+data.frame(x) %>% ggplot(aes(x = x)) +
+  stat_function(fun = f,
+                xlim = c(0, 0.85),
+                geom = "area",
+                fill = "#a4caeb") +
+  stat_function(fun = f,
+                size = 1) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("")  
+```
+:::
+:::
+
+
+:::{.column width="20%"}
+:::{.fragment}
+\
+$$ \huge - $$
+:::
+:::
+
+:::{.column width="40%"}
+:::{.fragment}
+```{r}
+#| fig.height = 3,
+#| fig.width = 7,
+#| fig.align = 'center'
+
+f <- function(x){
+  0.3 * dbeta(x, 2, 6) + 0.7 * dbeta(x, 6, 2)
+}
+
+x <- seq(0, 1, by = 0.1)
+data.frame(x) %>% ggplot(aes(x = x)) +
+  stat_function(fun = f,
+                xlim = c(0, 0.12),
+                geom = "area",
+                fill = "#a4caeb") +
+  stat_function(fun = f,
+                size = 1) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("")  
+```
+:::
+:::
+
+::::
+
+
+
+## Tail Probabilities {style="font-size:28px"}
+
+- In math, what we have found is:
+
+:::{.fragment}
+:::{.callout-important}
+::: {style="font-size: 24px"}
+$$ \mathbb{P}(x_1 \leq X \leq x_2)  = \mathbb{P}(X \leq x_2) - \mathbb{P}(X \leq x_1) $$
+:::
+:::
+:::
+
+- The quantity $\mathbb{P}(X \leq x)$, where we view $x$ as an arbitrary input (and hence the quantity $\mathbb{P}(X \leq x)$ as a function of $x$) is called the **cumulative distribution function** (or **c.d.f.** for short) of $X$.
+
+## Your Turn!
+
+:::{.fragment}
+::: callout-tip
+## Exercise 1
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+The time (in minutes) spent waiting in line at *Starbucks* is found to vary uniformly between 5mins and 15mins.
+
+a. Define the random variable of interest, and call it $X$.
+
+b. If a person is selected at random from the line at *Starbucks*, what is the probability that they spend between 3 and 7 minutes waiting in line?
+
+c. What is the c.d.f. of wait times? (I.e., find the probability that a randomly selected person spends less than $x$ minutes waiting in line, for an arbitrary value $x$. Yes, your final answer will depend on $x$; that's why the c.d.f. is a *function*!)
+:::
+:::
+:::
+:::
+
+## Probability of Attaining an Exact Value {style="font-size:30px"}
+
+- If $X \sim \mathrm{Unif}[0, 1]$, what is the probability that $X$ equals, say $0.5$? 
+    - The area this corresponds to is a rectangle of height $1 / (1 - 0) = 1$, but with width $0$. 
+    - Therefore, the probability is zero.
+
+- This is not unique to the Uniform distribution!
+
+
+:::{.fragment}
+:::{.callout-important}
+## **Probability of Attaining an Exact Value**
+::: {style="font-size: 28px"}
+If $X$ is a continuous random variable, $\mathbb{P}(X = x) = 0$ for **any** value $x$.
+:::
+:::
+:::
+
+## Mean and Variance of the Uniform Distribution {style="font-size:30px"}
+
+- If $X \sim \mathrm{Unif}[a, b]$, we have the following results:
+    - $\displaystyle \mathbb{E}[X] = \frac{a + b}{2}$
+    - $\displaystyle \mathrm{Var}(X) = \frac{1}{12}(b - a)^2$
+    
+:::{.fragment}
+::: callout-tip
+## Exercise 2
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+Consider again the setup of Exerise 1: the time (in minutes) spent waiting in line at *Starbucks* is found to vary uniformly on between 5mins and 15mins. \
+
+If we select a person at random, what is the expected amount of time (in minutes) they will spend waiting in line? What about the variance and standard deviation of the time (in minutes) they will spend waiting in line?
+:::
+:::
+:::
+:::
+
+# Normal Distribution
+
+## Normal Distribution
+
+- The **normal distribution** takes two parameters $\mu$ and $\sigma$. We use the notation $X \sim \mathcal{N}(\mu, \ \sigma)$ to denote "$X$ follows the normal distribution with parameters $\mu$ and $\sigma$."
+
+- The normal distribution has distribution function given by
+$$ f(x) = \frac{1}{\sigma \cdot \sqrt{2 \pi}} \cdot \exp\left\{ - \frac{1}{2} \cdot \left( \frac{x - \mu}{\sigma} \right)^2 \right\} $$
+- Let's determine how the parameters affect the shape of the density curve.
+
+## Changing $\mu$ and $\sigma$
+
+
+```{ojs}
+viewof µ = Inputs.range(
+  [-3, 3], 
+  {value: 0, step: 0.1, label: "µ:"}
+)
+
+viewof σ = Inputs.range(
+  [0.2, 3.1], 
+  {value: 1, step: 0.01, label: "σ:"}
+)
+
+sigsquared = σ**2
+```
+
+```{ojs}
+margin = ({top: 20, right: 30, bottom: 30, left: 40})
+
+height = 400
+
+x_values = d3.scaleLinear()
+    .domain(d3.extent(data, d => d.x))
+    .range([margin.left, width - margin.right])
+
+y_values = d3.scaleLinear()
+    .domain([Math.min(d3.min(data, d => d.y),0), Math.max(1,d3.max(data, d => d.y))]).nice()
+    .range([height - margin.bottom, margin.top])
+    
+line = d3.line()
+    .x(d => x_values(d.x))
+    .y(d => y_values(d.y))
+
+xAxis = g => g
+  .attr("transform", `translate(0,${height - margin.bottom})`)
+  .call(d3.axisBottom(x_values)
+      .ticks(width / 80)
+      .tickSizeOuter(0))
+
+yAxis = g => g
+  .attr("transform", `translate(${margin.left},0)`)
+  .call(d3.axisLeft(y_values)
+      .tickValues(d3.scaleLinear().domain(y_values.domain()).ticks()))
+    
+function normal_pdf (input_value, mu, sigsq) {
+  let left_chunk = 1/(Math.sqrt(2*Math.PI*sigsq))
+  let right_top = -((input_value-mu)**2)
+  let right_bottom = 2*sigsq
+  return left_chunk * Math.exp(right_top/right_bottom)
+}
+
+abs_x=6
+
+data = {
+  let values = [];
+  for (let x = -abs_x; x < abs_x; x=x+0.01) values.push({"x":x,"y":normal_pdf(x, µ, sigsquared)});
+  return values;
+}
+
+d3 = require("https://d3js.org/d3.v5.min.js")
+
+chart = {
+  const svg = d3.select(DOM.svg(width, height));
+
+  svg.append("g")
+      .call(xAxis);
+
+  svg.append("g")
+      .call(yAxis);
+  
+  svg.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", 4)
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("d", line);
+  
+  return svg.node();
+}
+
+```
+
+:::{style="font-size:18px; text-align:right"}
+*Credit to https://observablehq.com/@dswalter/normal-distribution for the majority of the applet code*
+:::
+
+
+
+## Changing $\mu$
+
+Holding $\sigma = 1$ fixed and varying $\mu$, we find:
+
+```{r, fig.height=6, fig.width=8, fig.align='center'}
+#| echo: False
+
+ggplot(data.frame(x = c(-3, 3)), aes(x)) +
+  stat_function(fun = dnorm, 
+                size = 1.5,
+                aes(colour = "mu = 0")) +
+  stat_function(fun = dnorm, 
+                args = list(-1, 1),
+                size = 1.5,
+                aes(colour = "mu = -1")) +
+  stat_function(fun = dnorm, 
+                args = list(1, 1),
+                size = 1.5,
+                aes(colour = "mu = 1")) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  ylim(c(0, 0.75)) +
+  theme(legend.position = "right",
+        legend.background = element_rect(fill="#f0ebd8"),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 20,
+                                    face = "bold")
+        ) +
+  labs(colour = bquote("Value of"~mu))
+```
+
+
+## Changing $\sigma$
+
+Holding $\mu = 0$ fixed and varying $\sigma$, we find:
+
+```{r, fig.height=6, fig.width=8, fig.align='center'}
+#| echo: False
+
+ggplot(data.frame(x = c(-3, 3)), aes(x)) +
+  stat_function(fun = dnorm, 
+                size = 1.5,
+                aes(colour = "sigma = 1")) +
+  stat_function(fun = dnorm, 
+                args = list(0, 0.5),
+                size = 1.5,
+                aes(colour = "sigma = 0.5")) +
+  stat_function(fun = dnorm, 
+                args = list(0, 1.5),
+                size = 1.5,
+                aes(colour = "sigma = 1.5")) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  ylim(c(0, 0.75)) +
+  theme(legend.position = "right",
+        legend.background = element_rect(fill="#f0ebd8"),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 20,
+                                    face = "bold")
+        ) +
+  labs(colour = bquote("Value of"~sigma))
+```
+
+## Standard Normal Distribution
+
+:::{.fragment}
+:::{.callout-note}
+## **Definition**
+::: {style="font-size: 30px"}
+The **standard normal distribution** is the normal distribution with $\mu = 0$ and $\sigma = 1$; i.e. $\mathcal{N}(0, 1)$.
+:::
+:::
+:::
+
+:::{.fragment}
+```{r, fig.height=4.5, fig.width=6, fig.align='center'}
+#| echo: False
+data.frame(x = c(-3, 3)) %>%
+  ggplot(aes(x)) +
+  stat_function(fun = dnorm, 
+                size = 1.5) +
+  scale_x_continuous(breaks = round(seq(-3, 3, by = 0.5), 1)) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  ylim(c(0, 0.75)) +
+  theme(plot.margin = margin(-2, 0, 0, 0, "cm"))
+```
+:::
+
+
+
+## Normal Probabilities {style="font-size:30px"}
+
+- Recall that for continuous variables, probabilities are found as areas underneath the density curve. For example, if $X \sim \mathcal{N}(0, 1)$, then $\mathbb{P}(X \leq -1)$ is found by computing the area below:
+
+:::{.fragment}
+```{r, fig.height=4.5, fig.width=6, fig.align='center'}
+#| echo: False
+data.frame(x = c(-3, 3)) %>%
+  ggplot(aes(x)) +
+  stat_function(fun = dnorm, 
+                xlim = c(-3,-1),
+                geom = "area",
+                fill = "#a4caeb") +
+  stat_function(fun = dnorm, 
+                size = 1.5) +
+  scale_x_continuous(breaks = round(seq(-3, 3, by = 0.5), 1)) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  ylim(c(0, 0.75)) +
+  theme(plot.margin = margin(-2, 0, 0, 0, "cm"))
+```
+:::
+
+## Normal Probabilities
+
+- Now, unlike with the Uniform density curve, we don't have a simple closed-form formula for areas under the Normal curve. 
+- For instance, how would you get a numerical value for the area shaded on the previous slide?
+- The answer is by way of what is known as a **normal table**, or **z-table**.
+- To illustrate how to read a normal table, let's work through an example:
+
+:::{.fragment}
+::: callout-tip
+## Worked-Out Example 3
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+If $Z \sim \mathcal{N}(0, 1)$, compute $\mathbb{P}(Z \leq 0.83)$.
+:::
+:::
+:::
+:::
+
+## Normal Table
+
+::::{.columns}
+
+:::{.column width="50%"}
+![](Tables_1)
+:::
+
+:::{.column width="50%"}
+![](Tables_2)
+:::
+
+::::
+
+## Reading the Normal Table {style="font-size:28px"}
+
+- To find $\mathbb{P}(Z \leq 0.83)$, we break up $0.83$ as
+$$ 0.83 = 0.8 + 0.03 $$
+- This tells us to find the desired probability in the intersection of the $0.8$ row and the $0.03$ column:
+
+:::{.fragment style="text-align:center"}
+![](reading_table.svg){width="55%"}
+:::
+
+## Another Example {style="font-size:28px"}
+
+
+::::{.columns}
+
+:::{.column width="35%"}
+:::{.fragment}
+::: callout-tip
+## Worked-Out Example 4
+
+:::{.nonincremental}
+::: {style="font-size: 28px"}
+If $Z \sim \mathcal{N}(0, 1)$, find
+
+a. $\mathbb{P}(Z \leq -1.01)$
+b. $\mathbb{P}(Z \leq -2.25)$
+c. $\mathbb{P}(-2.25 \leq Z \leq -1.01)$
+d. $\mathbb{P}(X \geq -0.7)$
+:::
+:::
+:::
+:::
+
+:::
+
+:::{.column width="65%"}
+:::{.fragment}
+![](Tables_1)
+:::
+:::
+
+::::
+
+## Standardization {style="font-size:32px"}
+
+- Now, all of our considerations above were in the case of the *standard* normal distribution. How do we find areas under *nonstandard* normal density curves?
+- The answer: we use a process called **standardization**.
+
+:::{.fragment}
+:::{.callout-important}
+## **Standardization**
+::: {style="font-size: 28px"}
+If $X \sim \mathcal{N}(\mu, \ \sigma)$, then
+$$ \left( \frac{X - \mu}{\sigma} \right) \sim \mathcal{N}(0, 1) $$
+That is, if we take a normally distributed random variable, subtract off its mean, and divide by its standard deviation, we obtain a random variable whose distribution is the standard normal distribution.
+:::
+:::
+:::
+
+---
+
+:::{.nonincremental}
+- The act of taking a random variable, subtracting its mean, and dividing by its standard deviation is known as **standardization**. 
+:::
+- In the context of the normal distribution, the standardized value of a number $x$ (i.e. $(x - \mu)/\sigma$) is called a **_z_-score**.
+    - Note that the $z-$score of a value $x$ measures how many standard deviations $x$ was from the mean.
+    
+## Normal Probabilities; General Case
+
+- Thus, if $X \sim \mathcal{N}(\mu, \ \sigma)$, here are the steps we use to compute $\mathbb{P}(X \leq x)$:
+
+    1) Compute the $z-$score $z = \frac{x - \mu}{\sigma}$, rounded to two decimal places.
+    2) Look up the corresponding entry in a standard normal table.
+
+---
+
+
+::: callout-tip
+## Worked-Out Example 5
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+If $X \sim \mathcal{N}(5, \ 1.21)$, compute $\mathbb{P}(X \leq 6)$.
+:::
+:::
+:::
+
+1) The $z-$score of $6$ is
+$$ z = \frac{6- 5}{1.21} \approx 0.83 $$
+
+2) Looking up the probability corresponding to $0.83$ on a standard normal table (which we did in Worked-Out Example 3), we see that the desired probability is $\boxed{0.7967 = 79.67\%}$
+
+---
+
+## Your Turn!
+
+:::{.fragment}
+::: callout-tip
+## Exercise 3
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+It is found that the scores on a particular exam are normally distributed with a mean of 83 and a standard deviation of 5. 
+
+a. Define the random variable of interest, and call it $X$.
+
+b. If a student is selected at random, what is the probability that they scored 81 or lower?
+
+c. If a student is selected at random, what is the probability that they scored 75 or higher?
+:::
+:::
+:::
+:::
+
+
+## Mean and Variance of the Normal Distribution {style="font-size:30px"}
+
+- If $X \sim \mathcal{N}(\mu, \ \sigma)$, we have the following results:
+    - $\displaystyle \mathbb{E}[X] = \mu$
+    - $\displaystyle \mathrm{Var}(X) = \sigma^2$
+
+- So, the two parameters we use to describe the normal distribution are the mean and the variance.
+
+- We'll talk more about parameters in the next lecture.

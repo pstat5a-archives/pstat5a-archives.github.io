@@ -1,0 +1,16 @@
+---
+title: "Lab01"
+subtitle: "Getting to Know Python"
+author:
+  - name: "PSTAT 5A, with Ethan Marzban"
+    affiliations:
+      - name: "Spring 2023"
+author-title: "Course"
+affiliation-title: "Quarter"
+format: html
+title-block-banner: "#4144a6"
+---
+
+---
+
+This page will be updated soon with the first Lab.

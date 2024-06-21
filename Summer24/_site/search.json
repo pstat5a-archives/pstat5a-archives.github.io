@@ -1,0 +1,870 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "",
+    "text": "Welcome to the official course site for PSTAT 5A (titled Understanding Data) at the University of California, Santa Barbara! Please note that this is the site for the Spring 2023 iteration of the course.\n\nAll relevant information for the course can be found on this site, with the (perhaps crucial) exception of quizzes, which will take place on the course Canvas site."
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html",
+    "href": "Pages/Labs/Lab01/lab01.html",
+    "title": "Lab01",
+    "section": "",
+    "text": "This page will be updated soon with the first Lab."
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#structure-of-labs",
+    "href": "Pages/Labs/Lab01/lab01.html#structure-of-labs",
+    "title": "Lab01",
+    "section": "Structure of Labs",
+    "text": "Structure of Labs\nEvery week we (the course staff) will publish a lab document, which is intended to be completed during your Lab Section (i.e. your section Section) of the week. (During the first Section, you will be working through extra problems that typically don’t require the use of a computer!)\n\nEach lab document will consist of a combination of text, tips, and the occasional task for you to complete based on the text provided. Your TA will cover exactly what you need to turn in at the end of each lab in order to receive credit."
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#what-is-programming",
+    "href": "Pages/Labs/Lab01/lab01.html#what-is-programming",
+    "title": "Lab01",
+    "section": "What Is Programming?",
+    "text": "What Is Programming?\nComputers, though incredibly useful, are fairly complex machines. To communicate with them, we need to use a specific language, known as a Programming Language. There are a number of programming languages in existence- the language we will use in this particular class is called Python.\n\nNow, running a programming language can be a bit tricky. To aid in this, we often make use of an interface to help us effectively write code that our computers understand. For this particular course, we will use JupyterHub (commonly referred to simply as Jupyter, pronounced “Jupiter” [like the planet]). A document created in Jupyter is called a notebook, and each notebook is comprised of a series of cells."
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#getting-started",
+    "href": "Pages/Labs/Lab01/lab01.html#getting-started",
+    "title": "Lab01",
+    "section": "Getting Started",
+    "text": "Getting Started\n\nNavigate to https://pstat5a.lsit.ucsb.edu\nClick the “Sign in with your UCSB NetID” button, and sign in.\nUnder “Notebook”, click “Python 3 (ipykernel)” (see below).\n\n\nCongratulations- you have just made your first Jupyter notebook! Now, it’s time for our first task:\n\n\n\n\n\n\nTask 1\n\n\n\nChange the name of your notebook to “Lab01” using the following steps:\n\nIn the lefthand menu bar, find the notebook you just created (by default this will be something like “Untitled” or “Untitled1”), and right-click and click “Rename” (see picture below)\n\n\n\nRename your file to “Lab01”, and then hit the return (enter) key on your keyboard. You should see the filename in the menubar update:\n\n\n\n\n\nJupyterHub Environment\nLet’s take a minute to familiarize ourselves with the JupyterHub environment. Every Jupyter notebook is comprised of what are known as cells; these are the shaded grey rectangles that appear in a Jupyter notebook.\n\nIf your cell has a grey background (like in the image above), it is inactive. To activate a cell, place your cursor inside it, and click:\n\nmeans it is selected and active, and ready to be populated with text and/or code.\n\n\n\n\n\n\nImportant\n\n\n\nWhen you run code using the “Run” button at the top of your environment, only the active cell will be executed.\n\n\n\n\nCells\nThere are two main types of cells we will be using in this class: Markdown cells (which include text/descriptions, but no code) and code cells (which contain code that needs to be run).\n\n\n\n\n\n\nTask 2\n\n\n\n\nIf you haven’t already, click into the code cell that was automatically created when you created your document to activate it.\nClick on the dropdown menu that currently says “code” (near the center of the top of your interface), and select “Markdown”\n\n\n\nClick back into the cell, copy-paste the text [including the hashtag!] # Task 2, and then run the cell.\nNote that after running your cell from step 3 above, Jupyter automatically created a new code cell. Click into this code cell and run the code 2 + 2.\n\nWhen you are done, your notebook should look something like this:\n\n\n\nNotice that after running a cell, Jupyter automatically adds a new cell right after it!\n\n\n\n\n\n\nTip\n\n\n\nTo run a cell and automatically create a new cell underneath it, use the keyboard shortcut SHIFT + ENTER.\n\n\nBy the way, do you notice the little In [1]: at the left of our first cell? This is Jupyter’s syntax for letting us know the order in which Jupyter is executing the code cells. The 1 in our cell from Task 2 above corresponds to the fact that this was the 1st code cell we executed in our document."
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#coding-with-python",
+    "href": "Pages/Labs/Lab01/lab01.html#coding-with-python",
+    "title": "Lab01",
+    "section": "Coding with Python",
+    "text": "Coding with Python\nAs was mentioned previously, Jupyter is only the interface we are using. The actual coding and computations will be done by the programming language Python.\n\nThere is a reason we use the word “language” to describe programming languages- that is because they function quite like a human language. This means that they have their own set of synatxes, rules, and grammars. It is precisely these syntaxes, rules, and grammars we will be learning over the course of these Computing Labs!\n\nPrograms are made up of expressions, like 2 + 2. We evaluate expressions by running (or executing) them in a programming language. Expressions are like the sentences of programming- they contain complex pieces of information that are conveyed between the user and the computer.\n\nMuch like sentences in other languages, expressions must obey a rigid syntax. For example, when we want to perform addition in Python we must use the + symbol; we can’t, for example, say 2 plus 2.\n\nWhat happens when we violate a syntax rule? Well…\n\n\n\n\n\n\nTask 3\n\n\n\n\nCreate a mardown cell and write # Task 3\nCreate a code cell, and run 2 plus 2. (You should get an error!)\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nFor this class, we expect you to precede each code cell from a particular task with a markdown cell that says # Task X (where X is the number of the task).\n\nWe will stop explicitly writing this step in the tasks below, but you are still expected to include a labeling cell!\n\n\nWell, what is this error saying? Let’s examine it more closely.\n\n  File \"<ipython-input-2-5196071441ec>\", line 1\n    2 plus 2\n      ^\nSyntaxError: invalid syntax\n\nIndeed, Python is telling us exactly what went wrong- the SyntaxError part of the error message tells us that we violated one of the syntax rules of Python, and the ^ pointing to the p in plus is telling us that the exact syntax error occurred when we tried to use the word plus.\n\n\n\n\n\n\nTip\n\n\n\nAlways read error messages!\n\n\nThe messages that Python displays when we get an error are Python’s way of trying to communicate with us what is going wrong!"
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#python-as-a-calculator",
+    "href": "Pages/Labs/Lab01/lab01.html#python-as-a-calculator",
+    "title": "Lab01",
+    "section": "Python as a Calculator",
+    "text": "Python as a Calculator\nAlright, let’s get our hands dirty with some real programming! One of the many uses of Python is to help us compute arithmetic quantities very quickly. As a rule-of-thumb, Python adheres to the order of operations:\n\nParentheses\nExponents\nMultiplication\nDivision\nAddition\nSubtraction\n\nHere is a list of mathematical operators and their corresponding Python syntax:\n\n\n\nOperation\nPython Operator\nExample\nResult\n\n\n\n\nAddition\n+\n2 + 2\n4\n\n\nSubtraction\n-\n2 - 2\n0\n\n\nMultiplication\n*\n2 * 2\n4\n\n\nDivision\n/\n2 / 2\n1\n\n\nExponentiation\n**\n2 ** 2\n4\n\n\n\n\n\n\n\n\n\nTask 4\n\n\n\nCompute the following:\n\n\\(\\displaystyle \\frac{2 + 3}{4 + 5^6}\\)\n\\(\\displaystyle (1 - 3 \\cdot 4^5)^{\\frac{6}{7}}\\)\n\n\n\nNaturally, Python is capable of much more than just basic arithmetic!\n\n\n\n\n\n\nTask 5\n\n\n\nCreate a code chunk and run sin(1) to compute the sine of 1.\n\n\nUh-oh- looks like we’ve encountered another error! Indeed, even the most experience coder will often run up against errors like this, and need to subsequently enter the stage of debugging their code.\n\nWe’re now getting a new error: this time, it’s a NameError. As the name suggests, this is Python’s way of telling us that it doesn’t recognize the name of something we’ve written. In fact, it’s explicitly saying:\n\nNameError: name 'sin' is not defined,\n\nThis is Python’s way of telling us that it (somehow) doesn’t know what sin means.\n\nTo answer the question of why this is, we need to take a bit of a detour into the world of packages."
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#python-modules",
+    "href": "Pages/Labs/Lab01/lab01.html#python-modules",
+    "title": "Lab01",
+    "section": "Python Modules",
+    "text": "Python Modules\nMost programming languages can be thought of as a brick house- they are large and complex structures comprised of many smaller structures. Programming languages often compartmentalize information into what are known as modules (sometimes called packages in the context of other programming languages). Python modules are files containing additional functions that aren’t immediately accessible to us when we first launch Python. To gain access to the information stored in a particular module, import it.\n\nThe syntax for loading an entire module is:\n\nfrom <package name> import *\n\nSometimes, we may not want to import the entirety of a module and instead import only a couple of functions from that module. In that case, we would use the syntax: The syntax for loading specific functions from a Python package is\n\nfrom <package name> import <function name>\n\nWe’ll talk a lot more about packages in a future lab. For now, let’s return to our task of computing \\(\\sin(1)\\).\n\n\n\n\n\n\nTask 5 (cont’d)\n\n\n\nIt turns out that the sin() function is located in the math module Load all functions from the math module, and then try re-running sin(1)."
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#comments",
+    "href": "Pages/Labs/Lab01/lab01.html#comments",
+    "title": "Lab01",
+    "section": "Comments",
+    "text": "Comments\nWhen writing large pieces of code, programmers will often utilize comments to annotate their work and help readers understand what their code is doing. In Python there are two types of comments: inline comments and multiline comments. As an example of both, consider the following snippet of code:\n\nx = 1             # define x\ny = 2             # define y\nz = (x + y) ** 2  # define z\ny = z / 3         # redefine y\n\n\"\"\"This code is defines 3 variables,\ncalled 'x', 'y', and 'z'.\"\"\"\n\n\n\n\n\n\n\nTask 6\n\n\n\nGo back and add some descriptive comments to some of your previous code cells."
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#data-types-and-variable-assignment",
+    "href": "Pages/Labs/Lab01/lab01.html#data-types-and-variable-assignment",
+    "title": "Lab01",
+    "section": "Data Types and Variable Assignment",
+    "text": "Data Types and Variable Assignment\nThe final topic of this week’s lab is that of data types and variable assignment.\n\nThe term data type loosely refers to the actual type of a particular quantity (e.g. numerical, character, etc.) The main data types we will encounter in this class are:\n\nfloat: refers to numerical (real-valued) data\nint: short for integer; refers to numerical data that are integers\nstr: short for string; refers to character- or text-type data\n\n\n\n\n\n\n\nTask 8\n\n\n\nRun each of the following:\n\ntype(1)\ntype(1.1)\ntype(\"hello\")\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nThe type() function can be used to identify the data type of a particular quantity."
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#what-to-turn-in",
+    "href": "Pages/Labs/Lab01/lab01.html#what-to-turn-in",
+    "title": "Lab01",
+    "section": "What to Turn In",
+    "text": "What to Turn In\nCongrats on finishing the first PSTAT 5A Computing Lab! Toward the end of Lab, your TA will show you how to turn your python notebook into an .PDF file, which you will submit on Canvas. You will have until 30 minutes after the end of your Section to turn in your work in order to get credit for the lab. We will be grading labs based on effort, so just turn in what you are able to!"
+  },
+  {
+    "objectID": "Pages/syllabus.html",
+    "href": "Pages/syllabus.html",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "",
+    "text": "WELCOME TO PSTAT 5A! I am very excited to introduce to you the wonderful worlds of Statistics and Data Science. As our world becomes ever more saturated with data, the need for data literacy becomes increasingly important. By the end of this course, I hope you will be able to think critically about statistical studies and results, understand how data can be used to simultaneously inform and manipulate, and begin applying your newfound techniques to your future endeavors, all while gaining an introduction to the fields of Statistics and Data Science. I am very much looking forward to a great quarter with all of you!\n— Ethan"
+  },
+  {
+    "objectID": "Pages/syllabus.html#lecture-information",
+    "href": "Pages/syllabus.html#lecture-information",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Lecture Information",
+    "text": "Lecture Information\n\n\n\n\n\n\nLecture Times and Locations\n\n\n\nTuesdays and Thursdays: 2:00pm - 3:15pm in CHEM 1171"
+  },
+  {
+    "objectID": "Pages/syllabus.html#course-staff",
+    "href": "Pages/syllabus.html#course-staff",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Course Staff",
+    "text": "Course Staff\n\n\n\n\n\n\n\n\n\n\nInstructor:\nEthan P. Marzban\n\n\n\n\nEmail:\nepmarzban@pstat.ucsb.edu\n\n\nHelp Hours:\n\nHW Clinic: Tuesdays 4:30 - 5:30pm in ELLSN 2626\nOH: Fridays 12-1pm in SH 5607F\n\n\n\n\n\n\n\n\n\n\n\n\nTAs\n\n\n\n\nNickolas Thiessen\n(nickolas@ucsb.edu)\n\n\nSecond TA TBD"
+  },
+  {
+    "objectID": "Pages/syllabus.html#course-description",
+    "href": "Pages/syllabus.html#course-description",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Course Description",
+    "text": "Course Description\nThe official description of this course, from the Course Catalogue, is:\n\nIntroduction to data science. Concepts of statistical thinking. Topics include random variables, sampling distributions, hypothesis testing, correlation and regression. Visualizing, analyzing and interpreting real world data using Python. Computing labs required."
+  },
+  {
+    "objectID": "Pages/syllabus.html#textbooks",
+    "href": "Pages/syllabus.html#textbooks",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Textbook(s)",
+    "text": "Textbook(s)\nThis quarter, we do not have a required textbook- the lecture slides and lab activities are designed to be self-sufficient. However, the following textbooks are highly recommended:\n\nOpenIntro: Statistics. David Diez, Mine Çetinkaya-Rundel, and Christopher D Barr. (free version, courtesy of the authors, available at https://leanpub.com/os)\nComputational and Inferential Thinking: The Foundations of Data Science. Ani Adhikari and John DeNero. (available at: https://www.inferentialthinking.com)\nStatClass (2nd Edition, Revised). Dawn E. Holmes and Lubella A. Lenaburg"
+  },
+  {
+    "objectID": "Pages/syllabus.html#course-components",
+    "href": "Pages/syllabus.html#course-components",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Course Components",
+    "text": "Course Components\nThe following are the assignments and metrics that will be used to compute your final grade in this course:\n\nHomework:\nThere will be weekly homework assignments that are each graded out of 10 points, on a combination of correctness and completion: we will select a few parts/problems to be graded out of 8 points on correctness, and you will be awarded 2 points for completing the remainder of the homework. Your lowest homework score will be dropped.\n\nHomework assignments are typically released on Wednesdays and due on Tuesdays, with the exception of Exam Weeks when the homework will be due on Monday.\n\n\nQuizzes\nQuizzes will be administered on Wednesdays, During your Lab Section. Make-up quizzes will not be offered; instead, your lowest quiz score will be dropped at the end of the quarter. There are no quizzes in Exam Weeks.\n\n\nExams\nThere are two midterms and a final exam for this class. You are required to take all three exams; failure to do so will result in an automatic grade of “F”, so please ensure you are able to take the exams on the dates listed below.\n\n\n\n\n\n\nExam Dates:\n\n\n\n\nMidterm 1 is scheduled to take place Tuesday, April 25 from 2 - 3:15pm (lecture time)\nMidterm 2 is scheduled to take place Tuesday, May 23 from 2 - 3:15pm (lecture time)\nThe final is scheduled to take place Tuesday, June 13 from 4 - 7pm (as determined by the University)\n\n\n\nThe midterms are scheduled to take place in Embarcadero Hall, and will have assigned seating. The Final Exam is currently scheduled to take place in our regular classroom, though there is a possibility of moving the exam to a larger classroom- such a change will be announced well in advance of the date of the Final. Unless stated otherwise, all exams will be cumulative.\n\n\nSchedule of Due Dates\nA tentative schedule of release and due dates can be found here"
+  },
+  {
+    "objectID": "Pages/syllabus.html#grading-scheme",
+    "href": "Pages/syllabus.html#grading-scheme",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Grading Scheme",
+    "text": "Grading Scheme\nYour final grade will be computed using the following weights:\n\n\n\nHomework:\n10%\n\n\nLabs:\n10%\n\n\nQuizzes:\n10%\n\n\nMidterm 1\n20%\n\n\nMidterm 2\n20%\n\n\nFinal Examination:\n30%\n\n\n\nPlease note that late submissions for any of the above will not be accepted. Instead, I will drop your lowest homework, lab, quiz, and midterm score (you must take all three exams; failure to do so will result in an automatic ‘F’)\nYour final letter grade will be issued according to the following scheme (cutoffs between plusses and minuses will be calculated at the end of the quarter):\n\nA– – A+: 90 – 100%\nB– – B+: 80 – 89.99%\nC– – C+: 70 – 79.99%\nD– – D+ : 60 – 69.99%\nF: 0 – 59.99%\n\nPlease note: I have elected to adopt an uncurved grading scheme to eliminate any sense of “competition” among students; I highly encourage you all to collaborate with and uplift each other. Having said that, I will certainly consider adjusting the cutoffs (naturally, in everyone’s favor) at the end of the quarter if necessary."
+  },
+  {
+    "objectID": "Pages/syllabus.html#academic-integrity",
+    "href": "Pages/syllabus.html#academic-integrity",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\nAs a member of the UCSB community, it is expected that you will act with academic integrity. This means, among other things, that the work you submit should be entirely your own and not copied from any external sources. Collaboration on homework assignments is perfectly acceptable (even encouraged) but the work you submit should still be your own; you can’t have someone else write up solutions for you, nor can you consult cites like Chegg, CourseHero, etc. Anyone found guilty of academic misconduct will be reported to the Academic Senate, and will receive at minimum a failing grade on the assignment in question; further actions may also include failing the course, and marks being made on permanent records. Depending on the severity of the infraction, expulsion is also a possibility.\nBasically, don’t cheat- please! If you’re ever struggling with course material, please come talk to me or the TA’s. We are truly here for you, and want only the best for you."
+  },
+  {
+    "objectID": "Pages/syllabus.html#intellectual-property",
+    "href": "Pages/syllabus.html#intellectual-property",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Intellectual Property",
+    "text": "Intellectual Property\nYou’ve probably seen a clause on other syllabi stating something to the effect of “all material in this course is the intellectual property of myself and may not be shared with anyone outside this class without my explicit written permission.”\nThough this is all true, I will be making most course-related material available on a public GitHub site, which can be accessed here: https://pstat5a.github.io."
+  },
+  {
+    "objectID": "Pages/syllabus.html#disabled-students-program-dsp",
+    "href": "Pages/syllabus.html#disabled-students-program-dsp",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Disabled Students Program (DSP)",
+    "text": "Disabled Students Program (DSP)\nIf you have a disability, or otherwise require accommodations for the exams and/or quizzes please reach out to the Disabled Students Program (DSP) ASAP to ensure your request(s) for accommodation can be processed. We ask that all requests be logged at least a week in advance, to ensure the system enough time to process. Please note that we cannot grant any requests for accommodations unless they come to us from DSP directly."
+  },
+  {
+    "objectID": "Pages/syllabus.html#section-switching",
+    "href": "Pages/syllabus.html#section-switching",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Section Switching",
+    "text": "Section Switching\nAs mentioned above, Sections (both Discussion and Lab) take place in special “Collaborate Classrooms” which are equipped with laptops. There are a fixed number of seats and laptops in these classrooms, meaning we cannot under any circumstance over-enroll sections. Therefore, if you want to switch section unofficially (we do not have the ability to switch your official enrollment through GOLD), please follow the steps at this link. Any requests to switch sections that do not adhere to the guidelines posted at that link will be ignored."
+  },
+  {
+    "objectID": "Pages/schedule.html",
+    "href": "Pages/schedule.html",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "",
+    "text": "Disclaimer\n\n\n\nThis schedule is tentative, and is subject to change. Please check back regularly for updates!\n\n\nLast Updated: Wednesday, March 8, 2023\n\nAs a reminder: Monday sections are Discussion Sections and Wednesday sections are Lab Sections. There will not be a discussion section in week 1 (as, if there were one, it would take place before the first lecture!)\n\n\n\n\n\n\n\n\n\n\n\nWeek\nLectures\nDiscussion Worksheet\nLab\n\n\n\n\n1\n(4/03 - 4/09)\n\n00: Introduction\n01: Descriptive Statistics\n02: More Descriptive Statistics\n\nNo Discussion Section\nLab 01  (Introduction to Python, and Basic Data Types)\n\n\n2\n(4/10 - 4/16)\n\n03: Intro to Probability/Counting\n04: More Counting\n\nDiscussion Worksheet 01\nLab 02: More Data Types; Logicals and Conditionals\n\n\n3\n(4/17 - 4/23)\n\n05: Probability Rules\n06: Review\n\nDiscussion Worksheet 02\nLab 03: Functions and Loops\n\n\n4\n(4/24 - 4/30)\n\n07: Midterm Exam 1\n08: Discrete Random Variables\n\nDiscussion Worksheet 03 (Midterm 1 Review)\nLab 04: Basics of Plotting\n\n\n5\n(5/01 - 5/07)\n\n09: Continuous Random Variables\n10: Intro to Inferential Statistics\n\nDiscussion Worksheet 04\nLab 05: Simulations and Sampling\n\n\n6\n(5/08 - 5/14)\n\n11: Sampling Distributions\n12: Confidence Intervals\n\nDiscussion Worksheet 05\nLab 06: Sampling Distributions\n\n\n7\n(5/15 - 5/21)\n\n13: Hypothesis Testing\n14: Review\n\nDiscussion Worksheet 06\nLab 07: Confidence Intervals\n\n\n8\n(5/22 - 5/28)\n\n15: Midterm Exam 2\n16: More Hypothesis Testing\n\nDiscussion Worksheet 07 (Midterm 2 Review)\nLab 08: Testing Distributional Fits\n\n\n9\n(5/29 - 6/4)\n\n17: Hypothesis Testing in Multiple Samples\n18: Regression\n\nDiscussion Worksheet 08\nLab 09: Reading In Data, EDA, and Drawing Conclusions\n\n\n10\n(6/05 - 6/11)\n\n19: More Regression\n20: Review\n\nDiscussion Worksheet 09\nLab 10: Regression\n\n\nFINAL EXAM\nTuesday, June 13 from 4-7pm"
+  },
+  {
+    "objectID": "Pages/calendar.html",
+    "href": "Pages/calendar.html",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "",
+    "text": "TA\n\n\nEmail\n\n\nSection Time\n\n\nLocation\n\n\nOH\n\n\n\n\n\n\nTBD\n\n\ntbd@pstat.ucsb.edu\n\n\n10 - 10:50am\n\n\nPsychology East 1805\n\n\nTBD\n\n\n\n\n11 - 11:50am\n\n\nPhelps 1525\n\n\n\n\nNickolas Thiessen\n\n\nnickolas@pstat.ucsb.edu\n\n\n12 - 12:50pm\n\n\nPhelps 1513\n\n\nTBD\n\n\n\n\n1 - 1:50pm\n\n\nPhelps 1529"
+  },
+  {
+    "objectID": "Pages/calendar.html#visual-weekly-schedule",
+    "href": "Pages/calendar.html#visual-weekly-schedule",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Visual Weekly Schedule",
+    "text": "Visual Weekly Schedule"
+  },
+  {
+    "objectID": "Pages/syllabus.html#technology-needs",
+    "href": "Pages/syllabus.html#technology-needs",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Technology Needs",
+    "text": "Technology Needs\nAs a part of this course, you will be required to program in Python. Though the Lab Sections take place in specially designed classrooms that come equipped with computers, your homework and quizzes may cover Python-related questions, which means we expect you to have access to a laptop capable of connecting to the internet. If you do not currently posess such a laptop, please check out UCSB’s Basic Needs Resource page on Technology Resources to try and acquire one."
+  },
+  {
+    "objectID": "Pages/syllabus.html#disclaimer",
+    "href": "Pages/syllabus.html#disclaimer",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Disclaimer",
+    "text": "Disclaimer\nThe instructor reserves the right to modify this syllabus if he deems such modifications academically advisable. Such modifications, should they occur, will be announced publicly."
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#final-formatting",
+    "href": "Pages/Labs/Lab01/lab01.html#final-formatting",
+    "title": "Lab01",
+    "section": "Final Formatting",
+    "text": "Final Formatting\nIt’s time to start adding the finishing touches to our first lab!\n\n\n\n\n\n\nTask 10\n\n\n\n\nClick on the gear-shaped icon in the top-right of your console:\n\n\n\nScroll down until you see the Notebook Metadata:\n\n\n\nRight after the second-to-last brace (}), add a comma , and then the following code:\n\n\n\"authors\": [\n        {\n            \"name\": \"<YOUR NAME>\"\n        },\n        {\n            \"name\": \"<YOUR NETID>\"\n        }\n    ]\n\nwhere you replace <YOUR NAME> and <YOUR NETID> with your name and NetID, respectively. For example, after performing the above steps, my Notebook Metadata would look like:"
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#variable-assignment",
+    "href": "Pages/Labs/Lab01/lab01.html#variable-assignment",
+    "title": "Lab01",
+    "section": "Variable Assignment",
+    "text": "Variable Assignment\nLet’s talk a bit about variables. Just like in math, variables in a programming language refer to a placeholder name for a particular piece of information (be it a function, value, etc.) The act of storing information in a variable is called assignment, and in Python variable assignment is performed using the = symbol.\n\n<variable name> = <what you want to associate with the variable>\n\nFor example, after running\n\nx = 2\n\nthe quantity x will always be synonymous with the quantity 2, and running x + 2 will return a value of 4 (as 2 + 2 = 4).\n\nPython affords a lot of flexibility when it comes to variable names- that is, we can pick almost anything we want to be a variable name! There are, however, some exceptions:\n\nVariable names cannot start with a number\nVariable names cannot include a space\n\n\n\n\n\n\n\nTip\n\n\n\nIt is a good programming practice to give your variables names that are descriptive, but not overly long.\n\n\nSometimes it will be necessary to update or re-assign a new value to an existing variable. For example, let’s examine the structure of the following code:\n\nx = 2\nx = x + 3\n\nWhat do you think calling x will return? If you said 5, you’d be correct! The key point of this is:\n\n\n\n\n\n\nImportant\n\n\n\nIn variable assignment, Python starts by executing the righthand side of the equality before executing the lefthand side.\n\n\nSo, in code example above, Python first executed x + 3 (which is equivalent to 2 + 3; i.e. 5), and then re-assigned x the value 5."
+  },
+  {
+    "objectID": "Pages/Labs/Lab01/lab01.html#data-types",
+    "href": "Pages/Labs/Lab01/lab01.html#data-types",
+    "title": "Lab01",
+    "section": "Data Types",
+    "text": "Data Types\nThe final topic of this week’s lab is that of data types and variable assignment.\n\nThe term data type loosely refers to the actual type of a particular quantity (e.g. numerical, character, etc.) The main data types we will encounter in this class are:\n\nfloat: refers to numerical (real-valued) data\nint: short for integer; refers to numerical data that are integers\nstr: short for string; refers to character- or text-type data\n\n\n\n\n\n\n\nTask 7\n\n\n\nRun each of the following:\n\ntype(1)\ntype(1.1)\ntype(\"hello\")\n\n\n\nLet’s combine our knowledge of variable assignment with our newfound knowledge of data types!\n\n\n\n\n\n\nTask 8\n\n\n\n(a) Perform the following variable assignments:\n\ncourse = \"PSTAT 5A\"\nnum_sections = 4\nsection_capacity = 25\n\n(c) A new section has been added! Update the variable num_sections to be one more than when you initially defined it above. (Don’t just use num_sections = 5- think about our discussion on updating variables above!)\n(b) Using comments, write down what you think the output of each of the following expressions will be:\n\ntype(course)\ntype(num_sections)\nnum_sections * section_capacity\n\nThen, run each expression in a separate code chunk and comment on the results.\n(c) Create a new variable called course_capacity and assign it the value of the maximum capacity of the course. (Hint: there are only 5 sections, and each section has a maximum capacity of 25. Try to use your already-defined variables as much as possible!)\n\n\n\n\n\n\n\n\nTip\n\n\n\nThe type() function can be used to identify the data type of a particular quantity.\n\n\n\nIncrementing Variables\nIt turns out that Python has a very succinct notation for incrementing variables. Suppose we have a random variable x that is assigned the value 3, and suppose we want to update x to be 2 more than its previous value. As was mentioned in the previous section of this lab, we could use the following code:\n\nx = 3\nx = x + 2\n\nWe can shorten our second line above using the += symbol:\n\nx = 3\nx += 2\n\nSimilarly, if we wanted to multiply the value of x by some number (say, 4) and assign the resulting value back to x, we could use the *= symbol:\n\nx *= 3\n\n\n\n\n\n\n\nTask 9\n\n\n\nConsider the following code:\n\nx = 2\ny = x + 3\nz = y / 2\n\nx += 2\ny *= 4\nz -= 3\n\n(a) Using a comment, write down what you think the values of x, y, and z will be after running the above code.\n(b) Now, copy-paste the code into a code cell, run it, and see what values x, y, and z take after running the code.\n\n\n\n\n\n\n\n\nTip\n\n\n\nThe syntax x += y is equivalent to x = x + y, and adds the value y to the currently-assigned value of x and then assigns the new value to the variable x."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#course-staff",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#course-staff",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Course Staff",
+    "text": "Course Staff\n\n\n\n\nInstructor:\n\nEthan (He/Him)\nepmarzban@pstat.ucsb.edu\nOH: TBD\n\n\n\n\n\n\n\n\nTeaching Assistants:\n\n\n\n\n\nTBD\nTBD\nOH: TBD\n\n\n\n\n\nTBD\nTBD\nOH: TBD"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#course-resources",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#course-resources",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Course Resources",
+    "text": "Course Resources\n\nCanvas: for grades and quizzes\nGradescope: for homeworks and exams\nCourse Website: https://pstat5a.github.io\n\nAll relevant course material will be posted to the website!\nThe one exception are the quizzes, which will be randomized across students and administered over Canvas.\n\nPlease read the syllabus fully and carefully!"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#assignments",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#assignments",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Assignments",
+    "text": "Assignments\n\nHomeworks: Released Wednesdays 5:00pm, due Tuesdays by 11:59pm.\n\nTurned in on Canvas\nGraded on a mix of 80% correctness, 20% completion\nWill focus primarily on non-programming questions, but may contain a few programming questions"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#homeworks",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#homeworks",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Homeworks",
+    "text": "Homeworks\n\nHomeworks: Released Wednesdays 5:00pm, due Tuesdays by 11:59pm.\n\nTurned in on Canvas\nGraded on a mix of 80% correctness, 20% completion\nWill focus primarily on non-programming questions, but may contain a few programming questions"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#sections",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#sections",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Sections",
+    "text": "Sections\n\nDiscussion and Lab Sections\n\nMondays: Discussion Section, no computing.\nWednesdays: Lab Section, yes computing. You will need to turn in your Lab for credit (graded on effort and completion)"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#lectures-and-sections",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#lectures-and-sections",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Lectures and Sections",
+    "text": "Lectures and Sections\n\nLectures: Tuesdays and Thursdays from 2 - 3:15pm\n\nThey’ll be fun- I promise!\n\n\n\n\n\nDiscussion and Lab Sections\n\nMondays: Discussion Section, no computing.\nWednesdays: Lab Section, yes computing. You will need to turn in your Lab for credit (graded on effort and completion)"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#quizzes",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#quizzes",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Quizzes",
+    "text": "Quizzes\n\nQuizzes will take place weekly (except for Exam Weeks), in-person and during your lab section.\n\nAt 3 minutes past the start of your lab section, the quiz will open on Canvas. (So please try to arrive on-time!)\n10-minute time-limit (unless you have DSP accommodations)\nMust be taken on the lab computers; cannot be taken on your personal laptop\nWill contain a mix of programming-related and non-programming-related questions\nNo quiz this week :)"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#exams",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#exams",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Exams",
+    "text": "Exams\n\n2 midterms and a Final\n\nMidterm 1 is scheduled to take place Tuesday, April 25 from 2 - 3:15pm (lecture time)\nMidterm 2 is scheduled to take place Tuesday, May 23 from 2 - 3:15pm (lecture time), and will be cumulative.\nThe final is scheduled to take place Tuesday, June 13 from 4 - 7pm (as determined by the University), and will be cumulative.\n\nUnless otherwise stated, the exams will take place here, in our usual classroom."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#labs-background-image-httpsgiphy.comgifshomework-dngk7ws7y176u",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#labs-background-image-httpsgiphy.comgifshomework-dngk7ws7y176u",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Labs {background-image = “https://giphy.com/gifs/homework-dNgK7Ws7y176U”}",
+    "text": "Labs {background-image = “https://giphy.com/gifs/homework-dNgK7Ws7y176U”}\n\nWe will"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#labs",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#labs",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Labs",
+    "text": "Labs\n\nWe will"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#labs-background-imagehttpsmedia3.giphy.commediav1.y2lkptc5mgi3njexotq0ytuymti1ogu1yjk0ytvlyjgwm2mzyjy2y2q3ztk2ztljnmfizizjdd1ndngk7ws7y176ugiphy.gif-background-size-30",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#labs-background-imagehttpsmedia3.giphy.commediav1.y2lkptc5mgi3njexotq0ytuymti1ogu1yjk0ytvlyjgwm2mzyjy2y2q3ztk2ztljnmfizizjdd1ndngk7ws7y176ugiphy.gif-background-size-30",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Labs {background-image=“https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ0YTUyMTI1OGU1Yjk0YTVlYjgwM2MzYjY2Y2Q3ZTk2ZTljNmFiZiZjdD1n/dNgK7Ws7y176U/giphy.gif”, background-size: 30%}",
+    "text": "Labs {background-image=“https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ0YTUyMTI1OGU1Yjk0YTVlYjgwM2MzYjY2Y2Q3ZTk2ZTljNmFiZiZjdD1n/dNgK7Ws7y176U/giphy.gif”, background-size: 30%}\n\nWe will"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#labs-background-imagehttpsmedia3.giphy.commediav1.y2lkptc5mgi3njexotq0ytuymti1ogu1yjk0ytvlyjgwm2mzyjy2y2q3ztk2ztljnmfizizjdd1ndngk7ws7y176ugiphy.gifbackground-size-30",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#labs-background-imagehttpsmedia3.giphy.commediav1.y2lkptc5mgi3njexotq0ytuymti1ogu1yjk0ytvlyjgwm2mzyjy2y2q3ztk2ztljnmfizizjdd1ndngk7ws7y176ugiphy.gifbackground-size-30",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Labs {background-image=“https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ0YTUyMTI1OGU1Yjk0YTVlYjgwM2MzYjY2Y2Q3ZTk2ZTljNmFiZiZjdD1n/dNgK7Ws7y176U/giphy.gif”background-size: 30%}",
+    "text": "Labs {background-image=“https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ0YTUyMTI1OGU1Yjk0YTVlYjgwM2MzYjY2Y2Q3ZTk2ZTljNmFiZiZjdD1n/dNgK7Ws7y176U/giphy.gif”background-size: 30%}\n\nWe will"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#labs-background-imagehttpsmedia3.giphy.commediav1.y2lkptc5mgi3njexotq0ytuymti1ogu1yjk0ytvlyjgwm2mzyjy2y2q3ztk2ztljnmfizizjdd1ndngk7ws7y176ugiphy.gif-background-size30",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#labs-background-imagehttpsmedia3.giphy.commediav1.y2lkptc5mgi3njexotq0ytuymti1ogu1yjk0ytvlyjgwm2mzyjy2y2q3ztk2ztljnmfizizjdd1ndngk7ws7y176ugiphy.gif-background-size30",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Labs {background-image=“https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ0YTUyMTI1OGU1Yjk0YTVlYjgwM2MzYjY2Y2Q3ZTk2ZTljNmFiZiZjdD1n/dNgK7Ws7y176U/giphy.gif” background-size:“30%”}",
+    "text": "Labs {background-image=“https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ0YTUyMTI1OGU1Yjk0YTVlYjgwM2MzYjY2Y2Q3ZTk2ZTljNmFiZiZjdD1n/dNgK7Ws7y176U/giphy.gif” background-size:“30%”}\n\nWe will"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#labs-background-imagehttpsmedia3.giphy.commediav1.y2lkptc5mgi3njexotq0ytuymti1ogu1yjk0ytvlyjgwm2mzyjy2y2q3ztk2ztljnmfizizjdd1ndngk7ws7y176ugiphy.gif-background-sizecontain",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#labs-background-imagehttpsmedia3.giphy.commediav1.y2lkptc5mgi3njexotq0ytuymti1ogu1yjk0ytvlyjgwm2mzyjy2y2q3ztk2ztljnmfizizjdd1ndngk7ws7y176ugiphy.gif-background-sizecontain",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Labs {background-image=“https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ0YTUyMTI1OGU1Yjk0YTVlYjgwM2MzYjY2Y2Q3ZTk2ZTljNmFiZiZjdD1n/dNgK7Ws7y176U/giphy.gif” background-size:“contain”}",
+    "text": "Labs {background-image=“https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ0YTUyMTI1OGU1Yjk0YTVlYjgwM2MzYjY2Y2Q3ZTk2ZTljNmFiZiZjdD1n/dNgK7Ws7y176U/giphy.gif” background-size:“contain”}\n\nWe will"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture00/Lec00.html#labs-background-imagehttpsmedia3.giphy.commediav1.y2lkptc5mgi3njexotq0ytuymti1ogu1yjk0ytvlyjgwm2mzyjy2y2q3ztk2ztljnmfizizjdd1ndngk7ws7y176ugiphy.gifbackground-sizecontain",
+    "href": "Pages/Lectures/Lecture00/Lec00.html#labs-background-imagehttpsmedia3.giphy.commediav1.y2lkptc5mgi3njexotq0ytuymti1ogu1yjk0ytvlyjgwm2mzyjy2y2q3ztk2ztljnmfizizjdd1ndngk7ws7y176ugiphy.gifbackground-sizecontain",
+    "title": "PSTAT 5A: Lecture 00",
+    "section": "Labs {background-image=“https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ0YTUyMTI1OGU1Yjk0YTVlYjgwM2MzYjY2Y2Q3ZTk2ZTljNmFiZiZjdD1n/dNgK7Ws7y176U/giphy.gif”~background-size:“contain”}",
+    "text": "Labs {background-image=“https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTQ0YTUyMTI1OGU1Yjk0YTVlYjgwM2MzYjY2Y2Q3ZTk2ZTljNmFiZiZjdD1n/dNgK7Ws7y176U/giphy.gif”~background-size:“contain”}\n\nWe will"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#what-is-data",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#what-is-data",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "What is Data?",
+    "text": "What is Data?"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#numerical-vs.-categorical",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#numerical-vs.-categorical",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Numerical vs. Categorical",
+    "text": "Numerical vs. Categorical\n\nNumerical variables are variables whose observations consist of numbers.\n\nExamples: heights, temperatures, number of free throws, etc.\n\nNot all variables are numerical! For example, I could take a poll asking people’s opinions on the movie Avatar: The Way of Water- the observations of this variable will most certainly not be numerical.\n\nRather, the observations of this variable will fall into one of a series of fixed categories (e.g. “Enjoyed the movie”, “Neutral about the movie”, and “Hated the movie”).\nAs such, we describe non-numerical variables as categorical variables."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#variables",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#variables",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Variables",
+    "text": "Variables\n\nAnother way to think about data is as observations of some particular variable.\nIn this way, we see that the language of data classification is equally applicable to variables.\n\nFor example, observations of a numerical variable will be numerical data. Similarly, observations of a categorical variable will be categorical data."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#continuous-vs.-discrete-data",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#continuous-vs.-discrete-data",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Continuous vs. Discrete Data",
+    "text": "Continuous vs. Discrete Data\n\nThere is a way we can further subdivide numerical data.\nAs an example, let us consider two different variables, both of which are numerical: heights, and number of accidents on a stretch of highway.\n\nIt is perfectly conceivable to observe a height of 5.15 feet, or 5.1302 feet, or 5.02391829 feet. In other words, there are an infinite number of possible heights between, say, 5 feet and 6 feet.\nOn the other hand, it doesn’t make sense to talk about “1.5 accidents” occurring on a stretch of highway; the number of accidents needs to be an integer."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#ordinal-vs.-nominal-data",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#ordinal-vs.-nominal-data",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Ordinal vs. Nominal Data",
+    "text": "Ordinal vs. Nominal Data\n\nJust as there was a way to subdivide numerical data, there is a way to further subdivide categorical data as well.\nAs an example, consider the following two categorical variables: color, and letter grades (i.e. A, B+, etc.)\n\nFirstly, I hope you can see that both of these variables are indeed categorical: there are only a fixed set of values that “color” and “letter grade” can take, with nothing in between.\nNow, clearly letter grades can be ordered: that is, an A is better than a B, which is better than a C, and so on and so forth.\nIn contrast, “green” isnt inherently better than “red”, which isn’t inherently better than “grey”, and so on and so forth."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#full-classification-scheme",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#full-classification-scheme",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Full Classification Scheme",
+    "text": "Full Classification Scheme\n\n\nHere is a diagram of the full classification scheme:\n\n\n\n\n\n\n\n\n\ndata_classification\n\n \n\ncluster_main\n\n  \n\ncluster_0\n\n  \n\ncluster_1\n\n  \n\ncluster_2\n\n  \n\ncluster_3\n\n   \n\nData\n\n Variable   \n\nnumerical\n\n Numerical   \n\nData->numerical\n\n    \n\ncategorical\n\n Categorical   \n\nData->categorical\n\n    \n\ncontinuous\n\n Continuous   \n\nnumerical->continuous\n\n    \n\ndiscrete\n\n Discrete   \n\nnumerical->discrete\n\n    \n\nnominal\n\n Nominal   \n\ncategorical->nominal\n\n    \n\nordinal\n\n Ordinal   \n\ncategorical->ordinal"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#time-for-an-exercise",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#time-for-an-exercise",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Time for an Exercise!",
+    "text": "Time for an Exercise!\n\n\n\n\n\n\nExercise 1\n\n\n\nClassify each of the following variables as either discrete, continuous, ordinal, or nominal.\n\n\nThe number of times a computer program returns an error\nThe time it takes an experienced swimmer to complete 4 laps of a pool\nThe favorite flavor of donut of a randomly selected person\nThe months of the year, as written in MM format (e.g. “01” for “January”, “02” for “February”, etc.)\n\n\nDiscuss with your neighbors!"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#real-world-data-set",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#real-world-data-set",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Real-World Data Set",
+    "text": "Real-World Data Set\n\nLet’s return to the palmerpenguins dataset.\nSpecifically, let’s examine the species variable:\n\n\n\n\n  [1] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n  [8] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [15] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [22] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [29] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [36] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [43] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [50] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [57] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [64] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [71] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [78] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [85] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [92] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [99] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[106] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[113] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[120] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[127] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[134] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[141] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[148] Adelie    Adelie    Adelie    Adelie    Adelie    Gentoo    Gentoo   \n[155] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[162] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[169] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[176] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[183] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[190] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[197] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[204] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[211] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[218] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[225] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[232] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[239] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[246] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[253] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[260] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[267] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[274] Gentoo    Gentoo    Gentoo    Chinstrap Chinstrap Chinstrap Chinstrap\n[281] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[288] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[295] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[302] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[309] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[316] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[323] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[330] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[337] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[344] Chinstrap\nLevels: Adelie Chinstrap Gentoo"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#summarizing-statistics",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#summarizing-statistics",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Summarizing Statistics",
+    "text": "Summarizing Statistics\n\n\n\n\n\n\nDefinition\n\n\n\nSummarizing Statistics\n\n\nSummarizing statistics are numerical quantities that seek to describe various parts of the data.\n\n\n\n\n\nFor example, we might ask: “what is the center of our data?”\n\nSummarizing statistics that answer these questions are called measures of central tendency\n\nWe could also ask “how spread out is our data”?\nOr, we could ask “what is the most common value in our dataset?”\nEach of these questions have associated summarizing statistics, and we will discuss several of these in the coming slides."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#measures-of-central-tendency",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#measures-of-central-tendency",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Measures of Central Tendency",
+    "text": "Measures of Central Tendency\n\nLet’s start by focusing on measures of central tendency.\n\nRecall that these seek to identify the “center” of data.\nFor instance, “what is a typical or average bill length for a penguin?”\n\nThere are two main measures of central tendency we will focus on in this class: the mean and the median."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#mean-vs.-median",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#mean-vs.-median",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Mean vs. Median",
+    "text": "Mean vs. Median\n\nWe now have two different measures of central tendency: the mean, and the median.\nLet’s examine how they differ.\nAs a concrete example, let’s consider the set \\(S = \\{1, 2, 3, 4\\}\\).\nNote that \\(S\\) has the same mean and median: \\(2.5\\).\nNow, suppose we add the number 5 to the set \\(S\\): call this new set \\(S_{+5}\\). That is, \\(S_{+5} = \\{1, 2, 3, 4, 5\\}\\).\nWhat are the mean and median of \\(S_{+5}\\)? Well, the mean and median coincidentally happen to both be \\(3\\)."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#robustness-and-senstitivity",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#robustness-and-senstitivity",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Robustness and Senstitivity",
+    "text": "Robustness and Senstitivity\n\n\nIn formal statistical language, we say that the median is more robust than the mean; equivalently, we say that the median is less sensitive to outliers than the mean.\n\n\n\nRobustness and sensitivity are two very important concepts in statistics.\nWe won’t discuss their full definitions in this class; suffice it to say that the robustness of a particular summarizing statistic refers to how much that statistic changes if a new data point is added to the set.\nYou will explore the robustness and sensitivity of the mean and median a bit more on your homework!\nAs a bit of a preview, let’s work through a problem together."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#a-problem",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#a-problem",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "A Problem",
+    "text": "A Problem\n\n\n\n\n\n\nExercise 3\n\n\n\nA collection of \\(n = 42\\) exam scores have an average 50%. Two additional scores of 100% are reported. How does the average of scores change with the addition of these two new scores?"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#spread-1",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#spread-1",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Spread",
+    "text": "Spread\n\nHere’s another question we could seek to answer: “how spread out is our data?”\n\nFor instance, in the case of the palmerpenguins dataset, we could be interested in quantifying exactly how much variability we have in the bill lengths represented in the dataset.\n\nThere are three main measures of spread that are commonly used in Statistics:\n\nThe Range\nThe Variance\nThe Interquartile Range (IQR)\n\nWe’ll discuss all three; for now, let’s talk about the range."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#range",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#range",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Range",
+    "text": "Range\n\nOne idea on how we can capture the spread is to say: how far apart is the smallest value from the largest value?\nIndeed, this quantity is what we call the range of a dataset:\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nThe Range\n\n\nGiven a set of numbers \\(X = \\{x_1, x_2, \\cdots, x_n\\}\\), we compute the range of \\(X\\) as: \\[ \\mathrm{range}(X) = \\max\\{x_1, \\cdots, x_n\\} - \\min\\{x_1, \\ \\cdots, \\ x_n\\} \\] i.e. the largest value minus the smallest value."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#another-measure",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#another-measure",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Another Measure",
+    "text": "Another Measure\n\nNow, there is another way to think about spread: suppose we look at the average distance of points from their mean."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#the-variance",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#the-variance",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "The Variance",
+    "text": "The Variance\n\n\n\n\n\n\nFormula\n\n\n\nThe Variance\n\n\nGiven a set of numbers \\(\\{x_1, x_2, \\cdots, x_n\\}\\), we compute the variance of these numbers using the formula: \\[ s^2 = \\frac{1}{n - 1} \\sum_{i=1}^{n} (x_i - \\overline{x})^2 \\] where \\(\\overline{x}\\) denotes the mean: \\[ \\overline{x} := \\frac{1}{n} \\sum_{i=1}^{n} x_i^2 \\]"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#lecture-01-summary",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#lecture-01-summary",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Lecture 01 Summary",
+    "text": "Lecture 01 Summary\n\n\nLet’s summarize what we learned today.\nWe started off by talking about what data is.\nThen, we discussed how to classify data.\n\nThere are 2 main types of data: numerical and categorical.\nNumerical data is subdivided into discrete and continuous data, and categorical data is subdivided into ordinal and nominal data.\n\nAfter that, we started talking about different ways to summarize data.\n\nWe can summarize data either numerically, or graphically.\nWhen we summarize data numerically, measures of central tendency are used to geta sense of the “center” of our data.\nThe median is more robust than the mean.\nTo measure the “spread” of data, we can use either the range, or the variance/standard deviation."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#next-time",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#next-time",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Next Time",
+    "text": "Next Time\n\nNext time we’ll discuss how to visualize the relationship between two variables.\nWe’ll also discuss some numerical summaries for data, including the mean, median, standard deviation, and IQR."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#descriptive-statistics",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#descriptive-statistics",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\n\nThis is the goal of Descriptive Statistics- to find different summarizing techniques to desribe the data.\n\n\n\nThere are two ways we can seek to summarize data: numerically (using numbers), and graphically.\nLet’s start with the latter- that is, let’s discuss how we might summarize our data using graphs."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#back-to-penguins",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#back-to-penguins",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Back To Penguins",
+    "text": "Back To Penguins\n\nHere is the species variable one more time:\n\n\n\n\n  [1] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n  [8] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [15] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [22] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [29] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [36] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [43] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [50] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [57] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [64] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [71] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [78] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [85] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [92] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n [99] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[106] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[113] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[120] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[127] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[134] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[141] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   \n[148] Adelie    Adelie    Adelie    Adelie    Adelie    Gentoo    Gentoo   \n[155] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[162] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[169] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[176] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[183] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[190] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[197] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[204] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[211] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[218] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[225] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[232] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[239] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[246] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[253] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[260] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[267] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   \n[274] Gentoo    Gentoo    Gentoo    Chinstrap Chinstrap Chinstrap Chinstrap\n[281] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[288] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[295] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[302] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[309] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[316] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[323] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[330] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[337] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap\n[344] Chinstrap\nLevels: Adelie Chinstrap Gentoo"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#bargraphsbarplots",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#bargraphsbarplots",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Bargraphs/Barplots",
+    "text": "Bargraphs/Barplots\n\n\nThis is an example of what is known as a bargraph or barplot.\n\n\n\n\n\n\n\n\nResult\n\n\n\nA bargraph is the best type of visualization for categorical data.\n\n\n\n\n\nIn general, if you have \\(k\\) categories, then you will have \\(k\\) bars in your bargraph, each with height propotional to the number of observations within the corresponding category.\nAs you can see, computing software is very useful when it comes to data visualization! In a few weeks, you will explore how to generate visualizations of your own in Python during Lab."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#tip",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#tip",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Tip",
+    "text": "Tip\n\nHello"
+  },
+  {
+    "objectID": "Pages/syllabus.html#email-policy",
+    "href": "Pages/syllabus.html#email-policy",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Email Policy",
+    "text": "Email Policy\nIf you need to send an email to me (Ethan), please include “PSTAT 5A” in the subject line of your email. Additionally, please allow up to one business day for a reply (though I will do my best to get back to you ASAP) Please note that I do not answer questions with extensive mathematics/equations over email (as trying to communicate in math over email can be a bit of a technical nightmare) Instead, if you have questions relating to course content I welcome you to either ask over Discord or during one of my Office Hours. Also, should you need to include your TA, please send a single email to both your TA and myself, as opposed to separate emails to the two of us. Thank you!"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#important-note",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#important-note",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Important Note",
+    "text": "Important Note\n\nIt is important to note that categorical data can be encoded using numbers (as we saw in the previous slide).\n\nIndeed, this is a fairly common practice as computers are more adept at dealing with numbers than things like words or symbols.\nAs such, when classifying data, it is not always enough to just check whether the data consists of numbers or not- it is important to think critically about what the data itself represents.\nAs a quick rule-of-thumb: check whether adding two numbers in your dataset makes interpretive sense. 12in \\(+\\) 13in is 15in, whereas lue + gold does not equal anything, regardless of whether blue is being encoded as 0 and gold is being encoded as 1."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#time-for-another-exercise",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#time-for-another-exercise",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Time For Another Exercise!",
+    "text": "Time For Another Exercise!\n\n\n\n\n\n\nExercise 2\n\n\n\nA recent survey asked 120 different PSTAT students what their favorite color is. The bargraph of the results is displayed below:\n\n\n\n\n\nApproximately what proportion of the students in the sample reported either blue or gold as their favorite color? Discuss with your neighbor!"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#numerical-data-1",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#numerical-data-1",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Numerical Data",
+    "text": "Numerical Data\n\nWe now turn our attention now to summarizing numerical data using graphs.\nTo guide us, let’s focus on a different part of the palmerpenguins dataset- this time we’ll look at the lengths (in millimeters) of the bills of the penguins observed in the study.\n\n\n\n\n  [1] 39.1 39.5 40.3   NA 36.7 39.3 38.9 39.2 34.1 42.0 37.8 37.8 41.1 38.6 34.6\n [16] 36.6 38.7 42.5 34.4 46.0 37.8 37.7 35.9 38.2 38.8 35.3 40.6 40.5 37.9 40.5\n [31] 39.5 37.2 39.5 40.9 36.4 39.2 38.8 42.2 37.6 39.8 36.5 40.8 36.0 44.1 37.0\n [46] 39.6 41.1 37.5 36.0 42.3 39.6 40.1 35.0 42.0 34.5 41.4 39.0 40.6 36.5 37.6\n [61] 35.7 41.3 37.6 41.1 36.4 41.6 35.5 41.1 35.9 41.8 33.5 39.7 39.6 45.8 35.5\n [76] 42.8 40.9 37.2 36.2 42.1 34.6 42.9 36.7 35.1 37.3 41.3 36.3 36.9 38.3 38.9\n [91] 35.7 41.1 34.0 39.6 36.2 40.8 38.1 40.3 33.1 43.2 35.0 41.0 37.7 37.8 37.9\n[106] 39.7 38.6 38.2 38.1 43.2 38.1 45.6 39.7 42.2 39.6 42.7 38.6 37.3 35.7 41.1\n[121] 36.2 37.7 40.2 41.4 35.2 40.6 38.8 41.5 39.0 44.1 38.5 43.1 36.8 37.5 38.1\n[136] 41.1 35.6 40.2 37.0 39.7 40.2 40.6 32.1 40.7 37.3 39.0 39.2 36.6 36.0 37.8\n[151] 36.0 41.5 46.1 50.0 48.7 50.0 47.6 46.5 45.4 46.7 43.3 46.8 40.9 49.0 45.5\n[166] 48.4 45.8 49.3 42.0 49.2 46.2 48.7 50.2 45.1 46.5 46.3 42.9 46.1 44.5 47.8\n[181] 48.2 50.0 47.3 42.8 45.1 59.6 49.1 48.4 42.6 44.4 44.0 48.7 42.7 49.6 45.3\n[196] 49.6 50.5 43.6 45.5 50.5 44.9 45.2 46.6 48.5 45.1 50.1 46.5 45.0 43.8 45.5\n[211] 43.2 50.4 45.3 46.2 45.7 54.3 45.8 49.8 46.2 49.5 43.5 50.7 47.7 46.4 48.2\n[226] 46.5 46.4 48.6 47.5 51.1 45.2 45.2 49.1 52.5 47.4 50.0 44.9 50.8 43.4 51.3\n[241] 47.5 52.1 47.5 52.2 45.5 49.5 44.5 50.8 49.4 46.9 48.4 51.1 48.5 55.9 47.2\n[256] 49.1 47.3 46.8 41.7 53.4 43.3 48.1 50.5 49.8 43.5 51.5 46.2 55.1 44.5 48.8\n[271] 47.2   NA 46.8 50.4 45.2 49.9 46.5 50.0 51.3 45.4 52.7 45.2 46.1 51.3 46.0\n[286] 51.3 46.6 51.7 47.0 52.0 45.9 50.5 50.3 58.0 46.4 49.2 42.4 48.5 43.2 50.6\n[301] 46.7 52.0 50.5 49.5 46.4 52.8 40.9 54.2 42.5 51.0 49.7 47.5 47.6 52.0 46.9\n[316] 53.5 49.0 46.2 50.9 45.5 50.9 50.8 50.1 49.0 51.5 49.8 48.1 51.4 45.7 50.7\n[331] 42.5 52.2 45.2 49.3 50.2 45.6 51.9 46.8 45.7 55.8 43.5 49.6 50.8 50.2"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#idea",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#idea",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Idea",
+    "text": "Idea\n\nWe can’t exactly construct a frequency table like we did with the species variable.\n\nThis is because we are unlikely to have two (or even more than two) penguins with exactly the same bill length, because bill length is a continuous variable!\n\nHowever, we could ask ourselves: “how many penguins had bill lengths between 30 and 35mm?” “How many had bill lengths between 35 and 40mm?”\nIn other words, we consider discretizing (i.e. chopping up) our data into little bins (i.e. intervals) of fixed binwidth (i.e. widths), and making a frequency table of these bins."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#histograms",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#histograms",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Histograms",
+    "text": "Histograms\n\nThis type of graph is called a histogram.\n\n\n\n\n\n\n\n\nResult\n\n\n\nOne way to summarize numerical data is to use a histogram.\n\n\n\n\n\n\nTo create a histogram, we:\n\nSelect a binwidth\nDiscretize our data using the selected binwidth\nGenerate a frequency table of our discretized data\nDraw as many rectangles as we have bins, and make the height of each rectangle proportional to the corresponding frequency."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#the-importance-of-binwidth",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#the-importance-of-binwidth",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "The Importance of Binwidth",
+    "text": "The Importance of Binwidth\n\nNotice that our notion of a histogram is intimately tied with our choice of binwidth.\nDifferent binwidths can produce wildly different histograms!\nHere is a demo\nIn practice, it is a good idea to play around with different binwidths to find one that results in a histogram that displays a moderate amount of detail without becoming so detailed as to lose sight of the bigger picture."
+  },
+  {
+    "objectID": "Pages/course_staff.html#teaching-assistants-tas",
+    "href": "Pages/course_staff.html#teaching-assistants-tas",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Teaching Assistants (TAs)",
+    "text": "Teaching Assistants (TAs)\n\n\n\n\n\n\n\nTA: Nickolas Thiessen\n\n\n\n\n\n\n\n\n\n\n\n\n\nNickolas Thiessen\n\n\nMore information coming soon!\n\n\n\n\n\nEmail:\n\n\nnickolas@ucsb.edu\n\n\n\n\nOH:\n\n\nTBD, TBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTA: TBD\n\n\n\n\n\n\n\n\n\n\n\n\n\nTBD\n\n\nMore information coming soon!\n\n\n\n\n\nEmail:\n\n\nTBD\n\n\n\n\nOH:\n\n\nTBD, TBD"
+  },
+  {
+    "objectID": "Pages/course_staff.html#undergraduate-learning-assistants-ulas",
+    "href": "Pages/course_staff.html#undergraduate-learning-assistants-ulas",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "Undergraduate Learning Assistants (ULAs)",
+    "text": "Undergraduate Learning Assistants (ULAs)\n\n\n\n\n\n\n\nULA: Catherine Li\n\n\n\n\n\n\n\n\n\n\n\n\n\nCatherine Li\n\n\nMore information coming soon!\n\n\n\n\n\nEmail:\n\n\ncatherine_li@umail.ucsb.edu\n\n\n\n\nOH:\n\n\nTBD, TBD"
+  },
+  {
+    "objectID": "Pages/course_staff.html",
+    "href": "Pages/course_staff.html",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "",
+    "text": "Instructor: Ethan P. Marzban\n\n\n\n\n\n\n\n\n\n\n\n\n\nEthan P. Marzban\n\n\nHello! I am currently in the 3rd year of my PhD program here in the PSTAT department, having joined back in 2020 (after having completed my undergraduate degree in Statistics as well). Outside of school I enjoy playing the piano, drinking boba, and talking about cats!\n\n\n\n\n\nEmail:\n\n\nepmarzban@pstat.ucsb.edu\n\n\n\n\nOH:\n\n\nHW Clinic: Tuesdays, 4:30 - 5:30 in ELLSN 2626  OH: Fridays, 12 - 1pm in SH 5607F (Sobel)"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#the-mean",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#the-mean",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "The Mean",
+    "text": "The Mean\n\n\n\n\n\n\nFormula: The Mean\n\n\n\nGiven a set of data \\(X = \\{x_i\\}_{i=1}^{n}\\), we compute its mean, denoted \\(\\overline{X}\\), using the formula \\[ \\overline{X} = \\frac{1}{n} (x_1 + \\cdots + x_n) \\] which can be equivalently written as \\[ \\overline{X} = \\frac{1}{n} \\sum_{i=1}^{n} x_i \\]\n\n\n\n\n\nIn words: we compute the mean by adding up all of the points included in our dataset, and dividing by the total number of points."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#the-mean-1",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#the-mean-1",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "The Mean",
+    "text": "The Mean\n\n\n\n\n\n\nFormula: The Mean\n\n\n\nGiven a set of data \\(X = \\{x_i\\}_{i=1}^{n}\\), we compute its mean, denoted \\(\\overline{X}\\), using the formula \\[ \\overline{X} = \\frac{1}{n} (x_1 + \\cdots + x_n) \\] which can be equivalently written as \\[ \\overline{X} = \\frac{1}{n} \\sum_{i=1}^{n} x_i \\]\n\n\n\n\n\nIn words: we compute the mean by adding up all of the points included in our dataset, and dividing by the total number of points."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#time-for-an-exercise",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#time-for-an-exercise",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Time for an Exercise!",
+    "text": "Time for an Exercise!\n\n\n\n\n\n\nExercise 1\n\n\n\nCompute the mean of the set \\(S = \\{-1, 0, 1, 1, 2, 4\\}\\). Discuss with your neighbors!"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#a-note-on-notation",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#a-note-on-notation",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "A Note on Notation",
+    "text": "A Note on Notation\n\nPerhaps you haven’t seen the notation \\(\\sum_{i=1}^{n} x_i\\) before. Don’t get scared by it! It’s just a shorthand notation for the sum of the points \\(\\{x_1, x_2, \\cdots, x_n\\}\\).\nSo, if it’s easier for you, you can always think of \\((x_1 + \\cdots, x_n)\\) in place of \\(\\sum_{i=1}^{n} x_i\\).\nHaving said that, I will often use this notation (called sigma notation, as the symbol \\(\\sum\\) is the capital Greek letter “sigma”) as it saves quite a bit of time in the long run.\n\nI also urge you to familiarze yourself with \\(\\sigma\\) notation, as I’m sure you will encounter it even beyond this course!"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#leadup",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#leadup",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Leadup",
+    "text": "Leadup\n\nSuppose \\(F = \\{f_i\\}_{i=1}^{n}\\) denotes a set of temperature measurements, as recorded in Fahrenheit.\nNow, let’s say I want to convert the measurements to be in terms of Centigrade, and will store the resulting values in a set called \\(C = \\{c_i\\}_{i=1}^{n}\\) (for “Centigrade”).\nThe \\(c_i\\) values aren’t new data- they are still linked with our original \\(f_i\\) Fahrenheit measurements! Specifically, they are linked by way of the following formula: \\[ c_i = \\frac{5}{9} (f_i - 32) \\] (as this is the conversion from Fahrenheit to Centigrade)."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#transformations",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#transformations",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Transformations",
+    "text": "Transformations\n\nThis is a specific example of a more general concept known as data transformation.\nIn general, given a set of data \\(X = \\{x_i\\}_{i=1}^{n}\\), we can consider the set of points obtained by applying some function (a.k.a. a transformation) \\(g\\) to the points \\(x_i\\), to obtain a new set \\(\\{g(x_i)\\}_{i=1}^{n}\\)\n\nFor instance, we used \\(g(x) = (5/9) \\cdot (x - 32)\\) in our Fahrenheit-to-Centigrade example on the previous slide.\nThere are many other functions we could consider! For instance, in certain cases we may need to transform our data using a logarithm function; i.e. \\(g(x) = \\ln(x)\\)."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#linear-transformations",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#linear-transformations",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Linear Transformations",
+    "text": "Linear Transformations\n\nFor now, let’s restrict ourselves to considering linear transformations of our data.\nRecall that a function \\(g(x)\\) is said to be linear if it is of the form \\(g(x) = ax + b\\).\n\nSo, we are restricting ourselves to functions \\(g\\) of this form.\n\nOne question we may ask is: what is the mean of our transformed data?\n\nIn other words, given a set \\(X = \\{x_i\\}_{i=1}^{n}\\) and a new set \\(Y := \\{ax_i + b\\}_{i=1}^{n}\\) for fixed constants \\(a\\) and \\(b\\), what can we say about \\(\\overline{Y}\\)?"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#more-complicated-transformations",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#more-complicated-transformations",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "More Complicated Transformations",
+    "text": "More Complicated Transformations\n\nFor more general transformations \\(g\\), things don’t work out as nicely.\nFor instance, if we take the logarithm of each datapoint, the average of these new points is not necessarily going to be the logarithm of the average.\n\nTo see that, we can consider a specific example: Let \\(X = \\{1, 2, 3\\}\\) and take \\(Y = \\{\\ln(1), \\ \\ln(2), \\ \\ln(3)\\}\\). Then \\(\\overline{X} = 2\\) and \\(\\overline{Y} \\approx 0.597\\), whereas \\(\\ln(\\overline{X}) = \\ln(2) \\approx 0.693\\).\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nIf \\(X = \\{x_i\\}_{i=1}^{n}\\) and \\(Y = \\{g(x_i)\\}_{i=1}^{n}\\) where \\(g\\) is not a linear transformation, then it is not the case that \\(\\overline{Y} = g(\\overline{X})\\)."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#warning",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#warning",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Warning",
+    "text": "Warning\n\nIf \\(X = \\{x_i\\}_{i=1}^{n}\\) and \\(Y = \\{g(x_i)\\}_{i=1}^{n}\\) where \\(g\\) is not a linear transformation, then it is not the case that \\(\\overline{Y} = g(\\overline{X})\\).\n\n:::"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#back-to-central-tendency",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#back-to-central-tendency",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Back to Central Tendency",
+    "text": "Back to Central Tendency"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#central-tendency",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#central-tendency",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Central Tendency",
+    "text": "Central Tendency\n\nWe have seen that the mean can be viewed as a sort of balancing point of our data.\nIn some ways, this means that it is a measure of the center of our data.\nIn general, we use the term measure central tendency to refer to any summarizing quantity that indicates where the “center” of our data is.\n\nSo, one measure of central tendency is the mean."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#leadup-1",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#leadup-1",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Leadup",
+    "text": "Leadup\n\nHere’s another idea: suppose we line up our data in ascending order.\nThen suppose we cross off the first and last points.\nThen, we cross off the first and last points that are not yet crossed off.\nAnd suppose we keep repeating this.\nWhat we will be left with is, in some ways, the “middle” of our data- i.e. the center.\nThis measure of central tendency is called the median.\n\nMore concretely:"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#the-median",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#the-median",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "The Median",
+    "text": "The Median\n\n\n\n\n\n\nFormula: The Median\n\n\n\nTo compute the median of a set \\(X = \\{x_i\\}_{i=1}^{n}\\) of numbers, we do the following:\n\nLine up the numbers in ascending order\nCross off the first and last numbers\nCross off the first and last numbers that haven’t been crossed off\nContinue this process until you are either left with a single number (in which case this number will be the median), or a pair of numbers (in which case you compute the average of these two numbers)."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#leadup-2",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#leadup-2",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Leadup",
+    "text": "Leadup\n\nNow, there is another way to think about spread: suppose we look at the average distance of points from their mean.\nMore specifically: define \\(d_i := x_i - \\overline{X}\\) to be the deviation of the \\(i\\)th point from the mean:"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#the-variance",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#the-variance",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "The Variance",
+    "text": "The Variance\n\n\nThis is what we call the variance of the set \\(X\\), denoted by \\(S_X^2\\).\n\n\n\n\n\n\n\n\nFormula: Variance, and Standard Deviation\n\n\n\nGiven a set of data \\(X = \\{x_i\\}_{i=1}^{n}\\), we compute the variance of \\(X\\) by \\[ S_X^2 = \\frac{1}{n - 1} \\sum_{i=1}^{n} (x_i - \\overline{X})^2 \\] We define the standard deviation, denoted by \\(S_X\\), to be \\(\\sqrt{S_X^2}\\); i.e. \\[ S_X := \\sqrt{\\frac{1}{n - 1} \\sum_{i=1}^{n} (x_i - \\overline{X})^2} \\]"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#leadup-3",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#leadup-3",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Leadup",
+    "text": "Leadup\n\nNow, there is another way to think about spread: suppose we look at the average distance of points from their mean.\nMore specifically: define \\(d_i := x_i - \\overline{X}\\) to be the deviation of the \\(i\\)th point from the mean:"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#range",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#range",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Range",
+    "text": "Range\n\nAnother way we can summarize a dataset \\(X = \\{x_i\\}_{i=1}^{n}\\) is to describe how spread out it is.\nOne idea on how we can capture the spread is to say: how far apart is the smallest value from the largest value?\nIndeed, this statistic has a name: the range.\n\n\n\n\n\n\n\n\nFormula: Range\n\n\n\nGiven a set of numbers \\(X = \\{x_1, x_2, \\cdots, x_n\\}\\), we compute the range of \\(X\\) as: \\[ \\mathrm{range}(X) = \\max\\{x_1, \\cdots, x_n\\} - \\min\\{x_1, \\ \\cdots, \\ x_n\\} \\] i.e. the largest value minus the smallest value."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#what-is-data-1",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#what-is-data-1",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "What is Data?",
+    "text": "What is Data?\n\nAccording to Merriam-Webster (source), there are three definitions for data:\n\n\nfactual information (such as measurements or statistics) used as a basis for reasoning, discussion, or calculation\ninformation in digital form that can be transmitted or processed\ninformation output by a sensing device or organ that includes both useful and irrelevant or redundant information and must be processed to be meaningful"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#example-of-data",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#example-of-data",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Example of Data",
+    "text": "Example of Data\n\nAs a concrete example of a dataset, let’s explore the so-called palmerpenguins dataset.\nCollected by Dr. Kristen Gorman at the Palmer Station in Antarctica, this dataset contains various measurements of 344 different penguins Dr. Gorman encountered."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#the-data-matrix",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#the-data-matrix",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "The Data Matrix",
+    "text": "The Data Matrix\n\nEach row of the data matrix above corresponds to an individual penguin.\n\nIn general, we refer to a given row of the data matrix as an observational unit, or case.\n\nFor each penguin, we can see that there are many associated observations; specifically, for each penguin she encountered, Dr. Gorman measured and reocrded the penguin’s species, island, bill length (in mm), bill depth (in mm), flipper length (in mm), body mass (in grams), sex, and year of observation.\n\nNotice that these are the column names in our data matrix above. In general, the columns of the data matrix are referred to as variables."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#a-note-on-language",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#a-note-on-language",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "A Note on Language",
+    "text": "A Note on Language\n\nI should note that some data scientists use the words “variable” and “data” interchangeably in the context of classification.\n\nThat is, you will sometimes see people refer to “categorial data” as opposed to “categorical variables.”\nThis is fine… depending on your definition of data!\nThe definition of data we are using (i.e. in the context of the data matrix) is that data is comprised of several variables. As such, we cannot simply take the classification of variables and apply that to the entire dataset (unless our dataset consists of only one variable).\nThis may seem like a subtle point… and it is! I’m just pointing it out so you are aware of it."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#continuous-vs.-discrete-variables",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#continuous-vs.-discrete-variables",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Continuous vs. Discrete Variables",
+    "text": "Continuous vs. Discrete Variables\n\nThere is a way we can further subdivide numerical variables.\nAs an example, let us consider two different variables, both of which are numerical: heights, and number of accidents on a stretch of highway.\n\nIt is perfectly conceivable to observe a height of 5.15 feet, or 5.1302 feet, or 5.02391829 feet. In other words, there are an infinite number of possible heights between, say, 5 feet and 6 feet.\nOn the other hand, it doesn’t make sense to talk about “1.5 accidents” occurring on a stretch of highway; the number of accidents needs to be an integer."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#ordinal-vs.-nominal-variables",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#ordinal-vs.-nominal-variables",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Ordinal vs. Nominal Variables",
+    "text": "Ordinal vs. Nominal Variables\n\nJust as there was a way to subdivide numerical variables, there is a way to further subdivide categorical variables as well.\nAs an example, consider the following two categorical variables: color, and letter grades (i.e. A, B+, etc.)\n\nFirstly, I hope you can see that both of these variables are indeed categorical: there are only a fixed set of values that “color” and “letter grade” can take, with nothing in between.\nNow, clearly letter grades can be ordered: that is, an A is better than a B, which is better than a C, and so on and so forth.\nIn contrast, “green” isnt inherently better than “red”, which isn’t inherently better than “grey”, and so on and so forth."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#leadup",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#leadup",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Leadup",
+    "text": "Leadup\n\n\nAll of our discussions above were related to categorical variables.\n\n\n\nAs we discussed at the beginning of this lecture, not all variables are categorical- how do we visualize numerical variables?\nAgain, I find it useful to consider a concrete example: this time, let’s use the bill_length_mm variable from the palmerpenguins dataset."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#discretizationbinning",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#discretizationbinning",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Discretization/Binning",
+    "text": "Discretization/Binning\n\n\nThis is what is known as discretizing or binning our variable.\n\n\n\nIn other words, when we discretize our data, we carve it up into a bunch of chunks of equal width and see how many observations fall in each chunk.\n\nThe width of each chunk is what we call the binwidth. For example, if my categories are “between 30 and 35”, “between 35 and 40”, etc., then the binwidth is 5mm as each category spans a width of 5mm."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#time-for-an-exercise-1",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#time-for-an-exercise-1",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Time for an Exercise!",
+    "text": "Time for an Exercise!\n\n\n\n\n\n\nExercise 4\n\n\n\nHere is a boxplot of the bill_length_mm variable from the palmerpenguins dataset:\n\n\n\n\n\n\n\nWhat is the median bill length?\nApproximately what percent of penguins had bills shorter than 37mm in length?\nAre there any outliers?"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#density-histograms",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#density-histograms",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Density Histograms",
+    "text": "Density Histograms\n\nAs indicated by several of the above Exercises, data scientists are often interested in proportions as opposed to raw counts.\nTo aid in this, many histograms scale the vertical axis by the total number of observations in the data set.\n\nIn this way, the heights of bars never exceed 1.\nThis is what is known as a density histogram, whereas the histogram we discussed before is often referred to as a frequency histogram.\n\nAs an example, here is the density histogram of the flipper_length_mm variable from the previous exercise:"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#mathematical-interlude",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#mathematical-interlude",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Mathematical Interlude",
+    "text": "Mathematical Interlude\n\nBefore we talk about the next type of visualization, we’ll need to define a few mathematical quantities.\nThe first quantity we will define is a term you may have heard before- percentile.\nLet’s imagine a hypothetical variable that contains the final exam scores of 140 different students:"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#quartiles",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#quartiles",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Quartiles",
+    "text": "Quartiles\n\nWe give a special name to the 25th and 75th percentiles of a set of observations- we call these the first quartile and third quartile, respectively, and use the notation \\(Q_1\\) and \\(Q_3\\) to denote them, respectively.\n\nSo, \\(Q_1\\) is the value such that 25% of observations are less than \\(Q_1\\), and \\(Q_3\\) is the value such that 75% of observations are less than \\(Q_3\\).\n\nThe second quartile (i.e. the 50th percentile) is called the median.\n\nAs such, the median is the value that “splits the data in half”.\nWe’ll talk more about the median in the next lecture."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#mathematical-interlude-percentiles",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#mathematical-interlude-percentiles",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Mathematical Interlude: Percentiles",
+    "text": "Mathematical Interlude: Percentiles\n\nBefore we talk about the next type of visualization, we’ll need to define a few mathematical quantities.\nThe first quantity we will define is a term you may have heard before- percentile.\nLet’s imagine a hypothetical variable that contains the final exam scores of 140 different students:"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#boxplots",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#boxplots",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Boxplots",
+    "text": "Boxplots\n\nIt turns out there is another way to summarize numerical data visually: using what is known as a boxplot.\nBoxplots can be a seem a bit peculiar at first, so let’s take a look at one together. Before diving back into the palmerpenguins dataset, let’s look at a slightly different dataset.\n\nThis dataset contains only one variable, which records the scores (out of 100 points) of 140 different students on a final exam.\n\n\n\n\n\n  [1] 88.236 77.348 81.050 74.431 75.083 79.569 74.998 80.099 74.264 83.850\n [11] 89.857 81.427 79.439 84.260 78.565 77.570 78.224 73.780 88.085 79.341\n [21] 80.554 77.317 81.155 83.842 87.051 78.362 81.528 72.148 74.131 78.927\n [31] 75.446 79.791 78.199 90.769 85.640 78.420 83.484 79.045 97.909 86.736\n [41] 73.723 76.973 81.320 79.238 85.803 86.621 85.781 81.844 82.896 80.478\n [51] 75.903 84.565 76.302 83.432 85.448 69.695 81.049 85.575 84.791 82.525\n [61] 78.361 77.803 86.542 84.171 86.103 72.772 78.730 76.189 75.187 79.194\n [71] 77.159 82.048 82.661 84.021 76.008 79.474 79.015 86.992 72.524 76.094\n [81] 78.765 80.623 82.497 75.776 70.614 79.677 81.182 77.943 76.863 85.561\n [91] 89.569 96.695 73.680 77.770 81.584 81.965 78.373 76.295 73.212 79.229\n[101] 87.273 87.364 82.706 83.843 75.864 82.791 82.637 78.685 72.626 69.302\n[111] 93.408 73.189 83.764 77.832 82.803 80.278 94.962 79.616 85.667 82.710\n[121] 86.823 76.656 74.623 71.508 91.131 78.318 81.058 86.239 76.585 85.652\n[131] 77.122 86.036 83.127 83.234 80.746 83.878 75.544 73.780 81.106 85.523"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#a-more-rigorous-model-of-data",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#a-more-rigorous-model-of-data",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "A More Rigorous Model of Data",
+    "text": "A More Rigorous Model of Data\n\nLast lecture we discussed the data matrix representation of a dataset.\n\nTo recap, the data matrix is a tabular representation of our data where the rows are called observational units and the columns are called variables.\n\nBut, I’d like to stress- the data matrix is just a way to represent data. The actual data itself are the elements of the data matrix.\nIn this way, we can think of data as a collection of objects (which could be numbers, categories, etc.)\n\nIn other words, we can mathematically view data as a list or sequence."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#one-note-what-is-data",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#one-note-what-is-data",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "One Note: What is Data?",
+    "text": "One Note: What is Data?\n\nBefore we talk about the classification of variables, I’d like to quickly revisit our discussion of what data is.\nThe data matrix is just a way to represent data. The actual data itself are the elements of the data matrix."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#a-more-rigorous-model-of-data-1",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#a-more-rigorous-model-of-data-1",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "A More Rigorous Model of Data",
+    "text": "A More Rigorous Model of Data\n\nThis helps us establish some notation when it comes to dealing with data.\nSpecifically, we can use set notation to represent an abstract piece of data: \\(X = \\{x_i\\}_{i=1}^{n}\\).\n\nIf you’re not familiar with this notation, it is a shorthand for \\(\\{x_1, \\cdots, x_n\\}\\); i.e. a collection of \\(n\\) objects, called \\(x_1\\), \\(x_2\\), all the way up to \\(x_n\\).\nAgain, the elements \\(x_i\\) could be numbers, categories, colors, etc. The key point is that using the notation \\(x_i\\) is just a placeholder for an abstract observation."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#notation",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#notation",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Notation",
+    "text": "Notation\n\nWe can further borrow the notation of set theory to talk about data aggregation: given a set of data \\(X = \\{x_i\\}_{i=1}^{n}\\) and another set of data \\(Y = \\{y_i\\}_{i=1}^{m}\\), we can denote the aggregated set \\(Z\\), consisting of the elements \\(x_1, \\cdots, x_n, y_1, \\cdots, y_m\\), by \\[ Z = X \\cup Y \\]\n\nFor example, \\(\\{1, 2, 3\\} \\cup \\{4, 5\\} = \\{1, 2, 3, 4, 5\\}\\).\nMathematically, we call this the union of two sets.\n\nI will be using this notation going forward, so I encourage you to familiarize yourself with it!\nAlso, for today’s lecture, I will be assuming the elements \\(x_i\\) are numbers- I will be very clear whenever I relax this assumption."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#summarizing-data",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#summarizing-data",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Summarizing Data",
+    "text": "Summarizing Data\n\nThis lecture we will primarily devote our attention to summarizing our data as best we can.\nThis will lead us to several different summary statistics, which are really just mathematical quantities that seek to describe different aspects of our data."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#quantifying-center",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#quantifying-center",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Quantifying “Center”",
+    "text": "Quantifying “Center”\n\nHere is a very broad question: what is the center of a dataset \\(X = \\{x_i\\}_{i=1}^{n}\\)?\nIt may help to plot our datapoints on a number line:\n\n\n\n\n\n\n\n\n\nNow, I’ve assigned specific numbers to each point in this dataset. I’d like to stress that this is just for illustrative purposes- one of the tools we will need to learn for this class is the practice of abstraction.\n\nSaid differently, there is nothing special about the numbers I’ve put on the figure above- just focus on the points!"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture02/Lec02.html#quantifying-center-1",
+    "href": "Pages/Lectures/Lecture02/Lec02.html#quantifying-center-1",
+    "title": "PSTAT 5A: Lecture 02",
+    "section": "Quantifying “Center”",
+    "text": "Quantifying “Center”\n\n\nBack to our question: what is the center of this dataset?\n\n\n\nI think many of us would say that the center is somewhere between 2 and 3.\nHere is a slightly more concrete way of thinking about the center of this dataset- where should I place a fulcrum to ensure the above number line remains balanced?\n\n\n\n\n\n\n\n\n\nWe call this balancing point the arithmetic mean (or just mean, or average, for short), and denote it \\(\\overline{X}\\)."
+  },
+  {
+    "objectID": "Pages/hw.html",
+    "href": "Pages/hw.html",
+    "title": "PSTAT 5A: Understanding Data",
+    "section": "",
+    "text": "Here you will find all homework assignments and their solutions.\n\nHomework 1: due by 11:59pm on Tuesday, April 11\n(will be posted 5pm on Wednesday, April 5)"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#boxplots-1",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#boxplots-1",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Boxplots",
+    "text": "Boxplots\n\nWith our new knowledge of"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#anatomy-of-a-boxplot",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#anatomy-of-a-boxplot",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Anatomy of a Boxplot",
+    "text": "Anatomy of a Boxplot"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#understanding-boxplots",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#understanding-boxplots",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Understanding Boxplots",
+    "text": "Understanding Boxplots\n\nLet’s discuss each of the quantities represented on the boxplot separately.\nBefore we do, there’s a bit of math we need to cover.\nThe first quantity we will define is a term you may have heard before- percentile.\nLet’s return to our histogram of scores (since we’re a bit more comfortable with reading histograms than boxplots, at this point)"
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#percentiles",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#percentiles",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Percentiles",
+    "text": "Percentiles\n\n\n\n\n\n\n\nDefinition\n\n\n\nThe \\(p\\)th percentile of a set of observations \\(X\\) is the value \\(X_p\\) such that \\(p\\)% of observations lie to the left of (i.e. are less than) \\(X_p\\).\n\n\n\n\n\n\nMaybe now you can see why I switched over to this data of scores- I think percentiles are sometimes easier to interpret in the context of exam scores, since they are very commonly reported with standardized testing scores (e.g. SAT, GRE, etc.)\n\nIn the context of scores: someone who scored at the \\(p\\)th percentile performed better than \\(p\\)% of all test-takers."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#whiskers",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#whiskers",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Whiskers",
+    "text": "Whiskers\n\nFinally, we discuss the role of the whiskers on the boxplot.\nThere are several different conventions for how far the whiskers extend. In some conventions, the whiskers extend to the minimum and maximum values of the data.\nThe convention we will use is the following: the whiskers will never reach farther than \\(\\boldsymbol{1.5 \\times (Q_3 - Q_1)}\\).\n\nWhat this means is that there may be points in our dataset that lie beyond the reach of the whiskers. These points are what we call outliers."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#whiskers-1",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#whiskers-1",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Whiskers",
+    "text": "Whiskers\n\n\nThe rationale for constructing the whiskers in this way is to try and highlight any points that are unusually distant from the rest of the data.\n\n\n\nFor example, returning to our dataset of scores, we can see that though the median score was around 80.3% there was one person who scored a 97.9%. Because this score is unusually large, we would label it an outlier."
+  },
+  {
+    "objectID": "Pages/Lectures/Lecture01/Lec01_v2.html#summary",
+    "href": "Pages/Lectures/Lecture01/Lec01_v2.html#summary",
+    "title": "PSTAT 5A: Lecture 01",
+    "section": "Summary",
+    "text": "Summary\n\nWe started off by talking about the structure of data, and the data matrix.\nWe then discussed how to classify variables.\nNext, we explored graphical methods for summarizing data.\n\nBoxplots are best-suited for categorical data\nHistograms and boxplots are best-suited for numerical data\n\nWe also introduced the notions of percentiles, the median, and outliers.\nNext time we’ll discuss how to visualize the relationship between two variables.\nWe’ll also discuss some numerical summaries for data, including the mean, median, standard deviation, and IQR."
+  }
+]

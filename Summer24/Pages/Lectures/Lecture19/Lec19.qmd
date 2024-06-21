@@ -1,0 +1,574 @@
+---
+title: "PSTAT 5A: Lecture 19"
+subtitle: "Analysis of Variance"
+author: "Ethan P. Marzban"
+date: "07/26/23"
+format: 
+    revealjs:
+      html-math-method: mathjax
+      theme: [default, ../CSS/custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+```
+
+## Announcements/Reminders:
+
+- Lab05 is now due *tonight* (Wednesday, July 26). 
+
+    - You must submit a PDF to avoid incurring a 0.25pt penalty.
+    
+    - Please see the recent announcements from Olivier and myself regarding some troubleshooting advice.
+    
+- Quiz 3 is taking place this friday (July 28); you will have **50 minutes** to complete the quiz.
+
+    - Please make sure to give yourself enough time to upload your work!
+    
+- I will reserve some time at the end of today's lecture to talk about Midterm 2.
+
+## Leadup
+
+- Consider the following situation: a new drug claims to significantly lower systolic blood pressure.
+
+- To ensure these claims are validated, a clinical trial collects several volunteers and groups them into four groups: a control group, and three groups which each are administered a different dosage of the drug.
+
+- If the drug is truly ineffective, we would imagine the average systolic blood pressure of each group to be fairly similar to the average systolic blood pressures of the other groups.
+
+- In other words, given $k$ groups, each with some population mean $\mu_i$ (for $i = 1, 2, \cdots, k$), we wish to determine whether or not all of the $\mu_i$'s are the same.
+
+
+
+## ANOVA {style="font-size:32px"}
+
+- This is the basic setup of **Analysis of Variance** (often abbreviated as **ANOVA**).
+
+- Given $k$ groups, each with mean $\mu_i$, we wish to test the null hypothesis that all group means are equal (i.e. $H_0: \ \mu_1 = \mu_2 = \cdots = \mu_k$) against the alternative that at least one of the group means differs significantly from the others.
+
+:::{.fragment style="font-size:40px"}
+:::{.callout-caution}
+## **CAUTION**
+
+Note the alternative hypothesis!
+:::
+:::
+
+- It is **NOT** correct to write the alternative as $H_A: \ \mu_1 \neq \mu_2 \neq \cdots \neq \mu_k$. 
+
+
+
+
+## ANOVA {style="font-size:32px"}
+
+- Here is the general idea.
+
+- Observations within each group will have some amount of variability (by virtue of being *random* observations).
+
+- However, the sample means (of the groups) themselves will also have some variability (again, due to the fact that sample means are random).
+
+- The question ANOVA seeks to answer is: is the variability between sample means greater than what we would expect due to chance alone?
+
+    - If so, we may have reason to believe that at least one of the group means differs significantly from the others; i.e. we would have evidence to reject the null.
+    
+## ANOVA {style="font-size:32px"}
+
+- Alright, let's see if we can make things a little more concrete.
+
+- Suppose we have some measure of variability between sample means; perhaps we could call this $\mathrm{MS}_{\mathrm{G}}$ (for mean-squared between groups).
+
+- Suppose we also have some measure of variability within each group (i.e. variability due to chance); perhaps we could call this  $\mathrm{MS}_{\mathrm{E}}$ can be thought of as a measure of variability *within groups*; i.e. as a sort of variance due to error/randomness.
+
+- Then, the ratio
+$$ F = \frac{\mathrm{MS}_\mathrm{G}}{\mathrm{MS}_{\mathrm{E}}} $$ 
+could be used as a test statistic.
+
+## ANOVA {style="font-size:32px"}
+
+- Why would this be a good test statistic?
+
+- Well, we previously stated that we would reject the null (that all group means are the same) in favor of the alternative when the variability across groups is much larger than the variability due to chance.
+
+    - Another way to say "the variability across groups is much larger than the variability due to chance" is to say that $\mathrm{MS}_{\mathrm{G}}$ is much larger than $\mathrm{MS}_{\mathrm{E}}$.
+    
+    - When this is true, $F$ will be much larger than 1.
+
+    - Hence, we would reject $H_0$ for large values of $F$.
+    
+- So, this quantity (which we call the **_F_-statistic**) *is* a good test statistic for our test!
+
+## ANOVA {style="font-size:32px"}
+
+- Alright, so how would we *compute* this statistic mathematically?
+
+    - In other words, what are good formulas for $\mathrm{MS}_{\mathrm{G}}$ and $\mathrm{MS}_{\mathrm{E}}$?
+
+- To answer this, let's establish some notation.
+
+- Recall that we have $k$ groups; our assumption is that we have some set of observations from each group.
+
+- Let's use the notation $X_{ij}$ to mean the `i`^th^ observation from the `j`^th^ group.
+
+    - For instance, $X_{2, 4}$ would denote the second observation from the fourth group.
+    
+    - Since we have $k$ groups, the index $j$ is allowed to take values from $\{1, 2, \cdots, k\}$.
+    
+    - Let's also assume that we have $n_k$ observations from group $k$, so that $i$ takes values from $\{1, 2, \cdots, n_k\}$ for the different values of $k$.
+
+## The Data
+
+![](anova1.svg)
+
+## The Data: Example
+
+![](anova2.svg)
+
+
+- Here we have $k = 3$ groups, with $n_1 = 5$ observations from group 1, $n_2 = 3$ observations from group 2, and $n_3 = 4$ observations from group 3.
+
+## MS~G~
+
+- Let's start with MS~G~, our quantity that is supposed to measure variability between group means.
+
+- We start by computing the means of our $k$ sets of observations. In other words, we compute
+$$ \overline{X}_j = \frac{1}{n_j} \sum_{i=1}^{n} X_{ij} $$
+for each $j = 1, 2, \cdots, k$.
+
+- Next, we compute the **grand mean**, which is simply the mean of all observations:
+$$ \overline{X} = \frac{1}{n} \sum_{j = 1}^{k} \sum_{i=1}^{n_j} X_{ij}; \quad n = \sum_{j=1}^{k} n_j $$
+
+## MS~G~
+
+- Then, we compute the **sum of squares between groups**
+$$ \mathrm{SS}_{\mathrm{G}} = \sum_{j = 1}^{k} n_j (\overline{X}_j - \overline{X})^2 $$
+and obtain our quantity for MS~G~ by dividing this by $k - 1$:
+$$ \mathrm{MS}_{\mathrm{G}} = \frac{1}{k - 1} \cdot \mathrm{SS}_{\mathrm{G}} $$
+
+## MS~E~ {style="font-size:30px"}
+
+- Now, let's discuss MS~E~, our quantity that is supposed to measure variability due to chance/within each group.
+
+- There are two main ways statisticians go about finding this quantity.
+
+- First, we compute the **sum of squares total**
+$$ \mathrm{SS}_{\mathrm{T}} = \sum_{j=1}^{k} \sum_{i=1}^{n_j} (X_{ij} - \overline{X})^2 $$
+
+- Then we compute the **sum of squared errors**
+$$ \mathrm{SS}_{\mathrm{E}} = \mathrm{SS}_{\mathrm{T}} - \mathrm{SS}_{\mathrm{G}} $$
+
+- And finally we divide by $n - k$ to obtain MS~E~:
+$$ \mathrm{MS}_{\mathrm{E}} = \frac{1}{n - k} (\mathrm{SS}_{\mathrm{E}}) $$
+
+## What We Have So Far {style="font-size:30px"}
+
+- Let's take stock of what we have so far.
+
+- Our hypotheses are 
+$$ \left[ \begin{array}{rl}
+  H_0:    & \mu_1 = \mu_2 = \cdots = \mu_k    \\
+  H_A:    & \text{at least one of the group means is different}
+\end{array} \right. $$
+
+- Our test statistic is 
+$$ F = \frac{\mathrm{MS}_\mathrm{G}}{\mathrm{MS}_{\mathrm{E}}} $$ 
+
+- Our test takes the form
+$$ \texttt{decision}(\mathrm{F}) = \begin{cases} \texttt{reject } H_0 & \text{if } F > c \\ \texttt{fail to reject } H_0 & \text{otherwise}\\ \end{cases}  $$
+
+## What's Left? {style="font-size:30px"}
+
+- So, what's left?
+
+    - That's right; the critical value $c$.
+    
+- Just as we did before, we construct our test to control for Type I errors. 
+
+- That is, given a significance level $\alpha$, we select the value of $c$ that ensures 
+$$ \mathbb{P}_{H_0}(F > c) = \alpha $$
+
+- This requires knowledge about the sampling distribution of $F$!
+
+- It turns out that, if we assume observations within each group are normally distributed (which ends up being a **very crucial** assumption), the statistic $F$ follows what is known as the **_F_-distribution**.
+
+- As such, the critical value of our test is the appropriate percentile of the _F_-distribution.
+
+
+
+## The _F_-Distribution {style="font-size:32px"}
+
+- The _F_-distribution is quite different from the distributions we have encountered thus far.
+
+- For one thing, it admits only nonnegative values in its state space (i.e. it has state space $[0, \infty)$).
+
+- Additionally, it takes two parameters, referred to as the **numerator degrees of freedom** and the **denominator degrees of freedom** (sometimes abbreviated as just "degree of freedom 1" and "degree of freedom 2".)
+
+- To notate the fact that a random variable $X$ follows the _F_-distribution with degrees of freedom `d1` and `d2`, respectively, we write
+$$ X \sim F_{\texttt{d1}, \ \texttt{d2}} $$
+
+
+
+
+## The _F_-Distribution {style="font-size:32px"}
+
+
+```{r}
+library(tidyverse)
+data.frame(x = seq(0, 6, by = 0.01)) %>%
+  ggplot(aes(x = x)) +
+  stat_function(fun = df,
+                args = list(2, 2),
+                linewidth = 1,
+                aes(colour = "2, 2")) +
+  stat_function(fun = df,
+                args = list(3, 2),
+                linewidth = 1,
+                aes(colour = "3, 2"),
+                n = 200) +
+  stat_function(fun = df,
+                args = list(3, 10),
+                linewidth = 1,
+                aes(colour = "3, 10"),
+                n = 200) +
+  stat_function(fun = df,
+                args = list(20, 100),
+                linewidth = 1,
+                aes(colour = "20, 100"),
+                n = 200) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("") +
+  labs(colour = "df1, df2 = ")
+```
+
+
+
+
+## The Test Statistic {style="font-size:32px"}
+
+- Recall that our test statistic in ANOVA is
+$$ F = \frac{\mathrm{MS}_\mathrm{G}}{\mathrm{MS}_{\mathrm{E}}} $$ 
+
+- As mentioned previously, if we assume normality within groups, then, under the null, $F$ follows the _F_-distribution with $k - 1$ and $n - k$ degrees of freedom, respectively, where $k$ is the number of groups and $n$ is the combined number of observations:
+$$ F = \frac{\mathrm{MS}_\mathrm{G}}{\mathrm{MS}_{\mathrm{E}}}  \stackrel{H_0}{\sim} F_{k - 1, \ n - k} $$
+
+- Since we reject only for large values of $F$, our _p_-values are always computed as upper-tail probabilities:
+
+
+
+
+
+
+## _p_-Values in ANOVA {style="font-size:32px"}
+
+
+```{r}
+library(tidyverse)
+data.frame(x = seq(0, 6, by = 0.01)) %>%
+  ggplot(aes(x = x)) +
+  stat_function(fun = df,
+                args = list(3, 10),
+                xlim = c(2, 6),
+                geom = "area",
+                fill = "#a4caeb",
+                n = 300) +
+  stat_function(fun = df,
+                args = list(3, 10),
+                linewidth = 1,
+                n = 300) +
+  theme_economist_white() +
+  theme(
+    panel.background = element_rect("#f0ebd8"),
+    plot.background = element_rect(fill = "#f0ebd8")
+  ) +
+  xlab("") +
+  ylab("")
+```
+
+
+
+## ANOVA Tables {style="font-size:30px"}
+
+- As mentioned previously, computing $\mathrm{MS}_{\mathrm{G}}$ and $\mathrm{MS}_{\mathrm{E}}$ is not particularly challenging, but it can be quite tedious.
+
+    - The process can be somewhat illuminating, though, so I have put a question on this week's homework walking you through how to perform an ANOVA by hand.
+
+- As such, computer software is usually utilized to carry out an ANOVA.
+
+- Often times, the results of such a computer-generated ANOVA are displayed in what is known as an **ANOVA Table**.
+
+- I find ANOVA tables to be best described by way of an example.
+
+## Example {style="font-size:30px"}
+
+:::{.fragment}
+::: callout-tip
+## Reference Example 1
+
+:::{.nonincremental}
+::: {style="font-size: 28px"}
+A state official would like to determine whether or not the average fluoride levels in the water supplies across three cities, called A, B, and C, are the same.
+
+To that end, they took a sample of 100 fluoride measurements from city A, 110 from city B, and 100 from city C.
+
+:::
+:::
+:::
+:::
+
+- After running an ANOVA in a computer software, the following output was produced:
+
+:::{.fragment style="font-size:28px"}
+|  | **DF** | **Sum Sq** | **Mean Sq** | **F value** | **Pr(>F)** |
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| Between Groups | 2	| 0.541799	| 0.2709	| 1.30682497808	 | 0.272179497817 |
+| Residuals | 307	| 63.6399	| 0.207296	|
+:::
+
+- Let's go through this table in more detail.
+
+## Interpreting an ANOVA Table {style="font-size:28px"}
+
+
+:::{.fragment style="font-size:28px"}
+|  | **DF** | **Sum Sq** | **Mean Sq** | **F value** | **Pr(>F)** |
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| Between Groups | 2	| 0.343981	| 0.171991	| 0.927001041587	 | 0.396843557892 |
+| Residuals | 307	| 56.9591	| 0.185534	|
+:::
+
+\
+
+- The **DF** column gives the degrees of freedom of the resulting _F_-statistic.
+
+    - Recall that these are meant to be $k - 1$ and $n - k$ respectively.
+    - $k$ is the number of groups (i.e. 3, in this example), hence the numerator d.f. of 2.
+    - $n$ is the total number of observations (i.e. 100 + 110 + 100 = 310, in this example), hence the denominator d.f. of 307 (310 - 3 = 307).
+    
+    
+- The rownames ("Between Groups" and "Residuals") refer to whether the specified entry is in relation to a *between group* calculation or a *within group* calculation. 
+
+    - The reason for calling the second row "Residuals" instead of "Within Group" will become clear next week, after we talk about Regression.
+    
+## Interpreting an ANOVA Table {style="font-size:28px"}
+
+|  | **DF** | **Sum Sq** | **Mean Sq** | **F value** | **Pr(>F)** |
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| Between Groups | 2	| 0.343981	| 0.171991	| 0.927001041587	 | 0.396843557892 |
+| Residuals | 307	| 56.9591	| 0.185534	|
+
+
+
+\
+
+- The **Sum Sq** column is precisely the sum of squares between groups and the sum of squared errors, SS~G~ and SS~E~ respectively.
+
+- The **Mean Sq** entries are found by dividing the corresponding **Sum Sq** entry by the corresponding degree of freedom.
+
+    - That is: 0.171991 = 0.343981 / 2
+    - And: 0.185534 = 56.9591 / 307
+    
+- Finally, the **F value** is simply the ration of the two **Mean Sq** values, and represents the value of our test statistic.
+
+    - The **Pr(>F)** is just our _p_-value.
+    
+## Analyzing the Data {style="font-size:30px"}
+
+- Maybe that was a little too opaque.
+
+- If you'd like, there is the actual data:
+
+:::{.fragment}
+```{r}
+x1 <- read.csv("x1.csv", col.names = F)
+x1 <- c(1.765793252, as.numeric(t(x1)))
+
+x2 <- read.csv("x2.csv", col.names = F)
+x2 <- c(1.096990264, as.numeric(t(x2)))
+
+x3 <- read.csv("x3.csv", col.names = F)
+x3 <- c(0.8893372313, as.numeric(t(x3)))
+
+data.frame(A = c(x1, rep("NA", 10)),
+  B = c(x2),
+  C = c(x3, rep("NA", 10))
+)
+```
+:::
+
+## Analyzing the Data {style="font-size:30px"}
+
+- Whoops- maybe that's too detailed.
+
+- Any ideas on how we might be able to get a better sense of the data that doesn't involve looking at all those numbers?
+
+- Maybe... something we learned in Week 1?
+
+:::{.fragment}
+```{r, fig.height = 4}
+df <- data.frame(
+  fluoride = c(x1, x2, x3),
+  city = as.factor(c(rep("A", 100), rep("B", 110), rep("C", 100)))
+)
+
+
+df %>%
+  ggplot(aes(x = city, y = fluoride)) +
+  stat_boxplot(geom = "errorbar", 
+               width = 0.25,
+               linewidth = 1) +
+  geom_boxplot(fill =  "#7f9ab5", 
+               size = 1,
+               outlier.size = 4) +
+  theme_economist(base_size = 18) +
+  ggtitle("Fluoride Levels Across Cities") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 0,
+                                      b = 10, 
+                                      l = 0))
+  ) 
+
+```
+:::
+
+## Checking Assumptions {style="font-size:30px"}
+
+- Finally, I should mention: **every good statistician and data scientists starts by checking assumptions**.
+
+- One of the key assumptions in ANOVA is that observations within each group are normally distributed.
+
+- How can we check that?
+
+    - That's right: QQ-plots!
+
+- In the upcoming lab, you'll begin to start talking about how to start statistical analyses. 
+
+    - Specifically, you will learn about something called **Exploratory Data Analysis** (EDA), part of which entails producing any diagnostic tools you may need to produce in order to ensure assumptions are being satisfied!
+    
+## QQ-Plots for the Fluoride Dataset
+
+\
+
+```{r, message = F}
+library(gridExtra)
+p1 <- data.frame(x1) %>% ggplot(aes(sample = x1)) +
+  geom_qq(size = 3) +
+  geom_qq_line() +
+  theme_economist(base_size = 14) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 0,
+                                      b = 10, 
+                                      l = 0))
+  ) +
+  xlab("theoretical quantiles") +
+  ylab("sample quantiles") +
+  ggtitle("QQ-Plot; A")
+
+p2 <- data.frame(x2) %>% ggplot(aes(sample = x2)) +
+  geom_qq(size = 3) +
+  geom_qq_line() +
+  theme_economist(base_size = 14) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 0,
+                                      b = 10, 
+                                      l = 0))
+  ) +
+  xlab("theoretical quantiles") +
+  ylab("sample quantiles") +
+  ggtitle("QQ-Plot; B")
+
+p3 <- data.frame(x3) %>% ggplot(aes(sample = x3)) +
+  geom_qq(size = 3) +
+  geom_qq_line() +
+  theme_economist(base_size = 14) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 0,
+                                      b = 10, 
+                                      l = 0))
+  ) +
+  xlab("theoretical quantiles") +
+  ylab("sample quantiles") +
+  ggtitle("QQ-Plot; C")
+
+grid.arrange(p1, p2, p3, ncol = 3)
+```
+
+# Alright, let's say a few words about Midterm 2.

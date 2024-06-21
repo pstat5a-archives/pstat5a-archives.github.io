@@ -1,0 +1,1152 @@
+---
+title: "PSTAT 5A: Lecture 20"
+subtitle: "Intro to Statistical Modeling, and Correlation"
+author: "Ethan P. Marzban"
+date: "07/27/23"
+format: 
+    revealjs:
+      html-math-method: mathjax
+      theme: [default, ../CSS/custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+```
+
+# Where We Have Been
+
+## Taking Stock
+
+- Let's start off today's lecture by taking stock of what we've done in this class so far.
+
+- We started off by talking about descriptive statistics, which seems to *describe* data.
+
+    - These descriptions can be visual (e.g. boxplots, scatterplots, etc.) or numerical (e.g. measures of central tendency, measures of spread, etc.)
+    
+- Next, we talked about probability, which sought to give us a framework with which to discuss randomness.
+
+    - Key notions include: random variables, and distributions (e.g. uniform, normal, etc.)
+    
+
+## Taking Stock
+
+- After that, we spent a few weeks talking about **inference**.
+
+    - This refers to the situation in which we have a population governed by a parameter, and we wish to take samples from this population and use these samples to make inferences about the population parameter.
+    
+    - We also discussed how to compare population means across multiple populations, using two-sample _t_-tests and ANOVA.
+
+## Scatterplots and Trends
+
+- Let's take a moment to revisit some material from Lecture 2.
+
+- Specifically, suppose we have data of the form $\{(y_i, \ x_i)\}_{i=1}^{n}$. 
+
+    - For simplicity's sake, let's assume both `x` and `y` are numerical.
+    
+- We have previously seen that the best way to visualize the relationship between `y` and `x` is with a **scatterplot**
+
+---
+
+
+:::: {.columns}
+
+:::{.column width="50%"} 
+- Linear **Negative** Association:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rnorm(100)
+y <- -2 * x + rnorm(100, 0, 2)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+:::{.column width="50%"}
+- Nonlinear **Negative** Association:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rchisq(100, 20)
+y <- (1 / x^2) + rnorm(100, 0, 0.0005)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+::::
+
+
+:::: {.columns}
+
+:::{.column width="50%"} 
+- Linear **Positive** Association:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rnorm(100)
+y <- 2 * x + rnorm(100, 0, 2)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+:::{.column width="50%"} 
+- Nonlinear **Positive** Association:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rchisq(100, 20)
+y <- 1 - (1/x^2)  + rnorm(100, 0, 0.0007)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+::::
+
+## No Relationship
+
+- Sometimes, two variables will have no relationship at all:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rchisq(100, 20)
+y <- rchisq(100, 20)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+
+## Statistical Modeling 
+
+- The goal of **statistical modeling**, loosely speaking, is to try and *model* the relationship between `x` and `y`.
+
+- Specifically, we assume the relationship takes the form
+$$ \texttt{y} = f(\texttt{x}) + \texttt{noise} $$
+where $f()$ is some function (e.g. linear, nonlinear, etc.)
+
+- Hang on, what's the `noise` term doing?
+
+- Well, take a look at the previous scatterplots. Even though many of these display (what we visually would describe as) relationships between `x` and `y`, the datapoints do not fall perfectly along a single curve.
+
+## Statistical Modeling
+
+- As a concrete example, suppose `y` represents `weight` and `x` represents `height`.
+
+- We do believe there would be some sort of a positive association between `weight` and `height` (taller people tend to, in general, weigh more) and we may even assume the relationship is linear.
+
+- However, just because we know someone's height, we don't exactly know what their weight will be. 
+
+    - Again, this is because there is uncertainty and randomness inherent in pretty much everything!
+    
+## Terminology
+
+- Alright, so: given variables `y` and `x`, we assume the relationship between them can be modeled as
+$$ \texttt{y} = f(\texttt{x}) + \texttt{noise} $$
+
+- Here is some terminology we use:
+    - `y` is referred to as the **response variable**, or sometimes the **dependent variable**.
+    - `x` is referred to as the **explanatory variable**, or sometimes the **independent variable**.
+    - The function $f()$ is sometimes referred to as the **signal function**.
+    
+
+## Terminology
+
+- We also have some additional terminology about the entire model, based on the type of the response variable.
+
+    - If `y` is numerical, we call the resulting model a **regression model** (or we just say we are in a **regression setting**)
+    
+    - If `y` is categorical, we call the resulting model a **classification model** (or we just say we are in a **classification setting**)
+    
+- So, for example, trying to model the relationship between `weight` and `height` (assuming `weight` is our response variable) is a regression problem, since `weight` is a numerical variable.
+
+
+## Classification Problem
+
+- As an illustration of a classic classification problem, suppose we have access to a roster of passengers on the *Titanic*.
+
+    - For those who don't know, the RMS *Titanic* was a British passenger line that crahsed into an iceberg on April 15, 1912. 
+    
+- Tragically, not all passengers survived.
+
+- One question we may want to ask is: how did various factors (e.g. class, gender, etc.) affect whether or not a given passenger survived?
+
+    - For instance, since women and children boarded lifeboats first, it may be plausible surmise that women and children had a higher likelihood of surviving.
+    
+
+## Classification Problem
+
+- Notice how here, the response variable (i.e. whether or not someone survived) is a **binary** variable; that is, it takes only one of two values (`survived` or `did not survive`). As such, this is a classification problem.
+
+    - I should note: perhaps confusingly, a problem in which the response is binary is sometimes called **logistic regression**.
+    
+    - But, that is a bit of a misnomer- it is technically a *classification* problem, since the response variable is categorical.
+
+- By the way, there is an actual dataset on the *Titanic* at [https://www.kaggle.com/competitions/titanic](https://www.kaggle.com/competitions/titanic)
+    
+- Again, we won't have a chance to talk about logistic regression in this class- for that, I refer you to a Machine Learning class like PSTAT 131/231!
+
+## Multivariate Models
+
+- We don't have to restrict ourselves to modeling the relationship between a response variable and a single explanatory variable.
+
+    - For example, suppose `y` measures income.
+    
+    - There are several factors that might contribute to someone's monthly income: things like `education_level`, `gender`, `industry`, etc.
+
+- We can easily adapt a linear regression model to allow for multiple explanatory variables, which leads to what is known as a **multivariate regression/classification model**:
+$$ \texttt{y} = f(\texttt{x}_1, \ \cdots , \ \texttt{x}_k) + \texttt{noise} $$
+
+    - A full treatment of multivariate models requires linear alebra, so I refer you to a course like PSTAT 126 or PSTAT 131/231 for further details.
+
+## Linear Models
+
+- For now, let's focus on modeling the relationship between a numerical response variable and a single numerical explanatory variable:
+$$ \texttt{y} = f(\texttt{x}) + \texttt{noise} $$
+
+- Of particular interest to statisticians are the class of **linear models**, which assume a linear form for the signal function.
+
+- Recall that a line is described by two parameters: an intercept and a slope. As such, to say we are assuming a "linear form" for $f()$ is to say we are assuming $f(x) = \beta_0 + \beta_1 \cdot x$, so our model becomes
+$$ \texttt{y} = \beta_0 + \beta_1 \cdot \texttt{x} + \texttt{noise} $$ 
+
+## Strength of a Relationship
+
+- Now, before we delve into the mathematics and mechanics of model fitting, there is another thing we should be aware of.
+
+- As an example, consider the following two scatterplots:
+
+
+:::: {.columns}
+
+:::{.column width="50%"} 
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rnorm(100)
+y <- 2 * x + rnorm(100, 0, 2.1)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y1 vs. X1") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+:::{.column width="50%"} 
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rnorm(100)
+y <- 2 * x + rnorm(100, 0, 0.5)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y2 vs. X2") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+::::
+
+- Both scatterplots display a positive linear trend. However, the relationship between `Y2` and `X2` seems to be "stronger" than the relationship between `Y1` and `X1`, does it not?
+
+
+## Correlation Coefficient
+
+- Ultimately, we would like to develop a mathematical metric to quantify not only the relationship between two variables, but also the *strength* of the relationship between these two variables.
+
+- This quantity is referred to as the **correlation coefficient**.
+
+- Now, it turns out there are actually a few *different* correlation coefficients out there. The one we will use in this class (and one of the metrics that is very widely used by statisticians) is called **Pearson's Correlation Coefficient**, or often just **Pearson's _r_** (as we use the letter _r_ to denote it.)
+
+## Pearson's _r_
+
+- Given two sets $X = \{y_i\}_{i=1}^{n}$ and $Y = \{y_i\}_{i=1}^{n}$ (note that we require the two sets to have the same number of elements!), we compute _r_ using the formula
+$$ r = \frac{1}{n - 1} \sum_{i=1}^{n} \left( \frac{x_i - \overline{x}}{s_X} \right) \left( \frac{y_i - \overline{y}}{s_Y} \right)  $$
+where:
+
+    - $\overline{x}$ and $\overline{y}$ denote the sample means of $X$ and $Y$, respectively
+    - $s_X$ and $s_Y$ denote the sample standard deviations of $X$ and $Y$, respectively.
+    
+## Example
+
+- I find it useful to sometimes consider extreme cases, and ensure that the math matches up with our intuition.
+
+- For example, consider the sets $X = \{1, 2, 3\}$ and $Y = \{1, 2, 3\}$.
+
+- From a scatterplot, I think we would all agree that $X$ and $Y$ have a positive linear relationship, and that the relationship is very strong!
+
+## Example
+
+- Indeed, $\overline{x} = 2 = \overline{y}$ and $s_X = 1 = s_Y$, meaning
+\begin{align*}
+  r   & = \frac{1}{3 - 1} \left[ \left( \frac{1 - 2}{1} \right) \left( \frac{1 - 2}{1} \right)  + \left( \frac{2 - 2}{1} \right) \left( \frac{2 - 2}{1} \right)  \right.   \\
+    & \hspace{45mm} \left. +  \left( \frac{3 - 2}{1} \right) \left( \frac{3 - 2}{1} \right)  \right] \\
+    & = \frac{1}{2} \left[ 1 + 0 + 1 \right] = \boxed{1}
+\end{align*}
+
+- It turns out, _r_ will always be between $-1$ and $1$, inclusive, regardless of what two sets we are comparing!
+
+## Interpretation
+
+- So, here is how we interpret the value of _r_.
+
+    - The sign of _r_ (i.e. whether it is positive or negative) indicates whether or not the linear association between the two variables is positive or negative.
+    
+    - The magnitude of _r_ indicates how strong the linear relationship between the two variables is, with magnitudes close to $1$ or $-1$ indicating very strong linear relationships.
+    
+    - An _r_ value of 0 indicates no linear relationship between the variables.
+    
+## Important Distinction
+
+- Now, something that is **very** important to mention is that _r_ only quantifies *linear* relationships- it is very bad at quantifying nonlinear relationships. 
+
+- For example, consider the following scatterplot:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rnorm(200)
+y <- x^2 + rnorm(100, 0, 0.5)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+
+## Important Distinction
+
+- I think we would all agree that `Y` and `X` have a fairly strong relationship.
+
+- However, the correlation between `Y` and `X` is actually only `r cor(x, y)`!
+
+- So, again- _r_ should only be used as a determination of the strength of *linear* trends, not *nonlinear* trends.
+
+## Your Turn!
+
+
+## Your Turn!
+
+:::{.fragment}
+::: callout-tip
+## Exercise 1
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+Compute the correlation between the following two sets of numbers:
+\begin{align*}
+  \boldsymbol{x}    & = \{-1, \ 0, \ 1\}    \\
+  \boldsymbol{y}    & = \{1, \ 2, \ 0\}
+\end{align*}
+:::
+:::
+:::
+:::
+
+## Leadup
+
+- There is another thing to note about correlation.
+
+- Let's see this by way of an example: consider the following two scatterplots:
+
+
+:::: {.columns}
+
+:::{.column width="50%"} 
+:::{.fragment}
+```{r}
+x <- c(1, 2, 3)
+y1 <- c(1, 2, 3)
+y2 <- c(1, 3, 5)
+
+data.frame(x, y1) %>%
+  ggplot(aes(x = x, y = y1)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y1 vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  ) +
+  ylim(c(1, 5))
+```
+:::
+:::
+
+:::{.column width="50%"} 
+:::{.fragment}
+```{r}
+x <- c(1, 2, 3)
+y1 <- c(1, 2, 3)
+y2 <- c(1, 3, 5)
+
+data.frame(x, y1) %>%
+  ggplot(aes(x = x, y = y2)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y2 vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  ) +
+  ylim(c(1, 5))
+```
+:::
+:::
+
+::::
+
+
+- Both cor(`X`, `Y1`) and cor(`X`, `Y2`) are equal to 1, despite the fact that a one unit increase in `x` corresponds to a different unit increase in `y1` as opposed to `y2`.
+
+## Leadup
+
+- So, don't be fooled- the magnitude of _r_ says nothing about how a one-unit increase in `x` translates to a change in `y`!
+
+    - Again, the magnitude of _r_ only tells us how *strongly* the two variables are related.
+    
+- To figure out exactly *how* a change in `x` translates to a change in `y`, we need to return to our model. 
+
+# Regression, Part I
+
+## Regression Problem {style="font-size:30px"}
+
+- As a concrete example, let's examine a dataset that contains several measurements on heights and weights:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+
+x <- rnorm(100, 180, 10)
+y <- x + rnorm(100, 0, 4)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Weight vs. Height") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  ) +
+  ylab("weight (lbs)") +
+  xlab("height (cm)")
+```
+:::
+
+## Regression Model
+
+- Letting `y` denote our response variable (weight) and `x` denote our explanatory variable (height), our model is
+$$ \texttt{y} = \beta_0 + \beta_1 \cdot \texttt{x} + \texttt{noise} $$
+
+    - If you wanted to be a little more explicit, you could also write
+    $$ \texttt{weight} = \beta_0 + \beta_1 \cdot (\texttt{height}) + \texttt{noise} $$
+    
+- Ultimately, we would like to know the values of $\beta_0$ and $\beta_1$.
+
+- However, we will never be able to determine their values exactly!
+
+- Why? Well, take a look at the model again- though we are assuming a linear relationship between `height` and `weight`, our `weight` observations contain some noise, the magnitude of which we never get to see!
+
+    - In this way, we can think of $\beta_0$ and $\beta_1$ as population parameters.
+
+## Fitting the Model
+
+- Our goal, therefore, is to try and determine good estimators $\widehat{\beta}_0$ and $\widehat{\beta}_1$ of $\beta_0$ and $\beta_1$, respectively. 
+
+- In the more general setting, given a model
+$$ \texttt{y} = f(\texttt{x}) + \texttt{noise} $$
+the goal of **model fitting** is to take data $\{(y_i, \ x_i)\}_{i=1}^{n}$ and use it to construct a function $\widehat{f}()$ that we believe best approximates the function $f():$
+$$ \widehat{\texttt{y}} = \widehat{f}(\texttt{x}) + \texttt{noise} $$
+
+
+## Height and Weight
+
+- Okay, back to our height and weight example:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+
+x <- rnorm(100, 180, 10)
+y <- x + rnorm(100, 0, 4)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Weight vs. Height") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  ) +
+  ylab("weight (lbs)") +
+  xlab("height (cm)")
+```
+:::
+
+## Height and Weight
+
+- The regression problem basically boils down to finding the line that best fits the data. 
+
+- The specific line we will discuss in a bit is called the **ordinary least squares line** (or just OLS line):
+
+:::{.fragment}
+```{r}
+set.seed(123)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Weight vs. Height") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  ) +
+  ylab("weight (lbs)") +
+  xlab("height (cm)") +
+  geom_abline(slope = 1, intercept = 0, col = "red", linewidth = 1, linetype = "dotted") +
+  geom_smooth(method = "lm", se = FALSE, col = "blue", linewidth = 1)
+```
+:::
+
+## Simple Linear Regression
+
+- Here is how **simple linear regression** works.
+
+- We are given observations $\{(y_i, \ x_i)\}_{i=1}^{n}$ on a response variable `y` and an explanatory variable `x`. 
+
+- In simple linear regression, we adopt the following model:
+$$ \texttt{y} = \beta_0 + \beta_1 \cdot \texttt{x} + \texttt{noise} $$
+
+- Our goal is to use the data $\{(y_i, \ x_i)\}_{i=1}^{n}$ to determine suitable estimators for $\beta_0$ and $\beta_1$.
+
+## Simple Linear Regression
+
+- Here's a visual way of thinking about this. Consider the following scatterplot:
+
+:::{.fragment}
+![](scatterblank.svg){width="50%"}
+:::
+
+
+
+## Goals
+
+:::{.nonincremental}
+- We are assuming that there exists some true linear relationship (i.e. some "fit") between `y` and `x`. But, because of natural variability due to randomness, we cannot figure out exactly *what* the true relationship is.
+:::
+
+:::{.fragment}
+![](scatter2.svg){width="50%"}
+:::
+
+
+
+
+## Goals
+
+:::{.nonincremental}
+- Finding the "best" estimate of the signal function is, therefore, akin to finding the line that "best" fits the data.
+:::
+
+:::{.fragment}
+![](scatter5.svg){width="50%"}
+:::
+
+## Line of Best Fit
+
+- Now, if we are to find the line that best fits the data, we first need to quantify what we mean by "best".
+
+- Here is one idea: consider minimizing the average distance from the datapoints to the line.
+
+- As a measure of "average distance from the points to the line", we will use the so-called **residual sum of squares** (often abbreviated as RSS).
+
+
+## Residuals {style="font-size:32px"}
+
+- The **_i_^th^ residual** is defined to be the quantity $e_i$ below:
+
+:::{.fragment style="text-align:center"}
+![](rss.svg){width="50%"}
+:::
+
+- RSS is then just $\displaystyle \mathrm{RSS} = \sum_{i=1}^{n} e_i^2$
+
+## Results
+
+- It turns out, using a bit of Calculus, the estimators we seek (i.e. the ones that minimize the RSS) are
+\begin{align*}
+  \widehat{\beta_1}   & = \frac{\sum\limits_{i=1}^{n} (x_i - \overline{x})(y_i - \overline{y})}{\sum\limits_{i=1}^{n} (x_i - \overline{x})^2}    \\
+  \widehat{\beta_0}   & = \overline{y} - \widehat{\beta_1} \overline{x}
+\end{align*}
+
+- These are what are known as the **ordinary least squares** estimators of $\beta_0$ and $\beta_1$, and the line $\widehat{\beta_0} + \widehat{\beta_1} x$ is called the **ordinary least-squares regression line** (or just OLS regression line, for short).
+
+- Perhaps an example may illustrate what I am talking about. 
+
+## Example
+
+```{r}
+set.seed(123)
+z <- rnorm(100)
+w <- -2 * z + rnorm(100, 0, 2)
+
+data.frame(z, w) %>%
+  ggplot(aes(x = z, y = w)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+
+
+## Example
+
+```{r}
+set.seed(123)
+z <- rnorm(100)
+w <- -2 * z + rnorm(100, 0, 2)
+
+data.frame(z, w) %>%
+  ggplot(aes(x = z, y = w)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  ) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 2)
+
+fit10 <- lm(w ~ z)
+```
+
+- $\widehat{\beta_0} =$ `r fit10$coefficients[1]`; \quad $\widehat{\beta_1} =$ `r fit10$coefficients[2]`.
+
+- I.e. the equation of the line in blue is  `r fit10$coefficients[1]` + `r fit10$coefficients[2]` * `x`.
+
+## Fitted Values {style="font-size:30px"}
+
+- Let's return to our cartoon picture of OLS regression:
+
+:::{.fragment style="text-align:center"}
+![](rss.svg){width="50%"}
+:::
+
+## Fitted Values {style="font-size:30px"}
+
+- Notice that each point in our dataset (i.e. the blue points) have a corresponding point on the OLS regression line:
+
+
+:::{.fragment style="text-align:center"}
+![](fitted.svg){width="50%"}
+:::
+
+
+## Fitted Values {style="font-size:30px"}
+
+- These points are referred to as **fitted values**; the _y_-values of the fitted values are denoted as $\widehat{y}_i$.
+
+- In this way, the OLS regression line is commonly written as a relationship between the fitted values and the _x_-values:
+$$ \widehat{y} = \widehat{\beta_0} + \widehat{\beta_1} x $$
+
+## Back to `height` and `weight` {style="font-size:30px"}
+
+- Before we work through the math once, let's apply this technique to the height and weight data from before. 
+
+:::{.fragment}
+```{r, fig.width = 7, fig.height = 5}
+set.seed(123)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Weight vs. Height") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  ) +
+  ylab("weight (lbs)") +
+  xlab("height (cm)") 
+```
+:::
+
+
+## Back to `height` and `weight` {style="font-size:30px"}
+
+- Using a computer software, the OLS regression line can be found to be:
+
+::::{.columns}
+
+:::{.column width="75%"}
+:::{.fragment}
+```{r, fig.width = 7, fig.height = 5}
+set.seed(123)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Weight vs. Height") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  ) +
+  ylab("weight (lbs)") +
+  xlab("height (cm)") +
+  geom_smooth(method = "lm", se = F, col = "blue", linewidth = 1)
+
+hw1 <- lm(y ~ x)
+```
+:::
+:::
+
+:::{.column width="25%"}
+- Specifically, $\widehat{\beta_0} =$ `r hw1$coefficients[1]` and $\widehat{\beta_1} =$ `r hw1$coefficients[2]`
+
+
+\
+
+- We will return to the notion of fitted values in a bit.
+:::
+
+::::
+
+
+## Back to `height` and `weight`
+
+- A quick note:
+
+
+- Though there was no way to know this, the true $\beta_1$ was actually $1.0$. Again, this is just to demonstrate that the OLS estimate $\widehat{\beta_1}$ is just that- an estimate!
+
+
+---
+
+:::{.fragment}
+```{r, fig.width = 7, fig.height = 5, fig.align = 'center'}
+set.seed(123)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Weight vs. Height") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  ) +
+  ylab("weight (lbs)") +
+  xlab("height (cm)") +
+  geom_smooth(method = "lm", se = F, col = "blue", linewidth = 1) +
+  geom_abline(slope = 1, col = "red", linewidth = 1)
+
+hw1 <- lm(y ~ x)
+```
+:::
+
+:::{.fragment}
+$$ \widehat{\texttt{weight}} = 3.367 + 0.979 \cdot \texttt{height} $$
+:::
+
+
+## Worked-Out Example
+
+- Alright, let's work through a computation by hand once.
+
+- Suppose we have the variables
+\begin{align*}
+  \boldsymbol{x}    & = \{3, \ 7, \ 8\}   \\
+  \boldsymbol{y}    & = \{20, \ 14, \ 17\}
+\end{align*}
+and suppose we wish to construct the least-squares regression line when regressing $\boldsymbol{y}$ onto $\boldsymbol{x}$.
+
+- First, we compute
+\begin{align*}
+  \overline{x}    & = 6   \\
+  \overline{y}    & = 17
+\end{align*}
+
+## Worked-Out Example {style="font-size:30px"}
+
+- Next, we compute
+\begin{align*}
+  \sum_{i=1}^{n} (x_i - \overline{x})^2   & = (3 - 6)^2 + (7 - 6)^2 + (8 - 6)^2 = 14   \\
+  \sum_{i=1}^{n} (y_i - \overline{y})^2   & = (20 - 17)^2 + (14 - 17)^2 + (17 - 17)^2 = 18
+\end{align*}
+
+- Additionally,
+\begin{align*}
+  \sum_{i=1}^{n} (x_i - \overline{x})(y_i - \overline{y})   & = (3 - 6)(20 - 17) + (7 - 6)(14 - 17)    \\[-7mm]
+    & \hspace{10mm} + (8 - 6)(17 - 17)    \\[5mm]
+    & = -12
+  \end{align*}
+  
+## Worked-Out Example
+
+- Therefore,
+$$ \widehat{\beta_1} = \frac{\sum_{i=1}^{n} (x_i - \overline{x})(y_i - \overline{y})}{\sum_{i=1}^{n} (x_i - \overline{x})^2}   = \frac{-12}{14} = - \frac{6}{7} $$
+
+- Additionally,
+$$ \widehat{\beta_0} = \overline{y} - \widehat{\beta_1} \overline{x} = 17 - \left( - \frac{6}{7} \right) (6) = \frac{155}{7} $$
+
+- This means that the ordinary least-squares regression line is
+$$ \boxed{\widehat{y} = \frac{1}{7} ( 155 - 6 x )} $$
+
+---
+
+
+:::{.fragment}
+```{r, fig.width = 7, fig.height = 5, fig.align = 'center'}
+set.seed(123)
+
+data.frame(x = c(3, 7, 8), y = c(20, 14, 17)) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  ) +
+  ylab("y") +
+  xlab("x") +
+  geom_smooth(method = "lm", se = F, col = "blue", linewidth = 1) 
+
+hw1 <- lm(y ~ x)
+```
+:::
+
+:::{.fragment}
+$$ \widehat{y} = \frac{1}{7} ( 155 - 6 x ) $$
+:::
+
+## Interpreting the Coefficients
+
+- Alright, so how do we interpret the OLS regression line? $$\widehat{y} = \widehat{\beta_0} + \widehat{\beta_1} x$$
+
+- We can see that a one-unit increase in `x` corresponds to a $\widehat{\beta_1}$-unit increase in `y`. 
+
+    - For example, in our `height` and `weight` example we found $$ \widehat{\texttt{weight}} = 3.367 + 0.979 \cdot \texttt{height} $$
+    
+    - This means that a one-cm change in height is associated with a (predicted/estimated) 0.979 lbs change in weight.
+
+## Next Time
+
+- Next time, we'll discuss how to use the OLS regression line to make predictions.

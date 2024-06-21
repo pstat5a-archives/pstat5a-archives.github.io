@@ -1,0 +1,176 @@
+---
+title: "Lab09"
+subtitle: "Exploring a Real-World Dataset"
+author:
+  - name: "PSTAT 5A, with Ethan Marzban"
+    affiliations:
+      - name: "Spring 2023"
+author-title: "Course"
+affiliation-title: "Quarter"
+format: html
+title-block-banner: "#4144a6"
+css: styles.css
+---
+
+------------------------------------------------------------------------
+
+In this week's lab, we will explore a real-world dataset.
+
+## Introduction to the Dataset
+
+The dataset we will explore is called `air22.csv`, and can be accessed at [https://pstat5a.github.io/Files/Datasets/air22.csv](https://pstat5a.github.io/Files/Datasets/air22.csv). It contains observations from the Bureau of Transportation Statistics [https://www.transtats.bts.gov/](https://www.transtats.bts.gov/) on flights taking place during 2022.
+
+Here is an abridged version of the data dictionary:
+
+- `year`: the year in which the data was collected
+- `month`: the month in which the data was collected
+- `carrier`: the carrier abbreviation (e.g. `AS` for Alaska, `AA` for American Airlines, etc.)
+- `carrier_name`: the full name of the carrier (e.g. Alaska, American, etc.)
+- `airport`: the airport IATA code (e.g. `SEA` for SeaTac International Airport, etc.)
+- `airport_name`: the full name of the airport
+- `arr_flights`: the number of flights that arrived
+- `arr_del15`: the number of flights that were delayed for more than 15 minutes
+- `carrier_ct`: the number of flights delayed due to carrier-related issues (e.g. no crew, delayed captain, etc.)
+- `weather_ct`: the number of flights delayed due to weather-related issues
+- `nas_ct`: the number of flights delayed due to National Air Security (NAS)-related issues (e.g. heavy traffic)
+- `security_ct`: the number of flights **cancelled** due to security-related issues
+- `late_aircraft_ct`: the number of flights delayed due to the arriving aircraft being delayed
+- `arr_cancelled`: the number of cancelled flights
+- `arr_diverted`: the number of flights that were diverted 
+- `arr_delay`: the total time (in minutes) of delayed flight
+- `carrier_delay`: the total time (in minutes) of delay due to air carrier-related issues
+- `weather_delay`: the total time (in minutes) of delay due to air weather-related issues
+- `nas_delay`: the total time (in minutes) of delay due to air NAS-related issues
+- `security_delay`: the total time (in minutes) of delay due to air security-related issues
+- `late_aircraft_delay`: the total time (in minutes) of delay due to the arriving aircraft being delayed
+
+## Part 1: Importing 
+
+We should start by importing the dataset into our JupyterHub environment! In this class, we will almost exclusively import datasets to `datascience` tables (remember those, from Lab 1?) The syntax we use to import a dataset and store it in a table called `table_name` is:
+```{python}
+#| eval: False
+#| echo: True
+table_name = Table.read_table(<location of dataset>)
+```
+
+By default, the `read_table` method will use the first line of data as labels for each of the columns. If, however, your data does not include labels as its first line you will need to manually specify the labels:
+```{python}
+#| eval: False
+#| echo: True
+table_name = Table.read_table(<location of dataset>, names = [labl1, ...])
+```
+
+:::{.callout-important}
+## Action Item
+Import the `air22.csv` dataset, and save it as a table called `air`. **Hint:** make sure you import any necessary modules first!
+:::
+
+:::{.callout-tip}
+The list of `Table()`-related methods at [http://data8.org/datascience/tables.html](http://data8.org/datascience/tables.html) may prove very useful for this lab!
+:::
+
+## Part 2: Getting a Feel for the Dataset
+
+Let's start of easy by answering a few questions. You should use code to determine the answers to these questions, but should write your answers using descriptive sentences in a markdown cell.
+
+:::{.callout-important}
+## Action Item
+How many rows are in the dataset? (Recall: in the language introduced in Week 1, this is the number of **observational units** in the **data matrix**.)
+:::
+
+:::{.callout-important}
+## Action Item
+How many columns are in the dataset? (Recall: in the language introduced in Week 1, this is the number of **variables** in the data matrix.)
+:::
+
+:::{.callout-important}
+## Action Item
+Return a list of the column names in the dataset. **Hint:** Recall that the column names, in the context of the `datascience` module, are sometimes called the **labels** of the table. Again, consult the help file if you need help!
+:::
+
+
+## Part 3: Accessing Specific Elements of the Dataset
+
+There are a few methods we can use to access specific parts of a Table:
+
+- `table_name.column(<index or label>)`: returns an array containing the data in the specified column
+- `table_name.row(<index or label>)`: returns an array containing the data in the specified column
+- `table_name.column(i).item(j)`: returns the value in column `i` + 1, row `j` + 1 (note the plus ones!)
+
+
+:::{.callout-important}
+## Action Item
+Display only the `arr_del15` column of the dataset.
+:::
+
+:::{.callout-important}
+## Action Item
+What years are included in the dataset?
+:::
+
+:::{.callout-important}
+## Action Item
+Create a histogram of the delay times caused by weather-related issues. Use 100 bins, and include axis labels as well as a plot title.
+:::
+
+We can also get creative, and use comparisons to subset various parts of our dataset. For example,
+
+```{python}
+#| echo: True
+#| eval: False
+air.column("carrier") == "AS"
+```
+will return a Boolean vector (i.e. a vector of `True` and `False` elements), with `True` elements corresponding to values in the `carrier` column that have value `"AS"`. In words: this would give us the indices of rows corresponding to data on Alaska Airlines.
+
+:::{.callout-important}
+## Action Item
+How many observational units were recorded from Alaska Airlines? **Hint:** Think about how a sum could help us here.
+:::
+
+## Part 5: A Mini-Project
+
+Alright, let's close off this lab with a bit of a mini-project. Our goal is to examine the number of arrivals over time. Specifically, we would ultimately like to plot the average number of arrivals per month vs. month.
+
+:::{.callout-important}
+## Action Item
+Explain, in words, what the following line of code is doing:
+```{python}
+#| eval: False
+
+air.row(air.column(1) == 1)
+```
+:::
+
+:::{.callout-important}
+## Action Item
+Explain, in words, what the following line of code is doing:
+```{python}
+#| eval: False
+
+air.row(air.column(1) == 2)[6]
+```
+**Hint:** `arr_flights` is the 7th column in the dataset.
+:::
+
+
+:::{.callout-important}
+## Action Item
+Based on your answers to the previous two Action Items, complete the following code to compute the average number of flights per month:
+
+```{python}
+#| eval: False
+#| echo: True
+
+means = []
+for k in _________________:
+  means.______(np.nanmean(air.row(air.column(___) == ___)[___]))
+```
+(By the way, the `nanmeans()` function is a variant of the `mean()` function from the `numpy` module that ignores missing values when computing the mean.)
+:::
+
+
+:::{.callout-important}
+## Action Item
+Plot your `means` list against the list containing the integers `1`, `2`, `3`, ..., `12` (this list functions like a list of month names.)
+:::
+

@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ethan P. Marzban">
+<meta name="dcterms.date" content="2023-07-05">
+
+<title>PSTAT 5A: Summer Session A, 2023 - PSTAT 5A: Midterm 1 Review</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../Images/Logos_Icons/5a_hex.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      PSTAT 5A: Summer Session A, 2023
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../Images/Logos_Icons/5a_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">PSTAT 5A: Summer Session A, 2023</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule of Topics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/calendar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sections and Calendar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/course_staff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Staff / OH</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW and Solns</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Exam Prep</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/exam_prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam Prep</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link active" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a>
+  <ul class="collapse">
+  <li><a href="#structure-of-data" id="toc-structure-of-data" class="nav-link" data-scroll-target="#structure-of-data">Structure of Data</a></li>
+  <li><a href="#structure-of-data-1" id="toc-structure-of-data-1" class="nav-link" data-scroll-target="#structure-of-data-1">Structure of Data</a></li>
+  <li><a href="#classification-of-variables" id="toc-classification-of-variables" class="nav-link" data-scroll-target="#classification-of-variables">Classification of Variables</a></li>
+  <li><a href="#classification-of-variables-1" id="toc-classification-of-variables-1" class="nav-link" data-scroll-target="#classification-of-variables-1">Classification of Variables</a></li>
+  <li><a href="#full-classification-scheme" id="toc-full-classification-scheme" class="nav-link" data-scroll-target="#full-classification-scheme">Full Classification Scheme</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#bargraph" id="toc-bargraph" class="nav-link" data-scroll-target="#bargraph">Bargraph</a></li>
+  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">Boxplot</a></li>
+  <li><a href="#numerical-summaries" id="toc-numerical-summaries" class="nav-link" data-scroll-target="#numerical-summaries">Numerical Summaries</a></li>
+  <li><a href="#the-mean" id="toc-the-mean" class="nav-link" data-scroll-target="#the-mean">The Mean</a></li>
+  <li><a href="#spread" id="toc-spread" class="nav-link" data-scroll-target="#spread">Spread</a></li>
+  <li><a href="#spread-1" id="toc-spread-1" class="nav-link" data-scroll-target="#spread-1">Spread</a></li>
+  <li><a href="#number-summary" id="toc-number-summary" class="nav-link" data-scroll-target="#number-summary">5-Number Summary</a></li>
+  <li><a href="#comparisons-of-variables" id="toc-comparisons-of-variables" class="nav-link" data-scroll-target="#comparisons-of-variables">Comparisons of Variables</a></li>
+  </ul></li>
+  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability">Probability</a>
+  <ul class="collapse">
+  <li><a href="#basics-of-probability" id="toc-basics-of-probability" class="nav-link" data-scroll-target="#basics-of-probability">Basics of Probability</a></li>
+  <li><a href="#probability-1" id="toc-probability-1" class="nav-link" data-scroll-target="#probability-1">Probability</a></li>
+  <li><a href="#long-run-frequencies-example" id="toc-long-run-frequencies-example" class="nav-link" data-scroll-target="#long-run-frequencies-example">Long-Run Frequencies Example</a></li>
+  <li><a href="#set-operations" id="toc-set-operations" class="nav-link" data-scroll-target="#set-operations">Set Operations</a></li>
+  <li><a href="#venn-diagrams" id="toc-venn-diagrams" class="nav-link" data-scroll-target="#venn-diagrams">Venn Diagrams</a></li>
+  <li><a href="#axioms-of-probability" id="toc-axioms-of-probability" class="nav-link" data-scroll-target="#axioms-of-probability">Axioms of Probability</a></li>
+  <li><a href="#probability-rules" id="toc-probability-rules" class="nav-link" data-scroll-target="#probability-rules">Probability Rules</a></li>
+  <li><a href="#conditional-probabilities" id="toc-conditional-probabilities" class="nav-link" data-scroll-target="#conditional-probabilities">Conditional Probabilities</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence">Independence</a></li>
+  </ul></li>
+  <li><a href="#counting" id="toc-counting" class="nav-link" data-scroll-target="#counting">Counting</a></li>
+  <li><a href="#programming" id="toc-programming" class="nav-link" data-scroll-target="#programming">Programming</a>
+  <ul class="collapse">
+  <li><a href="#basics-of-programming" id="toc-basics-of-programming" class="nav-link" data-scroll-target="#basics-of-programming">Basics of Programming</a></li>
+  <li><a href="#basics-of-programming-1" id="toc-basics-of-programming-1" class="nav-link" data-scroll-target="#basics-of-programming-1">Basics of Programming</a></li>
+  <li><a href="#comparisons-and-conditionals" id="toc-comparisons-and-conditionals" class="nav-link" data-scroll-target="#comparisons-and-conditionals">Comparisons and Conditionals</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#functions-1" id="toc-functions-1" class="nav-link" data-scroll-target="#functions-1">Functions</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="mt1_rev_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PSTAT 5A: Midterm 1 Review</h1>
+<p class="subtitle lead">Overview of Weeks 1 and 2</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ethan P. Marzban </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 5, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="descriptive-statistics" class="level1">
+<h1>Descriptive Statistics</h1>
+<section id="structure-of-data" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="structure-of-data">Structure of Data</h2>
+<ul>
+<li>We started by talking about the structure of data.</li>
+<li>We were exposed to the notion of a <strong>data matrix</strong>, which is comprised of a series of <strong>observational units</strong> (i.e.&nbsp;rows) on a series of <strong>variables</strong> (i.e.&nbsp;columns)</li>
+<li>For instance, the <code>palmerpenguins</code> data matrix is:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre class="hscroll"><code>   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<style type="text/css">
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+</style>
+</div>
+</div>
+</section>
+<section id="structure-of-data-1" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="structure-of-data-1">Structure of Data</h2>
+<div class="nonincremental">
+<ul>
+<li>Of course, the reader is not expected to <em>a priori</em> know what the variables in a dataset represent; as such, most datasets come equipped with a <strong>data dictionary</strong> that lists out the variables included in the dataset along with a brief description of each.</li>
+</ul>
+</div>
+<div style="font-size:25px">
+<table class="table">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Variable</strong></th>
+<th style="text-align: center;"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>species</code></td>
+<td style="text-align: center;">The species of penguin (either Adelie, Chinstrap, or Gentoo)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>island</code></td>
+<td style="text-align: center;">The island on which the penguin was found (either Biscoe, Dream, or Torgersen)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>bill_length_mm</code></td>
+<td style="text-align: center;">The length (millimeters) of the penguin’s bill</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>bill_depth_mm</code></td>
+<td style="text-align: center;">The depth (in millimeters) of the penguin’s bill</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>flipper_length_mm</code></td>
+<td style="text-align: center;">The length (in millimeters) of the penguin’s flipper</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>body_mass_g</code></td>
+<td style="text-align: center;">The mass (in grams) of the penguin</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>sex</code></td>
+<td style="text-align: center;">The sex of the penguin (either Male or Female)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>year</code></td>
+<td style="text-align: center;">The year in which the penguin was observed</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="classification-of-variables" class="level2">
+<h2 class="anchored" data-anchor-id="classification-of-variables">Classification of Variables</h2>
+<ul>
+<li>We also saw that variables fall into two main types: <strong>numerical</strong> and <strong>categorical</strong>.
+<ul>
+<li>Remember that it is not enough to simply check whether our data is comprised of numbers, as categorical data can be encoded using numbers (e.g.&nbsp;months in a year).</li>
+<li>Rather, we should check whether it makes interpretable sense to add two elements in our variable (e.g.&nbsp;<code>1</code> + <code>2</code> is <code>3</code>, whereas <code>Jan</code> + <code>Feb</code> is not <code>March</code>).</li>
+</ul></li>
+</ul>
+</section>
+<section id="classification-of-variables-1" class="level2">
+<h2 class="anchored" data-anchor-id="classification-of-variables-1">Classification of Variables</h2>
+<ul>
+<li><p>Within numerical data, we have a further subdivision into <strong>discrete</strong> and <strong>continuous</strong> variables.</p>
+<ul>
+<li>The set of possible values of a discrete variable has jumps, whereas the set possible values of a continuous variable has no jumps.</li>
+</ul></li>
+<li><p>Within categorical data, we have a further subdivision into <strong>ordinal</strong> and <strong>nominal</strong> variables.</p>
+<ul>
+<li>Ordinal variables have a natural ordering (e.g.&nbsp;letter grades, months of the year, etc.) whereas nominal variables do not (e.g.&nbsp;favorite color)</li>
+</ul></li>
+</ul>
+</section>
+<section id="full-classification-scheme" class="level2">
+<h2 class="anchored" data-anchor-id="full-classification-scheme">Full Classification Scheme</h2>
+<div class="cell" data-fig-width="10" data-fig-height="5">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 540.00 236.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 232)">
+<title>
+data_classification
+</title>
+<polygon fill="#f0ebd8" stroke="transparent" points="-4,4 -4,-232 536,-232 536,4 -4,4"></polygon> <g id="clust1" class="cluster">
+<title>
+cluster_main
+</title>
+<polygon fill="#f0ebd8" stroke="transparent" points="8,-8 8,-220 524,-220 524,-8 8,-8"></polygon> </g> <g id="clust2" class="cluster">
+<title>
+cluster_0
+</title>
+<polygon fill="#f0ebd8" stroke="transparent" points="16,-16 16,-148 276,-148 276,-16 16,-16"></polygon> </g> <g id="clust3" class="cluster">
+<title>
+cluster_1
+</title>
+<polygon fill="#f0ebd8" stroke="transparent" points="24,-24 24,-76 268,-76 268,-24 24,-24"></polygon> </g> <g id="clust6" class="cluster">
+<title>
+cluster_2
+</title>
+<polygon fill="#f0ebd8" stroke="transparent" points="284,-16 284,-148 516,-148 516,-16 284,-16"></polygon> </g> <g id="clust7" class="cluster">
+<title>
+cluster_3
+</title>
+<polygon fill="#f0ebd8" stroke="transparent" points="292,-24 292,-76 508,-76 508,-24 292,-24"></polygon> </g> <!-- Data --> <g id="node1" class="node">
+<title>
+Data
+</title>
+<polygon fill="cornsilk" stroke="transparent" points="280.38,-176.05 283.28,-176.15 286.15,-176.3 288.97,-176.49 291.75,-176.74 294.46,-177.03 297.09,-177.36 299.64,-177.75 302.09,-178.18 304.44,-178.65 306.68,-179.16 308.8,-179.71 310.79,-180.31 312.65,-180.94 314.36,-181.61 315.94,-182.31 317.36,-183.04 318.64,-183.8 319.76,-184.59 320.73,-185.41 321.54,-186.25 322.2,-187.11 322.7,-187.99 323.05,-188.89 323.26,-189.8 323.31,-190.72 323.22,-191.65 322.99,-192.59 322.63,-193.53 322.13,-194.47 321.52,-195.41 320.78,-196.35 319.93,-197.28 318.97,-198.2 317.92,-199.11 316.77,-200.01 315.53,-200.89 314.21,-201.75 312.82,-202.59 311.36,-203.41 309.84,-204.2 308.25,-204.96 306.62,-205.69 304.95,-206.39 303.23,-207.06 301.48,-207.69 299.69,-208.29 297.88,-208.84 296.04,-209.35 294.18,-209.82 292.31,-210.25 290.42,-210.64 288.52,-210.97 286.61,-211.26 284.69,-211.51 282.77,-211.7 280.84,-211.85 278.9,-211.95 276.97,-212 275.03,-212 273.1,-211.95 271.16,-211.85 269.23,-211.7 267.31,-211.51 265.39,-211.26 263.48,-210.97 261.58,-210.64 259.69,-210.25 257.82,-209.82 255.96,-209.35 254.12,-208.84 252.31,-208.29 250.52,-207.69 248.77,-207.06 247.05,-206.39 245.38,-205.69 243.75,-204.96 242.16,-204.2 240.64,-203.41 239.18,-202.59 237.79,-201.75 236.47,-200.89 235.23,-200.01 234.08,-199.11 233.03,-198.2 232.07,-197.28 231.22,-196.35 230.48,-195.41 229.87,-194.47 229.37,-193.53 229.01,-192.59 228.78,-191.65 228.69,-190.72 228.74,-189.8 228.95,-188.89 229.3,-187.99 229.8,-187.11 230.46,-186.25 231.27,-185.41 232.24,-184.59 233.36,-183.8 234.64,-183.04 236.06,-182.31 237.64,-181.61 239.35,-180.94 241.21,-180.31 243.2,-179.71 245.32,-179.16 247.56,-178.65 249.91,-178.18 252.36,-177.75 254.91,-177.36 257.54,-177.03 260.25,-176.74 263.03,-176.49 265.85,-176.3 268.72,-176.15 271.62,-176.05 274.54,-176 277.46,-176 280.38,-176.05"></polygon> <text text-anchor="middle" x="276" y="-189.8" font-family="Times,serif" font-size="14.00">Variable</text> </g> <!-- numerical --> <g id="node2" class="node">
+<title>
+numerical
+</title>
+<polygon fill="#66cdaa" stroke="transparent" points="206.12,-104.05 209.51,-104.15 212.86,-104.3 216.16,-104.49 219.41,-104.74 222.58,-105.03 225.66,-105.36 228.64,-105.75 231.5,-106.18 234.25,-106.65 236.87,-107.16 239.34,-107.71 241.67,-108.31 243.84,-108.94 245.85,-109.61 247.69,-110.31 249.36,-111.04 250.85,-111.8 252.16,-112.59 253.29,-113.41 254.24,-114.25 255.01,-115.11 255.6,-115.99 256.01,-116.89 256.25,-117.8 256.31,-118.72 256.2,-119.65 255.94,-120.59 255.51,-121.53 254.93,-122.47 254.21,-123.41 253.35,-124.35 252.36,-125.28 251.24,-126.2 250.01,-127.11 248.66,-128.01 247.21,-128.89 245.67,-129.75 244.05,-130.59 242.34,-131.41 240.56,-132.2 238.71,-132.96 236.8,-133.69 234.84,-134.39 232.83,-135.06 230.78,-135.69 228.7,-136.29 226.58,-136.84 224.43,-137.35 222.26,-137.82 220.07,-138.25 217.86,-138.64 215.64,-138.97 213.4,-139.26 211.16,-139.51 208.91,-139.7 206.65,-139.85 204.39,-139.95 202.13,-140 199.87,-140 197.61,-139.95 195.35,-139.85 193.09,-139.7 190.84,-139.51 188.6,-139.26 186.36,-138.97 184.14,-138.64 181.93,-138.25 179.74,-137.82 177.57,-137.35 175.42,-136.84 173.3,-136.29 171.22,-135.69 169.17,-135.06 167.16,-134.39 165.2,-133.69 163.29,-132.96 161.44,-132.2 159.66,-131.41 157.95,-130.59 156.33,-129.75 154.79,-128.89 153.34,-128.01 151.99,-127.11 150.76,-126.2 149.64,-125.28 148.65,-124.35 147.79,-123.41 147.07,-122.47 146.49,-121.53 146.06,-120.59 145.8,-119.65 145.69,-118.72 145.75,-117.8 145.99,-116.89 146.4,-115.99 146.99,-115.11 147.76,-114.25 148.71,-113.41 149.84,-112.59 151.15,-111.8 152.64,-111.04 154.31,-110.31 156.15,-109.61 158.16,-108.94 160.33,-108.31 162.66,-107.71 165.13,-107.16 167.75,-106.65 170.5,-106.18 173.36,-105.75 176.34,-105.36 179.42,-105.03 182.59,-104.74 185.84,-104.49 189.14,-104.3 192.49,-104.15 195.88,-104.05 199.29,-104 202.71,-104 206.12,-104.05"></polygon> <text text-anchor="middle" x="201" y="-117.8" font-family="Times,serif" font-size="14.00">Numerical</text> </g> <!-- Data&#45;&gt;numerical --> <g id="edge5" class="edge">
+<title>
+Data-&gt;numerical
+</title>
+<path fill="none" stroke="#8b3e2f" d="M258.6,-176.76C247.56,-166.46 233.22,-153.07 221.61,-142.24"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="222.63,-140.8 217.78,-138.67 220.25,-143.36 222.63,-140.8"></polygon> </g> <!-- categorical --> <g id="node5" class="node">
+<title>
+categorical
+</title>
+<polygon fill="#66cdaa" stroke="transparent" points="356.49,-104.05 360.12,-104.15 363.72,-104.3 367.26,-104.49 370.74,-104.74 374.13,-105.03 377.44,-105.36 380.63,-105.75 383.71,-106.18 386.65,-106.65 389.46,-107.16 392.11,-107.71 394.61,-108.31 396.94,-108.94 399.09,-109.61 401.06,-110.31 402.85,-111.04 404.45,-111.8 405.85,-112.59 407.07,-113.41 408.09,-114.25 408.91,-115.11 409.54,-115.99 409.98,-116.89 410.23,-117.8 410.3,-118.72 410.19,-119.65 409.9,-120.59 409.45,-121.53 408.83,-122.47 408.05,-123.41 407.13,-124.35 406.07,-125.28 404.87,-126.2 403.54,-127.11 402.1,-128.01 400.55,-128.89 398.9,-129.75 397.15,-130.59 395.32,-131.41 393.41,-132.2 391.43,-132.96 389.39,-133.69 387.28,-134.39 385.13,-135.06 382.93,-135.69 380.7,-136.29 378.42,-136.84 376.12,-137.35 373.79,-137.82 371.44,-138.25 369.08,-138.64 366.69,-138.97 364.3,-139.26 361.89,-139.51 359.48,-139.7 357.06,-139.85 354.64,-139.95 352.21,-140 349.79,-140 347.36,-139.95 344.94,-139.85 342.52,-139.7 340.11,-139.51 337.7,-139.26 335.31,-138.97 332.92,-138.64 330.56,-138.25 328.21,-137.82 325.88,-137.35 323.58,-136.84 321.3,-136.29 319.07,-135.69 316.87,-135.06 314.72,-134.39 312.61,-133.69 310.57,-132.96 308.59,-132.2 306.68,-131.41 304.85,-130.59 303.1,-129.75 301.45,-128.89 299.9,-128.01 298.46,-127.11 297.13,-126.2 295.93,-125.28 294.87,-124.35 293.95,-123.41 293.17,-122.47 292.55,-121.53 292.1,-120.59 291.81,-119.65 291.7,-118.72 291.77,-117.8 292.02,-116.89 292.46,-115.99 293.09,-115.11 293.91,-114.25 294.93,-113.41 296.15,-112.59 297.55,-111.8 299.15,-111.04 300.94,-110.31 302.91,-109.61 305.06,-108.94 307.39,-108.31 309.89,-107.71 312.54,-107.16 315.35,-106.65 318.29,-106.18 321.37,-105.75 324.56,-105.36 327.87,-105.03 331.26,-104.74 334.74,-104.49 338.28,-104.3 341.88,-104.15 345.51,-104.05 349.17,-104 352.83,-104 356.49,-104.05"></polygon> <text text-anchor="middle" x="351" y="-117.8" font-family="Times,serif" font-size="14.00">Categorical</text> </g> <!-- Data&#45;&gt;categorical --> <g id="edge6" class="edge">
+<title>
+Data-&gt;categorical
+</title>
+<path fill="none" stroke="#8b3e2f" d="M293.4,-176.76C304.36,-166.53 318.58,-153.26 330.15,-142.46"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="331.5,-143.6 333.96,-138.91 329.11,-141.04 331.5,-143.6"></polygon> </g> <!-- continuous --> <g id="node3" class="node">
+<title>
+continuous
+</title>
+<polygon fill="#ffe4c4" stroke="transparent" points="206.49,-32.05 210.13,-32.15 213.73,-32.3 217.28,-32.49 220.76,-32.74 224.16,-33.03 227.46,-33.36 230.66,-33.75 233.74,-34.18 236.69,-34.65 239.5,-35.16 242.16,-35.71 244.65,-36.31 246.98,-36.94 249.14,-37.61 251.11,-38.31 252.9,-39.04 254.5,-39.8 255.91,-40.59 257.12,-41.41 258.14,-42.25 258.97,-43.11 259.6,-43.99 260.04,-44.89 260.3,-45.8 260.36,-46.72 260.25,-47.65 259.96,-48.59 259.51,-49.53 258.89,-50.47 258.11,-51.41 257.19,-52.35 256.12,-53.28 254.92,-54.2 253.6,-55.11 252.16,-56.01 250.6,-56.89 248.95,-57.75 247.2,-58.59 245.37,-59.41 243.46,-60.2 241.47,-60.96 239.43,-61.69 237.32,-62.39 235.17,-63.06 232.97,-63.69 230.73,-64.29 228.45,-64.84 226.15,-65.35 223.82,-65.82 221.47,-66.25 219.1,-66.64 216.71,-66.97 214.31,-67.26 211.9,-67.51 209.49,-67.7 207.07,-67.85 204.64,-67.95 202.21,-68 199.79,-68 197.36,-67.95 194.93,-67.85 192.51,-67.7 190.1,-67.51 187.69,-67.26 185.29,-66.97 182.9,-66.64 180.53,-66.25 178.18,-65.82 175.85,-65.35 173.55,-64.84 171.27,-64.29 169.03,-63.69 166.83,-63.06 164.68,-62.39 162.57,-61.69 160.53,-60.96 158.54,-60.2 156.63,-59.41 154.8,-58.59 153.05,-57.75 151.4,-56.89 149.84,-56.01 148.4,-55.11 147.08,-54.2 145.88,-53.28 144.81,-52.35 143.89,-51.41 143.11,-50.47 142.49,-49.53 142.04,-48.59 141.75,-47.65 141.64,-46.72 141.7,-45.8 141.96,-44.89 142.4,-43.99 143.03,-43.11 143.86,-42.25 144.88,-41.41 146.09,-40.59 147.5,-39.8 149.1,-39.04 150.89,-38.31 152.86,-37.61 155.02,-36.94 157.35,-36.31 159.84,-35.71 162.5,-35.16 165.31,-34.65 168.26,-34.18 171.34,-33.75 174.54,-33.36 177.84,-33.03 181.24,-32.74 184.72,-32.49 188.27,-32.3 191.87,-32.15 195.51,-32.05 199.17,-32 202.83,-32 206.49,-32.05"></polygon> <text text-anchor="middle" x="201" y="-45.8" font-family="Times,serif" font-size="14.00">Continuous</text> </g> <!-- numerical&#45;&gt;continuous --> <g id="edge1" class="edge">
+<title>
+numerical-&gt;continuous
+</title>
+<path fill="none" stroke="#8b3e2f" d="M201,-103.7C201,-94.46 201,-82.98 201,-73.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="202.75,-73.1 201,-68.1 199.25,-73.1 202.75,-73.1"></polygon> </g> <!-- discrete --> <g id="node4" class="node">
+<title>
+discrete
+</title>
+<polygon fill="#ffe4c4" stroke="transparent" points="82.26,-32.05 85.08,-32.15 87.87,-32.3 90.62,-32.49 93.32,-32.74 95.96,-33.03 98.52,-33.36 101,-33.75 103.39,-34.18 105.67,-34.65 107.85,-35.16 109.91,-35.71 111.85,-36.31 113.65,-36.94 115.33,-37.61 116.86,-38.31 118.24,-39.04 119.49,-39.8 120.58,-40.59 121.52,-41.41 122.31,-42.25 122.95,-43.11 123.44,-43.99 123.78,-44.89 123.98,-45.8 124.03,-46.72 123.94,-47.65 123.72,-48.59 123.37,-49.53 122.89,-50.47 122.28,-51.41 121.57,-52.35 120.74,-53.28 119.81,-54.2 118.78,-55.11 117.67,-56.01 116.46,-56.89 115.18,-57.75 113.82,-58.59 112.4,-59.41 110.92,-60.2 109.38,-60.96 107.79,-61.69 106.16,-62.39 104.49,-63.06 102.79,-63.69 101.05,-64.29 99.29,-64.84 97.5,-65.35 95.69,-65.82 93.87,-66.25 92.03,-66.64 90.18,-66.97 88.32,-67.26 86.46,-67.51 84.58,-67.7 82.7,-67.85 80.82,-67.95 78.94,-68 77.06,-68 75.18,-67.95 73.3,-67.85 71.42,-67.7 69.54,-67.51 67.68,-67.26 65.82,-66.97 63.97,-66.64 62.13,-66.25 60.31,-65.82 58.5,-65.35 56.71,-64.84 54.95,-64.29 53.21,-63.69 51.51,-63.06 49.84,-62.39 48.21,-61.69 46.62,-60.96 45.08,-60.2 43.6,-59.41 42.18,-58.59 40.82,-57.75 39.54,-56.89 38.33,-56.01 37.22,-55.11 36.19,-54.2 35.26,-53.28 34.43,-52.35 33.72,-51.41 33.11,-50.47 32.63,-49.53 32.28,-48.59 32.06,-47.65 31.97,-46.72 32.02,-45.8 32.22,-44.89 32.56,-43.99 33.05,-43.11 33.69,-42.25 34.48,-41.41 35.42,-40.59 36.51,-39.8 37.76,-39.04 39.14,-38.31 40.67,-37.61 42.35,-36.94 44.15,-36.31 46.09,-35.71 48.15,-35.16 50.33,-34.65 52.61,-34.18 55,-33.75 57.48,-33.36 60.04,-33.03 62.68,-32.74 65.38,-32.49 68.13,-32.3 70.92,-32.15 73.74,-32.05 76.58,-32 79.42,-32 82.26,-32.05"></polygon> <text text-anchor="middle" x="78" y="-45.8" font-family="Times,serif" font-size="14.00">Discrete</text> </g> <!-- numerical&#45;&gt;discrete --> <g id="edge2" class="edge">
+<title>
+numerical-&gt;discrete
+</title>
+<path fill="none" stroke="#8b3e2f" d="M174.01,-105.64C153.89,-94.19 126.49,-78.59 106.11,-67"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="106.82,-65.39 101.61,-64.44 105.09,-68.43 106.82,-65.39"></polygon> </g> <!-- nominal --> <g id="node6" class="node">
+<title>
+nominal
+</title>
+<polygon fill="#ffe4c4" stroke="transparent" points="456.44,-32.05 459.38,-32.15 462.29,-32.3 465.16,-32.49 467.97,-32.74 470.72,-33.03 473.39,-33.36 475.98,-33.75 478.47,-34.18 480.85,-34.65 483.12,-35.16 485.27,-35.71 487.29,-36.31 489.17,-36.94 490.91,-37.61 492.51,-38.31 493.95,-39.04 495.25,-39.8 496.39,-40.59 497.37,-41.41 498.19,-42.25 498.86,-43.11 499.37,-43.99 499.73,-44.89 499.93,-45.8 499.99,-46.72 499.9,-47.65 499.66,-48.59 499.29,-49.53 498.79,-50.47 498.17,-51.41 497.42,-52.35 496.56,-53.28 495.59,-54.2 494.52,-55.11 493.35,-56.01 492.1,-56.89 490.76,-57.75 489.35,-58.59 487.86,-59.41 486.32,-60.2 484.72,-60.96 483.06,-61.69 481.36,-62.39 479.62,-63.06 477.84,-63.69 476.03,-64.29 474.19,-64.84 472.33,-65.35 470.44,-65.82 468.54,-66.25 466.63,-66.64 464.7,-66.97 462.76,-67.26 460.81,-67.51 458.86,-67.7 456.9,-67.85 454.94,-67.95 452.98,-68 451.02,-68 449.06,-67.95 447.1,-67.85 445.14,-67.7 443.19,-67.51 441.24,-67.26 439.3,-66.97 437.37,-66.64 435.46,-66.25 433.56,-65.82 431.67,-65.35 429.81,-64.84 427.97,-64.29 426.16,-63.69 424.38,-63.06 422.64,-62.39 420.94,-61.69 419.28,-60.96 417.68,-60.2 416.14,-59.41 414.65,-58.59 413.24,-57.75 411.9,-56.89 410.65,-56.01 409.48,-55.11 408.41,-54.2 407.44,-53.28 406.58,-52.35 405.83,-51.41 405.21,-50.47 404.71,-49.53 404.34,-48.59 404.1,-47.65 404.01,-46.72 404.07,-45.8 404.27,-44.89 404.63,-43.99 405.14,-43.11 405.81,-42.25 406.63,-41.41 407.61,-40.59 408.75,-39.8 410.05,-39.04 411.49,-38.31 413.09,-37.61 414.83,-36.94 416.71,-36.31 418.73,-35.71 420.88,-35.16 423.15,-34.65 425.53,-34.18 428.02,-33.75 430.61,-33.36 433.28,-33.03 436.03,-32.74 438.84,-32.49 441.71,-32.3 444.62,-32.15 447.56,-32.05 450.52,-32 453.48,-32 456.44,-32.05"></polygon> <text text-anchor="middle" x="452" y="-45.8" font-family="Times,serif" font-size="14.00">Nominal</text> </g> <!-- categorical&#45;&gt;nominal --> <g id="edge3" class="edge">
+<title>
+categorical-&gt;nominal
+</title>
+<path fill="none" stroke="#8b3e2f" d="M374.17,-104.94C389.93,-94.02 410.77,-79.58 426.91,-68.39"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="428.22,-69.61 431.34,-65.32 426.23,-66.73 428.22,-69.61"></polygon> </g> <!-- ordinal --> <g id="node7" class="node">
+<title>
+ordinal
+</title>
+<polygon fill="#ffe4c4" stroke="transparent" points="347.01,-32.05 349.67,-32.15 352.29,-32.3 354.88,-32.49 357.42,-32.74 359.9,-33.03 362.32,-33.36 364.65,-33.75 366.9,-34.18 369.05,-34.65 371.1,-35.16 373.04,-35.71 374.87,-36.31 376.57,-36.94 378.14,-37.61 379.58,-38.31 380.89,-39.04 382.06,-39.8 383.09,-40.59 383.97,-41.41 384.72,-42.25 385.32,-43.11 385.78,-43.99 386.1,-44.89 386.29,-45.8 386.34,-46.72 386.25,-47.65 386.04,-48.59 385.71,-49.53 385.26,-50.47 384.69,-51.41 384.02,-52.35 383.24,-53.28 382.36,-54.2 381.4,-55.11 380.34,-56.01 379.21,-56.89 378,-57.75 376.73,-58.59 375.39,-59.41 373.99,-60.2 372.55,-60.96 371.05,-61.69 369.52,-62.39 367.94,-63.06 366.34,-63.69 364.7,-64.29 363.04,-64.84 361.36,-65.35 359.66,-65.82 357.94,-66.25 356.21,-66.64 354.47,-66.97 352.72,-67.26 350.96,-67.51 349.2,-67.7 347.43,-67.85 345.66,-67.95 343.89,-68 342.11,-68 340.34,-67.95 338.57,-67.85 336.8,-67.7 335.04,-67.51 333.28,-67.26 331.53,-66.97 329.79,-66.64 328.06,-66.25 326.34,-65.82 324.64,-65.35 322.96,-64.84 321.3,-64.29 319.66,-63.69 318.06,-63.06 316.48,-62.39 314.95,-61.69 313.45,-60.96 312.01,-60.2 310.61,-59.41 309.27,-58.59 308,-57.75 306.79,-56.89 305.66,-56.01 304.6,-55.11 303.64,-54.2 302.76,-53.28 301.98,-52.35 301.31,-51.41 300.74,-50.47 300.29,-49.53 299.96,-48.59 299.75,-47.65 299.66,-46.72 299.71,-45.8 299.9,-44.89 300.22,-43.99 300.68,-43.11 301.28,-42.25 302.03,-41.41 302.91,-40.59 303.94,-39.8 305.11,-39.04 306.42,-38.31 307.86,-37.61 309.43,-36.94 311.13,-36.31 312.96,-35.71 314.9,-35.16 316.95,-34.65 319.1,-34.18 321.35,-33.75 323.68,-33.36 326.1,-33.03 328.58,-32.74 331.12,-32.49 333.71,-32.3 336.33,-32.15 338.99,-32.05 341.66,-32 344.34,-32 347.01,-32.05"></polygon> <text text-anchor="middle" x="343" y="-45.8" font-family="Times,serif" font-size="14.00">Ordinal</text> </g> <!-- categorical&#45;&gt;ordinal --> <g id="edge4" class="edge">
+<title>
+categorical-&gt;ordinal
+</title>
+<path fill="none" stroke="#8b3e2f" d="M349.02,-103.7C347.97,-94.46 346.66,-82.98 345.53,-73.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="347.26,-72.87 344.95,-68.1 343.78,-73.27 347.26,-72.87"></polygon> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualization" class="level2">
+<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
+<ul>
+<li><p>Once we have classified a variable as being either numerical or categorical, we can ask ourselves: how can we best <em>visualize</em> this variable?</p></li>
+<li><p>For categorical data, we use a <strong>bargraph</strong> and for numerical data we use either a <strong>histogram</strong> or a <strong>boxplot</strong>.</p></li>
+</ul>
+</section>
+<section id="bargraph" class="level2">
+<h2 class="anchored" data-anchor-id="bargraph">Bargraph</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="fu">table</span>(penguins<span class="sc">$</span>species)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">species =</span> Var1, <span class="at">freq =</span> Freq) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> freq)) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"#7f9ab5"</span>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">20</span>, </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Bargraph of Penguin Species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mt1_rev_slides_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="histogram" class="level2">
+<h2 class="anchored" data-anchor-id="histogram">Histogram</h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="mt1_rev_slides_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>Remember the importance of <strong>binwidth</strong>: <a href="https://epm927.shinyapps.io/Histogram_Binwidths/" target="_blank">demo</a></li>
+</ul>
+</section>
+<section id="boxplot" class="level2">
+<h2 class="anchored" data-anchor-id="boxplot">Boxplot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_boxplot</span>(<span class="at">geom =</span> <span class="st">"errorbar"</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.25</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span>  <span class="st">"#7f9ab5"</span>, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">outlier.size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.75</span>, <span class="fl">0.75</span>)) <span class="sc">+</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Boxplot of Bill Lengths"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
+(`stat_boxplot()`).
+Removed 2 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="mt1_rev_slides_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>Remember that the <strong>whiskers</strong> are never allowed to extend beyond 1.5 times the <strong>IQR</strong> (and recall that the IQR is just the width of the box).</li>
+</ul>
+</section>
+<section id="numerical-summaries" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="numerical-summaries">Numerical Summaries</h2>
+<ul>
+<li>We can also produce numerical summaries of numerical variables.</li>
+<li><strong>Measures of Central Tendency</strong> are different quantities that summarize the “center” of a variable
+<ul>
+<li>There are two main measures of central tendency we discussed: the mean and the median.</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-mean" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="the-mean">The Mean</h2>
+<ul>
+<li>The <strong>mean</strong> (or <strong>arithmetic mean</strong>) is a sort of “balancing point”:</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mean.svg" class="img-fluid figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ \overline{x} = \frac{1}{n} \sum_{i=1}^{n} x_i \]</span></p>
+</div>
+<ul>
+<li>Also recall our discussion on <strong>data aggregation</strong>, and how the incorporation of new data changes the mean.</li>
+</ul>
+</section>
+<section id="spread" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="spread">Spread</h2>
+<ul>
+<li><p>Another way we could summarize a numerical dataset (i.e.&nbsp;a dataset containing only one variable, one that is numerical) is to describe how “spread out” the values are.</p></li>
+<li><p>The <strong>variance</strong> is a sort of “average distance of points to the mean”:</p></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sd.svg" class="img-fluid figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ s_x^2 = \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \overline{x})^2 \]</span></p>
+</div>
+<ul>
+<li>The <strong>standard deviation</strong> is just the square root of the variance</li>
+</ul>
+</section>
+<section id="spread-1" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="spread-1">Spread</h2>
+<ul>
+<li><p>The <strong>interquartile range</strong> (IQR) is another measure of spread: <span class="math display">\[ \mathrm{IQR} = Q_3 - Q_1 \]</span> where <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span> denote the first and third <strong>quartiles</strong>, respectively.</p>
+<ul>
+<li><p>Recall that the <span class="math inline">\(p\)</span><sup>th</sup> <strong>percentile</strong> of a dataset <span class="math inline">\(X\)</span> is the value <span class="math inline">\(\pi_{x, \ 0.5}\)</span> such that <em>p</em>% of observations lie to the left of (i.e.&nbsp;are less than) <span class="math inline">\(\pi_{x, \ 0.5}\)</span>.</p></li>
+<li><p><span class="math inline">\(Q_1\)</span> is the 25<sup>th</sup> percentile and <span class="math inline">\(Q_3\)</span> is the 75<sup>th</sup> percentile</p></li>
+</ul></li>
+<li><p>The third measure of spread we discussed is the <strong>range</strong>: <span class="math display">\[ \mathrm{range}(X) = \max\{x_1, \cdots, x_n\} - \min\{x_1, \ \cdots, \ x_n\} \]</span></p></li>
+</ul>
+</section>
+<section id="number-summary" class="level2">
+<h2 class="anchored" data-anchor-id="number-summary">5-Number Summary</h2>
+<ul>
+<li><p>Recall the <strong>five number summary</strong>, which contains:</p>
+<ol type="1">
+<li>The minimum</li>
+<li>The first quartile</li>
+<li>The median</li>
+<li>The third quartile</li>
+<li>The maximum</li>
+</ol></li>
+<li><p>Also recall how all of these quantities appear on a boxplot!</p></li>
+</ul>
+</section>
+<section id="comparisons-of-variables" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons-of-variables">Comparisons of Variables</h2>
+<ul>
+<li>If we want to compare two variables, there are three cases to consider:
+<ul>
+<li>Numerical vs.&nbsp;Numerical</li>
+<li>Numerical vs.&nbsp;Categorical</li>
+<li>Categorical vs.&nbsp;Categorical</li>
+</ul></li>
+<li>When comparing two numerical variables, we use a <strong>scatterplot</strong></li>
+<li>When comparing a numerical variable to a categorical variable, we use a <strong>side-by-side boxplot</strong></li>
+<li>When comparing two categorical variables, we construct a <strong>contingency table</strong></li>
+</ul>
+<hr>
+<div style="font-size:30px">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Linear <strong>Negative</strong> Trend:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">2</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(x, y) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Y vs. X"</span>) <span class="sc">+</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mt1_rev_slides_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Nonlinear <strong>Negative</strong> Trend:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">/</span> x<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="fl">0.0005</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(x, y) <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Y vs. X"</span>) <span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mt1_rev_slides_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Nonlinear <strong>Positive</strong> Trend:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span>x<span class="sc">^</span><span class="dv">2</span>)  <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="fl">0.0007</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(x, y) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Y vs. X"</span>) <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mt1_rev_slides_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>No Discernable Trend</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(x, y) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Y vs. X"</span>) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mt1_rev_slides_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="probability" class="level1">
+<h1>Probability</h1>
+<section id="basics-of-probability" class="level2">
+<h2 class="anchored" data-anchor-id="basics-of-probability">Basics of Probability</h2>
+<ul>
+<li>Probability is, in many ways, the language of uncertainty.</li>
+<li>An <strong>experiment</strong> is any procedure we can repeat an infinite number of times, where each time we repeat the procedure the same fixed set of “things” can occur
+<ul>
+<li>These “things” are called <strong>outcomes</strong></li>
+<li>The <strong>outcome space</strong>, denoted <span class="math inline">\(\Omega\)</span>, is the set containing all outcomes associated with a particular experiment.</li>
+<li><strong>Events</strong> are just subset of the outcome space.</li>
+</ul></li>
+<li>We can express outcome spaces using tables or trees.</li>
+</ul>
+</section>
+<section id="probability-1" class="level2">
+<h2 class="anchored" data-anchor-id="probability-1">Probability</h2>
+<ul>
+<li><strong>Probability</strong> is a function that acts on events
+<ul>
+<li>Notationally: <span class="math inline">\(\mathbb{P}(E)\)</span></li>
+</ul></li>
+<li>There are two main approaches to computing probabilities:
+<ul>
+<li>The <strong>Classical Aproach:</strong> if outcomes are equally likely, then for any event <span class="math inline">\(E\)</span> <span class="math display">\[ \mathbb{P}(E) = \frac{\#(E)}{\#(\Omega)} \]</span></li>
+<li>The <strong>long-run [relative] frequency approach</strong>: repeat the experiment an infinite number of times and define <span class="math inline">\(\mathbb{P}(E)\)</span> to be the proportion of times <span class="math inline">\(E\)</span> occurs</li>
+</ul></li>
+</ul>
+</section>
+<section id="long-run-frequencies-example" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="long-run-frequencies-example">Long-Run Frequencies Example</h2>
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Toss</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Outcome</td>
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: center;"><code>T</code></td>
+<td style="text-align: center;"><code>T</code></td>
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: center;"><code>T</code></td>
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: center;"><code>T</code></td>
+<td style="text-align: center;"><code>T</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Raw freq. of <code>H</code></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Rel. freq of <code>H</code></td>
+<td style="text-align: center;">1/1</td>
+<td style="text-align: center;">1/2</td>
+<td style="text-align: center;">1/3</td>
+<td style="text-align: center;">2/4</td>
+<td style="text-align: center;">2/5</td>
+<td style="text-align: center;">3/6</td>
+<td style="text-align: center;">4/7</td>
+<td style="text-align: center;">5/8</td>
+<td style="text-align: center;">5/9</td>
+<td style="text-align: center;">5/10</td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="mt1_rev_slides_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="set-operations" class="level2">
+<h2 class="anchored" data-anchor-id="set-operations">Set Operations</h2>
+<ul>
+<li>Given two events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>, there are several <em>operations</em> we can perform:
+<ul>
+<li><strong>Complement:</strong> <span class="math inline">\(E^\complement\)</span>; denotes “not <span class="math inline">\(E\)</span>”</li>
+<li><strong>Union:</strong> <span class="math inline">\(E \cup F\)</span>; denotes <span class="math inline">\(E\)</span> or <span class="math inline">\(F\)</span> (or both)</li>
+<li><strong>Intersection:</strong> <span class="math inline">\(E \cap F\)</span>; denotes <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="venn-diagrams" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="venn-diagrams">Venn Diagrams</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="VennDiagrams/a_complement.svg" class="img-fluid" style="width:50.0%"></p>
+</div><div class="column" style="width:50%;">
+<div style="text-align:center">
+<p><br> <span class="math inline">\(A^\complement\)</span> <br> (complement)</p>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="VennDiagrams/ab_intersect_shaded.svg" class="img-fluid" style="width:50.0%"></p>
+</div><div class="column" style="width:50%;">
+<div style="text-align:center">
+<p><br> <span class="math inline">\(A \cap B\)</span> <br> (intersection)</p>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="VennDiagrams/ab_union.svg" class="img-fluid" style="width:50.0%"></p>
+</div><div class="column" style="width:50%;">
+<div style="text-align:center">
+<p><br> <span class="math inline">\(A \cup B\)</span> <br> (union)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="axioms-of-probability" class="level2">
+<h2 class="anchored" data-anchor-id="axioms-of-probability">Axioms of Probability</h2>
+<ol type="1">
+<li><p><span class="math inline">\(\mathbb{P}(E) \geq 0\)</span> for any event <span class="math inline">\(E\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{P}(\Omega) = 1\)</span></p></li>
+<li><p>For <strong>disjoint events</strong> <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> (i.e.&nbsp;for <span class="math inline">\(E \cap F = \varnothing\)</span>), <span class="math inline">\(\mathbb{P}(E \cup F) = \mathbb{P}(E) + \mathbb{P}(F)\)</span></p></li>
+</ol>
+</section>
+<section id="probability-rules" class="level2">
+<h2 class="anchored" data-anchor-id="probability-rules">Probability Rules</h2>
+<ul>
+<li><p><strong>Probability of the Empty Set:</strong> <span class="math inline">\(\mathbb{P}(\varnothing) = 0\)</span></p></li>
+<li><p><strong>Complement Rule:</strong> <span class="math inline">\(\mathbb{P}(E^\complement) = 1 - \mathbb{P}(E)\)</span></p></li>
+<li><p><strong>Addition Rule:</strong> <span class="math inline">\(\mathbb{P}(E \cup F) = \mathbb{P}(E) + \mathbb{P}(F) - \mathbb{P}(E \cap F)\)</span></p></li>
+</ul>
+</section>
+<section id="conditional-probabilities" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="conditional-probabilities">Conditional Probabilities</h2>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}(E \mid F)\)</span> denotes an “updating” of our beliefs on <span class="math inline">\(E\)</span> in the presence of <span class="math inline">\(F\)</span>)</p>
+<ul>
+<li>Definition: <span class="math inline">\(\displaystyle \mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)}\)</span>, provided <span class="math inline">\(\mathbb{P}(F) \neq 0\)</span></li>
+</ul></li>
+<li><p><strong>Multiplication Rule:</strong> <span class="math inline">\(\mathbb{P}(E \cap F) = \mathbb{P}(E \mid F) \cdot \mathbb{P}(F) = \mathbb{P}(F \mid E) \cdot \mathbb{P}(E)\)</span></p></li>
+<li><p><strong>Bayes’ Rule:</strong> <span class="math inline">\(\displaystyle \mathbb{P}(E \mid F) = \frac{\mathbb{P}(F \mid E) \cdot \mathbb{P}(E)}{\mathbb{P}(F)}\)</span></p></li>
+<li><p><strong>Law of Total Probability:</strong> <span class="math inline">\(\mathbb{P}(F) = \mathbb{P}(F \mid E) \cdot \mathbb{P}(E) + \mathbb{P}(F \mid E^\complement) \cdot \mathbb{P}(E^\complement)\)</span></p></li>
+</ul>
+</section>
+<section id="independence" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="independence">Independence</h2>
+<ul>
+<li><strong>Independence</strong> asserts that <span class="math inline">\(\mathbb{P}(E \mid F) = \mathbb{P}(E)\)</span>, which in turn implies <span class="math inline">\(\mathbb{P}(F \mid E) = \mathbb{P}(F)\)</span> and <span class="math inline">\(\mathbb{P}(E \cap F) = \mathbb{P}(E) \cdot \mathbb{P}(F)\)</span>
+<ul>
+<li>Note that <span class="math inline">\(\mathbb{P}(E \cap F) = \mathbb{P}(E) \cdot \mathbb{P}(F)\)</span> only when <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> are independent! Otherwise, you have to compute <span class="math inline">\(\mathbb{P}(E \cap F)\)</span> using the multiplication rule.</li>
+<li>The interpretation of independence is that the two events “do not affect each other”</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="counting" class="level1">
+<h1>Counting</h1>
+<ul>
+<li>Don’t forget about counting!</li>
+</ul>
+</section>
+<section id="programming" class="level1">
+<h1>Programming</h1>
+<section id="basics-of-programming" class="level2">
+<h2 class="anchored" data-anchor-id="basics-of-programming">Basics of Programming</h2>
+<ul>
+<li><p>Recall that, in this class, we use <strong>Python</strong> as our main computing language</p>
+<ul>
+<li>We run Python in <strong>Jupyter Notebooks</strong></li>
+</ul></li>
+<li><p>There are a few <strong>data types</strong> we have encountered thus far:</p>
+<ul>
+<li><code>str</code>, for “string”</li>
+<li><code>int</code>, for “integer”</li>
+<li><code>float</code>, aka “real number with decimals”</li>
+<li><code>bool</code>, for “boolean”</li>
+</ul></li>
+</ul>
+</section>
+<section id="basics-of-programming-1" class="level2">
+<h2 class="anchored" data-anchor-id="basics-of-programming-1">Basics of Programming</h2>
+<ul>
+<li><p>There are also certain <strong>data classes</strong> we have encountered, which are effectively various python objects aggregated into a larger structure. These include:</p>
+<ul>
+<li>Tables</li>
+<li>Lists</li>
+<li>Arrays</li>
+</ul></li>
+<li><p>We can use <strong>indexing</strong> to extract certain pieces of data classes; e.g.&nbsp;for a list <code>x</code>, <code>x[i]</code> returns the (<code>i</code> + 1)<sup>th</sup> element of <code>x</code>.</p>
+<ul>
+<li>Remember that Python starts indexing at zero!</li>
+</ul></li>
+</ul>
+</section>
+<section id="comparisons-and-conditionals" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons-and-conditionals">Comparisons and Conditionals</h2>
+<ul>
+<li>Take a look at lab 2.</li>
+</ul>
+</section>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions">Functions</h2>
+<ul>
+<li><p>I’d also like to take a minute to talk about <strong>functions</strong> in Python.</p></li>
+<li><p>Python functions behave much like mathematical functions: they take in some number of <strong>arguments</strong> (i.e.&nbsp;inputs) and can output a variety of things.</p>
+<ul>
+<li><p>For example, the <code>type()</code> function returns either the data type or data structure of a single input.</p></li>
+<li><p>There is some language we use when dealing with functions in programming: when we pass the argument <code>x</code> into the function <code>f()</code>, we say that we have “called” the function <code>f()</code> on the argument/input <code>x</code>. The object <code>f(x)</code> is called a <strong>function call</strong>.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="functions-1" class="level2">
+<h2 class="anchored" data-anchor-id="functions-1">Functions</h2>
+<ul>
+<li>To create a user-defined function <code>function_name()</code>, we use the following structure:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> function_name(<span class="op">&lt;</span>arg1<span class="op">&gt;</span>, ...., <span class="op">&lt;</span>argn<span class="op">&gt;</span>):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">  include a docstring here</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">  """</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>body of the function here<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ul>
+<li><p>By the way, when writing <strong>skeleton code</strong> like the above (i.e.&nbsp;a chunk of code that mimics the structure/format of an actual piece of code, but isn’t fully filled in), programmers often use the symbols <code>&lt;</code> and <code>&gt;</code> to denote text. These symbols should not be included in your actual code.</p>
+<ul>
+<li>For example, we would not actually enclose our arguments in <code>&lt;</code> and <code>&gt;</code>’s; we would simply write out the arguments. We’ll see an example of this in a minute</li>
+</ul></li>
+</ul>
+</section>
+<section id="exercise" class="level2">
+<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="fragment" style="font-size:32px">
+<p>Write a function <code>is_mult_of_three()</code> that takes in a single input <code>x</code> and outputs <code>True</code> if <code>x</code> is a multiple of three and <code>False</code> if not. Additionally, the function should return <code>"Error: input must be numeric"</code> if the argument <code>x</code> that is provided is not numerical.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Take a moment to open up our JupyterHub server instance, and try writing out the function on your own. Then we’ll work through it together (please note that solutions to this won’t be provided, so make sure you take notes!)</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Site Designed by Ethan Marzban using Quarto; ©2023</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

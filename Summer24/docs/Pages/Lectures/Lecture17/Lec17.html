@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ethan P. Marzban">
+<meta name="dcterms.date" content="2023-07-24">
+
+<title>PSTAT 5A: Summer Session A, 2023 - PSTAT 5A: Lecture 17</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../Images/Logos_Icons/5a_hex.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      PSTAT 5A: Summer Session A, 2023
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../Images/Logos_Icons/5a_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">PSTAT 5A: Summer Session A, 2023</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule of Topics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/calendar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sections and Calendar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/course_staff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Staff / OH</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW and Solns</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Exam Prep</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/exam_prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam Prep</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#hypothesis-testing-for-the-mean" id="toc-hypothesis-testing-for-the-mean" class="nav-link active" data-scroll-target="#hypothesis-testing-for-the-mean">Hypothesis Testing for the Mean</a>
+  <ul class="collapse">
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#hypothesis-testing-for-the-mean-1" id="toc-hypothesis-testing-for-the-mean-1" class="nav-link" data-scroll-target="#hypothesis-testing-for-the-mean-1">Hypothesis Testing for the Mean</a></li>
+  <li><a href="#hypothesis-testing-for-the-mean-2" id="toc-hypothesis-testing-for-the-mean-2" class="nav-link" data-scroll-target="#hypothesis-testing-for-the-mean-2">Hypothesis Testing for the Mean</a></li>
+  <li><a href="#sampling-distribution-of-overlinex" id="toc-sampling-distribution-of-overlinex" class="nav-link" data-scroll-target="#sampling-distribution-of-overlinex">Sampling Distribution of <span class="math inline">\(\overline{X}\)</span></a></li>
+  <li><a href="#test-statistic" id="toc-test-statistic" class="nav-link" data-scroll-target="#test-statistic">Test Statistic</a></li>
+  <li><a href="#test-statistic-1" id="toc-test-statistic-1" class="nav-link" data-scroll-target="#test-statistic-1">Test Statistic</a></li>
+  <li><a href="#worked-out-example" id="toc-worked-out-example" class="nav-link" data-scroll-target="#worked-out-example">Worked-Out Example</a></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#solutions-1" id="toc-solutions-1" class="nav-link" data-scroll-target="#solutions-1">Solutions</a></li>
+  <li><a href="#solutions-2" id="toc-solutions-2" class="nav-link" data-scroll-target="#solutions-2">Solutions</a></li>
+  <li><a href="#one-sided-tests" id="toc-one-sided-tests" class="nav-link" data-scroll-target="#one-sided-tests">One-Sided Tests</a></li>
+  <li><a href="#worked-out-example-2" id="toc-worked-out-example-2" class="nav-link" data-scroll-target="#worked-out-example-2">Worked-Out Example</a></li>
+  <li><a href="#solutions-3" id="toc-solutions-3" class="nav-link" data-scroll-target="#solutions-3">Solutions</a></li>
+  <li><a href="#solutions-4" id="toc-solutions-4" class="nav-link" data-scroll-target="#solutions-4">Solutions</a></li>
+  <li><a href="#solutions-5" id="toc-solutions-5" class="nav-link" data-scroll-target="#solutions-5">Solutions</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your Turn!</a></li>
+  </ul></li>
+  <li><a href="#another-view-of-hypothesis-testing" id="toc-another-view-of-hypothesis-testing" class="nav-link" data-scroll-target="#another-view-of-hypothesis-testing">Another View of Hypothesis Testing</a>
+  <ul class="collapse">
+  <li><a href="#recap-1" id="toc-recap-1" class="nav-link" data-scroll-target="#recap-1">Recap</a></li>
+  <li><a href="#lower-tailed-example" id="toc-lower-tailed-example" class="nav-link" data-scroll-target="#lower-tailed-example">Lower-Tailed Example</a></li>
+  <li><a href="#lower-tailed-example-1" id="toc-lower-tailed-example-1" class="nav-link" data-scroll-target="#lower-tailed-example-1">Lower-Tailed Example</a></li>
+  <li><a href="#reject-or-not" id="toc-reject-or-not" class="nav-link" data-scroll-target="#reject-or-not">Reject or Not?</a></li>
+  <li><a href="#reject-or-not-1" id="toc-reject-or-not-1" class="nav-link" data-scroll-target="#reject-or-not-1">Reject or Not?</a></li>
+  <li><a href="#leadup" id="toc-leadup" class="nav-link" data-scroll-target="#leadup">Leadup</a></li>
+  <li><a href="#leadup-1" id="toc-leadup-1" class="nav-link" data-scroll-target="#leadup-1">Leadup</a></li>
+  <li><a href="#leadup-2" id="toc-leadup-2" class="nav-link" data-scroll-target="#leadup-2">Leadup</a></li>
+  <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values"><em>p</em>-Values</a></li>
+  <li><a href="#the-test-statistic" id="toc-the-test-statistic" class="nav-link" data-scroll-target="#the-test-statistic">The Test Statistic</a></li>
+  <li><a href="#p-value-lower-tailed-test" id="toc-p-value-lower-tailed-test" class="nav-link" data-scroll-target="#p-value-lower-tailed-test"><em>p</em>-value; Lower-Tailed Test</a></li>
+  <li><a href="#p-value-upper-tailed-test" id="toc-p-value-upper-tailed-test" class="nav-link" data-scroll-target="#p-value-upper-tailed-test"><em>p</em>-value; Upper-Tailed Test</a></li>
+  <li><a href="#p-value-two-sided-test" id="toc-p-value-two-sided-test" class="nav-link" data-scroll-target="#p-value-two-sided-test"><em>p</em>-value; Two-Sided Test</a></li>
+  <li><a href="#worked-out-example-3" id="toc-worked-out-example-3" class="nav-link" data-scroll-target="#worked-out-example-3">Worked-Out Example</a></li>
+  <li><a href="#solutions-6" id="toc-solutions-6" class="nav-link" data-scroll-target="#solutions-6">Solutions</a></li>
+  <li><a href="#solutions-7" id="toc-solutions-7" class="nav-link" data-scroll-target="#solutions-7">Solutions</a></li>
+  <li><a href="#solutions-8" id="toc-solutions-8" class="nav-link" data-scroll-target="#solutions-8">Solutions</a></li>
+  <li><a href="#solutions-9" id="toc-solutions-9" class="nav-link" data-scroll-target="#solutions-9">Solutions</a></li>
+  <li><a href="#solutions-10" id="toc-solutions-10" class="nav-link" data-scroll-target="#solutions-10">Solutions</a></li>
+  <li><a href="#p-values-1" id="toc-p-values-1" class="nav-link" data-scroll-target="#p-values-1"><em>p</em>-Values</a></li>
+  <li><a href="#solutions-11" id="toc-solutions-11" class="nav-link" data-scroll-target="#solutions-11">Solutions</a></li>
+  <li><a href="#solutions-12" id="toc-solutions-12" class="nav-link" data-scroll-target="#solutions-12">Solutions</a></li>
+  <li><a href="#solutions-13" id="toc-solutions-13" class="nav-link" data-scroll-target="#solutions-13">Solutions</a></li>
+  <li><a href="#solutions-14" id="toc-solutions-14" class="nav-link" data-scroll-target="#solutions-14">Solutions</a></li>
+  <li><a href="#what-do-we-do-with-a-p-value" id="toc-what-do-we-do-with-a-p-value" class="nav-link" data-scroll-target="#what-do-we-do-with-a-p-value">What Do We Do with a <em>p</em>-Value?</a></li>
+  <li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1">Your Turn!</a></li>
+  <li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2">Your Turn!</a></li>
+  <li><a href="#criticisms-of-p-values" id="toc-criticisms-of-p-values" class="nav-link" data-scroll-target="#criticisms-of-p-values">Criticisms of <em>p</em>-Values</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Lec17.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PSTAT 5A: Lecture 17</h1>
+<p class="subtitle lead">Hypothesis Testing, Part II</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ethan P. Marzban </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 24, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="hypothesis-testing-for-the-mean" class="level1">
+<h1>Hypothesis Testing for the Mean</h1>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<ul>
+<li><p>Before the second midterm, we discussed Hypothesis Testing on population proportions.</p></li>
+<li><p>That is: given a population with true proportion <span class="math inline">\(p\)</span>, we took samples and tried to use the data collected in these samples to assess the validity of the claim <span class="math inline">\(H_0: \ p = p_0\)</span> (for some fixed value <span class="math inline">\(p_0\)</span>) against some alternative hypothesis (two-sided, lower-tailed, or upper-tailed)</p></li>
+<li><p>Indeed, we can conduct hypothesis testing on <em>any</em> population parameter.</p></li>
+<li><p>One parameter of interest to statisticians is the <strong>population mean</strong> <span class="math inline">\(\mu\)</span>.</p></li>
+</ul>
+</section>
+<section id="hypothesis-testing-for-the-mean-1" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing-for-the-mean-1">Hypothesis Testing for the Mean</h2>
+<ul>
+<li><p>The classification of tests doesn’t change much: we still have <strong>two-sided</strong>, <strong>lower-tailed</strong> and <strong>upper-tailed</strong> tests for the mean.</p></li>
+<li><p>More specifically, if our null is <span class="math inline">\(H_0: \ \mu = \mu_0\)</span> then:</p>
+<ul>
+<li>A <strong>two-sided alternative</strong> is <span class="math inline">\(H_A: \ \mu \neq \mu_0\)</span></li>
+<li>A <strong>lower-tailed alternative</strong> is <span class="math inline">\(H_A: \ \mu &lt; \mu_0\)</span></li>
+<li>An <strong>upper-tailed alternative</strong> is <span class="math inline">\(H_A: \ \mu &gt; \mu_0\)</span></li>
+<li>A <strong>simple-vs-simple alternative</strong> is <span class="math inline">\(H_A: \ \mu = \mu_1\)</span> for some <span class="math inline">\(\mu_1 \neq \mu_0\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="hypothesis-testing-for-the-mean-2" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing-for-the-mean-2">Hypothesis Testing for the Mean</h2>
+<ul>
+<li><p>Our testing procedure will be similar to that of hypothesis tests for a proportion: we compute a test statistic, and then compare this value of the test statistic to a critical value that is determined by both the distribution of the test statistic under the null as well as the significance level <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>Let’s focus on a two-sided test for now.</p></li>
+<li><p>Our test statistic will certainly involve <span class="math inline">\(\overline{X}\)</span>, the sample mean.</p>
+<ul>
+<li>Specifically, it will be some standardized version of <span class="math inline">\(\overline{X}\)</span>.</li>
+<li>However, exactly <em>how</em> we standardize will be dependent upon the sampling distribution of <span class="math inline">\(\overline{X}\)</span>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="sampling-distribution-of-overlinex" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-distribution-of-overlinex">Sampling Distribution of <span class="math inline">\(\overline{X}\)</span></h2>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph TB
+  A[Is the population Normal?  . ] --&gt; |Yes| B{{Use Normal .}}
+  A --&gt; |No| C[Is n &gt;= 30?  .]
+  C --&gt; |Yes| D[sigma or s?  .]
+  C --&gt; |No| E{{cannot proceed   .}}
+  D --&gt; |sigma| F{{Use Normal .}}
+  D --&gt; |s| G{{Use t }}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="test-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="test-statistic">Test Statistic</h2>
+<ul>
+<li><p>What this means is that our test statistic itself will take different forms depending on the information that is provided.</p></li>
+<li><p>Specifically, we have <span class="math display">\[ \mathrm{TS} = \begin{cases}
+\displaystyle \frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}}    &amp; \text{if } \quad  \begin{array}{rl} \bullet &amp; \text{pop. is normal, OR} \\ \bullet &amp; \text{$n \geq 30$ AND $\sigma$ is known} \end{array} \quad \stackrel{H_0}{\sim} \mathcal{N}(0, \ 1) \\[5mm]
+\displaystyle \frac{\overline{X} - \mu_0}{s / \sqrt{n}}         &amp; \text{if } \quad  \begin{array}{rl} \bullet &amp; \text{$n \geq 30$ AND $\sigma$ is not known} \end{array} \quad \stackrel{H_0}{\sim} t_{n - 1}
+\end{cases} \]</span></p></li>
+</ul>
+</section>
+<section id="test-statistic-1" class="level2">
+<h2 class="anchored" data-anchor-id="test-statistic-1">Test Statistic</h2>
+<ul>
+<li><p>In the two-sided case, our critical value will still be the value <span class="math inline">\(c\)</span> that ensures <span class="math display">\[ \mathbb{P}(|\mathrm{TS}| &gt; c) = \alpha \]</span> (i.e.&nbsp;we reject <span class="math inline">\(H_0\)</span> whenever <span class="math inline">\(\overline{X}\)</span> is far away from <span class="math inline">\(\mu_0\)</span>) meaning <span class="math inline">\(c\)</span> will the <span class="math inline">\((\alpha /2) \times 100\%\)</span> percentile, scaled by negative 1, of either the standard normal distribution or the <span class="math inline">\(t_{n - 1}\)</span> distribution.</p>
+<ul>
+<li>Again, don’t forget about how the symmetry of the normal and <em>t</em>-distributions translates to relationships between percentiles!</li>
+</ul></li>
+<li><p>Our test in the two-sided case will then take the form <span class="math display">\[ \texttt{decision}(\mathrm{TS}) = \begin{cases} \texttt{reject } H_0 &amp; \text{if } |\mathrm{TS}| &gt; c \\ \texttt{fail to reject } H_0 &amp; \text{otherwise}\\ \end{cases}  \]</span></p></li>
+<li><p>Let’s do an example.</p></li>
+</ul>
+</section>
+<section id="worked-out-example" class="level2">
+<h2 class="anchored" data-anchor-id="worked-out-example">Worked-Out Example</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Example 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>An <a href="https://www.census.gov/newsroom/press-releases/2021/one-way-travel-time-to-work-rises.html">article</a> published by the US Census claims that in 2019 the average American took around 27.6 minutes to commute to work. To test this claim, Jenny took a representative sample of 101 Americans in 2019 and observed that these individuals had a combined average commute time of around 20.1 minutes and a standard deviation of around 12.4 minutes.</p>
+<p>Use the information from Jenny’s sample, along with an <span class="math inline">\(\alpha = 0.05\)</span> level of significance, to test the claim that the average commute time is 27.6 minutes against a two-sided alternative.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions" class="level2">
+<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
+<ul>
+<li><p>It’s a good idea to first determine which distribution we need to use.</p></li>
+<li><p>Is the population normally distributed?</p>
+<ul>
+<li><p>In other words, are the commute times of <em>all</em> Americans normally distributed?</p></li>
+<li><p>No; or, at least, there is not enough inforamtion to conclude that they are.</p></li>
+</ul></li>
+<li><p>Is our sample large enough?</p>
+<ul>
+<li>Yes; <span class="math inline">\(n = 101 \geq 30\)</span></li>
+</ul></li>
+<li><p>Do we have <span class="math inline">\(\sigma\)</span> or <span class="math inline">\(s\)</span>?</p>
+<ul>
+<li>We only have <span class="math inline">\(s\)</span>, the standard devaition of commute times of Jenny’s <em>sample</em>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="solutions-1" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-1">Solutions</h2>
+<ul>
+<li><p>Therefore, what distribution are we going to use?</p>
+<ul>
+<li>The <span class="math inline">\(t_{100}\)</span> distribution.</li>
+</ul></li>
+<li><p>In other words, <span class="math display">\[ \mathrm{TS} = \frac{\overline{X} - 27.6}{12.4 / \sqrt{101}} \stackrel{H_0}{\sim} t_{100} \]</span></p></li>
+<li><p>From the <span class="math inline">\(t-\)</span>table, we see that the critical value will be <span class="math inline">\(1.98\)</span>.</p></li>
+<li><p>Additionally, the observed value of our test statistic (based on Jenny’s sample) is <span class="math display">\[ \frac{20.1 - 27.6}{12.4 / \sqrt{101}} \approx -6.08 \]</span></p></li>
+</ul>
+</section>
+<section id="solutions-2" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-2">Solutions</h2>
+<ul>
+<li><p>Our test rejects <span class="math inline">\(H_0\)</span> when <span class="math inline">\(|\mathrm{TS}| &gt; c\)</span>.</p></li>
+<li><p>In this case, <span class="math inline">\(|\mathrm{TS}| = |-6.07| = 6.07 &gt; 1.98\)</span></p></li>
+<li><p>Therefore, we reject the null:</p></li>
+</ul>
+<div class="fragment">
+<blockquote class="blockquote">
+<p>At an <span class="math inline">\(\alpha = 0.05\)</span> level of significance, there was sufficient evidence to reject the Census’ claim that the average commute time of Americans was 27.6 minutes in favor of the alternative that the true average commute time was <em>not</em> 27.6 minutes.</p>
+</blockquote>
+</div>
+</section>
+<section id="one-sided-tests" class="level2">
+<h2 class="anchored" data-anchor-id="one-sided-tests">One-Sided Tests</h2>
+<ul>
+<li><p>Analogously as with the hypothesis testing for proportions, the lower-tailed test of a population mean takes the form <span class="math display">\[ \texttt{decision}(\mathrm{TS}) = \begin{cases} \texttt{reject } H_0 &amp; \text{if } \mathrm{TS} &lt; c \\ \texttt{fail to reject } H_0 &amp; \text{otherwise}\\ \end{cases}  \]</span> and the upper-tailed test of a population mean takes the form <span class="math display">\[ \texttt{decision}(\mathrm{TS}) = \begin{cases} \texttt{reject } H_0 &amp; \text{if } \mathrm{TS} &gt; c \\ \texttt{fail to reject } H_0 &amp; \text{otherwise}\\ \end{cases}  \]</span></p></li>
+<li><p>I’ll keep stressing this: there is no need to memorize these forms if you understand what the null and alternative are saying and how that translates to comparing <span class="math inline">\(\overline{X}\)</span> to <span class="math inline">\(\mu_0\)</span>!</p></li>
+</ul>
+</section>
+<section id="worked-out-example-2" class="level2">
+<h2 class="anchored" data-anchor-id="worked-out-example-2">Worked-Out Example</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Example 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p><em>McGaucho’s</em> claims that, on average, customers will only need to wait 10 minutes before getting their food. Dubious of these claims, Markus takes a representative sample of 40 customers and finds that these customers waited an combined average of 15 minutes before receiving their food, with a standard deviation of 10 minutes. Based on this, he decides to perform an upper-tailed test on <em>McGaucho’s</em> claims at an <span class="math inline">\(\alpha = 0.01\)</span> level of significance. Conduct the test, and state your conclusions.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions-3" class="level2" style="font-size:32px">
+<h2 style="font-size:32px" class="anchored" data-anchor-id="solutions-3">Solutions</h2>
+<ul>
+<li><p>Again, we should ask ourselves what distribution we are going to use.</p></li>
+<li><p>Is the population normally distributed?</p>
+<ul>
+<li><p>In other words, are the wait times of <em>all</em> customers normally distributed?</p></li>
+<li><p>No; or, at least, there is not enough inforamtion to conclude that they are.</p></li>
+</ul></li>
+<li><p>Is our sample large enough?</p>
+<ul>
+<li>Yes; <span class="math inline">\(n = 40 \geq 30\)</span></li>
+</ul></li>
+<li><p>Do we have <span class="math inline">\(\sigma\)</span> or <span class="math inline">\(s\)</span>?</p>
+<ul>
+<li>We only have <span class="math inline">\(s\)</span>, the standard devaition of commute times of Markus’ <em>sample</em>.</li>
+</ul></li>
+<li><p>Hence, we will use the <span class="math inline">\(t_{39}\)</span> distribution.</p></li>
+</ul>
+</section>
+<section id="solutions-4" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-4">Solutions</h2>
+<ul>
+<li><p>Now, we are using an upper-tailed alternative, meaning our critical value is the point such that <span class="math inline">\((1 - 0.01) = 0.99\)</span> area lies to the left (or, equivalently, <span class="math inline">\(0.01\)</span> lies to the right).</p></li>
+<li><p>This means our critical value is 2.43, and we reject the null whenever <span class="math inline">\(\mathrm{TS} &gt; 2.43\)</span>.</p></li>
+<li><p>The observed value of our test statistic is <span class="math display">\[ \frac{15 - 10}{10 / \sqrt{40}} = 3.162 \]</span></p></li>
+</ul>
+</section>
+<section id="solutions-5" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-5">Solutions</h2>
+<ul>
+<li>Since <span class="math inline">\(\mathrm{TS} = 3.162 &gt; 2.43\)</span>, we reject the null:</li>
+</ul>
+<div class="fragment">
+<blockquote class="blockquote">
+<p>At an <span class="math inline">\(\alpha = 0.01\)</span> level of significance, there was sufficient evidence to reject <em>McGaucho’s’</em> claim that the average wait time of customers is 10 minutes in favor of the alternative that the true wait time is <em>longer</em> than 10 minutes.</p>
+</blockquote>
+</div>
+</section>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn">Your Turn!</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>A university administrator at <em>Gaucho University</em> (GU) claims that GU students get, on average, 8 hours of sleep per night. A sample of 35 students had a combined average of 7.72 hours of sleep and a standard deviation of 3.8 hours. Using an <span class="math inline">\(\alpha = 0.05\)</span> level of significance, test the administrator’s claims against a…</p>
+<ol type="a">
+<li>…two-sided alternative</li>
+<li>…lower-tailed alternative</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="another-view-of-hypothesis-testing" class="level1">
+<h1>Another View of Hypothesis Testing</h1>
+<section id="recap-1" class="level2">
+<h2 class="anchored" data-anchor-id="recap-1">Recap</h2>
+<ul>
+<li><p>Last time, we discussed Hypothesis Testing on population proportions.</p></li>
+<li><p>That is: given a population with true proportion <span class="math inline">\(p\)</span>, we took samples and tried to use the data collected in these samples to assess the validity of the claim <span class="math inline">\(H_0: \ p = p_0\)</span> (for some fixed value <span class="math inline">\(p_0\)</span>) against some alternative hypothesis (two-sided, lower-tailed, or upper-tailed)</p></li>
+<li><p>The test we constructed last time compared the value of the <strong>test statistic</strong> to some <strong>critical value</strong>, and made a decision about rejection based on the comparison between these two values.</p></li>
+</ul>
+</section>
+<section id="lower-tailed-example" class="level2">
+<h2 class="anchored" data-anchor-id="lower-tailed-example">Lower-Tailed Example</h2>
+<ul>
+<li><p>For illustrative purposes, let’s consider a lower-tailed test: <span class="math display">\[ \left[ \begin{array}{rr}
+H_0:    &amp; p = p_0   \\
+H_A:    &amp; p &lt; p_0
+\end{array} \right.\]</span></p></li>
+<li><p>Under appropriate conditions, our test statistic <span class="math display">\[ \mathrm{TS} = \frac{\widehat{P} - p_0}{\sqrt{\frac{p_0(1 - p_0)}{n}}} \]</span> follows the standard normal distribution under the null.</p></li>
+</ul>
+</section>
+<section id="lower-tailed-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="lower-tailed-example-1">Lower-Tailed Example</h2>
+<div class="nonincremental">
+<ul>
+<li>Recall that <span class="math inline">\(\alpha\)</span>, the <strong>level of significance</strong>, is constructed to be the <span class="math inline">\(\alpha \times 100\)</span><sup>th</sup> percentile of the standard normal distribution:</li>
+</ul>
+</div>
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -1.45, xend = -1.45, y = 0, yend = dnorm(-1.45))): All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="reject-or-not" class="level2">
+<h2 class="anchored" data-anchor-id="reject-or-not">Reject or Not?</h2>
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -1.45, xend = -1.45, y = 0, yend = dnorm(-1.45))): All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -2, xend = -2, y = 0, yend = 0.4), col = "red", : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="reject-or-not-1" class="level2">
+<h2 class="anchored" data-anchor-id="reject-or-not-1">Reject or Not?</h2>
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -1.45, xend = -1.45, y = 0, yend = dnorm(-1.45))): All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = 0.4), col = "red", : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="leadup" class="level2">
+<h2 class="anchored" data-anchor-id="leadup">Leadup</h2>
+<ul>
+<li><p>So, up until now, our decision has been based on comparing the raw value of the test statistic to the critical value.</p>
+<ul>
+<li>If the test statistic is smaller than the critical value, we reject.</li>
+<li>Otherwise, we fail to reject.</li>
+</ul></li>
+<li><p>Again, remember the intuition behind <em>why</em> this is: if we observe a value of <span class="math inline">\(\widehat{P}\)</span> that is much smaller than <span class="math inline">\(p_0\)</span>, this leads credence to the claim that <span class="math inline">\(p &lt; p_0\)</span> (i.e.&nbsp;this leads credence to our <em>alternative</em> and <em>away</em> from our null).</p>
+<ul>
+<li>Values of <span class="math inline">\(\widehat{P}\)</span> less than <span class="math inline">\(p_0\)</span> lead to very negative values of <span class="math inline">\(\mathrm{TS}\)</span>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="leadup-1" class="level2">
+<h2 class="anchored" data-anchor-id="leadup-1">Leadup</h2>
+<ul>
+<li><p>Now, we like to think in terms of areas.</p></li>
+<li><p>So, here’s an idea: let’s translate our reject/fail to reject scheme to be in terms of <em>areas</em>.</p></li>
+<li><p>Specifically, here is what I mean.</p></li>
+<li><p>Consider again a situation in which we reject the null:</p></li>
+</ul>
+<hr>
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -1.45, xend = -1.45, y = 0, yend = dnorm(-1.45))): All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -2, xend = -2, y = 0, yend = 0.4), col = "red", : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<hr>
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -1.45, xend = -1.45, y = 0, yend = dnorm(-1.45))): All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -2, xend = -2, y = 0, yend = 0.4), col = "red", : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li><p>How does the area to the left of the test statistic compare to <span class="math inline">\(\alpha\)</span>?</p>
+<ul>
+<li>It is smaller.</li>
+</ul></li>
+</ul>
+<hr>
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -1.45, xend = -1.45, y = 0, yend = dnorm(-1.45))): All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = 0.4), col = "red", : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<hr>
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = dnorm(-1.45))): All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = 0.4), col = "red", : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li><p>How does the area to the left of the test statistic compare to <span class="math inline">\(\alpha\)</span>?</p>
+<ul>
+<li>It is larger</li>
+</ul></li>
+</ul>
+</section>
+<section id="leadup-2" class="level2">
+<h2 class="anchored" data-anchor-id="leadup-2">Leadup</h2>
+<ul>
+<li><p>So, we can rephrase our decision as follows:</p>
+<ul>
+<li>Reject <span class="math inline">\(H_0\)</span> if the area to the left of the test statistic is smaller than <span class="math inline">\(\alpha\)</span>.</li>
+<li>Otherwise, fail to reject <span class="math inline">\(H_0\)</span>.</li>
+</ul></li>
+<li><p>Notice that the area to the left of the test statistic, since we are dealing with a lower-tailed test, is equivalent to “the probability of observing something as or more extreme, under the null, as the value we currently observe”.</p>
+<ul>
+<li>Here, “extreme” can be thought of as in the direction of the alternative; in other words, we consider the area in the direction of the sign in the alternative hypothesis.</li>
+</ul></li>
+<li><p>This is an example of what we call a <strong><em>p</em>-value</strong>.</p></li>
+</ul>
+</section>
+<section id="p-values" class="level2">
+<h2 class="anchored" data-anchor-id="p-values"><em>p</em>-Values</h2>
+<ul>
+<li>The textbook defines <span class="math inline">\(p-\)</span>values as:</li>
+</ul>
+<div class="fragment">
+<blockquote class="blockquote">
+<p>[…] the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true.</p>
+</blockquote>
+</div>
+<ul>
+<li><p>Another way to think about it is this: if the null were true, what is the probability that we would observe something even more extreme (i.e.&nbsp;even “farther away”, in the direction of the alternative) as our current observations?</p></li>
+<li><p>Note that exactly <em>how</em> we compute <span class="math inline">\(p-\)</span>values depends heavily on our alternative.</p></li>
+</ul>
+</section>
+<section id="the-test-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="the-test-statistic">The Test Statistic</h2>
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = dnorm(-1.45))): All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = 0.4), col = "red", : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="p-value-lower-tailed-test" class="level2">
+<h2 class="anchored" data-anchor-id="p-value-lower-tailed-test"><em>p</em>-value; Lower-Tailed Test</h2>
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = dnorm(-1.45))): All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = 0.4), col = "red", : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="p-value-upper-tailed-test" class="level2">
+<h2 class="anchored" data-anchor-id="p-value-upper-tailed-test"><em>p</em>-value; Upper-Tailed Test</h2>
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = dnorm(-1.45))): All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = 0.4), col = "red", : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="p-value-two-sided-test" class="level2">
+<h2 class="anchored" data-anchor-id="p-value-two-sided-test"><em>p</em>-value; Two-Sided Test</h2>
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = dnorm(-1.45))): All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = 0, yend = 0.4), col = "red", : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="worked-out-example-3" class="level2">
+<h2 class="anchored" data-anchor-id="worked-out-example-3">Worked-Out Example</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Example 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 28px">
+<p><em>Forbes</em> magazine has claimed that, as of May 2023, 91.7% of US households own a vehicle. To test that claim, we take a representative sample of 500 US households and observe that 89.4% of these households own a vehicle.</p>
+<ul>
+<li><p>Compute the <span class="math inline">\(p-\)</span>value of our observed value of the statistic, assuming we are using a lower-tailed alternative.</p></li>
+<li><p>Compute the <span class="math inline">\(p-\)</span>value of our observed value of the statistic, assuming we are using a two-sided alternative.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions-6" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-6">Solutions</h2>
+<ul>
+<li>Let’s first compute the observed value of our test statistic: <span class="math display">\[ \mathrm{TS} = \frac{0.894 - 0.917}{\sqrt{\frac{(0.917) \cdot (1 - 0.917)}{500}}} = -1.86 \]</span></li>
+</ul>
+<div class="fragment">
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -1.86, xend = -1.86, y = 0, yend = 0.4), : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions-7" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-7">Solutions</h2>
+<ul>
+<li>In the lower-tailed case, our <em>p</em>-value is</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -1.86, xend = -1.86, y = 0, yend = 0.4), : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<ul>
+<li>We can compute this in one of two ways.</li>
+</ul>
+</section>
+<section id="solutions-8" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-8">Solutions</h2>
+<ul>
+<li>We could simply use Python:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> sps</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sps.norm.cdf(<span class="op">-</span><span class="fl">1.86</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.03144276298075271</code></pre>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+<ul>
+<li>Or, we could use our <em>z</em>-table: <span class="math inline">\(0.0314\)</span></li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li>Either way, looks like our <em>p</em>-value in the lower-tailed case is <span class="math inline">\(0.0314\)</span>.</li>
+</ul>
+</section>
+<section id="solutions-9" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-9">Solutions</h2>
+<ul>
+<li>In the two-sided case, our <em>p</em>-value is</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = -1.86, xend = -1.86, y = 0, yend = 0.4), : All aesthetics have length 1, but the data has 61 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Same deal as before: we can compute this using either Python or our table.</li>
+</ul>
+</section>
+<section id="solutions-10" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-10">Solutions</h2>
+<ul>
+<li><p>Alternatively, note that we can utilize the symmetry of the normal distribution in our favor- the area we’re interested in is simply twice the area we found in the lower-tailed case!</p></li>
+<li><p>So, our <span class="math inline">\(p-\)</span>value in the two-sided case is simply <span class="math inline">\(2 \times (0.0314) = 0.0628\)</span>.</p></li>
+<li><p>If you don’t believe me:</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sps.norm.cdf(<span class="op">-</span><span class="fl">1.86</span>) <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> sps.norm.cdf(<span class="fl">1.86</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.06288552596150537</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="p-values-1" class="level2">
+<h2 class="anchored" data-anchor-id="p-values-1"><em>p</em>-Values</h2>
+<ul>
+<li>Of course, <em>p</em>-values are not restricted to the case of hypothesis testing a proportion; we can absolutely compute <span class="math inline">\(p-\)</span>values in a setting where we are testing a population mean!</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Example 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>Consider again the setup of Worked-Out Example 2: <em>McGaucho’s</em> claims that, on average, they are able to serve customers their food in 10 minutes. Dubious of these claims, Markus takes a representative sample of 40 customers and finds that these customers waited an combined average of 15 minutes before receiving their food, with a standard deviation of 10 minutes.</p>
+<ol type="a">
+<li>Compute the <em>p</em>-value if we were to use a lower-tailed alternative.</li>
+<li>Compute the <em>p</em>-value if we were to use a two-sided alternative.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions-11" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-11">Solutions</h2>
+<ul>
+<li><p>Recall that we ended up needing to use the <span class="math inline">\(t_{39}\)</span> distribution as opposed to the standard normal distribution.</p></li>
+<li><p>This doesn’t affect our computations of the <em>p</em>-value much, except for the fact that now we will <em>need</em> to use Python (as our <span class="math inline">\(t-\)</span>table doesn’t really give us <em>probabilities</em>).</p></li>
+<li><p>The observed value of the test statistic is <span class="math display">\[ \frac{15 - 10}{10 / \sqrt{40}} = 3.162 \]</span></p></li>
+</ul>
+</section>
+<section id="solutions-12" class="level2" style="font-size:25px">
+<h2 style="font-size:25px" class="anchored" data-anchor-id="solutions-12">Solutions</h2>
+<ul>
+<li>On a graph, this looks like:</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 3.162, xend = 3.162, y = 0, yend = 0.4), : All aesthetics have length 1, but the data has 81 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions-13" class="level2" style="font-size:25px">
+<h2 style="font-size:25px" class="anchored" data-anchor-id="solutions-13">Solutions</h2>
+<ul>
+<li>Using a lower-tailed alternative:</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 3.162, xend = 3.162, y = 0, yend = 0.4), : All aesthetics have length 1, but the data has 81 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sps.t.cdf(<span class="fl">3.162</span>, <span class="dv">39</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.998485142798897</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions-14" class="level2" style="font-size:25px">
+<h2 style="font-size:25px" class="anchored" data-anchor-id="solutions-14">Solutions</h2>
+<ul>
+<li>Using a two-sided alternative:</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-fig="true">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 3.162, xend = 3.162, y = 0, yend = 0.4), : All aesthetics have length 1, but the data has 81 rows.
+ℹ Did you mean to use `annotate()`?</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec17_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">*</span> sps.t.cdf(<span class="op">-</span><span class="fl">3.162</span>, <span class="dv">39</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.0030297144022061392</code></pre>
+</div>
+</div>
+<p>or</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sps.t.cdf(<span class="op">-</span><span class="fl">3.162</span>, <span class="dv">39</span>) <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> sps.t.cdf(<span class="fl">3.162</span>, <span class="dv">39</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.0030297144022060733</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="what-do-we-do-with-a-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="what-do-we-do-with-a-p-value">What Do We Do with a <em>p</em>-Value?</h2>
+<ul>
+<li><p>Okay, so after we’ve computed our <em>p</em>-value… what do we do?</p></li>
+<li><p>We reject when <em>p</em> is small; specifically, we reject when <em>p</em> is less than the level of significance.</p></li>
+<li><p>So, in other words, we now have two ways to conduct hypothesis tests under our belt: using critical values, and using <em>p</em>-values.</p></li>
+<li><p>I’d like to stress- these two frameworks are completely equivalent!</p>
+<ul>
+<li>Your decision using critical values will always be the same as your decision using <em>p</em>-values, by construction.</li>
+</ul></li>
+</ul>
+</section>
+<section id="your-turn-1" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn-1">Your Turn!</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>UCSB <a href="https://firstgen.ucsb.edu/">claims</a> that 40% of its undergraduate student body are first-generation students (as in, the first in their families to earn a Bachelor’s degree). To test this claim, a representative sample of 120 undergraduates is taken and it is found that 43% of these students are first-generation. Suppose we use an <span class="math inline">\(\alpha = 0.05\)</span> level of significance, and we test the University’s claims against a two-sided alternative.</p>
+<ul>
+<li>Conduct the test using critical values.</li>
+<li>Conduct the test using <em>p</em>-values.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn-2" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn-2">Your Turn!</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>A botanist claims that the average weight of a chestnut is around 5 grams. To test this claim, a representative sample of 35 chestnuts is taken; these chestnuts have a combined average weight of 4.87 grams and a standard deviation of 1.82 grams. Suppose we use an <span class="math inline">\(\alpha = 0.05\)</span> level of significance, and a lower-tailed alternative.</p>
+<ul>
+<li>Conduct the test using critical values.</li>
+<li>Conduct the test using <em>p</em>-values.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="criticisms-of-p-values" class="level2">
+<h2 class="anchored" data-anchor-id="criticisms-of-p-values">Criticisms of <em>p</em>-Values</h2>
+<ul>
+<li><p>I should note that there are some growing criticism within the statistical and data scientific communities regarding <em>p</em>-values.</p></li>
+<li><p>For one thing, they can be easily misinterpreted.</p>
+<ul>
+<li>Take a look at <a href="https://en.wikipedia.org/wiki/Misuse_of_p-values">this</a> Wikipedia page for a list of common misinterpretations of <em>p</em>-values to make sure you don’t make any of these (and yes, I might test you on some of these on a quiz/exam!)</li>
+</ul></li>
+<li><p>To fully understand and appreciate the more nuanced criticisms, however, we would need a bit of extra background/theory pertaining to the framework of Hypothesis Testing - material that we don’t cover in this class.</p>
+<ul>
+<li>I encourage you to take PSTAT 120B and PSTAT 120C if you’d like to learn more about this!</li>
+</ul></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Site Designed by Ethan Marzban using Quarto; ©2023</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

@@ -1,0 +1,25 @@
+---
+title: "PSTAT 5A: Understanding Data"
+subtitle: "Homework and Homework Solutions"
+author:
+  - name: "Ethan Marzban"
+    affiliations:
+      - name: "Summer Session A, 2023"
+author-title: "Instructor"
+affiliation-title: "Quarter"
+format: html
+css: "../schedule.css"
+---
+
+Here you will find all homework assignments and their solutions. Please remember that solutions to homework will only be released during Exam Weeks; we encourage you to come to Office Hours to ask any questions you may have about the assignments!
+
+-   **Homework 1:** <a href = "../Files/HW/HW01_Blank.pdf" class = "button label-outline" target = "_blank">Blank</a> <a href = "../Files/HW/HW01_Answers.pdf" class = "button label-outline" target = "_blank">Answers</a> <a href = "../Files/HW/HW01_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+-   **Homework 2:** <a href = "../Files/HW/HW02_Blank.pdf" class = "button label-outline" target = "_blank">Blank</a> <a href = "../Files/HW/HW02_Answers.pdf" class = "button label-outline" target = "_blank">Answers</a> <a href = "../Files/HW/HW02_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+
+-   **Homework 3:** <a href = "../Files/HW/HW03_Blank.pdf" class = "button label-outline" target = "_blank">Blank</a> <a href = "../Files/HW/HW03_Answers.pdf" class = "button label-outline" target = "_blank">Answers</a> <a href = "../Files/HW/HW03_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+-   **Homework 4:** <a href = "../Files/HW/HW04_Blank.pdf" class = "button label-outline" target = "_blank">Blank</a> <a href = "../Files/HW/HW04_Answers.pdf" class = "button label-outline" target = "_blank">Answers</a><a href = "../Files/HW/HW04_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> <br />
+
+-   **Homework 5:** <a href = "../Files/HW/HW05_Blank.pdf" class = "button label-outline" target = "_blank">Blank</a> <a href = "../Files/HW/HW05_Answers.pdf" class = "button label-outline" target = "_blank">Answers</a>

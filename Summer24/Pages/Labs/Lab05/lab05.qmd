@@ -1,0 +1,560 @@
+---
+title: "Lab05"
+subtitle: "Markdown Syntax, Importing Data, and Manipulating Tables"
+author:
+  - name: "PSTAT 5A, with Ethan Marzban"
+    affiliations:
+      - name: "Summer Session A 2023"
+author-title: "Course"
+affiliation-title: "Quarter"
+format: html
+title-block-banner: "#4144a6"
+css: styles.css
+---
+
+------------------------------------------------------------------------
+
+Let's start off this week's lab by taking a quick break from Python and instead learn some tools for making our Jupyter Notebooks look a little nicer (and help incorporate some mathematical equations into them!).
+
+:::{.callout-caution}
+## **IMPORTANT**
+
+For this lab in particular:
+
+- You **must** submit a `.PDF` file. Failure to do so will incur a **25\% point deduction**.
+- You **must** change the metadata in your notebook in accordance with the procedures outlined in Lab01. Failure to do so will incur a **25\% point deduction**.
+- Because this lab is a little more involved than previous labs, you have until **11:59pm on TUESDAY** to submit to Gradescope.
+    - Please make sure to really grasp the material asked of you in this lab. Next week's lab will take the form of a project that will be graded in part on *correctness*; more details will be provided soon.
+:::
+
+Also, the format of this lab is a little different in that there aren't any numbered "Tasks"; instead, there are "Action Items" which you need to perform in a `.ipynb` file. As such, you don't need to label your tasks; we will only be looking at your final product (i.e. your final PDF).
+
+
+## Introduction to Markdown Syntax
+
+Remember way back in Week 1, when we started adding "Markdown Cells" to our Jupyter Notebooks? Unbeknownst to you, you've actually been using a *different* computing language than Python! [Wikipedia](https://en.wikipedia.org/wiki/Markdown) defines **Markdown** as:
+
+> [...] a lightweight markup language for creating formatted text using a plain-text editor.
+
+What this means is that Markdown is a language that is specifically designed to communicate with your computer and facilitate the formatting of text and equations.
+
+## Markdown Syntax
+
+As with Python, Markdown has some specific syntax as well. We will take a few moments to explore some of this syntax.
+
+### 1. Headers
+
+::: {.callout-note}
+
+## Important Information
+
+There are several different "levels" of headers:
+
+- A main (first-level) header
+- A second-level  header
+- A third-level header
+- And so on and so forth
+
+In Markdown, the level of the header is specified by how many hashtags (`#`'s) we include before the header text.
+
+:::
+
+For example: all of the headers used in this explanation document are either second- or third-level headers.
+
+::: {.callout-important}
+
+## Action Item
+
+Add a first-level (main) header that says `Section 1: Markdown Syntax`. Run this cell, and ensure it displays properly. 
+
+:::
+
+::: {.callout-important}
+
+## Action Item
+
+After your first-level (main) `Section 1: Markdown Syntax` header, add a second-level header that says `Subsection 1.1`. Again, run this cell and ensure that this header appears smaller than the first-level (main) header you created in the action item above.
+
+:::
+
+
+### 2. Text Formatting
+
+As we have previously seen, text written in a Markdown cell will display exactly as it is written in your final PDF. We can, however, also spice up the formatting of our text!
+
+:::{.callout-note}
+## Note
+There are several different text formatting options available to us in Markdown:
+
+- **Boldface Text**: `**Boldface Text**`
+- _Italicized Text_: `_Italicized Text_` or `*Italicized Text*`
+- `Fixed-Width Text`: ``` `Fixed-Width Text` ```
+
+:::
+
+
+
+::: {.callout-important}
+
+## Action Item
+
+Underneath your second-level header `"Subsection 1.1"`, write the following sentence **including all formatting as it appears here**: 
+
+> The **quick** brown fox *jumps* over the `lazy` dog
+
+:::
+
+By the way, notice how we managed to display the sentence above as a block-quote? The syntax to do that in Markdown is using a single `>` symbol, followed by a space. For example,
+
+> This text
+
+was generated using the code `> This text`. 
+
+::: {.callout-warning}
+
+## Caution
+
+Be mindful about line breaks and spaces when using Markdown syntax.
+
+:::
+
+
+::: {.callout-important}
+
+## Action Item
+
+Underneath your "quick brown fox" text, add a block-quote that says
+
+> That was a really cool sentence!
+
+Run your Markdown cell, and ensure the block-quote is displaying properly. (Again: line breaks and indentation will be important!)
+
+:::
+
+### 3. Itemized and Enumerated Lists
+
+::: {.callout-note}
+
+## Important Information
+
+There are two main types of lists: **itemized** and **enumerated** lists. Itemized lists have no explicit ordering: these are sometimes called "bulleted" lists, and look like this:
+
+- Item 1
+- Item 2
+- Item 3
+
+Enumerated lists *do* have an explicit ordering:
+
+1) Item 1
+2) Item 2
+3) Item 3
+
+In Markdown, itemized lists are created by navigating to a new line, writing a dash (`-`) or an asterisk (`*`), followed by a space, followed by the text you wish to have displayed in the corresponding item. For instance: the itemized list above was generated using the code
+
+```{r, eval = F}
+- Item 1
+- Item 2
+- Item 3
+```
+
+In Markdown, enumerated lists are created by navigating to a new line, writing the number of the item (e.g. 1, 2, etc.) either either a close-parenthesis (`)`), or a period (`.`) For instance: both of the following codes will generate an enumerated list:
+
+
+```{r, eval = F}
+1) Item 1
+2) Item 2
+3) Item 3
+```
+
+```{r, eval = F}
+1. Item 1
+2. Item 2
+3. Item 3
+```
+
+To add sublevel items, navitage to a new line, hit the space bar 4 times, and then add the corresponding item symbol (i.e. `-` or `*` for itemized lists; `1)` or `a)` or `1.` or `a.` for enumerated lists; etc.)
+
+- As an example, this is a main-level item
+    - Followed by a sublevel item!
+
+This was generated using
+
+```{r, eval = F}
+- As an example, this is a main-level item
+    - Followed by a sublevel item!
+```
+
+:::
+
+
+::: {.callout-important}
+
+## Action Item
+
+Add a new second-level header to your document that says `Subsection 1.2: Itemized and Enumerated Lists`. Underneath this, include the following list (making sure it displays properly when you run the cell!)
+
+- It is very important to check the Binomial Conditions before using the Binomial Distribution!
+    - Failure to check the necessary conditions can lead to incorrect results.
+    - Incorrect results are not good!
+
+:::
+
+
+### 4. Equations in Markdown
+
+One of the very nice things about Markdown is that it is able to (very nicely) combine both plain-text as well as equations! \
+
+The language used to specify equations in Markdown is called `LaTeX` (pronounced "lay-TECH", or "lah-TECH"). LaTeX equations have two main styles: inline, like $x + y$, and "display-style", like
+$$ \sum_{i=1}^{k} x_i $$
+
+::: {.callout-note}
+
+## Important Information
+
+In LaTeX, inline equations are specified by single dollar signs and display-style equations are specified by double-dollar signs. For instance:
+
+- `$x + y$` will display as $x + y$
+- `$$x + y$$` will display as $$x + y$$
+
+:::
+
+
+Inside either an inline or display-style equation environment, we can use LaTeX-specific syntax to generate equations. 
+
+::: {.callout-note}
+
+## Important Information
+
+- Standard mathematical symbols display in LaTeX as they would in text: this includes addition (`+`), subtraction (`-`), division (`/`), and multiplication (`*`).
+- The symbol for "less than or equal to" (≤) is typeset as `\leq`; the symbol for "greater than or equal to" (≥) is typeset as `\geq`.
+- Exponents are generated using the caret (`^`): for example, `$x^2$` displays as $x^2$
+- Subscripts are generated using the underscore (`_`): for example, `$x_2$` displays as $x_2$
+
+:::
+
+
+::: {.callout-important}
+
+## Action Item
+
+Add a second-level (main)  header that says `"Subsection 1.3: Typesetting Equations"`, and underneath it write the following sentence (including all LaTeX formatting!):
+
+> The Pythagorean Theorem states that $a^2 + b^2 = c^2$.
+
+Run this cell, and ensure it displays properly.
+
+:::
+
+We can also typeset more advanced formulas and symbols:
+
+::: {.callout-note}
+
+## Important Information
+
+- Sums (using sigma-notation) are generated using the `\sum` command: for example, `$\sum_{x = 0}^{1} x$` displays as $\sum_{x = 0}^{1} x$
+
+- Integrals are generated using the `\int` command: for example, `$\int_{a}^{b} f(x) \ dx$` displays as $\int_{a}^{b} f(x) \ dx$
+
+- Fractions are generated using the `\frac` command: for example, `$\frac{1}{2}$` displays as $\frac{1}{2}$
+
+- Square-roots are generated using the `\sqrt` command: for example, `$\sqrt{2}$` displays as $\sqrt{2}$
+
+- The symbol $\pi$ is generated using `$\pi$`
+
+- Adding a bar on top of a variable can be done using `\overline{}`; e.g. `$\overline{y}$` typesets as $\overline{y}$
+
+- The probability symbol can be typeset using `$\mathbb{P}$`; e.g. $\mathbb{P}$.
+
+- The symbol for Expected Value can be typeset using `$\mathbb{E}$`; e.g. $\mathbb{E}$.
+
+:::
+
+::: {.callout-tip}
+
+## Note
+
+In LaTeX, curly braces (`{`, `}`) are used to delineate "chunks" of code/text. For example, if you just write `$x^-2$`, this displays as $x^-2$. If we want to display $x^{-2}$, we need to use `$x^{-2}$`.
+
+:::
+
+
+::: {.callout-tip}
+
+## Note
+
+When writing fractions inside parentheses, it is important to use `\left(` and `\right)` to ensure the size of the parentheses scale with the fractions. For example,
+$$ (\frac{1}{2}) $$
+which was generated using `$$ (\frac{1}{2}) $$`, looks a bit worse than
+$$ \left(\frac{1}{2}\right) $$
+which was generated using `$$ \left(\frac{1}{2}\right) $$`.
+
+:::
+
+::: {.callout-important}
+
+## Action Item
+
+Add the following equation to your document:
+$$ f_X(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2}  $$
+
+:::
+
+
+There is nothing stopping us from including equations in itemized and enumerated lists! 
+
+::: {.callout-important}
+
+## Action Item
+
+Add the following list to your document, ensuring that it displays properly when the cell is run (pay attention to the formatting of the text as well!):
+
+- **Pythagorean Theorem:** $a^2 + b^2 = c^2$
+- **Euler's Identity:** $e^{i \pi} + 1 = 0$
+
+:::
+
+It may also be useful to learn how to make piecewise-defined equations using LaTeX. To typeset piecewise-defined functions, we use the `cases` environment:
+$$ \begin{cases} 
+    a   & \text{if condition 1}   \\
+    b   & \text{if condition 2}   \\
+    c   & \text{if condition 3}   \\
+\end{cases} $$
+was generated using the code
+```
+$$ \begin{cases} 
+    a   & \text{if condition 1}   \\
+    b   & \text{if condition 2}   \\
+    c   & \text{if condition 3}   \\
+\end{cases} $$
+```
+
+::: {.callout-important}
+
+## Action Item
+
+Add the probability density function $f_X(x)$ of the $\mathrm{Unif}(a, \ b)$ distribution to your Notebook:
+$$ f_X(x) = \begin{cases} \frac{1}{b - a} & \text{if } a \leq x \leq b \\ 0 & \text{otherwise} \\ \end{cases} $$
+
+:::
+
+Finally, we should talk about how to align equations. The easiest way to align display-style equations is using an `align*` environment. For example:
+\begin{align*}
+  a + b       & = c + d + e   \\
+  a + b + 0   & = c + d
+\end{align*}
+was typeset using
+```
+\begin{align*}
+  a + b       & = c + d + e   \\
+  a + b + 0   & = c + d + 0
+\end{align*}
+```
+
+::: {.callout-important}
+
+## Action Item
+
+Add the following set of equations into your Markdown document, taking care to use appropriate alignment.
+
+\begin{align*}
+  \overline{x}            & = \frac{1}{n} \sum_{i=1}^{n} x_i    \\
+  n \overline{x}    & = \sum_{i=1}^{n} x_i
+\end{align*}
+
+:::
+
+This is only just the surface of what LaTeX can do! If you are planning on going into any STEM-related field, we highly encourage you to delve deeper into the world of LaTeX as it will be a very valuable skill to have.
+
+
+### Hyperlinks
+
+Sometimes it will be necessary to include hyperlinks into our reports. With Markdown, this is fairly straightforward!
+
+:::{.callout-note}
+
+## Important Information
+
+The syntax of including a hyperlink in a Markdown cell is as follows:
+
+> `[text](link)`
+
+For example, [Click Here](https://google.com) was generated using `[Click Here](https://google.com)`.
+
+:::
+
+
+:::{.callout-important}
+
+## Action Item
+
+Make a new second-level header in your document called `Section 1.4: Hyperlinks`. Underneath this header, create clickable text that says "`PSTAT Department Website`" and, when clicked, navigates the user to the main website of the Department of Statistics and Applied Probability here at UCSB (https://pstat.ucsb.edu). Your final result should look and function like [PSTAT Department Website](https://pstat.ucsb.edu).
+
+:::
+
+## Importing and Manipulating Data
+
+Finally, let's play with some real-world data! 
+
+### Introduction to the Dataset
+
+The dataset we will explore is called `air22.csv`, and can be accessed at [https://pstat5a.github.io/Files/Datasets/air22.csv](https://pstat5a.github.io/Files/Datasets/air22.csv). It contains observations from the Bureau of Transportation Statistics [https://www.transtats.bts.gov/](https://www.transtats.bts.gov/) on flights taking place during 2022.
+
+Here is an abridged version of the data dictionary:
+
+- `year`: the year in which the data was collected
+- `month`: the month in which the data was collected
+- `carrier`: the carrier abbreviation (e.g. `AS` for Alaska, `AA` for American Airlines, etc.)
+- `carrier_name`: the full name of the carrier (e.g. Alaska, American, etc.)
+- `airport`: the airport IATA code (e.g. `SEA` for SeaTac International Airport, etc.)
+- `airport_name`: the full name of the airport
+- `arr_flights`: the number of flights that arrived
+- `arr_del15`: the number of flights that were delayed for more than 15 minutes
+- `carrier_ct`: the number of flights delayed due to carrier-related issues (e.g. no crew, delayed captain, etc.)
+- `weather_ct`: the number of flights delayed due to weather-related issues
+- `nas_ct`: the number of flights delayed due to National Air Security (NAS)-related issues (e.g. heavy traffic)
+- `security_ct`: the number of flights **cancelled** due to security-related issues
+- `late_aircraft_ct`: the number of flights delayed due to the arriving aircraft being delayed
+- `arr_cancelled`: the number of cancelled flights
+- `arr_diverted`: the number of flights that were diverted 
+- `arr_delay`: the total time (in minutes) of delayed flight
+- `carrier_delay`: the total time (in minutes) of delay due to air carrier-related issues
+- `weather_delay`: the total time (in minutes) of delay due to air weather-related issues
+- `nas_delay`: the total time (in minutes) of delay due to air NAS-related issues
+- `security_delay`: the total time (in minutes) of delay due to air security-related issues
+- `late_aircraft_delay`: the total time (in minutes) of delay due to the arriving aircraft being delayed
+
+### Part 1: Importing 
+
+We should start by importing the dataset into our JupyterHub environment! In this class, we will almost exclusively import datasets to `datascience` tables (remember those, from Lab 1?) The syntax we use to import a dataset and store it in a table called `table_name` is:
+```{python}
+#| eval: False
+#| echo: True
+table_name = Table.read_table(<location of dataset>)
+```
+
+By default, the `read_table` method will use the first line of data as labels for each of the columns. If, however, your data does not include labels as its first line you will need to manually specify the labels:
+```{python}
+#| eval: False
+#| echo: True
+table_name = Table.read_table(<location of dataset>, names = [labl1, ...])
+```
+
+:::{.callout-important}
+## Action Item
+Add a first-level header that says `Section 2: Importing and Manipulating Data`.
+:::
+
+:::{.callout-important}
+## Action Item
+Import the `air22.csv` dataset, and save it as a table called `air`. **Hint:** make sure you import any necessary modules first!
+:::
+
+:::{.callout-tip}
+The list of `Table()`-related methods at [http://data8.org/datascience/tables.html](http://data8.org/datascience/tables.html) may prove very useful for this lab!
+:::
+
+### Part 2: Getting a Feel for the Dataset
+
+Let's start of easy by answering a few questions. You should use code to determine the answers to these questions, but should write your answers using descriptive sentences in a markdown cell.
+
+:::{.callout-important}
+## Action Item
+How many rows are in the dataset? (Recall: in the language introduced in Week 1, this is the number of **observational units** in the **data matrix**.)
+:::
+
+:::{.callout-important}
+## Action Item
+How many columns are in the dataset? (Recall: in the language introduced in Week 1, this is the number of **variables** in the data matrix.)
+:::
+
+:::{.callout-important}
+## Action Item
+Return a list of the column names in the dataset. **Hint:** Recall that the column names, in the context of the `datascience` module, are sometimes called the **labels** of the table. Again, consult the help file if you need help!
+:::
+
+
+### Part 3: Accessing Specific Elements of the Dataset
+
+There are a few methods we can use to access specific parts of a Table:
+
+- `table_name.column(<index or label>)`: returns an array containing the data in the specified column
+- `table_name.row(<index or label>)`: returns an array containing the data in the specified column
+- `table_name.column(i).item(j)`: returns the value in column `i` + 1, row `j` + 1 (note the plus ones!)
+
+
+:::{.callout-important}
+## Action Item
+Display only the `arr_del15` column of the dataset.
+:::
+
+:::{.callout-important}
+## Action Item
+What years are included in the dataset?
+:::
+
+:::{.callout-important}
+## Action Item
+Create a histogram of the delay times caused by weather-related issues. Use 100 bins, and include axis labels as well as a plot title.
+:::
+
+We can also get creative, and use comparisons to subset various parts of our dataset. For example,
+
+```{python}
+#| echo: True
+#| eval: False
+air.column("carrier") == "AS"
+```
+will return a Boolean vector (i.e. a vector of `True` and `False` elements), with `True` elements corresponding to values in the `carrier` column that have value `"AS"`. In words: this would give us the indices of rows corresponding to data on Alaska Airlines.
+
+:::{.callout-important}
+## Action Item
+How many observational units were recorded from Alaska Airlines? **Hint:** Think about how a sum could help us here.
+:::
+
+### Part 4: A Mini-Project
+
+Alright, let's close off this lab with a bit of a mini-project. Our goal is to examine the number of arrivals over time. Specifically, we would ultimately like to plot the average number of arrivals per month vs. month.
+
+:::{.callout-important}
+## Action Item
+Explain, in words, what the following line of code is doing:
+```{python}
+#| eval: False
+
+air.row(air.column(1) == 1)
+```
+:::
+
+:::{.callout-important}
+## Action Item
+Explain, in words, what the following line of code is doing:
+```{python}
+#| eval: False
+
+air.row(air.column(1) == 2)[6]
+```
+**Hint:** `arr_flights` is the 7th column in the dataset.
+:::
+
+
+:::{.callout-important}
+## Action Item
+Based on your answers to the previous two Action Items, complete the following code to compute the average number of flights per month:
+
+```{python}
+#| eval: False
+#| echo: True
+
+means = []
+for k in _________________:
+  means.______(np.nanmean(air.row(air.column(___) == ___)[___]))
+```
+(By the way, the `nanmeans()` function is a variant of the `mean()` function from the `numpy` module that ignores missing values when computing the mean.)
+:::
+
+
+:::{.callout-important}
+## Action Item
+Plot your `means` list against the list containing the integers `1`, `2`, `3`, ..., `12` (this list functions like a list of month names.)
+:::
+

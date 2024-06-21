@@ -1,0 +1,302 @@
+---
+title: "PSTAT 5A: Lecture 23"
+subtitle: "Tying Up Loose Ends"
+author: "Ethan P. Marzban"
+date: "08/02/23"
+format: 
+    revealjs:
+      html-math-method: mathjax
+      theme: [default, ../CSS/custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+```
+
+## Smoking
+
+- I previously emphasized that observational studies cannot be used to draw causal conclusions, even if they reveal associations.
+
+- I mentioned this is because of the potential presence of so-called **confounding variables**.
+
+- Let's think through a concrete example together.
+
+:::{.fragment}
+:::{.callout-note}
+
+## Setup
+
+A researcher would like to determine whether or not there is an association between smoking and increased rates of lung cancer. To that end, they perform an observational study in which 50 people who regularly smoke were observed along with 50 people who do not smoke. Lung cancer rates within each group were recorded at the end of the study, and the data clearly (and statistically) displays that the average lung cancer rates among smokers is higher than that among non-smokers.
+:::
+:::
+
+## Smoking
+
+- Again, we cannot then simply conclude that smoking *causes* lung cancer. 
+
+- All we can conclude is precisely what was stated above: there is statistical evidence to suggest that smoking is *associated* with higher lung cancer rates.
+
+- Why? It really boils down to asking: was the control (i.e. non-smoking) group truly similar to the treatment (i.e. smoking) group?
+
+- For example, what if it turns out that the group of smokers that were selected were also heavy drinkers? In that case, whether or not someone regularly *drinks* could be a confounding variable as it is one the researcher did not explicitly control for, but that could potentially skew results.
+
+- Additionally, some studies have shown that smokers tend to be predominantly male. As such, gender could also be a confounding variable.
+
+## Confounding Variables
+
+- The main point is: there are lots of variables that were not controlled for in this study, but that could be *also* contributing to the increased rates of lung cancer that was observed.
+
+- Hence, the study (as it was conducted above) cannot be used to say that smoking definitively causes lung cancer.
+
+- Now, I'd also like to stress- even if the researcher were to re-do the study as an experiment, we *still* wouldn't be able to simply declare that smoking causes lung cancer.
+
+- To truly establish causal relationships, one must use results from **causal inference** (which is outside the scope of this course).
+
+
+## Case Study: Admissions at UC Berkeley
+
+- In the 1970's, UC Berkeley conducted an observational study to determine whether or not there was gender bias in the graduate student admittance practices at the university. 
+
+    - A disclaimer: at the time, "gender" was treated as a binary variable with values `male` and `female`. I would like to also acknowledge that we now recognize that there are a great deal many more genders than simply "male" and "female".
+    
+- Overall, the survey included 8,422 men and 4,321 women. 
+
+- Of the men 44\% were admitted; of the women only 35\% were admitted. 
+
+    - This difference was also deemed statistically significant.
+    
+- So, on the surface, it does appear as though women are being disproportionately denied entry.
+
+
+## Case Study: Admissions at UC Berkeley
+
+- Something puzzling happens, however, when we take a look at the data after grouping by major:
+
+:::{.fragment}
+<table>
+  <thead>
+  <tr> 
+    <td></td>
+    <td colspan="2" style="text-align:center">**Men**</td>
+    <td colspan="2" style="text-align:center">**Women**</td>
+  </tr>
+  <tr>
+    <td style="padding-right:3cm">**Major**</td>
+    
+    <td>**Num. Applicants**</td>
+    <td>**\% Admitted**</td>
+    
+    <td>**Num. Applicants**</td>
+    <td>**\% Admitted**</td>
+    
+  </tr>
+  </thead>
+  
+  <tbody>
+  <tr>
+    <td>A</td>
+    
+    <td>825</td>
+    <td>62</td>
+    
+    <td>108</td>
+    <td>82</td>
+  </tr>
+  
+  <tr>
+    <td>B</td>
+    
+    <td>560</td>
+    <td>63</td>
+    
+    <td>25</td>
+    <td>68</td>
+  </tr>
+  
+  <tr>
+    <td>C</td>
+    
+    <td>325</td>
+    <td>37</td>
+    
+    <td>593</td>
+    <td>34</td>
+  </tr>
+  
+  <tr>
+    <td>D</td>
+    
+    <td>417</td>
+    <td>33</td>
+    
+    <td>375</td>
+    <td>35</td>
+  </tr>
+  
+  <tr>
+    <td>E</td>
+    
+    <td>191</td>
+    <td>28</td>
+    
+    <td>393</td>
+    <td>24</td>
+  </tr>
+  
+  <tr>
+    <td>F</td>
+    
+    <td>373</td>
+    <td>6</td>
+    
+    <td>341</td>
+    <td>7</td>
+  </tr>
+  </tbody>
+</table>
+:::
+
+
+## Case Study: Admissions at UC Berkeley
+
+- Nearly none of the majors on their own display this bias against women.
+
+    - Indeed, in Major A there almost appears to be a bias against *men*
+    
+- So, what's going on? How can it be that none of the majors individually display a discrimination against women, but *overall* they display discrimination against women?
+
+- The answer actually lies in how difficult each major was to get into.
+
+- For instance, Major A appears to have an overall 64\% acceptance rate, whereas Major E appears to have an overall 53.62\% acceptance rate.
+
+    - Major A seems to be harder to get into than, say, Major E.
+    
+    - Indeed, Majors A and B are easier to get into than majors C through F.
+    
+
+## Case Study: Admissions at UC Berkeley
+
+- Indeed, if we look at the `Num. Applicants` column within each gender, we see that, on the aggregate, *men were applying to easier majors!* 
+
+    - Over half (i.e. $(825 + 560) / (825 + 560 + 325 + 417 + 191 + 373) \approx 51.5\%$) of men applied to Majors A and B, whereas nearly 90\% (i.e. $(593 + 375 + 393 + 341) / (108 + 25 + 593 + 375 + 393 + 341) \approx 92.8\$) of women applied to Majors C through F.
+    
+- In other words, `difficulty of major` was a confounding variable that influenced the acceptance rates. 
+
+    - After controlling for this variable, it was actually found that there was *no* significant difference in addmittance rates between men and women.
+    
+## Simpson's Paradox
+
+- What this shows us is that relationships between percentages in subgroups can sometimes be reversed after the subgroups are aggregated. 
+
+- This is what we call **Simpson's Paradox**.
+
+:::{.fragment}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sxYrzzy3cq8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+:::
+
+## On the Subject of Misleading
+
+\
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i60wwZDA1CI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+    
+# What Now?
+
+## What Now?
+
+- Alright, so that was the last bit of new material I wanted to cover in this class.
+
+- But.... why did we do all of this?
+
+- What was the point of this course?
+
+    - If you say "the point was for me to finish my major", well, then, fair enough!
+    
+- But, more fundamentally, this course is designed to try and provide an introduction to Data Science.
+
+## What Now? 
+
+- The key operating word in this is "introduction-" we only just scratched the surface of the topics we discussed!
+    - I sometimes (affectionately) refer to PSTAT 5A as a "table of contents" of statistics and data science.
+
+- Even within our own PSTAT department, there are lots of different courses that dive deeper into the subjects we discussed.
+
+## What Now?
+
+- If you'd like to learn some more programming (and get a recap of some probability), take PSTAT 10 (where you will learn a very popular programming language among statisticians, called `R`).
+
+- PSTAT 120A provides a deeper look at Probability, and some more sophisticated probability tools.
+
+- PSTAT 120B and 120C provide a deeper look at inferential statistics, and how to answer much more interesting and complex problems than those we looked at in this course.
+
+    - You'll even learn a third, strange yet useful appraoach to probability called the Bayesian approach.
+
+- Interested in Experimental Design? PSTAT 122 is devoted entirely to that!
+
+- Want to learn more about regression (including logistic regression)? Take PSTAT 126 and 131!
+
+
+## Story {style="font-size:30px"}
+
+- Now, I know many of you are graduating this quarter (or have recently graduated).
+
+    - Congratulations, by the way!!!
+    
+- For those of you who are not, and especially for those of you who aren't quite sure what you want to do, I'd like to leave you with a story.
+
+- I encountered a student who had come into undergrad not knowing what they wanted to do *at all*.
+
+- They had a vague inkling that they might want to do math, but after a quarter switched to Econ, then Physics, and finally wound their way into the equivalent of PSTAT 5A at their undergraduate institution.
+
+- By the end of the quarter, they were so intrigued to learn more the decided to take the analog of 120A, and then 120B, and then, before they knew it, they had completed a degree in statistics!
+
+
+## Story {style="font-size:30px"}
+
+- That student.... was me!
+
+- Years ago, I stumbled into the analog of PSTAT 5A and was so enamored by the field that here I am now, pursuing a PhD in it!
+
+- I truly believe statistics and data science are some of the most useful and applicable fields around.
+
+- Wherever there is data, there is the need for a data scientist.
+
+- Whenever there is uncertainty, there is the need for a statistician.
+
+- Statistics and Data Science have far reaching applications in so many fields!
+
+## Story {style="font-size:30px"}
+
+- There is a famous quote from an extremely influential statistician named John Tukey:
+
+:::{.fragment}
+> The best thing about being a statistician is that you get to play in everyone's backyard.
+:::
+
+- I couldn't agree more!
+
+    - Though, I would perhaps update this quote to say "statistician and/or data scientist"
+    
+- So, now that you've learned the basics...
+
+:::{.fragment style="font-size:50px"}
+...**_go out and play!_**
+:::
+
+# **_Thank you for a great quarter!_**
+
+

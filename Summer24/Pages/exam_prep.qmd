@@ -1,0 +1,90 @@
+---
+title: "PSTAT 5A: Understanding Data"
+subtitle: "Exam Prep"
+author:
+  - name: "Ethan Marzban"
+    affiliations:
+      - name: "Summer Session A, 2023"
+author-title: "Instructor"
+affiliation-title: "Quarter"
+format: html
+css: "../schedule.css"
+---
+
+## Midterm 1
+
+- Information Document: <a href = "../Files/ExamInfo/mt1_info.pdf" class = "button label-outline" target = "_blank">.pdf</a>
+
+- List of Topics (not comprehensive): <a href = "../Files/ExamInfo/mt1_topics.pdf" class = "button label-outline" target = "_blank">.pdf</a>
+
+- Spring 2023 Exams:
+
+    - Blue Version: <a href = "../Files/Past_Exams/Sp23_MT1_Blue_Blank.pdf" class = "button label-outline" target = "_blank">Blank</a> <a href = "../Files/Past_Exams/SP23_MT1_Blue_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a>
+        
+        - **Typo in Solutions:** In 12(b), the $\frac{1}{5 - 1}$ should be $\frac{1}{4 - 1}$
+        
+        - **Typo in Solutions:** Answer to 13(d) should be $A = \{ (1, -1, \ \ 1), \ (1, -1, -1)\}$
+    
+    - Yellow Version: <a href = "../Files/Past_Exams/Sp23_MT1_Yellow_Blank.pdf" class = "button label-outline" target = "_blank">Blank</a> <a href = "../Files/Past_Exams/SP23_MT1_Yellow_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a>
+    
+        - **Typo in Solutions:** In 12(b), the $\frac{1}{5 - 1}$ should be $\frac{1}{4 - 1}$
+        
+        - **Typo in Solutions:** Answer to 14(d) should be $A = \{ (1, -1, \ \ 1), \ (1, -1, -1)\}$
+    
+    - **Please note that the format of exams this quarter will be slightly different; see the coverpages below**
+
+- Exam Coverpages: <a href = "../Files/ExamInfo/MT1_Coverpage_MC.pdf" class = "button label-outline" target = "_blank">Multiple Choice</a> <a href = "../Files/ExamInfo/MT1_Coverpage_FR.pdf" class = "button label-outline" target = "_blank">Free Response</a>
+    
+- Formula Sheet: <a href = "../Files/ExamInfo/MT1_Formula_Sheet.pdf" class = "button label-outline" target = "_blank">.pdf</a>
+
+- Practice Problems: <a href = "../Files/ExamInfo/mt1_practice_problems.pdf" class = "button label-outline" target = "_blank">.pdf</a> <a href = "../Files/ExamInfo/MT1_prac_prob_solns.pdf" class = "button label-outline" target = "_blank">Solns</a>
+
+
+
+## Midterm 2
+
+- Information Document: <a href = "../Files/ExamInfo/mt2_info.pdf" class = "button label-outline" target = "_blank">.pdf</a>
+
+- List of Topics (not comprehensive): <a href = "../Files/ExamInfo/mt2_topics.pdf" class = "button label-outline" target = "_blank">.pdf</a>
+
+- Spring 2023 Exams
+
+    - Salmon Version: <a href = "../Files/Past_Exams/SP23_MT2_Salmon_Blank.pdf" class = "button label-outline" target = "_blank">Blank</a>  <a href = "../Files/Past_Exams/SP23_MT2_Salmon_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> 
+    
+    - Yellow Version: <a href = "../Files/Past_Exams/SP23_MT2_Yellow_Blank.pdf" class = "button label-outline" target = "_blank">Blank</a> <a href = "../Files/Past_Exams/SP23_MT2_Yellow_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> 
+
+- Exam Coverpages: <a href = "../Files/ExamInfo/MT2_Coverpage_MC.pdf" class = "button label-outline" target = "_blank">Multiple Choice</a> <a href = "../Files/ExamInfo/MT2_Coverpage_FR.pdf" class = "button label-outline" target = "_blank">Free Response</a>
+
+- Formula Sheet: <a href = "../Files/ExamInfo/MT2_Formula_Sheet.pdf" class = "button label-outline" target = "_blank">.pdf</a>
+
+- Practice Problems: <a href = "../Files/ExamInfo/mt2_practice_problems.pdf" class = "button label-outline" target = "_blank">.pdf</a> <a href = "../Files/ExamInfo/mt2_practice_problems_solns.pdf" class = "button label-outline" target = "_blank">Solns</a>
+
+
+
+
+
+## Final Exam
+
+- Information Document: <a href = "../Files/ExamInfo/final_exam_info.pdf" class = "button label-outline" target = "_blank">.pdf</a>
+
+- List of Topics (not comprehensive):  <a href = "../Files/ExamInfo/final_exam_topics.pdf" class = "button label-outline" target = "_blank">.pdf</a>
+
+- Spring 2023 Exams:  
+
+    - Free Response, Version A: <a href = "../Files/Past_Exams/SP23_Final_Free_Response_VA.pdf" class = "button label-outline" target = "_blank">Blank</a>
+    
+    - Multiple Choice, Version A: <a href = "../Files/Past_Exams/SP23_Final_MC.pdf" class = "button label-outline" target = "_blank">Blank</a>
+    
+    - **Please note:** There were a few versions last quarter; I've only posted one version above. Additionally, please note that full solutions for last quarter's exam will not be posted.
+    
+    - Free Response Final Answers: <a href = "../Files/Past_Exams/SP23_Final_Answers.pdf" class = "button label-outline" target = "_blank">`.pdf`</a>
+    
+        - **Please note:** This was updated at 6pm on Thursday August 3.
+
+- Formula Sheet:  <a href = "../Files/ExamInfo/Final_Formula_Sheet.pdf" class = "button label-outline" target = "_blank">.pdf</a>
+
+    - **Please note:** This was updated at 6pm on Thursday August 3.
+    
+- Practice Problems: <a href = "../Files/ExamInfo/FinRev_Blank.pdf" class = "button label-outline" target = "_blank">.pdf</a> (for additional practice problems, including multiple choice ones, please consult the Spring 2023 final exam above.) <a href = "../Files/ExamInfo/FinRev_Solns.pdf" class = "button label-outline" target = "_blank">Solns</a> 
+
+-   Thanks for reading!

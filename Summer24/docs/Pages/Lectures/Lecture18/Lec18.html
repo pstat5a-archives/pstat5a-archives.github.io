@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ethan P. Marzban">
+<meta name="dcterms.date" content="2023-07-25">
+
+<title>PSTAT 5A: Summer Session A, 2023 - PSTAT 5A: Lecture 18</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../Images/Logos_Icons/5a_hex.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      PSTAT 5A: Summer Session A, 2023
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../Images/Logos_Icons/5a_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">PSTAT 5A: Summer Session A, 2023</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule of Topics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/calendar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sections and Calendar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/course_staff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Staff / OH</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW and Solns</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Exam Prep</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/exam_prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam Prep</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#multiple-populations" id="toc-multiple-populations" class="nav-link active" data-scroll-target="#multiple-populations">Multiple Populations</a></li>
+  <li><a href="#two-populations" id="toc-two-populations" class="nav-link" data-scroll-target="#two-populations">Two Populations</a>
+  <ul class="collapse">
+  <li><a href="#two-populations-1" id="toc-two-populations-1" class="nav-link" data-scroll-target="#two-populations-1">Two Populations</a></li>
+  <li><a href="#two-populations-2" id="toc-two-populations-2" class="nav-link" data-scroll-target="#two-populations-2">Two Populations</a></li>
+  <li><a href="#two-populations-3" id="toc-two-populations-3" class="nav-link" data-scroll-target="#two-populations-3">Two Populations</a></li>
+  </ul></li>
+  <li><a href="#linear-combinations-of-random-variables" id="toc-linear-combinations-of-random-variables" class="nav-link" data-scroll-target="#linear-combinations-of-random-variables">Linear Combinations of Random Variables</a>
+  <ul class="collapse">
+  <li><a href="#linear-combinations-of-random-variables-1" id="toc-linear-combinations-of-random-variables-1" class="nav-link" data-scroll-target="#linear-combinations-of-random-variables-1">Linear Combinations of Random Variables</a></li>
+  <li><a href="#linear-combinations-of-random-variables-2" id="toc-linear-combinations-of-random-variables-2" class="nav-link" data-scroll-target="#linear-combinations-of-random-variables-2">Linear Combinations of Random Variables</a></li>
+  <li><a href="#linear-combinations-of-random-variables-3" id="toc-linear-combinations-of-random-variables-3" class="nav-link" data-scroll-target="#linear-combinations-of-random-variables-3">Linear Combinations of Random Variables</a></li>
+  <li><a href="#linear-combinations-of-normally-distributed-random-variables" id="toc-linear-combinations-of-normally-distributed-random-variables" class="nav-link" data-scroll-target="#linear-combinations-of-normally-distributed-random-variables">Linear Combinations of Normally-Distributed Random Variables</a></li>
+  <li><a href="#worked-out-example" id="toc-worked-out-example" class="nav-link" data-scroll-target="#worked-out-example">Worked-Out Example</a></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#solutions-1" id="toc-solutions-1" class="nav-link" data-scroll-target="#solutions-1">Solutions</a></li>
+  <li><a href="#solutions-2" id="toc-solutions-2" class="nav-link" data-scroll-target="#solutions-2">Solutions</a></li>
+  </ul></li>
+  <li><a href="#back-to-our-two-parameter-problem" id="toc-back-to-our-two-parameter-problem" class="nav-link" data-scroll-target="#back-to-our-two-parameter-problem">Back to our Two-Parameter Problem</a>
+  <ul class="collapse">
+  <li><a href="#two-populations-4" id="toc-two-populations-4" class="nav-link" data-scroll-target="#two-populations-4">Two Populations</a></li>
+  <li><a href="#two-means" id="toc-two-means" class="nav-link" data-scroll-target="#two-means">Two Means</a></li>
+  <li><a href="#two-means-1" id="toc-two-means-1" class="nav-link" data-scroll-target="#two-means-1">Two Means</a></li>
+  <li><a href="#two-means-2" id="toc-two-means-2" class="nav-link" data-scroll-target="#two-means-2">Two Means</a></li>
+  <li><a href="#sampling-distribution-of-widehatdelta" id="toc-sampling-distribution-of-widehatdelta" class="nav-link" data-scroll-target="#sampling-distribution-of-widehatdelta">Sampling Distribution of <span class="math inline">\(\widehat{\delta}\)</span></a></li>
+  <li><a href="#the-test-statistc" id="toc-the-test-statistc" class="nav-link" data-scroll-target="#the-test-statistc">The Test Statistc</a></li>
+  <li><a href="#the-test-statistic" id="toc-the-test-statistic" class="nav-link" data-scroll-target="#the-test-statistic">The Test Statistic</a></li>
+  <li><a href="#the-test-statistic-1" id="toc-the-test-statistic-1" class="nav-link" data-scroll-target="#the-test-statistic-1">The Test Statistic</a></li>
+  <li><a href="#the-test" id="toc-the-test" class="nav-link" data-scroll-target="#the-test">The Test</a></li>
+  <li><a href="#the-test-1" id="toc-the-test-1" class="nav-link" data-scroll-target="#the-test-1">The Test</a></li>
+  <li><a href="#worked-out-example-2" id="toc-worked-out-example-2" class="nav-link" data-scroll-target="#worked-out-example-2">Worked-Out Example</a></li>
+  <li><a href="#solutions-3" id="toc-solutions-3" class="nav-link" data-scroll-target="#solutions-3">Solutions</a></li>
+  <li><a href="#solutions-4" id="toc-solutions-4" class="nav-link" data-scroll-target="#solutions-4">Solutions</a></li>
+  <li><a href="#solutions-5" id="toc-solutions-5" class="nav-link" data-scroll-target="#solutions-5">Solutions</a></li>
+  <li><a href="#solutions-6" id="toc-solutions-6" class="nav-link" data-scroll-target="#solutions-6">Solutions</a></li>
+  <li><a href="#extensions" id="toc-extensions" class="nav-link" data-scroll-target="#extensions">Extensions</a></li>
+  <li><a href="#extensions-1" id="toc-extensions-1" class="nav-link" data-scroll-target="#extensions-1">Extensions</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Lec18.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PSTAT 5A: Lecture 18</h1>
+<p class="subtitle lead">Two-Sample Tests</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ethan P. Marzban </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 25, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="multiple-populations" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-populations">Multiple Populations</h2>
+<ul>
+<li><p>So far, we’ve talked about constructing confidence intervals and performing hypothesis tests for both population proportions and population means.</p></li>
+<li><p>One crucial thing to note is that everything we’ve done has been in the context of a <em>single</em> population</p></li>
+<li><p>Sometimes, as Data Scientists, we may want to test claims about the <em>differences</em> between two populations</p>
+<ul>
+<li><p>E.g. Is the average monthly income in Santa Barbara different from the average monthly income in San Francisco?</p></li>
+<li><p>E.g. Is the proportion of people who test positive for a disease in one country different than the proportion that test positive in a second country?</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="two-populations" class="level1">
+<h1>Two Populations</h1>
+<section id="two-populations-1" class="level2">
+<h2 class="anchored" data-anchor-id="two-populations-1">Two Populations</h2>
+<ul>
+<li><p>Statistically: we are imagining <em>two</em> populations, Population 1 and Population 2, governed by parameters <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span>, respectively, and trying to test claims about the relationship between <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span>.</p>
+<ul>
+<li>For example, we could consider two populations with means <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span>, respectively, and try to make claims about whether or not <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span> are equal.</li>
+</ul></li>
+<li><p>The trick Statisticians use is to think in terms of the <em>difference</em> <span class="math inline">\(\theta_2 - \theta_1.\)</span></p>
+<ul>
+<li>For example, if our null hypothesis is that <span class="math inline">\(\theta_1 = \theta_2\)</span>, this can be rephrased as <span class="math inline">\(H_0: \ \theta_2 - \theta_1 = 0\)</span>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="two-populations-2" class="level2">
+<h2 class="anchored" data-anchor-id="two-populations-2">Two Populations</h2>
+<ul>
+<li><p>The reason we do this is because we have now effectively reduced our two-parameter problem into a one-parameter problem, involving only the parameter <span class="math inline">\(\delta := \theta_2 - \theta_1\)</span>.</p></li>
+<li><p>Now, we will need a point estimator of <span class="math inline">\(\delta\)</span>.</p></li>
+<li><p>If <span class="math inline">\(\widehat{\theta}_1\)</span> and <span class="math inline">\(\widehat{\theta}_2\)</span> are point estimators of <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span>, respectively, then a natural point estimator of <span class="math inline">\(\delta\)</span> is <span class="math inline">\(\widehat{\delta} = \widehat{\theta}_2 - \widehat{\theta}_1\)</span>.</p>
+<ul>
+<li>For example, a natural point estimator for the difference <span class="math inline">\(\mu_2 - \mu_1\)</span> of <em>population</em> means is <span class="math inline">\(\overline{X}_2 - \overline{X}_1\)</span>, the difference in <em>sample</em> means.</li>
+</ul></li>
+</ul>
+</section>
+<section id="two-populations-3" class="level2">
+<h2 class="anchored" data-anchor-id="two-populations-3">Two Populations</h2>
+<ul>
+<li><p>We will ultimately need access to the sampling distribution of <span class="math inline">\(\widehat{\delta}\)</span>.</p></li>
+<li><p>Before delving into that, however, we will need a little more probability knowledge; specifically, knowledge on how linear combinations of random variables work.</p></li>
+</ul>
+</section>
+</section>
+<section id="linear-combinations-of-random-variables" class="level1">
+<h1>Linear Combinations of Random Variables</h1>
+<section id="linear-combinations-of-random-variables-1" class="level2">
+<h2 class="anchored" data-anchor-id="linear-combinations-of-random-variables-1">Linear Combinations of Random Variables</h2>
+<ul>
+<li><p>Recall, from many weeks ago, that a <strong>random variable</strong> <span class="math inline">\(X\)</span> is simply some numerical variable that tracks a random outcome of an experiment.</p>
+<ul>
+<li>E.g. number of heads in 10 tosses of a fair coin; number of people in a population that test positive for a disease; etc.</li>
+</ul></li>
+<li><p>A random variable <span class="math inline">\(X\)</span>, whether it be <strong>discrete</strong> or <strong>continuous</strong>, has an <strong>expected value</strong> <span class="math inline">\(\mathbb{E}[X]\)</span> and a <strong>variance</strong> <span class="math inline">\(\mathrm{Var}(X)\)</span>.</p></li>
+<li><p>Now, suppose we have two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, and three constants <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span>.</p></li>
+<li><p>Our task for now is to say as much as we can about the quantity <span class="math inline">\(aX + bY + c\)</span>.</p></li>
+</ul>
+</section>
+<section id="linear-combinations-of-random-variables-2" class="level2">
+<h2 class="anchored" data-anchor-id="linear-combinations-of-random-variables-2">Linear Combinations of Random Variables</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>Given two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, and constants <span class="math inline">\(a, \ b,\)</span> and <span class="math inline">\(c\)</span>, <span class="math display">\[ \mathbb{E}[aX + bY + c] = a \cdot \mathbb{E}[X] + b \cdot \mathbb{E}[Y] + c \]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>As an example: if <span class="math inline">\(\mathbb{E}[X] = 2\)</span> and <span class="math inline">\(\mathbb{E}[Y] = -1\)</span>, then <span class="math display">\[\mathbb{E}[2X + 3Y + 1] = 2(2) + 3(-1) + 1 = 2 \]</span></li>
+</ul>
+</section>
+<section id="linear-combinations-of-random-variables-3" class="level2">
+<h2 class="anchored" data-anchor-id="linear-combinations-of-random-variables-3">Linear Combinations of Random Variables</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>Given two <strong>independent</strong> random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, and constants <span class="math inline">\(a, \ b,\)</span> and <span class="math inline">\(c\)</span>, <span class="math display">\[ \mathrm{Var}(aX + bY + c) = a^2 \mathrm{Var}(X) + b^2 \mathrm{Var}(Y) \]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>You will not be responsible for the proof of this fact.</p></li>
+<li><p>Also, we haven’t explicitly talked about what independence means in the context of random variables; for now, suffice it to say that it works analogously to the concept of independence of events. That is, if the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> come from two experiments that don’t have any relation to each other, then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be independent.</p></li>
+</ul>
+</section>
+<section id="linear-combinations-of-normally-distributed-random-variables" class="level2" style="text-align:32px">
+<h2 style="text-align:32px" class="anchored" data-anchor-id="linear-combinations-of-normally-distributed-random-variables">Linear Combinations of Normally-Distributed Random Variables</h2>
+<ul>
+<li><p>Something interesting happens when we consider taking linear combinations of normally-distributed random variables.</p></li>
+<li><p>Say we have <span class="math inline">\(X \sim \mathcal{N}(\mu_x, \ \sigma_x)\)</span> and <span class="math inline">\(Y \sim \mathcal{N}(\mu_y, \ \sigma_y)\)</span> with <span class="math inline">\(X \perp Y\)</span>.</p></li>
+<li><p>Then, <span class="math display">\[ (aX + bY + c) \sim \mathcal{N}\left( a\mu_x + b \mu_y + c, \ \sqrt{a^2 \sigma_x^2 + b^2 \sigma_y^2} \right) \]</span></p>
+<ul>
+<li><p>Note that the expectation and standard deviation simply follow from the previous fact. What is unique/impotant about this result is that it tells us linear combinations of normally-distributed random variables are also normally-distributed!</p></li>
+<li><p>This is not true of all distributions; for example, linear combinations of uniformly-distributed random variables are <strong>not</strong> uniformly distributed.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="worked-out-example" class="level2" style="font-size:32px">
+<h2 style="font-size:32px" class="anchored" data-anchor-id="worked-out-example">Worked-Out Example</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Example 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 28px">
+<p>Suppose that wait times at the Goleta and Santa Barbara DMVs are normally distributed and independent. Specifically, if <span class="math inline">\(X\)</span> denotes the wait time (in minutes) of a randomly-selected customer from the Goleta location and <span class="math inline">\(Y\)</span> denotes the wait time (in minutes) of a randomly-selected customer from the Santa Barbara location, then <span class="math display">\[ X \sim \mathcal{N}(5, \ 1.5)   \quad Y \sim \mathcal{N}(7, 1.75)  \]</span> What is the probability that a randomly-selected person from the Goleta location and a randomly-selected person from the Santa Barbara location are served within 2 minutes of each other?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions" class="level2">
+<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
+<ul>
+<li><p>First, let <span class="math inline">\(X\)</span> denote the wait time of the person from the Goleta location and let <span class="math inline">\(Y\)</span> denote the wait time of the person from the Santa Barbara location. Then <span class="math display">\[ X \sim \mathcal{N}(5, \ 1.5)   \quad Y \sim \mathcal{N}(7, 1.75)  \]</span> with <span class="math inline">\(X \perp Y\)</span>.</p></li>
+<li><p>The quantity we seek is <span class="math inline">\(\mathbb{P}(|X - Y| &lt; 2)\)</span>, which we can first write as <span class="math display">\[ \mathbb{P}(-2 \leq X - Y \leq 2) \]</span></p></li>
+<li><p>Now, by the result above we know what the distribution of <span class="math inline">\((X - Y)\)</span> is: <span class="math display">\[ (X - Y) \sim \mathcal{N}\left( 5 - 7 , \ \sqrt{1.5^2 + 1.75^2} \right) \sim \mathcal{N}\left(-2, \  \sqrt{1.5^2 + 1.75^2} \right)\]</span></p></li>
+</ul>
+</section>
+<section id="solutions-1" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-1">Solutions</h2>
+<ul>
+<li><p>For ease of notation, let <span class="math inline">\(D = X - Y\)</span>. Then what we just showed is that <span class="math display">\[ D \sim \mathcal{N}(-2, \  \sqrt{1.5^2 + 1.75^2}) \]</span></p></li>
+<li><p>Furthermore, the quantity we seek is <span class="math display">\[ \mathbb{P}(-2 \leq D \leq 2) \]</span></p></li>
+<li><p>Hence, we are now in business!</p>
+<ul>
+<li>Namely, we can just use the same procedure we have been using for normal distribution problems all along in this class.</li>
+</ul></li>
+</ul>
+</section>
+<section id="solutions-2" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-2">Solutions</h2>
+<p><span class="math display">\[\begin{align*}
+  \mathbb{P}(-2 \leq D \leq 2)   &amp; = \mathbb{P}(D \leq 2) - \mathbb{P}(D \leq -2)    \\
+    &amp; = \mathbb{P}\left( \frac{D + 2}{\sqrt{1.5^2 + 1.75^2}} \leq \frac{2 + 2}{\sqrt{1.5^2 + 1.75^2}} \right)     \\
+      &amp; \hspace{20mm} - \mathbb{P}\left( \frac{D + 2}{\sqrt{1.5^2 + 1.75^2}} \leq \frac{-2 + 2}{\sqrt{1.5^2 + 1.75^2}} \right)   \\
+    &amp; = \mathbb{P}\left( \frac{D + 2}{\sqrt{1.5^2 + 1.75^2}} \leq 1.74 \right)     \\
+      &amp; \hspace{20mm} - \mathbb{P}\left( \frac{D + 2}{\sqrt{1.5^2 + 1.75^2}} \leq 0 \right)    \\
+    &amp; = 0.9591 - 0.5000 = \boxed{0.4591}
+\end{align*}\]</span></p>
+</section>
+</section>
+<section id="back-to-our-two-parameter-problem" class="level1">
+<h1>Back to our Two-Parameter Problem</h1>
+<section id="two-populations-4" class="level2">
+<h2 class="anchored" data-anchor-id="two-populations-4">Two Populations</h2>
+<ul>
+<li><p>Alright, so what does this mean in the context of our two-proportion problem?</p></li>
+<li><p>Well, for one thing, we can easily construct a confidence interval for <span class="math inline">\((\theta_2 - \theta_1)\)</span> using: <span class="math display">\[ (\widehat{\theta}_2 - \widehat{\theta}_1) \pm c \cdot \sqrt{\mathrm{Var}(\widehat{\theta}_1) + \mathrm{Var}(\widehat{\theta}_2)} \]</span> where <span class="math inline">\(c\)</span> is a constant that is determined by both the sampling distribution of <span class="math inline">\(\widehat{\theta}_2 - \widehat{\theta}_1\)</span> as well as our confidence level.</p></li>
+<li><p>By the way, can anyone tell me why the variances are <em>added</em>, and not <em>subtracted</em>?</p></li>
+</ul>
+</section>
+<section id="two-means" class="level2">
+<h2 class="anchored" data-anchor-id="two-means">Two Means</h2>
+<ul>
+<li><p>To make things more specific, let’s consider comparing two <strong>population means</strong>.</p></li>
+<li><p>Specifically: imagine we have two populations (which we will call Population 1 and Population 2), governed by population means <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span>, respectively.</p></li>
+<li><p>For now, let’s focus a two-sided test, where our hypotheses are <span class="math display">\[\left[ \begin{array}{rr}
+H_0:    &amp; \mu_1 = \mu_2   \\
+H_A:    &amp; \mu_1 \neq \mu_2
+\end{array} \right.\]</span></p></li>
+</ul>
+</section>
+<section id="two-means-1" class="level2">
+<h2 class="anchored" data-anchor-id="two-means-1">Two Means</h2>
+<ul>
+<li><p>Again, it’s customary to rephrase things to be in terms of differences: <span class="math display">\[\left[ \begin{array}{rr}
+H_0:    &amp; \mu_2 - \mu_1 = 0   \\
+H_A:    &amp; \mu_2 - \mu_1 \neq 0
+\end{array} \right.\]</span></p></li>
+<li><p>Now, we need data!</p></li>
+<li><p>Suppose we have a sample <span class="math inline">\(X = \{X_i\}_{i=1}^{n_1}\)</span> taken from Population 1 and a sample <span class="math inline">\(Y = \{Y_i\}_{i=1}^{n_2}\)</span> taken from Population 2.</p>
+<ul>
+<li>Note that we are allowing for different sample sizes, <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span>!</li>
+</ul></li>
+<li><p>Let’s also assume that, in addition to being representative samples, the two samples are both independent within themselves and independent from each other (i.e.&nbsp;assume the <span class="math inline">\(X_i\)</span>’s and <span class="math inline">\(Y_i\)</span>’s are independent, and that the <span class="math inline">\(X\)</span>’s are independent from the <span class="math inline">\(Y\)</span>’s)</p></li>
+</ul>
+</section>
+<section id="two-means-2" class="level2">
+<h2 class="anchored" data-anchor-id="two-means-2">Two Means</h2>
+<ul>
+<li><p>Again, we are interested in finding a point estimator for <span class="math inline">\(\mu_2 - \mu_1\)</span>.</p></li>
+<li><p>Here’s a question: do we have a natural point estimator for <span class="math inline">\(\mu_2\)</span>? What about for <span class="math inline">\(\mu_1\)</span>?</p></li>
+<li><p>So, it seems that a natural point estimator for <span class="math inline">\(\delta = \mu_2 - \mu_1\)</span> is <span class="math display">\[ \widehat{\delta} = \overline{Y} - \overline{X} \]</span></p></li>
+<li><p>What is the sampling distribution of <span class="math inline">\(\widehat{\delta}\)</span>?</p></li>
+<li><p>Well, there are a few cases to consider.</p></li>
+</ul>
+</section>
+<section id="sampling-distribution-of-widehatdelta" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-distribution-of-widehatdelta">Sampling Distribution of <span class="math inline">\(\widehat{\delta}\)</span></h2>
+<ul>
+<li><p>Suppose that our two populations had known variances <span class="math inline">\(\sigma_1^2\)</span> and <span class="math inline">\(\sigma_2^2\)</span>, respectively.</p></li>
+<li><p>Then, if both <span class="math inline">\(\overline{X}\)</span> and <span class="math inline">\(\overline{Y}\)</span> were normally distributed, we could one of the facts we previously saw in this lecture to conclude that <span class="math display">\[ \widehat{\delta} \sim \mathcal{N}\left( \delta, \ \sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2} } \right) \]</span></p>
+<ul>
+<li>See the whiteboard for more details</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-test-statistc" class="level2" style="font-size:32px">
+<h2 style="font-size:32px" class="anchored" data-anchor-id="the-test-statistc">The Test Statistc</h2>
+<ul>
+<li><p>In this case, a natural candidate for our test statistic would be <span class="math display">\[ \frac{\widehat{\delta}}{\sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} =  \frac{\overline{Y} - \overline{X}}{\sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \]</span> as, under the null, this would follow a standard normal distribution.</p></li>
+<li><p>However, there are a few problems with this.</p></li>
+<li><p>For one, it requires both <span class="math inline">\(\overline{X}\)</span> and <span class="math inline">\(\overline{Y}\)</span> to be normally distributed, which we know is not always the case.</p></li>
+<li><p>Alright, that’s fine though- so long as our sample sizes are large enough, the Central Limit Theorem kicks in and we can be reasonably certain that <span class="math inline">\(\overline{X}\)</span> and <span class="math inline">\(\overline{Y}\)</span> will be pretty close to normally distributed.</p></li>
+</ul>
+</section>
+<section id="the-test-statistic" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="the-test-statistic">The Test Statistic</h2>
+<ul>
+<li><p>However, the main problem in using this test statistic is that it requires access to the population variances <span class="math inline">\(\sigma_1^2\)</span> and <span class="math inline">\(\sigma_2^2\)</span>!</p></li>
+<li><p>Any ideas on how to remedy this?</p>
+<ul>
+<li>Right; let’s just replace the population variances with their sample analogues: <span class="math display">\[ \mathrm{TS} = \frac{\overline{Y} - \overline{X}}{\sqrt{ \frac{s_X^2}{n_1} + \frac{s_Y^2}{n_2}}}\]</span> where <span class="math display">\[\begin{align*}
+s_X^2   &amp; = \frac{1}{n_1 - 1} \sum_{i=1}^{n_1} (X_i - \overline{X})^2   \\
+s_Y^2   &amp; = \frac{1}{n_2 - 1} \sum_{i=1}^{n_2} (Y_i - \overline{Y})^2
+  \end{align*}\]</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="the-test-statistic-1" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="the-test-statistic-1">The Test Statistic</h2>
+<ul>
+<li><p>Any guesses on what distribution this follows under the null?</p></li>
+<li><p>If you said <em>t</em>….. you’d be wrong! (But pretty close.)</p></li>
+<li><p>It turns out that, under the null (i.e.&nbsp;assuming that <span class="math inline">\(\mu_1 = \mu_2\)</span>, or, equivalently, that <span class="math inline">\(\delta = \mu_2 - \mu_1 = 0\)</span>), this test statistic <strong>approximately</strong> follows a <em>t</em>-distribution.</p></li>
+<li><p>What degrees of freedom?</p></li>
+<li><p>That’s right: <span class="math display">\[ \mathrm{df} = \mathrm{round}\left\{ \frac{ \left[ \left( \frac{s_X^2}{n_1} \right) + \left( \frac{s_Y^2}{n_2} \right) \right]^2 }{ \frac{\left( \frac{s_X^2}{n_1} \right)^2}{n_1 - 1} + \frac{\left( \frac{s_Y^2}{n_2} \right)^2}{n_2 - 1} } \right\} \]</span></p>
+<ul>
+<li>This is related to what is known as the <strong>Satterthwaite Approximation</strong>, sometimes called the <strong>Welch-Satterthwaite Equation</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="the-test" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="the-test">The Test</h2>
+<ul>
+<li><p>Alright, so we finally have a test statistic: <span class="math display">\[ \mathrm{TS} = \frac{\overline{Y} - \overline{X}}{\sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \]</span> and its (approximate) distribution under the null: <span class="math display">\[ \mathrm{TS} \stackrel{H_0}{\sim} t_{\nu} \]</span> where <span class="math inline">\(\nu\)</span> is given by the Satterthwaite Approximation.</p></li>
+<li><p>Recall our hypotheses: <span class="math display">\[ \left[ \begin{array}{rr}
+H_0:    &amp; \mu_2 - \mu_1 = 0   \\
+H_A:    &amp; \mu_2 - \mu_1 \neq 0
+\end{array} \right. \]</span></p></li>
+</ul>
+</section>
+<section id="the-test-1" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="the-test-1">The Test</h2>
+<ul>
+<li>We can see that large values of <span class="math inline">\(|\mathrm{TS}|\)</span> lead credence to the alternative over the null; as such, our decision will take the form <span class="math display">\[ \texttt{decision}(\mathrm{TS}) = \begin{cases} \texttt{reject } H_0 &amp; \text{if } |\mathrm{TS}| &gt; c \\ \texttt{fail to reject } H_0 &amp; \text{otherwise}\\ \end{cases}  \]</span> where <span class="math inline">\(c\)</span> is the appropriately-selected quantile of the appropriate <em>t</em>-distribution.</li>
+</ul>
+</section>
+<section id="worked-out-example-2" class="level2" style="font-size:32px">
+<h2 style="font-size:32px" class="anchored" data-anchor-id="worked-out-example-2">Worked-Out Example</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Example 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 28px">
+<p><em>Gaucho Gourmande</em> has two locations: one in Goleta and one in Santa Barbara. The owner would like to determine whether the average revenue generated by the two locations are equal or not. To that end, he computes the net revenue generated by the Goleta location over 30 days and also computes the net revenue generated by the Santa Barbara location over 35 days (assume all of the necessary independence conditions hold), and produced the following information:</p>
+<p><span class="math display">\[\begin{array}{r|cc}
+                    &amp; \text{Sample Average}     &amp; \text{Sample Standard Deviation}    \\
+  \hline
+  \textbf{Goleta}   &amp;     \$13                    &amp; \$3.45        \\
+  \textbf{Santa Barbara}   &amp;     \$15                    &amp; \$4.23
+\end{array}\]</span></p>
+<p>Test the owner’s claims at an <span class="math inline">\(\alpha = 0.05\)</span> level of significance, using a two-sided alternative.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions-3" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="solutions-3">Solutions</h2>
+<ul>
+<li><p>Our first step should be to figure out what “Population 1” and “Population 2” are in the context of the problem.</p></li>
+<li><p>Let “Goleta Location” be Population 1 and “Santa Barbara Location” be Population 2.</p>
+<ul>
+<li>It is perfectly acceptable to swap these two, but just be sure you remain consistent throughout the problem!</li>
+<li>Also, I will expect you to explicitly write out your definitions of the populations (like above), even if the problem doesn’t explicitly ask you to do so.</li>
+</ul></li>
+<li><p>In this way, <span class="math display">\[ \overline{X} = 13; \quad s_X = 3.45; \quad \overline{Y} = 15; \quad s_Y = 4.23 \]</span></p></li>
+<li><p>Additionally, <span class="math inline">\(n_1 = 30\)</span> and <span class="math inline">\(n_2 = 35\)</span>.</p></li>
+</ul>
+</section>
+<section id="solutions-4" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="solutions-4">Solutions</h2>
+<ul>
+<li><p>Now, let’s compute the value of the test statistic. <span class="math display">\[ \mathrm{TS} =   \frac{\overline{Y} - \overline{X}}{\sqrt{ \frac{s_X^2}{n_1} + \frac{s_Y^2}{n_2}}} = \frac{15 - 13}{\sqrt{\frac{3.45^2}{30}  + \frac{4.23^2}{35} }} = 2.10 \]</span></p></li>
+<li><p>We should next figure out the degrees of freedom: <span class="math display">\[\begin{align*}
+\mathrm{df}   &amp;  = \mathrm{round}\left\{ \frac{ \left[ \left( \frac{s_X^2}{n_1} \right) + \left( \frac{s_Y^2}{n_2} \right) \right]^2 }{ \frac{\left( \frac{s_X^2}{n_1} \right)^2}{n_1 - 1} + \frac{\left( \frac{s_Y^2}{n_2} \right)^2}{n_2 - 1} } \right\}     \\
+  &amp; =  \mathrm{round}\left\{ \frac{ \left[ \left( \frac{3.45^2}{30} \right) + \left( \frac{4.23^2}{35} \right) \right]^2 }{ \frac{\left( \frac{3.45^2}{30} \right)^2}{30 - 1} + \frac{\left( \frac{4.23^2}{35} \right)^2}{35 - 1} } \right\} = 63
+\end{align*}\]</span></p></li>
+</ul>
+</section>
+<section id="solutions-5" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="solutions-5">Solutions</h2>
+<ul>
+<li><p>At this point, we could either proceed using critical values or using <em>p</em>-values.</p></li>
+<li><p>Let’s use <em>p</em>-values, for practice.</p></li>
+<li><p>Our <em>p</em>-value is computed as</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> sps</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="op">*</span>sps.t.cdf(<span class="op">-</span><span class="fl">2.10</span>, <span class="dv">63</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.03973904581390475</code></pre>
+</div>
+</div>
+</div>
+<ul>
+<li><p>This is below our level of significance <span class="math inline">\(\alpha = 0.05\)</span> meaning we would reject the null.</p></li>
+<li><p>If we wanted to instead use critical values:</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span>sps.t.ppf(<span class="fl">0.05</span>, <span class="dv">63</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.6694022215079614</code></pre>
+</div>
+</div>
+</div>
+<ul>
+<li>This means our critical value is 1.67; since <span class="math inline">\(|\mathrm{TS}| = |2.10| = 2.10 &gt; 1.67\)</span>, we would again reject at an <span class="math inline">\(\alpha = 0.05\)</span> level of significance.</li>
+</ul>
+</section>
+<section id="solutions-6" class="level2">
+<h2 class="anchored" data-anchor-id="solutions-6">Solutions</h2>
+<blockquote class="blockquote">
+<p>At a 5% level of significance, there was sufficient evidence to reject the owner’s claims that the revenue generated by the two locations are equal, in favor of the alternative that the revenue generated by the two locations are not equal.</p>
+</blockquote>
+</section>
+<section id="extensions" class="level2" style="font-size:32px">
+<h2 style="font-size:32px" class="anchored" data-anchor-id="extensions">Extensions</h2>
+<ul>
+<li><p>Unsurprisingly, we can adapt the above procedure to account for one-sided alternatives as well.</p></li>
+<li><p>For instance, suppose we wish to test <span class="math display">\[ \left[ \begin{array}{rr}
+H_0:    &amp; \mu_1 = \mu_2   \\
+H_A:    &amp; \mu_1 &lt; \mu_2
+\end{array} \right.\]</span></p></li>
+<li><p>Again, we rephrase things as: <span class="math display">\[ \left[ \begin{array}{rr}
+H_0:    &amp; \mu_2 - \mu_1 = 0   \\
+H_A:    &amp; \mu_2 - \mu_1 &gt; 0
+\end{array} \right.\]</span> which is now a familiar upper-tailed test on <span class="math inline">\(\delta = \mu_2 - \mu_1\)</span> and <span class="math inline">\(\mu_0 = 0.\)</span></p></li>
+</ul>
+</section>
+<section id="extensions-1" class="level2" style="font-size:32px">
+<h2 style="font-size:32px" class="anchored" data-anchor-id="extensions-1">Extensions</h2>
+<ul>
+<li><p>Specifically, we would take the same test statistic (which would still follow the same distribution under the null) and use the decision rule <span class="math display">\[ \texttt{decision}(\mathrm{TS}) = \begin{cases} \texttt{reject } H_0 &amp; \text{if } \mathrm{TS} &gt; c \\ \texttt{fail to reject } H_0 &amp; \text{otherwise}\\ \end{cases}  \]</span> where <span class="math inline">\(c\)</span> is the appropriate quantile of the approximate <em>t</em> distribution (with degrees of freedom given by the Satterthwaite Approximation).</p></li>
+<li><p>A similar result holds for the lower-tailed test- I encourage you to work it out on your own.</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Site Designed by Ethan Marzban using Quarto; ©2023</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

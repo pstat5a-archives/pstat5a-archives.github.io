@@ -1,0 +1,688 @@
+---
+title: "PSTAT 5A: Midterm 1 Review"
+subtitle: "Overview of Weeks 1 and 2"
+author: "Ethan P. Marzban"
+date: "07/05/23"
+format: 
+    revealjs:
+      html-math-method: mathjax
+      theme: [default, ../CSS/custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+```
+
+# Descriptive Statistics
+
+## Structure of Data {style="font-size:28px"}
+
+- We started by talking about the structure of data.
+- We were exposed to the notion of a **data matrix**, which is comprised of a series of **observational units** (i.e. rows) on a series of **variables** (i.e. columns)
+- For instance, the `palmerpenguins` data matrix is:
+
+:::{.fragment}
+```{r, message = F, echo = F}
+#| class-output: hscroll
+
+library(palmerpenguins)
+library(tidyverse)
+# penguins
+cat(format(as_tibble(penguins))[-c(3L, 1L)], sep = "\n")
+```
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+:::
+
+## Structure of Data  {style="font-size:28px"}
+
+:::{.nonincremental}
+- Of course, the reader is not expected to *a priori* know what the variables in a dataset represent; as such, most datasets come equipped with a **data dictionary** that lists out the variables included in the dataset along with a brief description of each.
+:::
+
+:::{style="font-size:25px"}
+| **Variable** | **Description** |
+|:------------:|:---------------:|
+| `species` | The species of penguin (either Adelie, Chinstrap, or Gentoo) |
+| `island` | The island on which the penguin was found (either Biscoe, Dream, or Torgersen) |
+| `bill_length_mm` | The length (millimeters) of the penguin's bill |
+| `bill_depth_mm` | The depth (in millimeters) of the penguin's bill |
+| `flipper_length_mm` | The length (in millimeters) of the penguin's flipper |
+| `body_mass_g` | The mass (in grams) of the penguin |
+| `sex` | The sex of the penguin (either Male or Female) |
+| `year` | The year in which the penguin was observed |
+:::
+
+## Classification of Variables
+
+- We also saw that variables fall into two main types: **numerical** and **categorical**.
+    - Remember that it is not enough to simply check whether our data is comprised of numbers, as categorical data can be encoded using numbers (e.g. months in a year).
+    - Rather, we should check whether it makes interpretable sense to add two elements in our variable (e.g. `1` + `2` is `3`, whereas `Jan` + `Feb` is not `March`).
+    
+## Classification of Variables
+
+- Within numerical data, we have a further subdivision into **discrete** and **continuous** variables.
+
+    - The set of possible values of a discrete variable has jumps, whereas the set possible values of a continuous variable has no jumps.
+    
+- Within categorical data, we have a further subdivision into **ordinal** and **nominal** variables.
+
+    - Ordinal variables have a natural ordering (e.g. letter grades, months of the year, etc.) whereas nominal variables do not (e.g. favorite color)
+    
+## Full Classification Scheme
+
+
+```{dot}
+//| fig-width: 10
+//| fig-height: 5
+digraph data_classification {
+    layout = dot
+    rankdir = UD
+    splines = false
+    bgcolor = "#f0ebd8"
+    edge [arrowsize = 0.5, color = coral4]
+  
+subgraph cluster_main {
+  color = transparent
+  node [color=transparent, style = filled, fillcolor = cornsilk, shape = egg];
+  
+  Data [label = "Variable"]
+  
+  subgraph cluster_0 {
+   color = transparent
+    node [color=transparent, style = filled, fillcolor = aquamarine3, shape = egg];
+    
+    numerical [label = "Numerical"]
+    
+    subgraph cluster_1 {
+      color = transparent
+      node [color = transparent, style = filled, fillcolor = bisque1, shape = egg];
+      
+        continuous [label = "Continuous"]
+        discrete [label = "Discrete"]
+    }
+    
+    {numerical} -> continuous
+    {numerical} -> discrete
+  }
+  
+  subgraph cluster_2 {
+   color = transparent
+    node [color=transparent, style = filled, fillcolor = aquamarine3, shape = egg];
+    
+    categorical [label = "Categorical"]
+    
+    subgraph cluster_3 {
+      color = transparent
+      node [color = transparent, style = filled, fillcolor = bisque1, shape = egg];
+      
+        nominal [label = "Nominal"]
+        ordinal [label = "Ordinal"]
+    }
+    
+    {categorical} -> nominal
+    {categorical} -> ordinal
+  }
+  
+  
+  }
+  
+  {Data} -> numerical
+  {Data} -> categorical
+}
+```
+
+## Visualization
+
+- Once we have classified a variable as being either numerical or categorical, we can ask ourselves: how can we best *visualize* this variable?
+
+- For categorical data, we use a **bargraph** and for numerical data we use either a **histogram** or a **boxplot**.
+
+## Bargraph
+
+```{r, message = F}
+library(tidyverse)
+library(ggthemes)
+
+data.frame(table(penguins$species)) %>%
+  rename(species = Var1, freq = Freq) %>%
+  ggplot(aes(x = species, y = freq)) +
+  geom_bar(stat = "identity",
+           fill = "#7f9ab5") +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 20, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.y = element_text(size = 16)
+  ) +
+  ggtitle("Bargraph of Penguin Species")
+```
+
+## Histogram
+
+```{r}
+#| echo: false
+
+penguins %>%
+  ggplot(aes(x = bill_length_mm)) +
+  geom_histogram(col = "white",
+                 breaks = seq(30, 60, by = 5)) +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16)
+  ) +
+  ggtitle("Distribution of Bill Lengths")
+
+```
+
+- Remember the importance of **binwidth**: <a href = "https://epm927.shinyapps.io/Histogram_Binwidths/" target = "_blank">demo</a>
+
+## Boxplot
+
+```{r}
+penguins %>%
+  ggplot(aes(x = bill_length_mm)) +
+  stat_boxplot(geom = "errorbar", 
+               width = 0.25,
+               linewidth = 1) +
+  geom_boxplot(fill =  "#7f9ab5", 
+               linewidth = 1,
+               outlier.size = 4) +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16),
+        axis.text.y = element_blank()
+  ) +
+  ylim(c(-0.75, 0.75)) +
+  ggtitle("Boxplot of Bill Lengths")
+```
+
+- Remember that the **whiskers** are never allowed to extend beyond 1.5 times the **IQR** (and recall that the IQR is just the width of the box).
+
+## Numerical Summaries {style="font-size:28px"}
+
+- We can also produce numerical summaries of numerical variables.
+- **Measures of Central Tendency** are different quantities that summarize the "center" of a variable
+    - There are two main measures of central tendency we discussed: the mean and the median.
+
+## The Mean {style="font-size:28px"}
+
+
+- The **mean** (or **arithmetic mean**) is a sort of "balancing point":
+    
+:::{.fragment}
+![](mean.svg){width=65% fig-align="center"}
+:::
+
+:::{.fragment}
+$$ \overline{x} = \frac{1}{n} \sum_{i=1}^{n} x_i $$
+:::
+
+- Also recall our discussion on **data aggregation**, and how the incorporation of new data changes the mean.
+
+## Spread {style="font-size:28px"}
+
+- Another way we could summarize a numerical dataset (i.e. a dataset containing only one variable, one that is numerical) is to describe how "spread out" the values are.
+
+- The **variance** is a sort of "average distance of points to the mean":
+
+:::{.fragment}
+![](sd.svg){width=65% fig-align="center"}
+:::
+
+:::{.fragment}
+$$ s_x^2 = \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \overline{x})^2 $$
+:::
+
+- The **standard deviation** is just the square root of the variance
+
+## Spread {style="font-size:30px"}
+
+- The **interquartile range** (IQR) is another measure of spread:
+$$ \mathrm{IQR} = Q_3 - Q_1 $$
+where $Q_1$ and $Q_3$ denote the first and third **quartiles**, respectively.
+
+    - Recall that the $p$^th^ **percentile** of a dataset $X$ is the value $\pi_{x, \ 0.5}$ such that _p_% of observations lie to the left of (i.e. are less than) $\pi_{x, \ 0.5}$. 
+    
+    - $Q_1$ is the 25^th^ percentile and $Q_3$ is the 75^th^ percentile
+    
+- The third measure of spread we discussed is the **range**:
+$$ \mathrm{range}(X) = \max\{x_1, \cdots, x_n\} - \min\{x_1, \ \cdots, \ x_n\} $$
+
+## 5-Number Summary
+
+- Recall the **five number summary**, which contains:
+
+    1) The minimum
+    2) The first quartile
+    3) The median
+    4) The third quartile
+    5) The maximum
+    
+- Also recall how all of these quantities appear on a boxplot!
+
+## Comparisons of Variables
+
+- If we want to compare two variables, there are three cases to consider:
+    - Numerical vs. Numerical
+    - Numerical vs. Categorical
+    - Categorical vs. Categorical
+
+- When comparing two numerical variables, we use a **scatterplot**
+- When comparing a numerical variable to a categorical variable, we use a **side-by-side boxplot**
+- When comparing two categorical variables, we construct a **contingency table**
+
+---
+
+:::{style="font-size:30px"}
+:::: {.columns}
+
+:::{.column width="50%"} 
+- Linear **Negative** Trend:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rnorm(100)
+y <- -2 * x + rnorm(100, 0, 2)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+:::{.column width="50%"}
+- Nonlinear **Negative** Trend:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rchisq(100, 20)
+y <- (1 / x^2) + rnorm(100, 0, 0.0005)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+::::
+
+
+:::: {.columns}
+
+:::{.column width="50%"} 
+- Nonlinear **Positive** Trend:
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rchisq(100, 20)
+y <- 1 - (1/x^2)  + rnorm(100, 0, 0.0007)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+:::{.column width="50%"}
+- No Discernable Trend
+
+:::{.fragment}
+```{r}
+set.seed(123)
+x <- rchisq(100, 20)
+y <- rchisq(100, 20)
+
+data.frame(x, y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 4) +
+  theme_economist(base_size = 24) +
+  ggtitle("Y vs. X") +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 10, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        title = element_text(size = 18)
+  )
+```
+:::
+:::
+
+::::
+:::
+
+# Probability
+
+## Basics of Probability
+
+- Probability is, in many ways, the language of uncertainty.
+- An **experiment** is any procedure we can repeat an infinite number of times, where each time we repeat the procedure the same fixed set of "things" can occur
+    - These "things" are called **outcomes**
+    - The **outcome space**, denoted $\Omega$, is the set containing all outcomes associated with a particular experiment.
+    - **Events** are just subset of the outcome space.
+
+- We can express outcome spaces using tables or trees.
+
+## Probability
+
+- **Probability** is a function that acts on events
+    - Notationally: $\mathbb{P}(E)$
+
+- There are two main approaches to computing probabilities:
+    - The **Classical Aproach:** if outcomes are equally likely, then for any event $E$
+    $$ \mathbb{P}(E) = \frac{\#(E)}{\#(\Omega)} $$
+    - The **long-run [relative] frequency approach**: repeat the experiment an infinite number of times and define $\mathbb{P}(E)$ to be the proportion of times $E$ occurs
+
+## Long-Run Frequencies Example {style="font-size:30px"}
+
+| Toss | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|:----:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| Outcome| `H` | `T` | `T` | `H` | `T` | `H` | `H` | `H` | `T` | `T` | 
+| Raw freq. of `H` | 1 | 1 | 1 | 2 | 2 | 3 | 4 | 5 | 5 | 5 |
+| Rel. freq of `H` | 1/1 | 1/2 | 1/3 | 2/4 | 2/5 | 3/6 | 4/7 | 5/8 | 5/9 | 5/10 |
+
+```{r, fig.height = 3.5}
+#| echo: false
+
+library(tidyverse)
+library(ggthemes)
+
+x <- 1:10
+y <- c(1, 1/2, 1/3, 2/4, 2/5, 3/6, 4/7, 5/8, 5/9, 5/10)
+
+data.frame(x = x, y = y) %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 2) +
+  geom_line() +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16)
+  ) +
+  ggtitle("Relative Frequencies of Heads")
+```
+
+## Set Operations
+
+- Given two events $E$ and $F$, there are several *operations* we can perform:
+    - **Complement:** $E^\complement$; denotes "not $E$"
+    - **Union:** $E \cup F$; denotes $E$ or $F$ (or both)
+    - **Intersection:** $E \cap F$; denotes $E$ and $F$
+
+## Venn Diagrams  {style="font-size:30px"}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](VennDiagrams/a_complement.svg){width=50%}
+:::
+
+::: {.column width="50%"}
+:::{style="text-align:center"}
+
+<br />
+$A^\complement$ <br /> (complement)
+:::
+:::
+
+::::
+
+::::{.columns}
+
+::: {.column width="50%"}
+![](VennDiagrams/ab_intersect_shaded.svg){width=50%}
+:::
+
+::: {.column width="50%"}
+:::{style="text-align:center"}
+
+<br />
+$A \cap B$ <br /> (intersection)
+:::
+:::
+
+::::
+
+::::{.columns}
+
+::: {.column width="50%"}
+![](VennDiagrams/ab_union.svg){width=50%}
+:::
+
+::: {.column width="50%"}
+:::{style="text-align:center"}
+
+<br />
+$A \cup B$ <br /> (union)
+:::
+:::
+
+::::
+
+## Axioms of Probability
+
+1) $\mathbb{P}(E) \geq 0$ for any event $E$
+
+2) $\mathbb{P}(\Omega) = 1$
+
+3) For **disjoint events** $E$ and $F$ (i.e. for $E \cap F = \varnothing$), $\mathbb{P}(E \cup F) = \mathbb{P}(E) + \mathbb{P}(F)$
+
+## Probability Rules
+
+- **Probability of the Empty Set:** $\mathbb{P}(\varnothing) = 0$
+
+- **Complement Rule:** $\mathbb{P}(E^\complement) = 1 - \mathbb{P}(E)$
+
+- **Addition Rule:** $\mathbb{P}(E \cup F) = \mathbb{P}(E) + \mathbb{P}(F) - \mathbb{P}(E \cap F)$ 
+
+## Conditional Probabilities {style="font-size:30px"}
+
+- $\mathbb{P}(E \mid F)$ denotes an "updating" of our beliefs on $E$ in the presence of $F$)
+
+    - Definition: $\displaystyle \mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)}$, provided $\mathbb{P}(F) \neq 0$
+
+- **Multiplication Rule:** $\mathbb{P}(E \cap F) = \mathbb{P}(E \mid F) \cdot \mathbb{P}(F) = \mathbb{P}(F \mid E) \cdot \mathbb{P}(E)$
+
+- **Bayes' Rule:** $\displaystyle \mathbb{P}(E \mid F) = \frac{\mathbb{P}(F \mid E) \cdot \mathbb{P}(E)}{\mathbb{P}(F)}$
+
+- **Law of Total Probability:** $\mathbb{P}(F) = \mathbb{P}(F \mid E) \cdot \mathbb{P}(E) + \mathbb{P}(F \mid E^\complement) \cdot \mathbb{P}(E^\complement)$
+
+
+## Independence {style="font-size:30px"}
+
+- **Independence** asserts that $\mathbb{P}(E \mid F) = \mathbb{P}(E)$, which in turn implies $\mathbb{P}(F \mid E) = \mathbb{P}(F)$ and $\mathbb{P}(E \cap F) = \mathbb{P}(E) \cdot \mathbb{P}(F)$
+     - Note that $\mathbb{P}(E \cap F) = \mathbb{P}(E) \cdot \mathbb{P}(F)$ only when $E$ and $F$ are independent! Otherwise, you have to compute $\mathbb{P}(E \cap F)$ using the multiplication rule.
+     - The interpretation of independence is that the two events "do not affect each other"
+
+
+# Counting
+
+- Don't forget about counting!
+
+
+# Programming
+
+## Basics of Programming
+
+- Recall that, in this class, we use **Python** as our main computing language
+
+    - We run Python in **Jupyter Notebooks**
+    
+- There are a few **data types** we have encountered thus far:
+
+    - `str`, for "string"
+    - `int`, for "integer"
+    - `float`, aka "real number with decimals"
+    - `bool`, for "boolean"
+
+## Basics of Programming
+
+- There are also certain **data classes** we have encountered, which are effectively various python objects aggregated into a larger structure. These include:
+
+    - Tables
+    - Lists
+    - Arrays
+    
+- We can use **indexing** to extract certain pieces of data classes; e.g. for a list `x`, `x[i]` returns the (`i` + 1)^th^ element of `x`.
+
+    - Remember that Python starts indexing at zero!
+    
+## Comparisons and Conditionals
+
+- Take a look at lab 2.
+
+## Functions
+
+- I'd also like to take a minute to talk about **functions** in Python.
+
+- Python functions behave much like mathematical functions: they take in some number of **arguments** (i.e. inputs) and can output a variety of things.
+
+    - For example, the `type()` function returns either the data type or data structure of a single input.
+    
+    - There is some language we use when dealing with functions in programming: when we pass the argument `x` into the function `f()`, we say that we have "called" the function `f()` on the argument/input `x`. The object `f(x)` is called a **function call**.
+    
+## Functions
+
+- To create a user-defined function `function_name()`, we use the following structure:
+
+:::{.fragment}
+```{python}
+#| eval: False
+#| echo: True
+
+def function_name(<arg1>, ...., <argn>):
+  """
+  include a docstring here
+  """
+  <body of the function here>
+```
+:::
+
+- By the way, when writing **skeleton code** like the above (i.e. a chunk of code that mimics the structure/format of an actual piece of code, but isn't fully filled in), programmers often use the symbols `<` and `>` to denote text. These symbols should not be included in your actual code.
+
+    - For example, we would not actually enclose our arguments in `<` and `>`'s; we would simply write out the arguments. We'll see an example of this in a minute
+    
+## Exercise
+
+:::{.callout-tip}
+
+## Exercise
+
+:::{.fragment style="font-size:32px"}
+Write a function `is_mult_of_three()` that takes in a single input `x` and outputs `True` if `x` is a multiple of three and `False` if not. Additionally, the function should return `"Error: input must be numeric"` if the argument `x` that is provided is not numerical.
+:::
+:::
+
+- Take a moment to open up our JupyterHub server instance, and try writing out the function on your own. Then we'll work through it together (please note that solutions to this won't be provided, so make sure you take notes!)

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 507 307.17">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        fill: #29abe2;
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        font-size: 50px;
+        font-weight: 700;
+      }
+
+      .cls-3, .cls-5 {
+        font-family: TimesNewRomanPS-BoldItalicMT, 'Times New Roman';
+        font-style: italic;
+      }
+
+      .cls-4 {
+        font-family: TimesNewRomanPS-BoldMT, 'Times New Roman';
+      }
+
+      .cls-5 {
+        letter-spacing: -.06em;
+      }
+    </style>
+  </defs>
+  <path d="m504,3v300H3V3h501m3-3H0v306h507V0h0Z"/>
+  <text class="cls-4" transform="translate(458.18 291.84)"><tspan x="0" y="0">Ω</tspan></text>
+  <path class="cls-1" d="m256.06,242.65c-22.41,21.29-52.71,34.35-86.06,34.35-69.04,0-125-55.96-125-125,0-62.72,46.19-114.65,106.4-123.63"/>
+  <path class="cls-1" d="m190.77,28.72c25.12,4.2,47.7,15.89,65.37,32.7"/>
+  <text class="cls-5" transform="translate(152.98 44.1)"><tspan x="0" y="0">A</tspan></text>
+  <path class="cls-1" d="m256.14,61.42c18.17-17.25,41.51-29.1,67.47-32.97"/>
+  <g>
+    <path class="cls-2" d="m256.14,61.42c23.94,22.77,38.86,54.93,38.86,90.58s-14.95,67.88-38.94,90.65l-.28-.27c-23.77-22.76-38.57-54.8-38.57-90.31s14.95-67.87,38.93-90.65Z"/>
+    <g>
+      <path class="cls-1" d="m256.14,61.42c23.94,22.77,38.86,54.93,38.86,90.58s-14.95,67.88-38.94,90.65"/>
+      <path class="cls-1" d="m255.78,242.38c-23.77-22.76-38.57-54.8-38.57-90.31s14.95-67.87,38.93-90.65"/>
+    </g>
+  </g>
+  <path class="cls-1" d="m362.98,28.79c59.15,9.89,104.23,61.32,104.23,123.28,0,69.04-55.96,125-125,125-33.53,0-63.98-13.2-86.43-34.7"/>
+  <text class="cls-3" transform="translate(325.19 44.17)"><tspan x="0" y="0">B</tspan></text>
+</svg>

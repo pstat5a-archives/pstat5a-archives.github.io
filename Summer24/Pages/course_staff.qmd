@@ -1,0 +1,98 @@
+---
+title: "PSTAT 5A: Understanding Data"
+subtitle: "Course Staff"
+author:
+  - name: "Ethan Marzban"
+    affiliations:
+      - name: "Summer Session A, 2023"
+author-title: "Instructor"
+affiliation-title: "Quarter"
+format: html
+linkcolor: "#ffa07a"
+---
+
+## Instructor
+
+:::{.callout-note collapse="false"}
+## Instructor: Ethan P. Marzban
+<table>
+  <tr>
+    <td style = "padding-right: 10pt">
+      <img src = "../Images/Profiles/placeholder.png" width = 175>
+    </td>
+    <td>
+      <p style = "font-size:24px"><b>Ethan P. Marzban</b></p>
+      <p>
+        Hello! I currently just finished the 3rd year of my PhD program here in the PSTAT department, having joined back in 2020 (after having completed my undergraduate degree in Statistics as well). Outside of school I enjoy playing the piano, drinking boba, and talking about cats!
+      </p>
+      <table>
+        <tr>
+          <td><b>Email:</b></td>
+          <td><a href = "mailto:epmarzban@pstat.ucsb.edu">epmarzban@pstat.ucsb.edu</a> (Please use only in case of emergency)</td>
+        </tr>
+        <tr>
+          <td><b>OH:</b></td>
+          <td>Tuesdays 4:30 - 5:30pm, over [Zoom](https://ucsb.zoom.us/j/86469023392?pwd=aG5zY29wRWJscEFRY2ZYa0dXOVZ6Zz09) <br /> Thursdays 2:30 - 3:30pm, in SH 5607F (the Sobel Seminar Hall)</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+:::
+
+## Teaching Assistants (TAs)
+
+<!-- TA 1 -->
+:::{.callout-note collapse="false"}
+## TA: Mengrui Zhang
+<table>
+  <tr>
+    <td style = "padding-right: 10pt">
+      <img src = "../Images/Profiles/placeholder.png" width = 175>
+    </td>
+    <td>
+      <p style = "font-size:24px"><b>Mengrui Zhang</b></p>
+      <p>
+        Mengrui is a PhD Student in the PSTAT Department.
+      </p>
+      <table>
+        <tr>
+          <td><b>Email:</b></td>
+          <td><a href="mailto:mengrui@ucsb.edu">mengrui@ucsb.edu</a></td>
+        </tr>
+        <tr>
+          <td><b>OH:</b></td>
+          <td>MW, 4 - 6pm (SH 5431 W) </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+:::
+<!-- TA 2 -->
+:::{.callout-note collapse="false"}
+## TA: Olivier Mulkin
+<table>
+  <tr>
+    <td style = "padding-right: 10pt">
+      <img src = "../Images/Profiles/placeholder.png" width = 175>
+    </td>
+    <td>
+      <p style = "font-size:24px"><b>Olivier Mulkin</b></p>
+      <p>
+        Olivier is a PhD Student in the PSTAT Department.
+      </p>
+      <table>
+        <tr>
+          <td><b>Email:</b></td>
+          <td><a href="mailto:omulkin@ucsb.edu">omulkin@ucsb.edu</a></td>
+        </tr>
+        <tr>
+          <td><b>OH:</b></td>
+          <td>T, 1 - 3pm (<a href="https://ucsb.zoom.us/j/86888340042?pwd=Y3RzL0k1Ykx2VVNIZmd6OG5mdWVaUT09" target = "_blank">Zoom</a>)</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+:::

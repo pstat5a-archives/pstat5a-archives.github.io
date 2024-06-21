@@ -1,0 +1,427 @@
+---
+title: "PSTAT 5A: Lecture 18"
+subtitle: "Two-Sample Tests"
+author: "Ethan P. Marzban"
+date: "07/25/23"
+format: 
+    revealjs:
+      html-math-method: mathjax
+      theme: [default, ../CSS/custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+```
+
+## Multiple Populations
+
+- So far, we've talked about constructing confidence intervals and performing hypothesis tests for both population proportions and population means.
+
+- One crucial thing to note is that everything we've done has been in the context of a *single* population
+
+- Sometimes, as Data Scientists, we may want to test claims about the *differences* between two populations
+
+    - E.g. Is the average monthly income in Santa Barbara different from the average monthly income in San Francisco?
+    
+    - E.g. Is the proportion of people who test positive for a disease in one country different than the proportion that test positive in a second country?
+
+# Two Populations
+
+## Two Populations
+
+- Statistically: we are imagining *two* populations, Population 1 and Population 2, governed by parameters $\theta_1$ and $\theta_2$, respectively, and trying to test claims about the relationship between $\theta_1$ and $\theta_2$.
+
+    - For example, we could consider two populations with means $\mu_1$ and $\mu_2$, respectively, and try to make claims about whether or not $\mu_1$ and $\mu_2$ are equal.
+
+- The trick Statisticians use is to think in terms of the *difference* $\theta_2 - \theta_1.$ 
+
+    - For example, if our null hypothesis is that $\theta_1 = \theta_2$, this can be rephrased as $H_0: \ \theta_2 - \theta_1 = 0$. 
+
+
+## Two Populations
+
+- The reason we do this is because we have now effectively reduced our two-parameter problem into a one-parameter problem, involving only the parameter $\delta := \theta_2 - \theta_1$. 
+
+- Now, we will need a point estimator of $\delta$.
+
+- If $\widehat{\theta}_1$ and $\widehat{\theta}_2$ are point estimators of $\theta_1$ and $\theta_2$, respectively, then a natural point estimator of $\delta$ is $\widehat{\delta} = \widehat{\theta}_2 - \widehat{\theta}_1$.
+
+    - For example, a natural point estimator for the difference $\mu_2 - \mu_1$ of *population* means is $\overline{X}_2 - \overline{X}_1$, the difference in *sample* means.
+
+
+## Two Populations
+
+- We will ultimately need access to the sampling distribution of $\widehat{\delta}$.
+
+- Before delving into that, however, we will need a little more probability knowledge; specifically, knowledge on how linear combinations of random variables work.
+
+
+# Linear Combinations of Random Variables
+
+## Linear Combinations of Random Variables
+
+- Recall, from many weeks ago, that a **random variable** $X$ is simply some numerical variable that tracks a random outcome of an experiment.
+
+    - E.g. number of heads in 10 tosses of a fair coin; number of people in a population that test positive for a disease; etc.
+    
+- A random variable $X$, whether it be **discrete** or **continuous**, has an **expected value** $\mathbb{E}[X]$ and a **variance** $\mathrm{Var}(X)$. 
+
+- Now, suppose we have two random variables $X$ and $Y$, and three constants $a$, $b$, and $c$.
+
+- Our task for now is to say as much as we can about the quantity $aX + bY + c$.
+
+
+## Linear Combinations of Random Variables
+
+:::{.fragment}
+::: callout-important
+## Theorem
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+Given two random variables $X$ and $Y$, and constants $a, \ b,$ and $c$, 
+$$ \mathbb{E}[aX + bY + c] = a \cdot \mathbb{E}[X] + b \cdot \mathbb{E}[Y] + c $$
+:::
+:::
+:::
+:::
+
+- As an example: if $\mathbb{E}[X] = 2$ and $\mathbb{E}[Y] = -1$, then 
+$$\mathbb{E}[2X + 3Y + 1] = 2(2) + 3(-1) + 1 = 2 $$
+
+
+## Linear Combinations of Random Variables
+
+:::{.fragment}
+::: callout-important
+## Theorem
+
+:::{.nonincremental}
+::: {style="font-size: 30px"}
+Given two **independent** random variables $X$ and $Y$, and constants $a, \ b,$ and $c$,
+$$ \mathrm{Var}(aX + bY + c) = a^2 \mathrm{Var}(X) + b^2 \mathrm{Var}(Y) $$
+:::
+:::
+:::
+:::
+
+- You will not be responsible for the proof of this fact.
+
+- Also, we haven't explicitly talked about what independence means in the context of random variables; for now, suffice it to say that it works analogously to the concept of independence of events. That is, if the random variables $X$ and $Y$ come from two experiments that don't have any relation to each other, then $X$ and $Y$ will be independent.
+
+## Linear Combinations of Normally-Distributed Random Variables {style="text-align:32px"}
+
+- Something interesting happens when we consider taking linear combinations of normally-distributed random variables.
+
+- Say we have $X \sim \mathcal{N}(\mu_x, \ \sigma_x)$ and $Y \sim \mathcal{N}(\mu_y, \ \sigma_y)$ with $X \perp Y$.
+
+- Then,
+$$ (aX + bY + c) \sim \mathcal{N}\left( a\mu_x + b \mu_y + c, \ \sqrt{a^2 \sigma_x^2 + b^2 \sigma_y^2} \right) $$
+
+    - Note that the expectation and standard deviation simply follow from the previous fact. What is unique/impotant about this result is that it tells us linear combinations of normally-distributed random variables are also normally-distributed!
+
+    - This is not true of all distributions; for example, linear combinations of uniformly-distributed random variables are **not** uniformly distributed.
+
+
+## Worked-Out Example {style="font-size:32px"}
+
+:::{.fragment}
+::: callout-tip
+## Worked-Out Example 1
+
+:::{.nonincremental}
+::: {style="font-size: 28px"}
+Suppose that wait times at the Goleta and Santa Barbara DMVs are normally distributed and independent. Specifically, if $X$ denotes the wait time (in minutes) of a randomly-selected customer from the Goleta location and $Y$ denotes the wait time (in minutes) of a randomly-selected customer from the Santa Barbara location, then
+$$ X \sim \mathcal{N}(5, \ 1.5)   \quad Y \sim \mathcal{N}(7, 1.75)  $$
+What is the probability that a randomly-selected person from the Goleta location and a randomly-selected person from the Santa Barbara location are served within 2 minutes of each other?
+:::
+:::
+:::
+:::
+
+## Solutions
+
+- First, let $X$ denote the wait time of the person from the Goleta location and let $Y$ denote the wait time of the person from the Santa Barbara location. Then $$ X \sim \mathcal{N}(5, \ 1.5)   \quad Y \sim \mathcal{N}(7, 1.75)  $$
+with $X \perp Y$.
+
+- The quantity we seek is $\mathbb{P}(|X - Y| < 2)$, which we can first write as
+$$ \mathbb{P}(-2 \leq X - Y \leq 2) $$
+
+- Now, by the result above we know what the distribution of $(X - Y)$ is:
+$$ (X - Y) \sim \mathcal{N}\left( 5 - 7 , \ \sqrt{1.5^2 + 1.75^2} \right) \sim \mathcal{N}\left(-2, \  \sqrt{1.5^2 + 1.75^2} \right)$$
+
+## Solutions
+
+- For ease of notation, let $D = X - Y$. Then what we just showed is that
+$$ D \sim \mathcal{N}(-2, \  \sqrt{1.5^2 + 1.75^2}) $$
+
+- Furthermore, the quantity we seek is 
+$$ \mathbb{P}(-2 \leq D \leq 2) $$
+
+- Hence, we are now in business!
+    - Namely, we can just use the same procedure we have been using for normal distribution problems all along in this class.
+    
+## Solutions
+
+\begin{align*}
+  \mathbb{P}(-2 \leq D \leq 2)   & = \mathbb{P}(D \leq 2) - \mathbb{P}(D \leq -2)    \\
+    & = \mathbb{P}\left( \frac{D + 2}{\sqrt{1.5^2 + 1.75^2}} \leq \frac{2 + 2}{\sqrt{1.5^2 + 1.75^2}} \right)     \\
+      & \hspace{20mm} - \mathbb{P}\left( \frac{D + 2}{\sqrt{1.5^2 + 1.75^2}} \leq \frac{-2 + 2}{\sqrt{1.5^2 + 1.75^2}} \right)   \\
+    & = \mathbb{P}\left( \frac{D + 2}{\sqrt{1.5^2 + 1.75^2}} \leq 1.74 \right)     \\
+      & \hspace{20mm} - \mathbb{P}\left( \frac{D + 2}{\sqrt{1.5^2 + 1.75^2}} \leq 0 \right)    \\
+    & = 0.9591 - 0.5000 = \boxed{0.4591}
+\end{align*}
+
+# Back to our Two-Parameter Problem
+
+## Two Populations
+
+- Alright, so what does this mean in the context of our two-proportion problem?
+
+- Well, for one thing, we can easily construct a confidence interval for $(\theta_2 - \theta_1)$ using:
+$$ (\widehat{\theta}_2 - \widehat{\theta}_1) \pm c \cdot \sqrt{\mathrm{Var}(\widehat{\theta}_1) + \mathrm{Var}(\widehat{\theta}_2)} $$
+where $c$ is a constant that is determined by both the sampling distribution of $\widehat{\theta}_2 - \widehat{\theta}_1$ as well as our confidence level.
+
+- By the way, can anyone tell me why the variances are *added*, and not *subtracted*?
+
+
+## Two Means
+
+- To make things more specific, let's consider comparing two **population means**. 
+
+- Specifically: imagine we have two populations (which we will call Population 1 and Population 2), governed by population means $\mu_1$ and $\mu_2$, respectively.
+    
+- For now, let's focus a two-sided test, where our hypotheses are
+$$\left[ \begin{array}{rr}
+  H_0:    & \mu_1 = \mu_2   \\
+  H_A:    & \mu_1 \neq \mu_2 
+\end{array} \right.$$
+
+
+## Two Means
+
+- Again, it's customary to rephrase things to be in terms of differences:
+$$\left[ \begin{array}{rr}
+  H_0:    & \mu_2 - \mu_1 = 0   \\
+  H_A:    & \mu_2 - \mu_1 \neq 0
+\end{array} \right.$$
+
+
+- Now, we need data!
+
+- Suppose we have a sample $X = \{X_i\}_{i=1}^{n_1}$ taken from Population 1 and a sample $Y = \{Y_i\}_{i=1}^{n_2}$ taken from Population 2.
+    - Note that we are allowing for different sample sizes, $n_1$ and $n_2$!
+
+- Let's also assume that, in addition to being representative samples, the two samples are both independent within themselves and independent from each other (i.e. assume the $X_i$'s and $Y_i$'s are independent, and that the $X$'s are independent from the $Y$'s)
+
+## Two Means
+
+- Again, we are interested in finding a point estimator for $\mu_2 - \mu_1$.
+
+- Here's a question: do we have a natural point estimator for $\mu_2$? What about for $\mu_1$?
+
+- So, it seems that a natural point estimator for $\delta = \mu_2 - \mu_1$ is
+$$ \widehat{\delta} = \overline{Y} - \overline{X} $$
+
+- What is the sampling distribution of $\widehat{\delta}$?
+
+- Well, there are a few cases to consider.
+
+
+## Sampling Distribution of $\widehat{\delta}$ 
+
+- Suppose that our two populations had known variances $\sigma_1^2$ and $\sigma_2^2$, respectively.
+
+- Then, if both $\overline{X}$ and $\overline{Y}$ were normally distributed, we could one of the facts we previously saw in this lecture to conclude that 
+$$ \widehat{\delta} \sim \mathcal{N}\left( \delta, \ \sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2} } \right) $$
+
+    - See the whiteboard for more details
+
+
+
+## The Test Statistc {style="font-size:32px"}
+
+- In this case, a natural candidate for our test statistic would be
+$$ \frac{\widehat{\delta}}{\sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} =  \frac{\overline{Y} - \overline{X}}{\sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} $$
+as, under the null, this would follow a standard normal distribution.
+
+- However, there are a few problems with this.
+
+- For one, it requires both $\overline{X}$ and $\overline{Y}$ to be normally distributed, which we know is not always the case.
+
+- Alright, that's fine though- so long as our sample sizes are large enough, the Central Limit Theorem kicks in and we can be reasonably certain that $\overline{X}$ and $\overline{Y}$ will be pretty close to normally distributed.
+
+
+## The Test Statistic {style="font-size:30px"}
+
+- However, the main problem in using this test statistic is that it requires access to the population variances $\sigma_1^2$ and $\sigma_2^2$!
+
+- Any ideas on how to remedy this?
+
+    - Right; let's just replace the population variances with their sample analogues:
+    $$ \mathrm{TS} = \frac{\overline{Y} - \overline{X}}{\sqrt{ \frac{s_X^2}{n_1} + \frac{s_Y^2}{n_2}}}$$
+    where
+    \begin{align*}
+      s_X^2   & = \frac{1}{n_1 - 1} \sum_{i=1}^{n_1} (X_i - \overline{X})^2   \\
+      s_Y^2   & = \frac{1}{n_2 - 1} \sum_{i=1}^{n_2} (Y_i - \overline{Y})^2
+    \end{align*}
+
+
+## The Test Statistic {style="font-size:30px"}
+
+- Any guesses on what distribution this follows under the null?
+
+- If you said _t_..... you'd be wrong! (But pretty close.)
+
+- It turns out that, under the null (i.e. assuming that $\mu_1 = \mu_2$, or, equivalently, that $\delta = \mu_2 - \mu_1 = 0$), this test statistic **approximately** follows a _t_-distribution.
+
+- What degrees of freedom?
+
+- That's right:
+$$ \mathrm{df} = \mathrm{round}\left\{ \frac{ \left[ \left( \frac{s_X^2}{n_1} \right) + \left( \frac{s_Y^2}{n_2} \right) \right]^2 }{ \frac{\left( \frac{s_X^2}{n_1} \right)^2}{n_1 - 1} + \frac{\left( \frac{s_Y^2}{n_2} \right)^2}{n_2 - 1} } \right\} $$
+
+    - This is related to what is known as the **Satterthwaite Approximation**, sometimes called the **Welch-Satterthwaite Equation**
+
+## The Test {style="font-size:30px"}
+
+- Alright, so we finally have a test statistic:
+$$ \mathrm{TS} = \frac{\overline{Y} - \overline{X}}{\sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} $$
+and its (approximate) distribution under the null:
+$$ \mathrm{TS} \stackrel{H_0}{\sim} t_{\nu} $$
+where $\nu$ is given by the Satterthwaite Approximation.
+
+- Recall our hypotheses:
+$$ \left[ \begin{array}{rr}
+  H_0:    & \mu_2 - \mu_1 = 0   \\
+  H_A:    & \mu_2 - \mu_1 \neq 0
+\end{array} \right. $$
+
+
+## The Test {style="font-size:30px"}
+
+- We can see that large values of $|\mathrm{TS}|$ lead credence to the alternative over the null; as such, our decision will take the form
+$$ \texttt{decision}(\mathrm{TS}) = \begin{cases} \texttt{reject } H_0 & \text{if } |\mathrm{TS}| > c \\ \texttt{fail to reject } H_0 & \text{otherwise}\\ \end{cases}  $$
+where $c$ is the appropriately-selected quantile of the appropriate _t_-distribution.
+
+
+
+## Worked-Out Example {style="font-size:32px"}
+
+:::{.fragment}
+::: callout-tip
+## Worked-Out Example 1
+
+:::{.nonincremental}
+::: {style="font-size: 28px"}
+*Gaucho Gourmande* has two locations: one in Goleta and one in Santa Barbara. The owner would like to determine whether the average revenue generated by the two locations are equal or not. To that end, he computes the net revenue generated by the Goleta location over 30 days and also computes the net revenue generated by the Santa Barbara location over 35 days (assume all of the necessary independence conditions hold), and produced the following information:
+
+$$\begin{array}{r|cc}
+                    & \text{Sample Average}     & \text{Sample Standard Deviation}    \\
+  \hline
+  \textbf{Goleta}   &     \$13                    & \$3.45        \\
+  \textbf{Santa Barbara}   &     \$15                    & \$4.23
+\end{array}$$
+
+Test the owner's claims at an $\alpha = 0.05$ level of significance, using a two-sided alternative.
+
+:::
+:::
+:::
+:::
+
+## Solutions {style="font-size:30px"}
+
+- Our first step should be to figure out what "Population 1" and "Population 2" are in the context of the problem.
+
+- Let "Goleta Location" be Population 1 and "Santa Barbara Location" be Population 2.
+    - It is perfectly acceptable to swap these two, but just be sure you remain consistent throughout the problem!
+    - Also, I will expect you to explicitly write out your definitions of the populations (like above), even if the problem doesn't explicitly ask you to do so. 
+
+- In this way,
+$$ \overline{X} = 13; \quad s_X = 3.45; \quad \overline{Y} = 15; \quad s_Y = 4.23 $$
+
+- Additionally, $n_1 = 30$ and $n_2 = 35$.
+
+## Solutions {style="font-size:28px"}
+
+- Now, let's compute the value of the test statistic.
+$$ \mathrm{TS} =   \frac{\overline{Y} - \overline{X}}{\sqrt{ \frac{s_X^2}{n_1} + \frac{s_Y^2}{n_2}}} = \frac{15 - 13}{\sqrt{\frac{3.45^2}{30}  + \frac{4.23^2}{35} }} = 2.10 $$
+
+- We should next figure out the degrees of freedom:
+\begin{align*}
+  \mathrm{df}   &  = \mathrm{round}\left\{ \frac{ \left[ \left( \frac{s_X^2}{n_1} \right) + \left( \frac{s_Y^2}{n_2} \right) \right]^2 }{ \frac{\left( \frac{s_X^2}{n_1} \right)^2}{n_1 - 1} + \frac{\left( \frac{s_Y^2}{n_2} \right)^2}{n_2 - 1} } \right\}     \\
+    & =  \mathrm{round}\left\{ \frac{ \left[ \left( \frac{3.45^2}{30} \right) + \left( \frac{4.23^2}{35} \right) \right]^2 }{ \frac{\left( \frac{3.45^2}{30} \right)^2}{30 - 1} + \frac{\left( \frac{4.23^2}{35} \right)^2}{35 - 1} } \right\} = 63 
+\end{align*}
+
+## Solutions {style="font-size:30px"}
+
+- At this point, we could either proceed using critical values or using _p_-values.
+
+- Let's use _p_-values, for practice.
+
+- Our _p_-value is computed as
+
+:::{.fragment}
+```{python}
+#| echo: True
+
+import scipy.stats as sps
+2*sps.t.cdf(-2.10, 63)
+```
+:::
+
+- This is below our level of significance $\alpha = 0.05$ meaning we would reject the null.
+
+- If we wanted to instead use critical values:
+
+:::{.fragment}
+```{python}
+#| echo: True
+
+-sps.t.ppf(0.05, 63)
+```
+:::
+
+- This means our critical value is 1.67; since $|\mathrm{TS}| = |2.10| = 2.10 > 1.67$, we would again reject at an $\alpha = 0.05$ level of significance.
+
+
+## Solutions
+
+> At a 5\% level of significance, there was sufficient evidence to reject the owner's claims that the revenue generated by the two locations are equal, in favor of the alternative that the revenue generated by the two locations are not equal.
+
+## Extensions {style="font-size:32px"}
+
+- Unsurprisingly, we can adapt the above procedure to account for one-sided alternatives as well.
+
+- For instance, suppose we wish to test
+$$ \left[ \begin{array}{rr}
+  H_0:    & \mu_1 = \mu_2   \\
+  H_A:    & \mu_1 < \mu_2
+\end{array} \right.$$
+
+- Again, we rephrase things as:
+$$ \left[ \begin{array}{rr}
+  H_0:    & \mu_2 - \mu_1 = 0   \\
+  H_A:    & \mu_2 - \mu_1 > 0
+\end{array} \right.$$
+which is now a familiar upper-tailed test on $\delta = \mu_2 - \mu_1$ and $\mu_0 = 0.$
+
+## Extensions {style="font-size:32px"}
+
+- Specifically, we would take the same test statistic (which would still follow the same distribution under the null) and use the decision rule
+$$ \texttt{decision}(\mathrm{TS}) = \begin{cases} \texttt{reject } H_0 & \text{if } \mathrm{TS} > c \\ \texttt{fail to reject } H_0 & \text{otherwise}\\ \end{cases}  $$
+where $c$ is the appropriate quantile of the approximate _t_ distribution (with degrees of freedom given by the Satterthwaite Approximation).
+
+- A similar result holds for the lower-tailed test- I encourage you to work it out on your own.

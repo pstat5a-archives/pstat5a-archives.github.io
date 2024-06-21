@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ethan P. Marzban">
+<meta name="dcterms.date" content="2023-06-28">
+
+<title>PSTAT 5A: Summer Session A, 2023 - PSTAT 5A: Lecture 03</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../Images/Logos_Icons/5a_hex.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      PSTAT 5A: Summer Session A, 2023
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../Images/Logos_Icons/5a_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">PSTAT 5A: Summer Session A, 2023</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule of Topics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/calendar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sections and Calendar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/course_staff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Staff / OH</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW and Solns</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Exam Prep</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/exam_prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam Prep</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#uncertainty" id="toc-uncertainty" class="nav-link active" data-scroll-target="#uncertainty">Uncertainty</a></li>
+  <li><a href="#the-building-blocks-of-probability" id="toc-the-building-blocks-of-probability" class="nav-link" data-scroll-target="#the-building-blocks-of-probability">The Building Blocks of Probability</a>
+  <ul class="collapse">
+  <li><a href="#experiment" id="toc-experiment" class="nav-link" data-scroll-target="#experiment">Experiment</a></li>
+  <li><a href="#outcome-space" id="toc-outcome-space" class="nav-link" data-scroll-target="#outcome-space">Outcome Space</a></li>
+  <li><a href="#worked-out-example" id="toc-worked-out-example" class="nav-link" data-scroll-target="#worked-out-example">Worked-Out Example</a></li>
+  <li><a href="#now-its-your-turn" id="toc-now-its-your-turn" class="nav-link" data-scroll-target="#now-its-your-turn">Now it’s Your Turn!</a></li>
+  <li><a href="#other-ways-of-describing-outcome-spaces" id="toc-other-ways-of-describing-outcome-spaces" class="nav-link" data-scroll-target="#other-ways-of-describing-outcome-spaces">Other Ways of Describing Outcome Spaces</a></li>
+  <li><a href="#other-ways-of-describing-outcome-spaces-1" id="toc-other-ways-of-describing-outcome-spaces-1" class="nav-link" data-scroll-target="#other-ways-of-describing-outcome-spaces-1">Other Ways of Describing Outcome Spaces</a></li>
+  <li><a href="#events" id="toc-events" class="nav-link" data-scroll-target="#events">Events</a></li>
+  <li><a href="#unions-and-intersections" id="toc-unions-and-intersections" class="nav-link" data-scroll-target="#unions-and-intersections">Unions and Intersections</a></li>
+  <li><a href="#complements" id="toc-complements" class="nav-link" data-scroll-target="#complements">Complements</a></li>
+  <li><a href="#leadup" id="toc-leadup" class="nav-link" data-scroll-target="#leadup">Leadup</a></li>
+  <li><a href="#demorgans-laws" id="toc-demorgans-laws" class="nav-link" data-scroll-target="#demorgans-laws">DeMorgan’s Laws</a></li>
+  <li><a href="#leadup-1" id="toc-leadup-1" class="nav-link" data-scroll-target="#leadup-1">Leadup</a></li>
+  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability">Probability</a></li>
+  <li><a href="#probability-1" id="toc-probability-1" class="nav-link" data-scroll-target="#probability-1">Probability</a></li>
+  <li><a href="#long-run-frequency-approach" id="toc-long-run-frequency-approach" class="nav-link" data-scroll-target="#long-run-frequency-approach">Long-Run-Frequency Approach</a></li>
+  <li><a href="#classical-approach" id="toc-classical-approach" class="nav-link" data-scroll-target="#classical-approach">Classical Approach</a></li>
+  <li><a href="#comparisons" id="toc-comparisons" class="nav-link" data-scroll-target="#comparisons">Comparisons</a></li>
+  <li><a href="#comparisons-1" id="toc-comparisons-1" class="nav-link" data-scroll-target="#comparisons-1">Comparisons</a></li>
+  <li><a href="#axioms-of-probability" id="toc-axioms-of-probability" class="nav-link" data-scroll-target="#axioms-of-probability">Axioms of Probability</a></li>
+  </ul></li>
+  <li><a href="#probability-rules" id="toc-probability-rules" class="nav-link" data-scroll-target="#probability-rules">Probability Rules</a>
+  <ul class="collapse">
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#notational-reminder" id="toc-notational-reminder" class="nav-link" data-scroll-target="#notational-reminder">Notational Reminder</a></li>
+  <li><a href="#the-complement-rule" id="toc-the-complement-rule" class="nav-link" data-scroll-target="#the-complement-rule">The Complement Rule</a></li>
+  <li><a href="#the-probability-of-the-empty-set" id="toc-the-probability-of-the-empty-set" class="nav-link" data-scroll-target="#the-probability-of-the-empty-set">The Probability of the Empty Set</a></li>
+  <li><a href="#the-addition-rule" id="toc-the-addition-rule" class="nav-link" data-scroll-target="#the-addition-rule">The Addition Rule</a></li>
+  <li><a href="#worked-out-example-1" id="toc-worked-out-example-1" class="nav-link" data-scroll-target="#worked-out-example-1">Worked-Out Example</a></li>
+  <li><a href="#solution-to-part-a" id="toc-solution-to-part-a" class="nav-link" data-scroll-target="#solution-to-part-a">Solution to Part (a)</a></li>
+  <li><a href="#solution-to-part-b" id="toc-solution-to-part-b" class="nav-link" data-scroll-target="#solution-to-part-b">Solution to Part (b)</a></li>
+  <li><a href="#general-strategy" id="toc-general-strategy" class="nav-link" data-scroll-target="#general-strategy">General Strategy</a></li>
+  <li><a href="#time-to-put-everything-together" id="toc-time-to-put-everything-together" class="nav-link" data-scroll-target="#time-to-put-everything-together">Time to Put Everything Together!</a></li>
+  </ul></li>
+  <li><a href="#an-additional-tool" id="toc-an-additional-tool" class="nav-link" data-scroll-target="#an-additional-tool">An Additional Tool</a>
+  <ul class="collapse">
+  <li><a href="#venn-diagrams" id="toc-venn-diagrams" class="nav-link" data-scroll-target="#venn-diagrams">Venn Diagrams</a></li>
+  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1">Summary</a></li>
+  <li><a href="#demorgans-laws-2" id="toc-demorgans-laws-2" class="nav-link" data-scroll-target="#demorgans-laws-2">DeMorgan’s Laws</a></li>
+  </ul></li>
+  <li><a href="#lecture-summary" id="toc-lecture-summary" class="nav-link" data-scroll-target="#lecture-summary">Lecture Summary</a>
+  <ul class="collapse">
+  <li><a href="#lecture-summary-1" id="toc-lecture-summary-1" class="nav-link" data-scroll-target="#lecture-summary-1">Lecture Summary</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Lec03.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PSTAT 5A: Lecture 03</h1>
+<p class="subtitle lead">Introduction to Probability</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ethan P. Marzban </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 28, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div style="text-align:center">
+<div class="fragment">
+<p><img src="Prob_collage/bond_new.svg" class="img-fluid" style="width:75.0%"></p>
+</div>
+<div class="fragment">
+<p><img src="Prob_collage/oil.svg" class="img-fluid" style="width:75.0%"></p>
+</div>
+<div class="fragment">
+<p><img src="Prob_collage/olympics2.svg" class="img-fluid" style="width:75.0%"></p>
+</div>
+</div>
+<section id="uncertainty" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="uncertainty">Uncertainty</h2>
+<div class="nonincremental">
+<ul>
+<li>Uncertainty surrounds us!</li>
+</ul>
+</div>
+<ul>
+<li>Statistics is, in many ways, the study of uncertainty.</li>
+<li>Probability is the <em>language</em> of uncertainty; it gives us a way to quantify exactly how this uncertainty factors into our decision making process.</li>
+</ul>
+</section>
+<section id="the-building-blocks-of-probability" class="level1">
+<h1>The Building Blocks of Probability</h1>
+<section id="experiment" class="level2">
+<h2 class="anchored" data-anchor-id="experiment">Experiment</h2>
+<div class="nonincremental">
+<ul>
+<li>We begin with the notion of an <strong>experiment</strong>. In the context of Probability, we have the following definition:</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Definition</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>An experiment is any procedure that can be repeated an infinite number of times, and each time the procedure is repeated there are a fixed set of <em>things</em> that could occur.</p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>An example of an experiment is tossing a coin:
+<ul>
+<li>I could go into Storke field and toss a coin an infinite number of times, and each time I toss the coin it will land on either <code>heads</code> or <code>tails</code>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="outcome-space" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="outcome-space">Outcome Space</h2>
+<div class="nonincremental">
+<ul>
+<li>The <em>things</em> that could occur on each repetition of an experiment are called <strong>outcomes.</strong></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Definition</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>The <strong>outcome space</strong> of an experiment is the set <span class="math inline">\(\Omega\)</span> consisting of all outcomes of the experiment.</p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>For instance, in the coin tossing example the outcome space is <br> <span class="math inline">\(\Omega =\{\)</span><code>heads</code>, &nbsp;<code>tails</code><span class="math inline">\(\}\)</span>.</p></li>
+<li><p>As an aside: some textbooks/professors refer to the outcome space as the <strong>sample space</strong>, and use the letter <span class="math inline">\(S\)</span> to denote it.</p>
+<ul>
+<li>So, if you are doing self-study and encounter the term “sample space”, know that it is the same thing as what we are calling the “outcome space”!</li>
+</ul></li>
+</ul>
+</section>
+<section id="worked-out-example" class="level2">
+<h2 class="anchored" data-anchor-id="worked-out-example">Worked-Out Example</h2>
+<div class="nonincremental">
+<ul>
+<li>Let’s do an example together.</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Exercise 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Consider the experiment of rolling two four-sided dice and recording the faces that appear. What is an appropriate outcome space for this experiment?</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>First, let’s find the outcome space.</p></li>
+<li><p>On each dice roll, we will observe either a <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, or <span class="math inline">\(4\)</span>.</p></li>
+<li><p>But, we cannot simply say that our outcome space is <span class="math inline">\(\{1, 2, 3, 4\}\)</span> as this does not take into account the fact that we rolled <em>two</em> dice!</p></li>
+</ul>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>So, lets establish the following notation: let <span class="math inline">\((1, 1)\)</span> denote the outcome “the first die landed on <span class="math inline">\(1\)</span>, and the second landed on <span class="math inline">\(1\)</span>. Similarly, we can let <span class="math inline">\((i, j)\)</span> denote &nbsp;”the first die landed on <span class="math inline">\(i\)</span> and the second die landed on <span class="math inline">\(j\)</span>,” &nbsp;for arbitrary <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> in the set <span class="math inline">\(\{1, 2, 3, 4\}\)</span>.</li>
+</ul>
+</div>
+<ul>
+<li>In this way, the outcome space becomes:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\begin{align*}
+  \Omega  = \{  &amp; (1, 1), \ (1, 2), \ (1, 3), \ (1, 4), \\
+  &amp; (2, 1), \ (2, 2), \ (2, 3), \ (2, 4),     \\
+  &amp; (3, 1), \ (3, 2), \ (3, 3), \ (3, 4),     \\
+  &amp; (4, 1), \ (4, 2), \ (4, 3), \ (4, 4) \}
+\end{align*}\]</span></p>
+</div>
+</section>
+<section id="now-its-your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="now-its-your-turn">Now it’s Your Turn!</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Consider the experiment of tossing a coin, picking a number from the set <span class="math inline">\(\{1, 2\}\)</span>, and then tossing another coin. What is the outcome space of this experiment?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="other-ways-of-describing-outcome-spaces" class="level2" style="font-size:32px">
+<h2 style="font-size:32px" class="anchored" data-anchor-id="other-ways-of-describing-outcome-spaces">Other Ways of Describing Outcome Spaces</h2>
+<ul>
+<li><p>There are a few other ways we can use to describe the outcome space of an experiment.</p></li>
+<li><p>Let’s return to the tossing four dice example from a few slides ago. Another way we could have kept track of the outcomes was by using a table, recording the outcome of the first die roll in the rows and the outcomes of the second in the columns:</p></li>
+</ul>
+<div class="fragment">
+
+<table>
+<tbody><tr>
+<td>
+</td>
+<td style="text-align:center">
+1
+</td>
+<td style="text-align:center">
+2
+</td>
+<td style="text-align:center">
+3
+</td>
+<td style="text-align:center">
+4
+</td>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+(1, 1)
+</td>
+<td>
+(1, 2)
+</td>
+<td>
+(1, 3)
+</td>
+<td>
+(1, 4)
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+(2, 1)
+</td>
+<td>
+(2, 2)
+</td>
+<td>
+(2, 3)
+</td>
+<td>
+(2, 4)
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+(3, 1)
+</td>
+<td>
+(3, 2)
+</td>
+<td>
+(3, 3)
+</td>
+<td>
+(3, 4)
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+(4, 1)
+</td>
+<td>
+(4, 2)
+</td>
+<td>
+(4, 3)
+</td>
+<td>
+(4, 4)
+</td>
+</tr>
+
+</tbody></table>
+</div>
+</section>
+<section id="other-ways-of-describing-outcome-spaces-1" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="other-ways-of-describing-outcome-spaces-1">Other Ways of Describing Outcome Spaces</h2>
+<ul>
+<li><p>So, tables are a good way of keeping track of outcomes.</p></li>
+<li><p>But, they really only work when we have <em>two</em> of something (e.g.&nbsp;<em>two</em> dice, <em>two</em> coins, etc.). What happens if we, for example, toss <em>three</em> coins?</p></li>
+<li><p>This is where <strong>tree diagrams</strong> can become useful.</p></li>
+</ul>
+<div class="fragment">
+<div class="cell" data-fig-width="10" data-fig-height="4">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="960" height="384" viewbox="0.00 0.00 566.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>
+tree_diagram
+</title>
+<polygon fill="#f0ebd8" stroke="transparent" points="-4,4 -4,-256 562,-256 562,4 -4,4"></polygon> <!-- base --> <g id="node1" class="node">
+<title>
+base
+</title>
+<text text-anchor="middle" x="279" y="-229.8" font-family="Times,serif" font-size="14.00">o</text> </g> <!-- H1 --> <g id="node2" class="node">
+<title>
+H1
+</title>
+<text text-anchor="middle" x="207" y="-157.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- base&#45;&gt;H1 --> <g id="edge1" class="edge">
+<title>
+base-&gt;H1
+</title>
+<path fill="none" stroke="#8b3e2f" d="M261.2,-215.7C251.26,-206.03 238.81,-193.93 228.35,-183.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="229.4,-182.34 224.59,-180.1 226.96,-184.84 229.4,-182.34"></polygon> </g> <!-- T1 --> <g id="node3" class="node">
+<title>
+T1
+</title>
+<text text-anchor="middle" x="351" y="-157.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- base&#45;&gt;T1 --> <g id="edge2" class="edge">
+<title>
+base-&gt;T1
+</title>
+<path fill="none" stroke="#8b3e2f" d="M296.8,-215.7C306.74,-206.03 319.19,-193.93 329.65,-183.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="331.04,-184.84 333.41,-180.1 328.6,-182.34 331.04,-184.84"></polygon> </g> <!-- H21 --> <g id="node4" class="node">
+<title>
+H21
+</title>
+<text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H1&#45;&gt;H21 --> <g id="edge3" class="edge">
+<title>
+H1-&gt;H21
+</title>
+<path fill="none" stroke="#8b3e2f" d="M180.58,-143.88C165.28,-133.96 145.95,-121.43 129.94,-111.05"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="130.67,-109.44 125.52,-108.19 128.77,-112.38 130.67,-109.44"></polygon> </g> <!-- T21 --> <g id="node5" class="node">
+<title>
+T21
+</title>
+<text text-anchor="middle" x="207" y="-85.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H1&#45;&gt;T21 --> <g id="edge4" class="edge">
+<title>
+H1-&gt;T21
+</title>
+<path fill="none" stroke="#8b3e2f" d="M207,-143.7C207,-134.46 207,-122.98 207,-113.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="208.75,-113.1 207,-108.1 205.25,-113.1 208.75,-113.1"></polygon> </g> <!-- H22 --> <g id="node6" class="node">
+<title>
+H22
+</title>
+<text text-anchor="middle" x="351" y="-85.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T1&#45;&gt;H22 --> <g id="edge5" class="edge">
+<title>
+T1-&gt;H22
+</title>
+<path fill="none" stroke="#8b3e2f" d="M351,-143.7C351,-134.46 351,-122.98 351,-113.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="352.75,-113.1 351,-108.1 349.25,-113.1 352.75,-113.1"></polygon> </g> <!-- T22 --> <g id="node7" class="node">
+<title>
+T22
+</title>
+<text text-anchor="middle" x="459" y="-85.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T1&#45;&gt;T22 --> <g id="edge6" class="edge">
+<title>
+T1-&gt;T22
+</title>
+<path fill="none" stroke="#8b3e2f" d="M377.42,-143.88C392.72,-133.96 412.05,-121.43 428.06,-111.05"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="429.23,-112.38 432.48,-108.19 427.33,-109.44 429.23,-112.38"></polygon> </g> <!-- H311 --> <g id="node8" class="node">
+<title>
+H311
+</title>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H21&#45;&gt;H311 --> <g id="edge7" class="edge">
+<title>
+H21-&gt;H311
+</title>
+<path fill="none" stroke="#8b3e2f" d="M81.2,-71.7C71.26,-62.03 58.81,-49.93 48.35,-39.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="49.4,-38.34 44.59,-36.1 46.96,-40.84 49.4,-38.34"></polygon> </g> <!-- T311 --> <g id="node9" class="node">
+<title>
+T311
+</title>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H21&#45;&gt;T311 --> <g id="edge8" class="edge">
+<title>
+H21-&gt;T311
+</title>
+<path fill="none" stroke="#8b3e2f" d="M99,-71.7C99,-62.46 99,-50.98 99,-41.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="100.75,-41.1 99,-36.1 97.25,-41.1 100.75,-41.1"></polygon> </g> <!-- H321 --> <g id="node10" class="node">
+<title>
+H321
+</title>
+<text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T21&#45;&gt;H321 --> <g id="edge9" class="edge">
+<title>
+T21-&gt;H321
+</title>
+<path fill="none" stroke="#8b3e2f" d="M198.1,-71.7C193.26,-62.29 187.23,-50.56 182.09,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="183.64,-39.75 179.8,-36.1 180.53,-41.35 183.64,-39.75"></polygon> </g> <!-- T321 --> <g id="node11" class="node">
+<title>
+T321
+</title>
+<text text-anchor="middle" x="243" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T21&#45;&gt;T321 --> <g id="edge10" class="edge">
+<title>
+T21-&gt;T321
+</title>
+<path fill="none" stroke="#8b3e2f" d="M215.9,-71.7C220.74,-62.29 226.77,-50.56 231.91,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="233.47,-41.35 234.2,-36.1 230.36,-39.75 233.47,-41.35"></polygon> </g> <!-- H312 --> <g id="node12" class="node">
+<title>
+H312
+</title>
+<text text-anchor="middle" x="315" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H22&#45;&gt;H312 --> <g id="edge11" class="edge">
+<title>
+H22-&gt;H312
+</title>
+<path fill="none" stroke="#8b3e2f" d="M342.1,-71.7C337.26,-62.29 331.23,-50.56 326.09,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="327.64,-39.75 323.8,-36.1 324.53,-41.35 327.64,-39.75"></polygon> </g> <!-- T312 --> <g id="node13" class="node">
+<title>
+T312
+</title>
+<text text-anchor="middle" x="387" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H22&#45;&gt;T312 --> <g id="edge12" class="edge">
+<title>
+H22-&gt;T312
+</title>
+<path fill="none" stroke="#8b3e2f" d="M359.9,-71.7C364.74,-62.29 370.77,-50.56 375.91,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="377.47,-41.35 378.2,-36.1 374.36,-39.75 377.47,-41.35"></polygon> </g> <!-- H322 --> <g id="node14" class="node">
+<title>
+H322
+</title>
+<text text-anchor="middle" x="459" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T22&#45;&gt;H322 --> <g id="edge13" class="edge">
+<title>
+T22-&gt;H322
+</title>
+<path fill="none" stroke="#8b3e2f" d="M459,-71.7C459,-62.46 459,-50.98 459,-41.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="460.75,-41.1 459,-36.1 457.25,-41.1 460.75,-41.1"></polygon> </g> <!-- T322 --> <g id="node15" class="node">
+<title>
+T322
+</title>
+<text text-anchor="middle" x="531" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T22&#45;&gt;T322 --> <g id="edge14" class="edge">
+<title>
+T22-&gt;T322
+</title>
+<path fill="none" stroke="#8b3e2f" d="M476.8,-71.7C486.74,-62.03 499.19,-49.93 509.65,-39.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="511.04,-40.84 513.41,-36.1 508.6,-38.34 511.04,-40.84"></polygon> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>To read off the outcomes from a tree, we follow the branches. For example, following the leftmost branch yields</li>
+</ul>
+</div>
+<div class="cell" data-fig-width="10" data-fig-height="4">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="960" height="384" viewbox="0.00 0.00 566.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>
+tree_diagram
+</title>
+<polygon fill="#f0ebd8" stroke="transparent" points="-4,4 -4,-256 562,-256 562,4 -4,4"></polygon> <!-- base --> <g id="node1" class="node">
+<title>
+base
+</title>
+<text text-anchor="middle" x="279" y="-229.8" font-family="Times,serif" font-size="14.00">o</text> </g> <!-- H1 --> <g id="node2" class="node">
+<title>
+H1
+</title>
+<text text-anchor="start" x="201.56" y="-158.8" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="red">H</text> </g> <!-- base&#45;&gt;H1 --> <g id="edge1" class="edge">
+<title>
+base-&gt;H1
+</title>
+<path fill="none" stroke="#8b3e2f" d="M261.2,-215.7C251.26,-206.03 238.81,-193.93 228.35,-183.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="229.4,-182.34 224.59,-180.1 226.96,-184.84 229.4,-182.34"></polygon> </g> <!-- T1 --> <g id="node3" class="node">
+<title>
+T1
+</title>
+<text text-anchor="middle" x="351" y="-157.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- base&#45;&gt;T1 --> <g id="edge2" class="edge">
+<title>
+base-&gt;T1
+</title>
+<path fill="none" stroke="#8b3e2f" d="M296.8,-215.7C306.74,-206.03 319.19,-193.93 329.65,-183.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="331.04,-184.84 333.41,-180.1 328.6,-182.34 331.04,-184.84"></polygon> </g> <!-- H21 --> <g id="node4" class="node">
+<title>
+H21
+</title>
+<text text-anchor="start" x="93.56" y="-86.8" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="red">H</text> </g> <!-- H1&#45;&gt;H21 --> <g id="edge3" class="edge">
+<title>
+H1-&gt;H21
+</title>
+<path fill="none" stroke="#8b3e2f" d="M180.58,-143.88C165.28,-133.96 145.95,-121.43 129.94,-111.05"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="130.67,-109.44 125.52,-108.19 128.77,-112.38 130.67,-109.44"></polygon> </g> <!-- T21 --> <g id="node5" class="node">
+<title>
+T21
+</title>
+<text text-anchor="middle" x="207" y="-85.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H1&#45;&gt;T21 --> <g id="edge4" class="edge">
+<title>
+H1-&gt;T21
+</title>
+<path fill="none" stroke="#8b3e2f" d="M207,-143.7C207,-134.46 207,-122.98 207,-113.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="208.75,-113.1 207,-108.1 205.25,-113.1 208.75,-113.1"></polygon> </g> <!-- H22 --> <g id="node6" class="node">
+<title>
+H22
+</title>
+<text text-anchor="middle" x="351" y="-85.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T1&#45;&gt;H22 --> <g id="edge5" class="edge">
+<title>
+T1-&gt;H22
+</title>
+<path fill="none" stroke="#8b3e2f" d="M351,-143.7C351,-134.46 351,-122.98 351,-113.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="352.75,-113.1 351,-108.1 349.25,-113.1 352.75,-113.1"></polygon> </g> <!-- T22 --> <g id="node7" class="node">
+<title>
+T22
+</title>
+<text text-anchor="middle" x="459" y="-85.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T1&#45;&gt;T22 --> <g id="edge6" class="edge">
+<title>
+T1-&gt;T22
+</title>
+<path fill="none" stroke="#8b3e2f" d="M377.42,-143.88C392.72,-133.96 412.05,-121.43 428.06,-111.05"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="429.23,-112.38 432.48,-108.19 427.33,-109.44 429.23,-112.38"></polygon> </g> <!-- H311 --> <g id="node8" class="node">
+<title>
+H311
+</title>
+<text text-anchor="start" x="21.56" y="-14.8" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="red">H</text> </g> <!-- H21&#45;&gt;H311 --> <g id="edge7" class="edge">
+<title>
+H21-&gt;H311
+</title>
+<path fill="none" stroke="#8b3e2f" d="M81.2,-71.7C71.26,-62.03 58.81,-49.93 48.35,-39.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="49.4,-38.34 44.59,-36.1 46.96,-40.84 49.4,-38.34"></polygon> </g> <!-- T311 --> <g id="node9" class="node">
+<title>
+T311
+</title>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H21&#45;&gt;T311 --> <g id="edge8" class="edge">
+<title>
+H21-&gt;T311
+</title>
+<path fill="none" stroke="#8b3e2f" d="M99,-71.7C99,-62.46 99,-50.98 99,-41.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="100.75,-41.1 99,-36.1 97.25,-41.1 100.75,-41.1"></polygon> </g> <!-- H321 --> <g id="node10" class="node">
+<title>
+H321
+</title>
+<text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T21&#45;&gt;H321 --> <g id="edge9" class="edge">
+<title>
+T21-&gt;H321
+</title>
+<path fill="none" stroke="#8b3e2f" d="M198.1,-71.7C193.26,-62.29 187.23,-50.56 182.09,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="183.64,-39.75 179.8,-36.1 180.53,-41.35 183.64,-39.75"></polygon> </g> <!-- T321 --> <g id="node11" class="node">
+<title>
+T321
+</title>
+<text text-anchor="middle" x="243" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T21&#45;&gt;T321 --> <g id="edge10" class="edge">
+<title>
+T21-&gt;T321
+</title>
+<path fill="none" stroke="#8b3e2f" d="M215.9,-71.7C220.74,-62.29 226.77,-50.56 231.91,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="233.47,-41.35 234.2,-36.1 230.36,-39.75 233.47,-41.35"></polygon> </g> <!-- H312 --> <g id="node12" class="node">
+<title>
+H312
+</title>
+<text text-anchor="middle" x="315" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H22&#45;&gt;H312 --> <g id="edge11" class="edge">
+<title>
+H22-&gt;H312
+</title>
+<path fill="none" stroke="#8b3e2f" d="M342.1,-71.7C337.26,-62.29 331.23,-50.56 326.09,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="327.64,-39.75 323.8,-36.1 324.53,-41.35 327.64,-39.75"></polygon> </g> <!-- T312 --> <g id="node13" class="node">
+<title>
+T312
+</title>
+<text text-anchor="middle" x="387" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H22&#45;&gt;T312 --> <g id="edge12" class="edge">
+<title>
+H22-&gt;T312
+</title>
+<path fill="none" stroke="#8b3e2f" d="M359.9,-71.7C364.74,-62.29 370.77,-50.56 375.91,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="377.47,-41.35 378.2,-36.1 374.36,-39.75 377.47,-41.35"></polygon> </g> <!-- H322 --> <g id="node14" class="node">
+<title>
+H322
+</title>
+<text text-anchor="middle" x="459" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T22&#45;&gt;H322 --> <g id="edge13" class="edge">
+<title>
+T22-&gt;H322
+</title>
+<path fill="none" stroke="#8b3e2f" d="M459,-71.7C459,-62.46 459,-50.98 459,-41.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="460.75,-41.1 459,-36.1 457.25,-41.1 460.75,-41.1"></polygon> </g> <!-- T322 --> <g id="node15" class="node">
+<title>
+T322
+</title>
+<text text-anchor="middle" x="531" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T22&#45;&gt;T322 --> <g id="edge14" class="edge">
+<title>
+T22-&gt;T322
+</title>
+<path fill="none" stroke="#8b3e2f" d="M476.8,-71.7C486.74,-62.03 499.19,-49.93 509.65,-39.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="511.04,-40.84 513.41,-36.1 508.6,-38.34 511.04,-40.84"></polygon> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p>which is the outcome <span class="math inline">\((H, H, H)\)</span>.</p>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>Can you tell me what the following outcome is?</li>
+</ul>
+</div>
+<div class="cell" data-fig-width="10" data-fig-height="4">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="960" height="384" viewbox="0.00 0.00 566.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>
+tree_diagram
+</title>
+<polygon fill="#f0ebd8" stroke="transparent" points="-4,4 -4,-256 562,-256 562,4 -4,4"></polygon> <!-- base --> <g id="node1" class="node">
+<title>
+base
+</title>
+<text text-anchor="middle" x="279" y="-229.8" font-family="Times,serif" font-size="14.00">o</text> </g> <!-- H1 --> <g id="node2" class="node">
+<title>
+H1
+</title>
+<text text-anchor="middle" x="207" y="-157.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- base&#45;&gt;H1 --> <g id="edge1" class="edge">
+<title>
+base-&gt;H1
+</title>
+<path fill="none" stroke="#8b3e2f" d="M261.2,-215.7C251.26,-206.03 238.81,-193.93 228.35,-183.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="229.4,-182.34 224.59,-180.1 226.96,-184.84 229.4,-182.34"></polygon> </g> <!-- T1 --> <g id="node3" class="node">
+<title>
+T1
+</title>
+<text text-anchor="start" x="346.33" y="-158.8" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="red">T</text> </g> <!-- base&#45;&gt;T1 --> <g id="edge2" class="edge">
+<title>
+base-&gt;T1
+</title>
+<path fill="none" stroke="#8b3e2f" d="M296.8,-215.7C306.74,-206.03 319.19,-193.93 329.65,-183.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="331.04,-184.84 333.41,-180.1 328.6,-182.34 331.04,-184.84"></polygon> </g> <!-- H21 --> <g id="node4" class="node">
+<title>
+H21
+</title>
+<text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H1&#45;&gt;H21 --> <g id="edge3" class="edge">
+<title>
+H1-&gt;H21
+</title>
+<path fill="none" stroke="#8b3e2f" d="M180.58,-143.88C165.28,-133.96 145.95,-121.43 129.94,-111.05"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="130.67,-109.44 125.52,-108.19 128.77,-112.38 130.67,-109.44"></polygon> </g> <!-- T21 --> <g id="node5" class="node">
+<title>
+T21
+</title>
+<text text-anchor="middle" x="207" y="-85.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H1&#45;&gt;T21 --> <g id="edge4" class="edge">
+<title>
+H1-&gt;T21
+</title>
+<path fill="none" stroke="#8b3e2f" d="M207,-143.7C207,-134.46 207,-122.98 207,-113.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="208.75,-113.1 207,-108.1 205.25,-113.1 208.75,-113.1"></polygon> </g> <!-- H22 --> <g id="node6" class="node">
+<title>
+H22
+</title>
+<text text-anchor="start" x="345.56" y="-86.8" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="red">H</text> </g> <!-- T1&#45;&gt;H22 --> <g id="edge5" class="edge">
+<title>
+T1-&gt;H22
+</title>
+<path fill="none" stroke="#8b3e2f" d="M351,-143.7C351,-134.46 351,-122.98 351,-113.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="352.75,-113.1 351,-108.1 349.25,-113.1 352.75,-113.1"></polygon> </g> <!-- T22 --> <g id="node7" class="node">
+<title>
+T22
+</title>
+<text text-anchor="middle" x="459" y="-85.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T1&#45;&gt;T22 --> <g id="edge6" class="edge">
+<title>
+T1-&gt;T22
+</title>
+<path fill="none" stroke="#8b3e2f" d="M377.42,-143.88C392.72,-133.96 412.05,-121.43 428.06,-111.05"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="429.23,-112.38 432.48,-108.19 427.33,-109.44 429.23,-112.38"></polygon> </g> <!-- H311 --> <g id="node8" class="node">
+<title>
+H311
+</title>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H21&#45;&gt;H311 --> <g id="edge7" class="edge">
+<title>
+H21-&gt;H311
+</title>
+<path fill="none" stroke="#8b3e2f" d="M81.2,-71.7C71.26,-62.03 58.81,-49.93 48.35,-39.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="49.4,-38.34 44.59,-36.1 46.96,-40.84 49.4,-38.34"></polygon> </g> <!-- T311 --> <g id="node9" class="node">
+<title>
+T311
+</title>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H21&#45;&gt;T311 --> <g id="edge8" class="edge">
+<title>
+H21-&gt;T311
+</title>
+<path fill="none" stroke="#8b3e2f" d="M99,-71.7C99,-62.46 99,-50.98 99,-41.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="100.75,-41.1 99,-36.1 97.25,-41.1 100.75,-41.1"></polygon> </g> <!-- H321 --> <g id="node10" class="node">
+<title>
+H321
+</title>
+<text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T21&#45;&gt;H321 --> <g id="edge9" class="edge">
+<title>
+T21-&gt;H321
+</title>
+<path fill="none" stroke="#8b3e2f" d="M198.1,-71.7C193.26,-62.29 187.23,-50.56 182.09,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="183.64,-39.75 179.8,-36.1 180.53,-41.35 183.64,-39.75"></polygon> </g> <!-- T321 --> <g id="node11" class="node">
+<title>
+T321
+</title>
+<text text-anchor="middle" x="243" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T21&#45;&gt;T321 --> <g id="edge10" class="edge">
+<title>
+T21-&gt;T321
+</title>
+<path fill="none" stroke="#8b3e2f" d="M215.9,-71.7C220.74,-62.29 226.77,-50.56 231.91,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="233.47,-41.35 234.2,-36.1 230.36,-39.75 233.47,-41.35"></polygon> </g> <!-- H312 --> <g id="node12" class="node">
+<title>
+H312
+</title>
+<text text-anchor="middle" x="315" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H22&#45;&gt;H312 --> <g id="edge11" class="edge">
+<title>
+H22-&gt;H312
+</title>
+<path fill="none" stroke="#8b3e2f" d="M342.1,-71.7C337.26,-62.29 331.23,-50.56 326.09,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="327.64,-39.75 323.8,-36.1 324.53,-41.35 327.64,-39.75"></polygon> </g> <!-- T312 --> <g id="node13" class="node">
+<title>
+T312
+</title>
+<text text-anchor="start" x="382.33" y="-14.8" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="red">T</text> </g> <!-- H22&#45;&gt;T312 --> <g id="edge12" class="edge">
+<title>
+H22-&gt;T312
+</title>
+<path fill="none" stroke="#8b3e2f" d="M359.9,-71.7C364.74,-62.29 370.77,-50.56 375.91,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="377.47,-41.35 378.2,-36.1 374.36,-39.75 377.47,-41.35"></polygon> </g> <!-- H322 --> <g id="node14" class="node">
+<title>
+H322
+</title>
+<text text-anchor="middle" x="459" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T22&#45;&gt;H322 --> <g id="edge13" class="edge">
+<title>
+T22-&gt;H322
+</title>
+<path fill="none" stroke="#8b3e2f" d="M459,-71.7C459,-62.46 459,-50.98 459,-41.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="460.75,-41.1 459,-36.1 457.25,-41.1 460.75,-41.1"></polygon> </g> <!-- T322 --> <g id="node15" class="node">
+<title>
+T322
+</title>
+<text text-anchor="middle" x="531" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T22&#45;&gt;T322 --> <g id="edge14" class="edge">
+<title>
+T22-&gt;T322
+</title>
+<path fill="none" stroke="#8b3e2f" d="M476.8,-71.7C486.74,-62.03 499.19,-49.93 509.65,-39.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="511.04,-40.84 513.41,-36.1 508.6,-38.34 511.04,-40.84"></polygon> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>Can you tell me how many outcomes will be in the outcome space?</li>
+</ul>
+</div>
+<div class="cell" data-fig-width="10" data-fig-height="4">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="960" height="384" viewbox="0.00 0.00 566.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>
+tree_diagram
+</title>
+<polygon fill="#f0ebd8" stroke="transparent" points="-4,4 -4,-256 562,-256 562,4 -4,4"></polygon> <!-- base --> <g id="node1" class="node">
+<title>
+base
+</title>
+<text text-anchor="middle" x="279" y="-229.8" font-family="Times,serif" font-size="14.00">o</text> </g> <!-- H1 --> <g id="node2" class="node">
+<title>
+H1
+</title>
+<text text-anchor="middle" x="207" y="-157.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- base&#45;&gt;H1 --> <g id="edge1" class="edge">
+<title>
+base-&gt;H1
+</title>
+<path fill="none" stroke="#8b3e2f" d="M261.2,-215.7C251.26,-206.03 238.81,-193.93 228.35,-183.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="229.4,-182.34 224.59,-180.1 226.96,-184.84 229.4,-182.34"></polygon> </g> <!-- T1 --> <g id="node3" class="node">
+<title>
+T1
+</title>
+<text text-anchor="middle" x="351" y="-157.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- base&#45;&gt;T1 --> <g id="edge2" class="edge">
+<title>
+base-&gt;T1
+</title>
+<path fill="none" stroke="#8b3e2f" d="M296.8,-215.7C306.74,-206.03 319.19,-193.93 329.65,-183.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="331.04,-184.84 333.41,-180.1 328.6,-182.34 331.04,-184.84"></polygon> </g> <!-- H21 --> <g id="node4" class="node">
+<title>
+H21
+</title>
+<text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H1&#45;&gt;H21 --> <g id="edge3" class="edge">
+<title>
+H1-&gt;H21
+</title>
+<path fill="none" stroke="#8b3e2f" d="M180.58,-143.88C165.28,-133.96 145.95,-121.43 129.94,-111.05"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="130.67,-109.44 125.52,-108.19 128.77,-112.38 130.67,-109.44"></polygon> </g> <!-- T21 --> <g id="node5" class="node">
+<title>
+T21
+</title>
+<text text-anchor="middle" x="207" y="-85.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H1&#45;&gt;T21 --> <g id="edge4" class="edge">
+<title>
+H1-&gt;T21
+</title>
+<path fill="none" stroke="#8b3e2f" d="M207,-143.7C207,-134.46 207,-122.98 207,-113.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="208.75,-113.1 207,-108.1 205.25,-113.1 208.75,-113.1"></polygon> </g> <!-- H22 --> <g id="node6" class="node">
+<title>
+H22
+</title>
+<text text-anchor="middle" x="351" y="-85.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T1&#45;&gt;H22 --> <g id="edge5" class="edge">
+<title>
+T1-&gt;H22
+</title>
+<path fill="none" stroke="#8b3e2f" d="M351,-143.7C351,-134.46 351,-122.98 351,-113.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="352.75,-113.1 351,-108.1 349.25,-113.1 352.75,-113.1"></polygon> </g> <!-- T22 --> <g id="node7" class="node">
+<title>
+T22
+</title>
+<text text-anchor="middle" x="459" y="-85.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T1&#45;&gt;T22 --> <g id="edge6" class="edge">
+<title>
+T1-&gt;T22
+</title>
+<path fill="none" stroke="#8b3e2f" d="M377.42,-143.88C392.72,-133.96 412.05,-121.43 428.06,-111.05"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="429.23,-112.38 432.48,-108.19 427.33,-109.44 429.23,-112.38"></polygon> </g> <!-- H311 --> <g id="node8" class="node">
+<title>
+H311
+</title>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H21&#45;&gt;H311 --> <g id="edge7" class="edge">
+<title>
+H21-&gt;H311
+</title>
+<path fill="none" stroke="#8b3e2f" d="M81.2,-71.7C71.26,-62.03 58.81,-49.93 48.35,-39.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="49.4,-38.34 44.59,-36.1 46.96,-40.84 49.4,-38.34"></polygon> </g> <!-- T311 --> <g id="node9" class="node">
+<title>
+T311
+</title>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H21&#45;&gt;T311 --> <g id="edge8" class="edge">
+<title>
+H21-&gt;T311
+</title>
+<path fill="none" stroke="#8b3e2f" d="M99,-71.7C99,-62.46 99,-50.98 99,-41.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="100.75,-41.1 99,-36.1 97.25,-41.1 100.75,-41.1"></polygon> </g> <!-- H321 --> <g id="node10" class="node">
+<title>
+H321
+</title>
+<text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T21&#45;&gt;H321 --> <g id="edge9" class="edge">
+<title>
+T21-&gt;H321
+</title>
+<path fill="none" stroke="#8b3e2f" d="M198.1,-71.7C193.26,-62.29 187.23,-50.56 182.09,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="183.64,-39.75 179.8,-36.1 180.53,-41.35 183.64,-39.75"></polygon> </g> <!-- T321 --> <g id="node11" class="node">
+<title>
+T321
+</title>
+<text text-anchor="middle" x="243" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T21&#45;&gt;T321 --> <g id="edge10" class="edge">
+<title>
+T21-&gt;T321
+</title>
+<path fill="none" stroke="#8b3e2f" d="M215.9,-71.7C220.74,-62.29 226.77,-50.56 231.91,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="233.47,-41.35 234.2,-36.1 230.36,-39.75 233.47,-41.35"></polygon> </g> <!-- H312 --> <g id="node12" class="node">
+<title>
+H312
+</title>
+<text text-anchor="middle" x="315" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- H22&#45;&gt;H312 --> <g id="edge11" class="edge">
+<title>
+H22-&gt;H312
+</title>
+<path fill="none" stroke="#8b3e2f" d="M342.1,-71.7C337.26,-62.29 331.23,-50.56 326.09,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="327.64,-39.75 323.8,-36.1 324.53,-41.35 327.64,-39.75"></polygon> </g> <!-- T312 --> <g id="node13" class="node">
+<title>
+T312
+</title>
+<text text-anchor="middle" x="387" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- H22&#45;&gt;T312 --> <g id="edge12" class="edge">
+<title>
+H22-&gt;T312
+</title>
+<path fill="none" stroke="#8b3e2f" d="M359.9,-71.7C364.74,-62.29 370.77,-50.56 375.91,-40.56"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="377.47,-41.35 378.2,-36.1 374.36,-39.75 377.47,-41.35"></polygon> </g> <!-- H322 --> <g id="node14" class="node">
+<title>
+H322
+</title>
+<text text-anchor="middle" x="459" y="-13.8" font-family="Times,serif" font-size="14.00">H</text> </g> <!-- T22&#45;&gt;H322 --> <g id="edge13" class="edge">
+<title>
+T22-&gt;H322
+</title>
+<path fill="none" stroke="#8b3e2f" d="M459,-71.7C459,-62.46 459,-50.98 459,-41.11"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="460.75,-41.1 459,-36.1 457.25,-41.1 460.75,-41.1"></polygon> </g> <!-- T322 --> <g id="node15" class="node">
+<title>
+T322
+</title>
+<text text-anchor="middle" x="531" y="-13.8" font-family="Times,serif" font-size="14.00">T</text> </g> <!-- T22&#45;&gt;T322 --> <g id="edge14" class="edge">
+<title>
+T22-&gt;T322
+</title>
+<path fill="none" stroke="#8b3e2f" d="M476.8,-71.7C486.74,-62.03 499.19,-49.93 509.65,-39.76"></path> <polygon fill="#8b3e2f" stroke="#8b3e2f" points="511.04,-40.84 513.41,-36.1 508.6,-38.34 511.04,-40.84"></polygon> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="events" class="level2">
+<h2 class="anchored" data-anchor-id="events">Events</h2>
+<ul>
+<li><p>Sometimes, it will be useful to consider quantities that are a bit more complex than single outcomes.</p></li>
+<li><p>For example, consider the experiment of rolling two 4-sided dice. I could ask myself: in how many outcomes does the second dice roll result in a higher number than the first?</p></li>
+<li><p>This leads us to the notion of an <strong>event</strong>.</p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Definition</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>An <strong>event</strong> is a subset of the outcome space. In other words, an event is just a set consisting of one or more outcomes.</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>As an example, the event <span class="math inline">\(E\)</span> defined to be “the second dice lands on a number strictly larger than the first” can be written <span class="math display">\[ E = \{(1, 2), \ (1, 3), \ (1, 4), \ (2, 3), \ (2, 4), \ (3, 4)\} \]</span> as these are the only outcomes in which the second dice lands on a number strictly larger than the first.</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Consider the experiment of tossing three coins and recording the faces that appear. If <span class="math inline">\(F\)</span> denotes the event “an even number of heads was observed”, what is the mathematical representation of <span class="math inline">\(F\)</span> (i.e.&nbsp;as a collection of outcomes)?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="unions-and-intersections" class="level2">
+<h2 class="anchored" data-anchor-id="unions-and-intersections">Unions and Intersections</h2>
+<ul>
+<li><p>Remember how we talked about the <em>union</em> of two sets last lecture?</p></li>
+<li><p>Well, since events are just sets, we can talk about the union of two sets.</p>
+<ul>
+<li><p>In words, the union corresponds to an “or” statement.</p></li>
+<li><p>For example, let <span class="math inline">\(E\)</span> denote the event “it is raining” and <span class="math inline">\(F\)</span> denote the event “the ground is wet”, then the event <span class="math inline">\(E \cup F\)</span> would be the event “it is raining or the ground is wet”.</p></li>
+</ul></li>
+<li><p>The <strong>intersection</strong> of two events (denoted with the <span class="math inline">\(\cap\)</span> symbol), corresponds to an “and” statement</p>
+<ul>
+<li>For example, if <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> are defined as in the bullet point above, then <span class="math inline">\(E \cap F\)</span> denotes the event “it is raining and the ground is wet”.</li>
+</ul></li>
+</ul>
+</section>
+<section id="complements" class="level2">
+<h2 class="anchored" data-anchor-id="complements">Complements</h2>
+<ul>
+<li><p>The <strong>complement</strong> of an event <span class="math inline">\(E\)</span>, denoted <span class="math inline">\(E^{\complement}\)</span>, represents the event “not <span class="math inline">\(E\)</span>”</p>
+<ul>
+<li>For instance, if <span class="math inline">\(E\)</span> again denotes the event “it is raining”, then <span class="math inline">\(E^{\complement}\)</span> denotes the event “it is not raining”.</li>
+</ul></li>
+</ul>
+</section>
+<section id="leadup" class="level2">
+<h2 class="anchored" data-anchor-id="leadup">Leadup</h2>
+<ul>
+<li><p>Recall that <span class="math inline">\(E \cap F\)</span> denotes the event “both <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> occurred.”</p></li>
+<li><p>Also recall that <span class="math inline">\(A^{\complement}\)</span> denotes “not <span class="math inline">\(A\)</span>”; i.e.&nbsp;“<span class="math inline">\(A\)</span> did not occur”</p></li>
+<li><p>As such, <span class="math inline">\((E \cap F)^{\complement}\)</span> denotes the event “it is not the case that both <span class="math inline">\(E\)</span> or <span class="math inline">\(F\)</span> occurred.”</p>
+<ul>
+<li><p>This means that either <span class="math inline">\(E\)</span> did not occur, or <span class="math inline">\(F\)</span> did not occur (or both).</p></li>
+<li><p>Mathematically, this is equivalent to <span class="math inline">\(E^\complement \cup F^\complement\)</span>.</p></li>
+</ul></li>
+<li><p>As such, it seems we have arrived at the following equality: <span class="math display">\[ (E \cap F)^{\complement} = E^\complement \cup F^\complement \]</span></p></li>
+</ul>
+<hr>
+</section>
+<section id="demorgans-laws" class="level2">
+<h2 class="anchored" data-anchor-id="demorgans-laws">DeMorgan’s Laws</h2>
+<div class="nonincremental">
+<ul>
+<li>This is one of what are known as <strong>DeMorgan’s Laws</strong>.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="nonincremental">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DeMorgan’s Laws
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Given two events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>, we have the following:</p>
+<ul>
+<li><span class="math inline">\((E \cap F)^{\complement} = E^\complement \cup F^\complement\)</span></li>
+<li><span class="math inline">\((E \cup F)^{\complement} = E^\complement \cap F^\complement\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>We will not prove these in this class. However, please familiarize yourself with them as they will be incredibly useful!</li>
+</ul>
+<hr>
+<div class="fragment">
+<div class="nonincremental">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Consider the experiment of tossing two coins at the same time. Define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = “we observe an even number of heads”</li>
+<li><span class="math inline">\(B\)</span> = “we observe an odd number of heads”</li>
+<li><span class="math inline">\(C\)</span> = “both coins landed heads”</li>
+</ul>
+<p>Express the following events in words:</p>
+<ul>
+<li><span class="math inline">\((A \cup C)^\complement\)</span></li>
+<li><span class="math inline">\(A \cap B\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="leadup-1" class="level2">
+<h2 class="anchored" data-anchor-id="leadup-1">Leadup</h2>
+<ul>
+<li><p>Now, there is something interesting about the events defined in the previous example.</p></li>
+<li><p>The outcome space of the underlying experiment is <span class="math display">\[ \Omega = \{ (H, H), \ (H, T), \ (T, H), \ (T, T)\} \]</span> and</p>
+<ul>
+<li><span class="math inline">\(A = \{(H, H), \ (T, T)\}\)</span></li>
+<li><span class="math inline">\(B = \{(H, T), \ (T, H)\}\)</span></li>
+<li><span class="math inline">\(C = \{(H, H)\}\)</span></li>
+</ul></li>
+</ul>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>First note that the event <span class="math inline">\(C\)</span> is contained in the event <span class="math inline">\(A\)</span>.</li>
+</ul>
+</div>
+<ul>
+<li><p>This is an example of a <strong>subset</strong>: we say that a set <span class="math inline">\(A\)</span> is a <em>subset</em> of another set <span class="math inline">\(B\)</span> if all elements of <span class="math inline">\(A\)</span> are also elements of <span class="math inline">\(B\)</span>. We use the notation <span class="math inline">\(A \subseteq B\)</span>.</p>
+<ul>
+<li>For example, <span class="math inline">\(\{2, 3\} \subseteq \{1, 2, 3, 4\}\)</span></li>
+</ul></li>
+<li><p>Another thing to note is that <span class="math inline">\(A \cap B\)</span> has no elements- there is nothing common to both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>!</p>
+<ul>
+<li><p>The set with no elements is called the <strong>empty set</strong>, and is denoted <span class="math inline">\(\varnothing\)</span>.</p></li>
+<li><p>Two events whose intersection is the empty said are said to be <strong>disjoint</strong>.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="probability" class="level2">
+<h2 class="anchored" data-anchor-id="probability">Probability</h2>
+<ul>
+<li><p>Now, you may note that we have yet to mention the term “probability.”</p></li>
+<li><p>To get a better sense of “probability”, let’s examine how we use the word in everyday speech:</p>
+<ul>
+<li>“the chance of rain is 50%”</li>
+<li>“odds of winning big at a Casino is 1%”</li>
+<li>“probability of scoring a 100% on the PSTAT 5A Midterm 1 is 95%”</li>
+</ul></li>
+<li><p>Notice that “rain”, “winning big at a Casino”, and “scoring 100% on the PSTAT 5A Midterm 1” are all events.</p></li>
+<li><p>As such, “probability” seems to take in an event and spit out a number.</p></li>
+</ul>
+</section>
+<section id="probability-1" class="level2">
+<h2 class="anchored" data-anchor-id="probability-1">Probability</h2>
+<div class="nonincremental">
+<ul>
+<li>In other words, we can think of “probability” (or, more accurately, what we refer to as a <strong>probability measure</strong>) as a <em>function</em> that takes in an event and outputs a number.</li>
+</ul>
+</div>
+<ul>
+<li><p>The symbol we use for a probability measure is <span class="math inline">\(\mathbb{P}\)</span>; i.e.&nbsp;we write <span class="math inline">\(\mathbb{P}(E)\)</span> to denote “the probability of event <span class="math inline">\(E\)</span>”.</p></li>
+<li><p>Now, this doesn’t really tell us how to define <span class="math inline">\(\mathbb{P}(E)\)</span> for an arbitrary event <span class="math inline">\(E\)</span>.</p></li>
+<li><p>There are (roughly) two schools of thought when it comes to defining the probability of an event: the <strong>long-run frequency</strong> approach, and the <strong>classical approach</strong>.</p></li>
+</ul>
+</section>
+<section id="long-run-frequency-approach" class="level2">
+<h2 class="anchored" data-anchor-id="long-run-frequency-approach">Long-Run-Frequency Approach</h2>
+<ul>
+<li><p>The long-run frequency approach defines the probability of an event <span class="math inline">\(E\)</span> to be the proportion of times <span class="math inline">\(E\)</span> occurs, if the underlying experiment were to be repeated a large number of times.</p></li>
+<li><p>To help us understand the notion of long-run frequencies, let’s go through an example together. Suppose we toss a coin and record whether the outcome lands <code>heads</code> or <code>tails</code>, and further suppose we observe the following tosses:</p></li>
+</ul>
+<div class="fragment">
+<div style="text-align:center">
+<p><code>H</code>, &nbsp;<code>T</code>, &nbsp; <code>T</code>, &nbsp; <code>H</code>, &nbsp; <code>T</code>, &nbsp; <code>H</code>, &nbsp; <code>H</code>, &nbsp; <code>H</code>, &nbsp; <code>T</code>, &nbsp; <code>T</code></p>
+</div>
+</div>
+<ul>
+<li>To compute the relative frequency of <code>heads</code> after each toss, we count the number of times we observed <code>heads</code> and divide by the total number of tosses observed.</li>
+</ul>
+<hr>
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Toss</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Outcome</td>
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: center;"><code>T</code></td>
+<td style="text-align: center;"><code>T</code></td>
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: center;"><code>T</code></td>
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: center;"><code>T</code></td>
+<td style="text-align: center;"><code>T</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Raw freq. of <code>H</code></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Rel. freq of <code>H</code></td>
+<td style="text-align: center;">1/1</td>
+<td style="text-align: center;">1/2</td>
+<td style="text-align: center;">1/3</td>
+<td style="text-align: center;">2/4</td>
+<td style="text-align: center;">2/5</td>
+<td style="text-align: center;">3/6</td>
+<td style="text-align: center;">4/7</td>
+<td style="text-align: center;">5/8</td>
+<td style="text-align: center;">5/9</td>
+<td style="text-align: center;">5/10</td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Lec03_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>It turns out (by what is known as the <strong>Weak Law of Large Numbers</strong>) that, regardless of the experiment and event, the relative frequencies will converge to some fixed value.</li>
+</ul>
+</div>
+<ul>
+<li>What the long-run frequencies approach to probability says is to define this value to be the probability of the event.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Lec03_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="classical-approach" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="classical-approach">Classical Approach</h2>
+<ul>
+<li><p>The second way to define probabilities is what is known as the <strong>classical approach</strong>.</p></li>
+<li><p>As an important note: we can only apply the classical approach if we believe all outcomes in our experiment to be <strong>equally likely</strong>.</p>
+<ul>
+<li>Examples of situations in which it is safe to assume equally likely outcomes include: tossing a <em>fair</em> coin some number of times, rolling a <em>fair</em> <span class="math inline">\(k\)</span>-sided die, selecting a card <em>at random</em> from a deck of cards, etc.</li>
+</ul></li>
+<li><p>If we make the equally likely outcomes assumption, then the classical approach to probability tells us to define <span class="math inline">\(\mathbb{P}(E)\)</span> as <span class="math display">\[ \mathbb{P}(E) = \frac{\text{number of ways $E$ can occur}}{\text{total number of outcomes}} \]</span></p></li>
+<li><p>So, for example, if we toss a fair coin once, then the classical approach to probability (which can be used since the coin is <em>fair</em>) states that <span class="math display">\[ \mathbb{P}(\texttt{heads}) = \frac{1}{2} \]</span></p></li>
+</ul>
+</section>
+<section id="comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons">Comparisons</h2>
+<ul>
+<li><p>Let’s quickly compare these two approaches to defining the probability of an event.</p></li>
+<li><p>The long-run frequencies definition has the benefit of not requiring the assumption of equally likely outcomes.</p>
+<ul>
+<li>However, it relies on the (perhaps odd) consideration of considering what happens when we repeat an experiment <em>a large number of times</em>.</li>
+</ul></li>
+<li><p>The classical approach does not rely on such considerations, making the definitions it produces perhaps a bit more easily interpretable.</p>
+<ul>
+<li>However, it crucially requires the assumption of equally likely outcomes.</li>
+</ul></li>
+</ul>
+</section>
+<section id="comparisons-1" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons-1">Comparisons</h2>
+<div class="nonincremental">
+<ul>
+<li>For the purposes of this class, we won’t be too concerned with defining the probability of an event: in many cases, we will just give you the probability.</li>
+</ul>
+</div>
+<ul>
+<li><p>In situations where we do <em>not</em> provide a probability <em>a priori</em>, there will likely be some key word or phrase that lets you know we are looking for the classical definition.</p>
+<ul>
+<li>Again, important words/phrases to look out for are: <em>fair</em>, <em>at random</em>, etc.</li>
+</ul></li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 24px">
+<p><strong>Part (a)</strong> Consider the experiment of rolling a fair six-sided die once and recording the number on the face that is showing. What is the probability that the die lands on the number 1?<br>
+</p>
+<p><strong>Part(b)</strong> A coin is tossed repeatedly, and the following relative frequency diagram is constructed to track the relative frequency of <code>heads</code>. What is the probability that the coin will land heads? Is the coin fair?</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Lec03_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="axioms-of-probability" class="level2">
+<h2 class="anchored" data-anchor-id="axioms-of-probability">Axioms of Probability</h2>
+<ul>
+<li><p>It turns out that there are three <strong>axioms</strong> that a probability measure must satisfy, collectively called the <strong>axioms of probability</strong>:</p>
+<ol type="1">
+<li><span class="math inline">\(\mathbb{P}(E) \geq 0\)</span> for any event <span class="math inline">\(E\)</span></li>
+<li><span class="math inline">\(\mathbb{P}(\Omega) = 1\)</span></li>
+<li>For disjoint events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>, <span class="math inline">\(\mathbb{P}(E \cup F) = \mathbb{P}(E) + \mathbb{P}(F)\)</span>.</li>
+</ol></li>
+<li><p>If you are not familiar with the notion of <em>axioms</em>: an axiom is a fundamental “truth” of math, that does not need to be proven.</p>
+<ul>
+<li>Axioms are like the building blocks, or base assumptions on which a system of math is predicated.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="probability-rules" class="level1">
+<h1>Probability Rules</h1>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<ul>
+<li><p>Let’s quickly summarize the concepts/terms we’ve covered:</p>
+<ul>
+<li>Experiment: any procedure that can be repeated an infinite number of times, where each time the procedure is repeated there are a fixed set of outcomes that can occur.</li>
+<li>Outcome Space: the set of all outcomes associated with a particular experiment.</li>
+<li>Event: a subset of the outcome space</li>
+<li>Probability (measure): a function that takes an event and outputs a number</li>
+</ul></li>
+<li><p>These are the basic building blocks of probability.</p></li>
+<li><p>We will now combine them!</p></li>
+</ul>
+</section>
+<section id="notational-reminder" class="level2">
+<h2 class="anchored" data-anchor-id="notational-reminder">Notational Reminder</h2>
+<ul>
+<li>Before we go any further, I’d like to stress something:</li>
+</ul>
+<div class="fragment">
+<div class="nonincremental">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>In this class, using proper notation is very important.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>For example, if we have an event <span class="math inline">\(E\)</span> whose probability of occurring is, say, <span class="math inline">\(0.5\)</span>, we must write <span class="math inline">\(\mathbb{P}(E) = 0.5\)</span>; it is <strong>NOT</strong> correct to say <span class="math inline">\(E = 0.5\)</span>, or <span class="math inline">\(\mathbb{P} = 0.5\)</span>.</li>
+</ul>
+</section>
+<section id="the-complement-rule" class="level2">
+<h2 class="anchored" data-anchor-id="the-complement-rule">The Complement Rule</h2>
+<ul>
+<li>The first result we will explore is the so-called <strong>complement rule</strong>.</li>
+</ul>
+<div class="fragment">
+<div class="nonincremental">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Complement Rule
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Given an event <span class="math inline">\(E\)</span>, we have <span class="math inline">\(\mathbb{P}(E^\complement) = 1 - \mathbb{P}(E)\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>As an example: if we roll a fair six-sided die and if <span class="math inline">\(E =\)</span> “rolling a <span class="math inline">\(1\)</span>”, then <span class="math inline">\(E^\complement =\)</span> “not rolling a <span class="math inline">\(1\)</span>” and <span class="math display">\[\mathbb{P}(E^\complement) = 1 - \mathbb{P}(E) = 1 - 1/6 = \boxed{5/6}\]</span></li>
+</ul>
+</section>
+<section id="the-probability-of-the-empty-set" class="level2">
+<h2 class="anchored" data-anchor-id="the-probability-of-the-empty-set">The Probability of the Empty Set</h2>
+<ul>
+<li>Recall that the empty set (<span class="math inline">\(\varnothing\)</span>) is the set containing no elements.</li>
+</ul>
+<div class="fragment">
+<div class="nonincremental">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Probability of the Empty Set
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p><span class="math inline">\(\mathbb{P}(\varnothing) = 0\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>The “proof” of this is relatively simple: note that <span class="math inline">\(\Omega^\complement = \varnothing\)</span> (the opposite of “everything” is “nothing”); we also know that <span class="math inline">\(\mathbb{P}(\Omega) = 1\)</span> so <span class="math display">\[ \mathbb{P}(\Omega^\complement) = \mathbb{P}(\varnothing) = 1 - 1 = 0 \]</span></li>
+</ul>
+</section>
+<section id="the-addition-rule" class="level2">
+<h2 class="anchored" data-anchor-id="the-addition-rule">The Addition Rule</h2>
+<ul>
+<li>The next result we will explore is the so-called <strong>addition rule</strong>.</li>
+</ul>
+<div class="fragment">
+<div class="nonincremental">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Addition Rule
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Given events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>, we have <span class="math inline">\(\mathbb{P}(E \cup F) = \mathbb{P}(E) + \mathbb{P}(F) - \mathbb{P}(E \cap F)\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>Note that if <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> are disjoint, then we recover the third axiom of probability!</li>
+</ul>
+</section>
+<section id="worked-out-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="worked-out-example-1">Worked-Out Example</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Example 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>A recent survey at the <em>Isla Vista Co-Op</em> revealed that 50% of shoppers buy bread, 30% buy jam, and 20% buy both bread and jam.</p>
+<ol type="a">
+<li>What is the probability that a randomly selected shopper will <strong>not</strong> purchase jam?</li>
+<li>What is the probability that a randomly selected shopper will purchase either bread or jam (or both)?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="solution-to-part-a" class="level2">
+<h2 class="anchored" data-anchor-id="solution-to-part-a">Solution to Part (a)</h2>
+<ul>
+<li><p>Let <span class="math inline">\(J\)</span> denote the event “a randomly selected shopper <em>will</em> purchase jam”.</p>
+<ul>
+<li>From the problem statement, we have that <span class="math inline">\(\mathbb{P}(J) = 0.3\)</span></li>
+</ul></li>
+<li><p>The event “a randomly selected shopper will not purchase jam” is given by <span class="math inline">\(J^\complement\)</span>, meaning the quantity we seek is <span class="math inline">\(\mathbb{P}(J^\complement)\)</span>.</p></li>
+<li><p>By the <strong>Complement Rule</strong>, we have <span class="math display">\[ \mathbb{P}(J^\complement) = 1 - \mathbb{P}(J) = 1 - 0.3 = \boxed{0.7 = 70\%} \]</span></p></li>
+</ul>
+</section>
+<section id="solution-to-part-b" class="level2" style="font-size:32px">
+<h2 style="font-size:32px" class="anchored" data-anchor-id="solution-to-part-b">Solution to Part (b)</h2>
+<ul>
+<li><p>Let <span class="math inline">\(J\)</span> be defined as before, and let <span class="math inline">\(B\)</span> denote the event “a randomly selected shopper will purchase bread or jam”</p>
+<ul>
+<li><p>The first quantity provided in the problem statement tells us that <span class="math inline">\(\mathbb{P}(B) = 0.5\)</span></p></li>
+<li><p>The final quantity provided in the problem statement tells us that <span class="math inline">\(\mathbb{P}(B \cap J) = 0.2\)</span></p></li>
+</ul></li>
+<li><p>The event “a randomly selected shopper will purchase either bread or jam” is given by <span class="math inline">\(B \cup J\)</span>, meaning we seek <span class="math inline">\(\mathbb{P}(B \cup J)\)</span>.</p></li>
+<li><p>By the <strong>Addition Rule</strong>,</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\begin{align*}
+  \mathbb{P}(B \cup J)     &amp; = \mathbb{P}(B) + \mathbb{P}(J) - \mathbb{P}(B \cap J)   \\
+  &amp; = 0.5 + 0.3 - 0.2 = \boxed{0.6 = 60\%}
+\end{align*}\]</span></p>
+</div>
+</section>
+<section id="general-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="general-strategy">General Strategy</h2>
+<div class="fragment">
+<div class="nonincremental">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+General Strategy for Probability Word Problems
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<ul>
+<li>Start by defining events</li>
+<li>Next, translate the information provided to you (through the problem statement) to be in terms of the events you defined above</li>
+<li>Then, identify the quantity you are trying to obtain</li>
+<li>Finally, apply the various probability rules to solve for the desired quantity.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="time-to-put-everything-together" class="level2">
+<h2 class="anchored" data-anchor-id="time-to-put-everything-together">Time to Put Everything Together!</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 32px">
+<p>Two fair six-sided dice are rolled.</p>
+<ol type="a">
+<li>What is the outcome space of this experiment?</li>
+<li>What is the probability that the first die lands on the number 2?</li>
+<li>What is the probability that the first die lands on the number 2, or the second die lands on an even number?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="an-additional-tool" class="level1">
+<h1>An Additional Tool</h1>
+<section id="venn-diagrams" class="level2">
+<h2 class="anchored" data-anchor-id="venn-diagrams">Venn Diagrams</h2>
+<ul>
+<li><p>I’d like to impart one additional tool that can help with visualizing the relationship between events: <strong>Venn Diagrams</strong></p></li>
+<li><p>We denote the outcome space <span class="math inline">\(\Omega\)</span> by a large rectangle, and denote events by circles.</p></li>
+<li><p>Since events are subsets of <span class="math inline">\(\Omega\)</span>, we draw them <em>inside</em> (physically) the rectangle representing <span class="math inline">\(\Omega\)</span>.</p></li>
+</ul>
+<hr>
+<div class="fragment" style="text-align:center">
+<p><img src="VennDiagrams/a_only.svg" class="img-fluid" style="width:40.0%"></p>
+</div>
+<ul>
+<li>Things get a bit more interesting when we consider several events:</li>
+</ul>
+<div class="fragment" style="text-align:center">
+<p><img src="VennDiagrams/ab_intersect.svg" class="img-fluid" style="width:40.0%"></p>
+</div>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>The reason Venn Diagrams are so useful is that they enable us to visualize different set operations.</li>
+</ul>
+</div>
+<ul>
+<li>For example, given two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the event <span class="math inline">\(A \cap B\)</span> is found on a Venn Diagram as:</li>
+</ul>
+<div class="fragment" style="text-align:center">
+<p><img src="VennDiagrams/ab_intersect_shaded.svg" class="img-fluid" style="width:40.0%"></p>
+</div>
+</section>
+<section id="summary-1" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="summary-1">Summary</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="VennDiagrams/a_complement.svg" class="img-fluid" style="width:50.0%"></p>
+</div><div class="column" style="width:50%;">
+<div style="text-align:center">
+<p><br> <span class="math inline">\(A^\complement\)</span> <br> (complement)</p>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="VennDiagrams/ab_intersect_shaded.svg" class="img-fluid" style="width:50.0%"></p>
+</div><div class="column" style="width:50%;">
+<div style="text-align:center">
+<p><br> <span class="math inline">\(A \cap B\)</span> <br> (intersection)</p>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="VennDiagrams/ab_union.svg" class="img-fluid" style="width:50.0%"></p>
+</div><div class="column" style="width:50%;">
+<div style="text-align:center">
+<p><br> <span class="math inline">\(A \cup B\)</span> <br> (union)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="demorgans-laws-2" class="level2">
+<h2 class="anchored" data-anchor-id="demorgans-laws-2">DeMorgan’s Laws</h2>
+<ul>
+<li><p>This can also help give us some intuition on DeMorgan’s Laws as well!</p>
+<ul>
+<li>Let’s do this on the whiteboard together.</li>
+</ul></li>
+<li><p>We will return to Venn Diagrams periodically throughout this course- for now, I hope they provide a useful tool to help you visualize the set operations we learned this lecture.</p></li>
+</ul>
+</section>
+</section>
+<section id="lecture-summary" class="level1">
+<h1>Lecture Summary</h1>
+<section id="lecture-summary-1" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="lecture-summary-1">Lecture Summary</h2>
+<ul>
+<li><p>Today, we began our introduction to the field of probability.</p>
+<ul>
+<li>Probability, loosely speaking, provides us with a way to quantify uncertainty.</li>
+</ul></li>
+<li><p>We discussed the notions of experiments, outcomes, outcome spaces, events, and probabilities.</p>
+<ul>
+<li>Remember that there are certain tools/diagrams (namely, tables and tree diagrams) that can help us determine the outcome space of an experiment.</li>
+</ul></li>
+<li><p>We then discussed three probability rules: the complement rule, the probability of the empty set, and the addition rule.</p></li>
+<li><p>We also saw how Venn Diagrams can help us visualize set operations.</p></li>
+<li><p>Next time, we will start talking about ways to compute the probability of more complex events under the assumption of equally likely outcomes.</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Site Designed by Ethan Marzban using Quarto; ©2023</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

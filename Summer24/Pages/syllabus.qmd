@@ -1,0 +1,181 @@
+---
+title: "PSTAT 5A: Understanding Data"
+subtitle: "Course Syllabus"
+author:
+  - name: "Ethan Marzban"
+    affiliations:
+      - name: "Summer Session A, 2023"
+author-title: "Instructor"
+affiliation-title: "Quarter"
+format: html
+linkcolor: "#ffa07a"
+---
+
+**WELCOME TO PSTAT 5A**! I am very excited to introduce to you the wonderful fields of Statistics and Data Science. As our world becomes ever more saturated with data, the need for data literacy becomes increasingly important. By the end of this course, I hope you will be able to think critically about statistical studies and results, understand how data can be used to simultaneously inform and manipulate, and begin applying your newfound techniques to your future endeavors. I am very much looking forward to a great quarter with all of you!
+
+--- Ethan
+
+## Lecture Information
+
+::: callout-note
+## **Lecture Times and Locations**
+
+M, T, W, Th: 11:00am - 12:20pm in **ILP 1101**
+:::
+
+## Course Staff
+
+\vspace{-5mm}
+
+::: {layout-ncol="2"}
++-----------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| **Instructor:** | Ethan P. Marzban                                                                                                                             |
++:================+:=============================================================================================================================================+
+| **Email:**      | [epmarzban\@pstat.ucsb.edu](mailto:epmarzban@pstat.ucsb.edu) (Please use only in case of emergency)                                          |
++-----------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| **Help Hours:** | -   [**Tuesdays:**]{.underline} 4:30pm - 5:30pm (<a href="https://ucsb.zoom.us/j/86469023392?pwd=aG5zY29wRWJscEFRY2ZYa0dXOVZ6Zz09">Zoom</a>) |
+|                 | -   [**Thursdays:**]{.underline} 2:30pm - 3:30pm (SH 5607 F)                                                                                 |
++-----------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+: {tbl-colwidths="\[20, 30\]"}
+
++------------------------------------------------+
+| **TAs**                                        |
++:===============================================+
+| **Mengrui Zhang**\                             |
+| ([mengrui\@ucsb.edu](mailto:mengrui@ucsb.edu)) |
++------------------------------------------------+
+| **Olivier Mulkin**\                            |
+| ([omulkin\@ucsb.edu](mailto:omulkin@ucsb.edu)) |
++------------------------------------------------+
+
+: {tbl-colwidths="\[50\]"}
+:::
+
+## Schedule of Sections
+
+|       Times       |       TA       |  Location   |
+|:-----------------:|:--------------:|:-----------:|
+| MW 12:30 - 1:20pm | Olivier Mulkin | PHELPS 1513 |
+| MW 2:00 - 2:50pm  | Mengrui Zhang  | PHELPS 1513 |
+| MW 3:00 - 3:50pm  | Mengrui Zhang  | PHELPS 1513 |
+
+## Course Description
+
+The official description of this course, from the Course Catalog, is:
+
+> Introduction to data science. Concepts of statistical thinking. Topics include random variables, sampling distributions, hypothesis testing, correlation and regression. Visualizing, analyzing and interpreting real world data using Python. Computing labs required.
+
+## Textbook(s)
+
+This quarter, we do not have a required textbook- the lecture slides and lab activities are designed to be self-sufficient. However, the following textbooks are highly recommended:
+
+-   *OpenIntro: Statistics*. David Diez, Mine Çetinkaya-Rundel, and Christopher D Barr. (free version, courtesy of the authors, available at <a href = "https://leanpub.com/os/" target = "_blank">https://leanpub.com/os</a>)
+
+-   *Computational and Inferential Thinking: The Foundations of Data Science*. Ani Adhikari and John DeNero. (available at: <a href = "https://inferentialthinking.com/" target = "_blank">https://www.inferentialthinking.com</a>)
+
+-   *StatClass* (2nd Edition, Revised). Dawn E. Holmes and Lubella A. Lenaburg
+
+## Course Components
+
+The following are the assignments and metrics that will be used to compute your final grade in this course:
+
+### Labs
+
+Every Monday you will work through a Lab worksheet that will be posted to the website by the previous day. You will then have until 40 minutes after the end of your scheduled section to submit your work through Gradescope. Your TA will explain more about the structure of lab during your first Section meeting of the quarter.
+
+### Quizzes
+
+Quizzes will be administered **asynchronously** on **Fridays**, through **Gradescope**. Specifically, the quiz will remain open from 10am until 11:59pm, and you must find **40 consecutive minutes** to take the quiz. (Consecutive means you cannot start the quiz, and then come back to it later- once you start, you will have 40 minutes to both complete the quiz as well as upload your work). I encourage you to spend **25 minutes working on the quiz, and 15 minutes uploading**. No quiz scores will be dropped. There are no quizzes in Exam Weeks.
+
+### Exams
+
+There are **two midterms** and a **final** exam for this class. You are required to take all three exams; failure to do so will result in an automatic grade of "F", so please ensure you are able to take the exams on the dates listed below.
+
+::: callout-note
+## **Exam Dates**:
+
+-   Midterm 1 is scheduled to take place **Thursday July 6 from 11:00am - 12:20pm** (lecture time)
+-   Midterm 2 is scheduled to take place **Thursday July 20 from 11:00am - 12:20pm** (lecture time)
+-   The final is scheduled to take place [**FRIDAY, AUGUST 4 from 4 - 7pm**]{style="color:red"}
+:::
+
+All exams are scheduled to take place in our lecture classroom, **ILP 1101.** Unless stated otherwise, all exams will be cumulative.
+
+### Homework:
+
+Homework for this class will be **neither collected nor graded**. However, the weekly quizzes will be based heavily (though potentially not entirely) off the homework assignments. Homework assignments will be released on Mondays, along with their final answers. Solutions will be posted **biweekly**, on the Tuesdays before exams. As such, you should **not** rely on the solutions to help you study; instead, please come to office hours to check your work regularly!
+
+### Schedule of Due Dates
+
+A tentative schedule of release and due dates can be found <a href = "https://docs.google.com/spreadsheets/d/1YRFMMJWNRU6NxGLHSToy3abj3bK8LelXyBKTcgFjl5M/" target = "_blank">here</a>
+
+## Grading Scheme
+
+Your final grade will be computed using the following weights:
+
+|                    |     |
+|:-------------------|:----|
+| Labs:              | 10% |
+| Quizzes:           | 15% |
+| Midterm 1          | 20% |
+| Midterm 2          | 20% |
+| Final Examination: | 35% |
+
+Please note that late submissions for any of the above will **not** be accepted. Additionally, make-up exams cannot be accommodated.
+
+Your final letter grade will be issued according to the following scheme (cutoffs between plusses and minuses will be calculated at the end of the quarter):
+
+-   A^--^ -- A^+^: 90 -- 100%
+-   B^--^ -- B^+^: 80 -- 89.99%
+-   C^--^ -- C^+^: 70 -- 79.99%
+-   D^--^ -- D^+^ : 60 -- 69.99%
+-   F: 0 -- 59.99%
+
+I have elected to adopt an uncurved grading scheme to eliminate any sense of "competition" among students; I highly encourage you all to collaborate with and uplift each other. Having said that, I will certainly consider adjusting the cutoffs (naturally, in everyone's favor) at the end of the quarter if necessary.
+
+## Academic Integrity
+
+As a member of the UCSB community, it is expected that you will act with academic integrity. This means, among other things, that the work you submit should be entirely your own and not copied from any external sources. Collaboration on non-quiz and non-exam assignments is perfectly acceptable (and even encouraged), but the work you submit should still be your own; you can't have someone else write up solutions for you.
+
+Anyone found guilty of academic misconduct will be reported to the Academic Senate, and will receive at minimum a failing grade on the assignment in question; further actions may also include failing the course, and marks being made on permanent records. Depending on the severity of the infraction, expulsion is also a possibility.
+
+Basically, don't cheat- please! If you're ever struggling with course material, please come talk to me or the TA's. We are truly here for you, and want only the best for you.
+
+<!-- ### ChatGPT -->
+
+<!-- It is perhaps evident that the recent rise of Artificial Intelligence-driven chatbots has somewhat shifted the general paradigm of education. Though these resources pose obvious concerns with regards to Academic Integrity, their merit as a useful tool for learning cannot be overlooked. As such, I have adopted the following policy with regards to the use of ChatGPT (and its equivalents) in this course: its use is permitted on homework and labs, **so long as you clearly indicate, somewhere on the work you turn in, that you have utilized it**. It is, however, **strictly forbidden** to use ChatGPT (or any of its equivalents) on quizzes and exams; students found to be in violation of this risk academic sanctions in line with the section on Academic Integrity above. -->
+
+## Intellectual Property
+
+You've probably seen a clause on other syllabi stating something to the effect of "all material in this course is the intellectual property of myself and may not be shared with anyone outside this class without my explicit written permission."
+
+Though this does still hold true for this course, I will be making most course-related material available on a public GitHub site, which can be accessed here: <a href = "https://pstat5a.github.io" target = "_blank">https://pstat5a.github.io</a>.
+
+## Disabled Students Program (DSP)
+
+If you have a disability, or otherwise require accommodations for the exams and/or quizzes please reach out to the Disabled Students Program (DSP) ASAP to ensure your request(s) for accommodation can be processed. We ask that all requests be logged **at least a week in advance**, to ensure the system enough time to process. Please note that we cannot grant any requests for accommodations unless they come to us from DSP directly.
+
+## Technology Needs
+
+As a part of this course, you will be required to program in Python. Though the Lab Sections take place in specially designed classrooms that come equipped with computers, your homework and quizzes may cover Python-related questions, which means we expect you to have access to a laptop capable of connecting to the internet. If you do not currently possess such a laptop, please check out UCSB's Basic Needs Resource [page on Technology Resources](https://food.ucsb.edu/resources/technology-resources) to try and acquire one.
+
+## Section Switching
+
+As mentioned above, Sections (both Discussion and Lab) take place in special "Collaborate Classrooms" which are equipped with laptops. There are a fixed number of seats and laptops in these classrooms, meaning we cannot under any circumstance over-enroll sections. Therefore, if you want to switch section unofficially (we do not have the ability to switch your official enrollment through GOLD), please follow the steps at <a href="https://docs.google.com/spreadsheets/d/1AGpofoUwwbxdM_fxbOPH8wwv1T006ebI9Le0u4l5mng" target = "_blank">this</a> link. Any requests to switch sections that do not adhere to the guidelines posted at that link will be ignored.
+
+## Email Policy
+
+Please note that we have a **no-email** (including Canvas messages) policy, except for emergencies; I leave it to you to decide what's an 'emergency'. Please bring all of your questions to me during Office Hours or at the end of lectures. (Also, please note that DMs \[Direct Messages\] sent to the course staff through Discord will be ignored.) Thank you!
+
+<!-- This quarter, I am adopting a **no-email policy**. If you have any questions or concerns, please come to my office hours to express them; if you are unable to make either of my office hours, please see me after class to set up a meeting time. Please note that I will ignore any emails sent to my inbox. Thank you! -->
+
+<!-- If you need to send an email to me (Ethan), please include "PSTAT 5A" in the subject line of your email. Additionally, please allow up to one business day for a reply (though I will do my best to get back to you ASAP). -->
+
+<!-- Please note that I do not answer questions with extensive mathematics/equations over email (as trying to communicate in math over email can be a bit of a technical nightmare) Instead, if you have questions relating to course content I welcome you to either ask over <a href = "https://discord.gg/9wmDgXXajQ" target = "_blank">Discord</a> or during one of my Office Hours. -->
+
+<!-- Also, should you need to include your TA, please send a **single** email to both your TA and myself, as opposed to separate emails to the two of us. Thank you! -->
+
+## Disclaimer
+
+The instructor reserves the right to modify this syllabus if he deems such modifications academically advisable. Such modifications, should they occur, will be announced publicly.

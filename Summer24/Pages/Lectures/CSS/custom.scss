@@ -1,0 +1,25 @@
+/*-- scss:defaults --*/
+
+$body-bg: #f0ebd8;
+$body-color: #000;
+$link-color: #42affa;
+$presentation-font-size-root: 32px;
+$code-block-font-size: 0.90em;
+
+$callout-background: #ff5bbb;
+$callout-font-size-root: 40px;
+
+/*-- scss:rules --*/
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+// .fragment {
+//   font-size: 40px;
+// }
+
+// .callout {
+//     font-size: 100px;
+//  }

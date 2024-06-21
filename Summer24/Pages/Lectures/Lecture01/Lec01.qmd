@@ -1,0 +1,959 @@
+---
+title: "PSTAT 5A: Lecture 01"
+subtitle: "Descriptive Statistics, Part I"
+author: "Ethan P. Marzban"
+date: "06/26/23"
+format: 
+    revealjs:
+      html-math-method: mathjax
+      theme: [default, ../CSS/custom.scss]
+      incremental: true
+      logo: 5a_hex.png
+      template-partials:
+        - title-slide.html
+      
+editor: source
+title-slide-attributes:
+    data-background-image: "5a_hex.png"
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-position: left
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+```
+
+# Data
+
+## What is Data?
+
+![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWUyYWRhN2M2ZmI3OGFlZTNhMWI2NDY4NDNjNTc4NjM0MzU5NTRlMyZjdD1n/j6TdvPXdAssootjCKZ/giphy.gif)
+
+## What is Data?
+-   According to Merriam-Webster ([source](https://www.merriam-webster.com/dictionary/data)), there are three definitions for **data**:
+
+1)  factual information (such as measurements or statistics) used as a basis for reasoning, discussion, or calculation
+
+2)  information in digital form that can be transmitted or processed
+
+3)  information output by a sensing device or organ that includes both useful and irrelevant or redundant information and must be processed to be meaningful
+
+------------------------------------------------------------------------
+
+::: nonincremental
+-   I like the first definition, mainly because of the phrase "used as a basis for reasoning, discussion, or calculation."
+:::
+
+-   Data, though incredibly useful, is not the be-all and end-all; rather, it should be viewed as a stepping stone for further discussion and/or analysis!
+
+-   Over the span of this course, we will learn the skills of **data literacy**. Loosely speaking, "data literacy" refers to the ability to think critically about data, and to understand not only what it is saying but also the ways in which it can be manipulated to deceive.
+
+## Example of Data
+
+- As a concrete example of a **dataset**, let's explore the so-called `palmerpenguins` dataset. 
+
+- Collected by Dr. Kristen Gorman at the Palmer Station in Antarctica, this dataset contains various measurements of 344 different penguins Dr. Gorman encountered.
+
+---
+
+```{r, message = F, echo = F}
+#| class-output: hscroll
+
+library(palmerpenguins)
+library(tidyverse)
+# penguins
+cat(format(as_tibble(penguins))[-c(3L, 1L)], sep = "\n")
+```
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+
+- Notice that our data is formatted as a table. This table is what data scientists refer to as the **data matrix.**
+
+---
+
+## The Data Matrix
+
+- Each row of the data matrix above corresponds to an individual penguin. 
+
+    - In general, we refer to a given row of the data matrix as an **observational unit**, or **case**.
+
+- For each penguin, we can see that there are observations on several different characteristics; specifically, for each penguin she encountered, Dr. Gorman measured and recorded the penguin's species, island, bill length (in mm), bill depth (in mm), flipper length (in mm), body mass (in grams), sex, and year of observation.
+
+    - Notice that these are the column names in our data matrix above. In general, the columns of the data matrix are referred to as **variables.**
+    
+---
+
+:::{.nonincremental}
+- So, to summarize, each row of the data matrix corresponds to a unique observational unit, and each column corresponds to a unique variable.
+:::
+
+- Now, it will not always be immediately obvious what each variable in a dataset represents.
+
+    - As Data Scientists, it is absolutely crucial that we understand our data as best as possible before embarking on any analyses, explorations, etc.
+    
+- As such, most datasets come equipped with a so-called **data dictionary**, which lists the variables included in the dataset as well as a brief description of each variable.
+
+---
+
+:::{.nonincremental}
+- For example, the data dictionary for the `palmerpenguins` dataset might be formatted as:
+:::
+
+:::{style="font-size:27px"}
+| **Variable** | **Description** |
+|:------------:|:---------------:|
+| `species` | The species of penguin (either Adelie, Chinstrap, or Gentoo) |
+| `island` | The island on which the penguin was found (either Biscoe, Dream, or Torgersen) |
+| `bill_length_mm` | The length (millimeters) of the penguin's bill |
+| `bill_depth_mm` | The depth (in millimeters) of the penguin's bill |
+| `flipper_length_mm` | The length (in millimeters) of the penguin's flipper |
+| `body_mass_g` | The mass (in grams) of the penguin |
+| `sex` | The sex of the penguin (either Male or Female) |
+| `year` | The year in which the penguin was observed |
+:::
+
+---
+
+:::{.nonincremental}
+- So, to summarize, the data matrix of the `palmerpenguins` dataset consists of 344 observational units on 8 different variables.
+:::
+
+
+- If we look at the different variables contained in the `palmerpenguins` dataset, we can see some qualitative differences.
+    
+    - For instance, the observations of `species` are all words/phrases whereas the observations of `bill_length_mm` are numbers.
+    
+    - This leads us to an important remark: there are different kinds of variables! Let's talk about how to classify these different types.
+
+# Classifying Variables
+
+## Numerical vs. Categorical
+
+-   **Numerical variables** are variables whose observations consist of numbers.
+
+    -   Examples: heights, temperatures, number of free throws, etc.
+
+-   Not all variables are numerical. For example, I could take a poll asking people's **opinions** on the movie *Ant-Man and the Wasp: Quantumania*- the observations of this variable will most certainly not be numerical. 
+
+    - Rather, the observations of this variable will fall into one of a series of fixed *categories* (e.g. "Enjoyed the movie", "Neutral about the movie", "Too many bugs", etc.).
+    
+    - As such, we describe non-numerical variables as **categorical variables**.
+
+## A Note on Language {style="font-size:32px"}
+
+- Question: can we say that *data* is numerical? Or, can we say we have "categorical data"?
+
+- Sure- if our data consists of just a single variable! 
+
+- That is to say- the classification terms we learned (and will learn) can be used to describe *data*, _provided our data contains only one variable_.
+
+- The definition of data we are using (i.e. in the context of the data matrix) is that data is comprised of *several* variables. As such, we cannot simply take the classification of variables and apply that to the entire dataset (unless our dataset consists of only one variable).
+    
+    - This may seem like a subtle point... and it is! I'm just pointing it out so you are aware of it.
+
+------------------------------------------------------------------------
+
+## Continuous vs. Discrete Variables
+
+-   There is a way we can further subdivide numerical variables.
+
+-   As an example, let us consider two different variables, both of which are numerical: heights, and number of accidents on a stretch of highway.
+
+    -   It is perfectly conceivable to observe a height of 5.15 feet, or 5.1302 feet, or 5.02391829 feet. In other words, there are an infinite number of possible heights between, say, 5 feet and 6 feet.
+
+    -   On the other hand, it doesn't make sense to talk about "1.5 accidents" occurring on a stretch of highway; the number of accidents needs to be an integer.
+
+------------------------------------------------------------------------
+
+::: callout-note
+## Terminology
+
+<h2>Continuous vs. Discrete Variables</h2>
+
+::: {style="font-size: 30px"}
+If the possible values a numerical variable can take has "jumps", then it is a discrete variable. Otherwise, it is a continuous variable.
+:::
+:::
+
+-   So, for example, "height" is a continuous variable whereas "number of accidents" is a discrete variable.
+
+    -   This is because a height measurement could be any positive number, whereas the number of accidents cannot be, say, 2.5; i.e. the possible values of the "number of accidents" has jumps at every positive integer value.
+
+## Ordinal vs. Nominal Variables
+
+-   Just as there was a way to subdivide numerical variables, there is a way to further subdivide categorical variables as well.
+
+-   As an example, consider the following two categorical variables: color, and letter grades (i.e. A, B^+^, etc.)
+
+    -   Firstly, I hope you can see that both of these variables are indeed categorical: there are only a fixed set of values that "color" and "letter grade" can take, with nothing in between.
+
+    -   Now, clearly letter grades can be ordered: that is, an A is better than a B, which is *better* than a C, and so on and so forth.
+
+    -   In contrast, "green" isnt inherently *better* than "red", which isn't inherently *better* than "grey", and so on and so forth.
+
+------------------------------------------------------------------------
+
+::: callout-note
+## Terminology
+
+<h2>Ordinal vs. Nominal Variables</h2>
+
+::: {style="font-size: 30px"}
+If the possible values a categorical variable can take has a natural ordering, we call the variable **ordinal**. Otherwise, we say it is **nominal**.
+:::
+:::
+
+-   So, for example, "letter grades" are ordinal whereas "color" is nominal.
+
+------------------------------------------------------------------------
+
+## Full Classification Scheme
+
+::: nonincremental
+-   Here is a diagram of the full classification scheme:
+:::
+
+```{dot}
+//| fig-width: 10
+//| fig-height: 4
+digraph data_classification {
+    layout = dot
+    rankdir = UD
+    splines = false
+    bgcolor = "#f0ebd8"
+    edge [arrowsize = 0.5, color = coral4]
+  
+subgraph cluster_main {
+  color = transparent
+  node [color=transparent, style = filled, fillcolor = cornsilk, shape = egg];
+  
+  Data [label = "Variable"]
+  
+  subgraph cluster_0 {
+   color = transparent
+    node [color=transparent, style = filled, fillcolor = aquamarine3, shape = egg];
+    
+    numerical [label = "Numerical"]
+    
+    subgraph cluster_1 {
+      color = transparent
+      node [color = transparent, style = filled, fillcolor = bisque1, shape = egg];
+      
+        continuous [label = "Continuous"]
+        discrete [label = "Discrete"]
+    }
+    
+    {numerical} -> continuous
+    {numerical} -> discrete
+  }
+  
+  subgraph cluster_2 {
+   color = transparent
+    node [color=transparent, style = filled, fillcolor = aquamarine3, shape = egg];
+    
+    categorical [label = "Categorical"]
+    
+    subgraph cluster_3 {
+      color = transparent
+      node [color = transparent, style = filled, fillcolor = bisque1, shape = egg];
+      
+        nominal [label = "Nominal"]
+        ordinal [label = "Ordinal"]
+    }
+    
+    {categorical} -> nominal
+    {categorical} -> ordinal
+  }
+  
+  
+  }
+  
+  {Data} -> numerical
+  {Data} -> categorical
+}
+```
+
+------------------------------------------------------------------------
+
+## Time for an Exercise!
+
+::: callout-tip
+## Exercise 1
+
+::: {style="font-size: 30px"}
+Classify each of the following variables as either discrete, continuous, ordinal, or nominal.
+
+::: nonincremental
+-   The number of times a computer program returns an error
+-   The time it takes an experienced swimmer to complete 4 laps of a pool
+-   The favorite flavor of donut of a randomly selected person
+-   The months of the year, as written in MM format (e.g. "01" for "January", "02" for "February", etc.)
+:::
+
+Discuss with your neighbors!
+:::
+:::
+
+## Important Note
+
+- It is important to note that categorical data can be *encoded* using numbers (as we saw in the previous slide).
+
+    - Indeed, this is a fairly common practice as computers are more adept at dealing with numbers than things like words or symbols. 
+    
+    - As such, when classifying data, it is not always enough to just check whether the data consists of numbers or not- it is important to think critically about what the data itself represents. 
+    
+    - As a quick rule-of-thumb: check whether adding two numbers in your dataset makes interpretive sense. 12in $+$ 13in is 15in, whereas `blue` + `gold` does not equal anything, regardless of whether `blue` is being encoded as `0` and `gold` is being encoded as `1`.
+
+# Summarizing Data
+
+## Real-World Data Set {style="font-size:32px"}
+
+- Let's return to the `palmerpenguins` dataset. 
+- Specifically, let's examine the `species` variable:
+
+:::{.fragment}
+```{r, message = F, echo = F}
+#| class-output: hscroll
+
+library(palmerpenguins)
+penguins$species
+```
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+:::
+
+---
+
+:::{.nonincremental}
+- That's a lot of information!
+:::
+- Indeed, trying to draw conclusions about the data using the data in its *entirety* is often not a good idea. 
+- Rather, we would like to find different ways to *summarize*, or *describe* our data.
+
+## Descriptive Statistics 
+
+:::{.nonincremental}
+- This is the goal of **Descriptive Statistics**- to find different summarizing techniques to *desribe* the data.
+:::
+
+- There are two ways we can seek to summarize data: numerically (using numbers), and graphically. 
+
+- Let's start with the latter- that is, let's discuss how we might summarize our data using graphs.
+
+# Graphical Summaries {background-color="black" background-image="https://media3.giphy.com/media/LedVYzRx24nkI/giphy.gif?cid=ecf05e47e33eyorvdby4yoz750pdnhwi0l1s73mo68asau3c&rid=giphy.gif&ct=g" background-size="contain"}
+
+<!-- # Graphical Summaries {background-color="black" background-image="https://media1.giphy.com/media/3o6MbrACMlFCny8zmw/giphy.gif?cid=ecf05e474pzqjvwrr3qujf8hxpswv63bbdw2pp9tes7870sm&rid=giphy.gif&ct=g" background-size="contain"} -->
+
+## Back To Penguins
+
+- Here is the `species` variable one more time:
+
+:::{.fragment}
+```{r, message = F, echo = F}
+#| class-output: hscroll
+
+library(palmerpenguins)
+penguins$species
+```
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+:::
+
+---
+
+:::{.nonincremental}
+- We see there are three distinct species present in the dataset: Adelie, Chinstrap, and Gentoo.
+:::
+
+- As such, one way we could summarize our data is by reporting how many penguins of each species were observed.
+
+- Using a computing software, finding these counts is relatively easy.
+
+:::{.fragment}
+```{r, message = F, echo = F}
+table(penguins$species)
+```
+:::
+
+- So, there were 152 Adelie penguins, 68 Chinstrap penguins, and 124 Gentoo penguins.
+
+- This kind of table is called a **frequency table**, and is a great way to summarize categorical data.
+
+---
+
+:::{.nonincremental}
+- Okay... but where's the graph?
+:::
+
+- Here's an idea: let's take our frequency table, and convert *it* to a graph.
+- Specifically, let's draw 3 boxes/rectangles, one for each species.
+    - Let's make the height of each rectangle proportional to the corresponding frequency from our frequency table:
+
+---
+
+\
+
+```{r, message = F}
+library(tidyverse)
+library(ggthemes)
+
+data.frame(table(penguins$species)) %>%
+  rename(species = Var1, freq = Freq) %>%
+  ggplot(aes(x = species, y = freq)) +
+  geom_bar(stat = "identity",
+           fill = "#7f9ab5") +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 20, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.y = element_text(size = 16)
+  )
+```
+
+## Bargraphs/Barplots
+
+:::{.nonincremental}
+- This is an example of what is known as a **bargraph** or **barplot**.
+:::
+
+:::{.callout-note}
+## **Result**
+::: {style="font-size: 30px"}
+A bargraph is the best type of visualization for categorical data.
+:::
+:::
+
+- In general, if you have $k$ categories, then you will have $k$ bars in your bargraph, each with height propotional to the number of observations within the corresponding category.
+
+- As you can see, computing software is very useful when it comes to data visualization! In a few weeks, you will explore how to generate visualizations of your own in Python during Lab. 
+
+---
+
+## Time For Another Exercise!
+
+::: callout-tip
+## Exercise 2
+
+::: {style="font-size: 24px"}
+A recent survey asked 120 different PSTAT students what their favorite color is. The bargraph of the results is displayed below:
+
+```{r, fig.height = 3.4, fig.width = 10}
+#| echo: false
+
+set.seed(123)
+cols <- sample(c("red", "blue", "green", "orange", "purple", "gold", "other"), 120, replace = T, prob = c(0.15, 0.15, 0.13, 0.14, 0.16, 0.13, 0.14))
+cols <- factor(cols,
+               levels = c("red", "blue", "green", "orange", "purple", "gold", "other"),
+                         ordered = T)
+
+data.frame(table(cols)) %>%
+  ggplot(aes(x = cols, y = Freq)) +
+  geom_bar(stat = "identity",
+           fill = "#7f9ab5") +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.x = element_text(size = 16,
+                                    margin = margin(
+                                      t = 20, 
+                                      r = 0,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.y = element_text(size = 16)
+  ) +
+  ylab("freq")
+```
+
+Approximately what proportion of the students in the sample reported either blue or gold as their favorite color? Discuss with your neighbor!
+:::
+:::
+
+## Leadup
+
+:::{.nonincremental}
+- All of our discussions above were related to categorical variables.
+:::
+
+- As we discussed at the beginning of this lecture, not all variables are categorical- how do we visualize numerical variables?
+
+- Again, I find it useful to consider a concrete example: this time, let's use the `bill_length_mm` variable from the `palmerpenguins` dataset.
+
+---
+
+
+```{r, message = F, echo = F}
+#| class-output: hscroll
+
+library(palmerpenguins)
+penguins$bill_length_mm
+```
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+
+- In some ways, this is an even bigger mess than the `species` variable- look at all those decimals!
+
+---
+
+- Because this variable is continuous, we intuitively know that it's highly unlikely to have 2 or more observations that are the same.
+
+    - In other words, the chances of finding two different penguins with exactly the same bill length, down to the decimal, is highly unlikely.
+
+- As such, we cannot construct a frequency table like we did with our categorical variable from before.
+
+- But, here's a thought: there are probably multiple penguins that have bill lengths between, say, 30 and 35 mm. Similarly, there are probably multiple penguins that have bill lengths between 35 and 40 mm.
+
+- So, what if we viewed our continuous variable as being, in a sense, categorical, with categories "between 30 and 35", "between 35 and 40", etc.?
+
+## Discretization/Binning
+
+:::{.nonincremental}
+- This is what is known as **discretizing** or **binning** our variable.
+:::
+
+- In other words, when we discretize our data, we carve it up into a bunch of chunks of equal width and see how many observations fall in each chunk.
+
+    - The width of each chunk is what we call the **binwidth**. For example, if my categories are "between 30 and 35", "between 35 and 40", etc., then the binwidth is 5mm as each category spans a width of 5mm.
+
+
+---
+
+:::{.nonincremental}
+- Using a binwidth of 5, here is what our `bill_length_mm` variable becomes:
+:::
+
+```{r}
+bins <- c("[30, 35]", "(35, 40]", "(40, 45]", "(45, 50]", "(50, 55]", "(55, 60]")
+bill_length_mm <- na.omit(penguins$bill_length_mm)
+counts <- hist(bill_length_mm, plot = F, breaks = 8)$counts
+
+names(counts) <- bins
+counts
+```
+- So, for example, there were 11 penguins with bill lengths between 30 and 35mm, 89 between 35 and 40, and so on and so forth.
+
+- By the way, I am using interval notation in the bin names above. So, when we write $(35, 40]$ we mean all numbers between 35 and 40, including 35 but excluding 40.
+
+    - The reason for this is that if a datapoint falls on the boundary of a bin, we conventionally assign it to the left (lower) bin.
+
+    - If you are not familiar with interval notation, I have posted some supplementary materials to the website.
+  
+---
+
+:::{.nonincremental}
+- We're almost ready for our graph!
+:::
+
+- First, however, note that the table on the previous slide isn't really the same thing as the frequency table we saw when exploring the `species` variable. 
+
+    - Largely, this is due to the fact that different binwidths lead to different tables! 
+    
+- As such, we will refer to this type of table (i.e. the frequencies after binning a continuous variable) as a **distribution table**.
+
+- With this terminology in mind, we can use the distribution table much in the same way we used the frequency table to construct a graph- i.e. we will draw as many rectangles as there are bins, and have the height of each rectangle proportional to the corresponding frequency in the distribution table.
+
+---
+
+```{r}
+#| echo: false
+
+penguins %>%
+  ggplot(aes(x = bill_length_mm)) +
+  geom_histogram(col = "white",
+                 breaks = seq(30, 60, by = 5)) +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16)
+  ) +
+  ggtitle("Distribution of Bill Lengths")
+
+```
+
+- This type of plot is called a **histogram**.
+
+---
+
+:::{.callout-note}
+## **Result**
+::: {style="font-size: 30px"}
+A histogram is the best type of visualization for continuous variables.
+:::
+:::
+
+- By the way, you can still construct histograms for discrete variables as well! In the case of a discrete variable, however, we don't really need to bin our data, because if our data can only take a fixed number of values then it is likely we will have multiple observations of any particular value.
+
+## The Importance of Binwidth
+
+- Notice that our notion of a histogram is intimately tied with our choice of binwidth. 
+
+- Different binwidths can produce wildly different histograms!
+
+- Here is a <a href = "https://epm927.shinyapps.io/Histogram_Binwidths/" target = "_blank">demo</a>
+
+- In practice, it is a good idea to play around with different binwidths to find one that results in a histogram that displays a moderate amount of detail without becoming so detailed as to lose sight of the bigger picture.
+
+---
+
+:::{.callout-tip}
+## Exercise 3
+
+::: {style="font-size: 24px"}
+Consider the following histogram of the length of flippers in the `palmerpenguins` dataset:
+```{r, fig.height = 3.25, fig.width = 10}
+penguins %>%
+  ggplot(aes(x = flipper_length_mm)) +
+  geom_histogram(col = "white",
+                 breaks = seq(170, 240, by = 10)) +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16)
+  ) +
+  scale_x_continuous(
+    breaks = seq(170, 240, by = 10)
+  )
+
+```
+::: nonincremental
+- What binwidth was used to generate the above histogram?
+- What proportion of penguins had flippers between 190 and 210 mm long? (Remember there were 344 penguins included in the dataset) 
+:::
+
+Discuss with your neighbors!
+:::
+:::
+
+## Boxplots {style="font-size:24px"}
+
+- It turns out there is another way to summarize numerical data visually: using what is known as a **boxplot**.
+
+- Boxplots can be a seem a bit peculiar at first, so let's take a look at one together. Before diving back into the `palmerpenguins` dataset, let's look at a slightly different dataset.
+
+    - This dataset contains only one variable, which records the scores (out of 100 points) of 140 different students on a final exam.
+
+:::{.fragment}
+```{r, message = F, echo = F}
+#| class-output: hscroll
+
+set.seed(130)
+x <- rnorm(140, 80, 5)
+x <- round(x, 3)
+x
+```
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+:::
+
+---
+
+:::{.nonincremental}
+- Here is a histogram of these scores...
+:::
+
+```{r}
+data.frame(x) %>%
+  ggplot(aes(x = x)) +
+  geom_histogram(col = "white", bins = 15) +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16)
+  ) +
+  ggtitle("Histogram of Scores")
+```
+
+---
+
+:::{.nonincremental}
+- ... and here is a boxplot
+:::
+
+```{r}
+data.frame(x) %>%
+  ggplot(aes(x = x)) +
+  stat_boxplot(geom = "errorbar", 
+               width = 0.25,
+               linewidth = 1) +
+  geom_boxplot(fill =  "#7f9ab5", 
+               size = 1,
+               outlier.size = 4) +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16),
+        axis.text.y = element_blank()
+  ) +
+  ylim(c(-0.75, 0.75)) +
+  ggtitle("Boxplot of Scores")
+```
+
+## Anatomy of a Boxplot
+
+\
+
+![](boxplot.svg)
+
+## Understanding Boxplots
+
+- Let's discuss each of the quantities represented on the boxplot separately.
+
+- Before we do, there's a bit of math we need to cover.
+
+- The first quantity we will define is a term you may have heard before- **percentile.** 
+
+- Let's return to our histogram of scores (since we're a bit more comfortable with reading histograms than boxplots, at this point)
+
+---
+
+```{r, fig.height = 4}
+data.frame(x) %>%
+  ggplot(aes(x = x)) +
+  geom_histogram(col = "white", bins = 15) +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16)
+  ) +
+  ggtitle("Histogram of Scores") +
+  geom_vline(xintercept = 90,
+             size = 1,
+             col = "red")
+```
+
+- Now, consider the score of a hypothetical student called Mindy. Suppose Mindy received a score of 90% on this exam.
+
+- Based on the histogram, we can see that over half (50%) of students in the class received a score lower than Mindy's 90%. 
+
+---
+
+```{r, fig.height = 4}
+data.frame(x) %>%
+  ggplot(aes(x = x)) +
+  geom_histogram(col = "white", bins = 15) +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16)
+  ) +
+  ggtitle("Histogram of Scores") +
+  geom_vline(xintercept = 90,
+             size = 1,
+             col = "red")
+```
+
+
+- Upon examining the data more closely, we can see that 95.71% of the class received a score lower than Mindy's.
+
+- We would therefore say that Mindy's score - i.e. 90% - is at the **95.71^th^ percentile** of exam scores.
+
+---
+## Percentiles
+
+:::{.fragment}
+:::{.callout-note}
+## **Definition**
+::: {style="font-size: 30px"}
+The **_p_^th^ percentile** of a set of observations $X$ is the value $\pi_{x, \ 0.5}$ such that _p_% of observations lie to the left of (i.e. are less than) $\pi_{x, \ p}$.
+:::
+:::
+:::
+
+- Maybe now you can see why I switched over to this data of scores- I think percentiles are sometimes easier to interpret in the context of exam scores, since they are very commonly reported with standardized testing scores (e.g. SAT, GRE, etc.)
+
+    - In the context of scores: someone who scored at the _p_^th^ percentile performed *better* than _p_\% of all test-takers.
+    
+## Quartiles
+
+- We give a special name to the 25^th^ and 75^th^ percentiles of a set of observations- we call these the **first quartile** and **third quartile**, respectively, and use the notation $Q_1$ and $Q_3$ to denote them, respectively.
+
+    - So, $Q_1$ is the value such that 25% of observations are less than $Q_1$, and $Q_3$ is the value such that 75% of observations are less than $Q_3$
+
+- The second quartile (i.e. the 50^th^ percentile) is called the **median**.
+
+    - As such, the median is the value that "splits the data in half".
+    
+    - We'll talk more about the median in the next lecture.
+
+## Small Caveat
+
+- I should quickly mention one small caveat- computing softwares often use a different procedure for computing quartiles.
+
+- This procedure is quite long and complicated, and is based off an entire paper written back in the 90's. 
+
+- For example, if we consider the set $S = \{1, 2, 3, 4, 5, 6\}$, we would (based on the definition from the previous slide) call the first quartile $2$, whereas most softwares would return a value of $2.25$.
+
+- **Don't worry about why this is**- whenever we talk about quartiles in this class, you can just think of the definition I posed on the previous slide.
+
+
+## Whiskers
+
+- Finally, we discuss the role of the whiskers on the boxplot.
+
+- There are several different conventions for how far the whiskers extend. In some conventions, the whiskers extend to the minimum and maximum values of the data.
+
+- The convention we will use is the following: **the whiskers will never reach farther than $\boldsymbol{1.5 \times (Q_3 - Q_1)}$**.
+
+    - What this means is that there may be points in our dataset that lie beyond the reach of the whiskers. These points are what we call **outliers**.
+
+## Whiskers {style="font-size:30px"}
+
+:::{.nonincremental}
+- The rationale for constructing the whiskers in this way is to try and highlight any points that are unusually distant from the rest of the data.
+:::
+
+- For example, returning to our dataset of scores, we can see that though the median score was around 80.3\% there was one person who scored a 97.9\%. Because this score is unusually large, we would label it an outlier.
+
+:::{.fragment}
+```{r, fig.width = 8, fig.height = 3}
+data.frame(x) %>%
+  ggplot(aes(x = x)) +
+  stat_boxplot(geom = "errorbar", 
+               width = 0.25,
+               linewidth = 1) +
+  geom_boxplot(fill =  "#7f9ab5", 
+               size = 1,
+               outlier.size = 4) +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16),
+        axis.text.y = element_blank()
+  ) +
+  ylim(c(-0.75, 0.75)) +
+  ggtitle("Boxplot of Scores")
+```
+:::
+
+## Time for an Exercise!  {style="font-size:24px"}
+
+:::{.callout-tip}
+## Exercise 4
+
+::: {style="font-size:24px"}
+Here is a boxplot of the `bill_length_mm` variable from the `palmerpenguins` dataset:
+
+```{r, fig.height = 3.25, fig.width = 7}
+penguins %>%
+  ggplot(aes(x = bill_length_mm)) +
+  stat_boxplot(geom = "errorbar", 
+               width = 0.25,
+               linewidth = 1) +
+  geom_boxplot(fill =  "#7f9ab5", 
+               linewidth = 1,
+               outlier.size = 4) +
+  theme_economist(base_size = 18) +
+  theme(panel.background = element_rect("#f0ebd8"),
+        plot.background = element_rect(fill = "#f0ebd8"),
+        axis.title.y = element_text(size = 16,
+                                    margin = margin(
+                                      t = 0, 
+                                      r = 10,
+                                      b = 0, 
+                                      l = 0)),
+        axis.title.x = element_text(size = 16),
+        axis.text.y = element_blank()
+  ) +
+  ylim(c(-0.75, 0.75))
+```
+:::
+
+:::{.nonincremental style="font-size: 24px"}
+- What is the median bill length?
+- Approximately what percent of penguins had bills shorter than 37mm in length?
+- Are there any outliers?
+:::
+:::
+
+# Lecture Summary
+
+## Summary {style="font-size:32px"}
+
+- We started off by talking about the structure of data, and the data matrix.
+
+- We then discussed how to classify variables.
+
+- Next, we explored graphical methods for summarizing data.
+
+    - Bargraphs are best-suited for categorical data
+    
+    - Histograms and boxplots are best-suited for numerical data
+
+- We also introduced the notions of percentiles, the median, and outliers.
+
+- Next time we'll discuss how to visualize the relationship between two variables.
+
+- We'll also discuss some numerical summaries for data, including the mean, median, standard deviation, and IQR.

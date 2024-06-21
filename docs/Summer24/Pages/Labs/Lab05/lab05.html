@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="PSTAT 5A, with Ethan Marzban">
+
+<title>PSTAT 5A: Archives - Lab05</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../Images/Logos_Icons/5a_hex.png" rel="icon" type="image/png">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #4144a6;
+      }
+</style>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../../styles.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      PSTAT 5A: Archives
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Lab05</h1>
+            <p class="subtitle lead">Markdown Syntax, Importing Data, and Manipulating Tables</p>
+                      </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Course</div>
+    <div class="quarto-title-meta-heading">Quarter</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">PSTAT 5A, with Ethan Marzban </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Summer Session A 2023
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../../index.html" class="sidebar-logo-link">
+      <img src="../../../../Images/Logos_Icons/5a_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../../">PSTAT 5A: Archives</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-markdown-syntax" id="toc-introduction-to-markdown-syntax" class="nav-link active" data-scroll-target="#introduction-to-markdown-syntax">Introduction to Markdown Syntax</a></li>
+  <li><a href="#markdown-syntax" id="toc-markdown-syntax" class="nav-link" data-scroll-target="#markdown-syntax">Markdown Syntax</a>
+  <ul class="collapse">
+  <li><a href="#headers" id="toc-headers" class="nav-link" data-scroll-target="#headers">1. Headers</a></li>
+  <li><a href="#text-formatting" id="toc-text-formatting" class="nav-link" data-scroll-target="#text-formatting">2. Text Formatting</a></li>
+  <li><a href="#itemized-and-enumerated-lists" id="toc-itemized-and-enumerated-lists" class="nav-link" data-scroll-target="#itemized-and-enumerated-lists">3. Itemized and Enumerated Lists</a></li>
+  <li><a href="#equations-in-markdown" id="toc-equations-in-markdown" class="nav-link" data-scroll-target="#equations-in-markdown">4. Equations in Markdown</a></li>
+  <li><a href="#hyperlinks" id="toc-hyperlinks" class="nav-link" data-scroll-target="#hyperlinks">Hyperlinks</a></li>
+  </ul></li>
+  <li><a href="#importing-and-manipulating-data" id="toc-importing-and-manipulating-data" class="nav-link" data-scroll-target="#importing-and-manipulating-data">Importing and Manipulating Data</a>
+  <ul class="collapse">
+  <li><a href="#introduction-to-the-dataset" id="toc-introduction-to-the-dataset" class="nav-link" data-scroll-target="#introduction-to-the-dataset">Introduction to the Dataset</a></li>
+  <li><a href="#part-1-importing" id="toc-part-1-importing" class="nav-link" data-scroll-target="#part-1-importing">Part 1: Importing</a></li>
+  <li><a href="#part-2-getting-a-feel-for-the-dataset" id="toc-part-2-getting-a-feel-for-the-dataset" class="nav-link" data-scroll-target="#part-2-getting-a-feel-for-the-dataset">Part 2: Getting a Feel for the Dataset</a></li>
+  <li><a href="#part-3-accessing-specific-elements-of-the-dataset" id="toc-part-3-accessing-specific-elements-of-the-dataset" class="nav-link" data-scroll-target="#part-3-accessing-specific-elements-of-the-dataset">Part 3: Accessing Specific Elements of the Dataset</a></li>
+  <li><a href="#part-4-a-mini-project" id="toc-part-4-a-mini-project" class="nav-link" data-scroll-target="#part-4-a-mini-project">Part 4: A Mini-Project</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<hr>
+<p>Let’s start off this week’s lab by taking a quick break from Python and instead learn some tools for making our Jupyter Notebooks look a little nicer (and help incorporate some mathematical equations into them!).</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>IMPORTANT</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For this lab in particular:</p>
+<ul>
+<li>You <strong>must</strong> submit a <code>.PDF</code> file. Failure to do so will incur a <strong>25% point deduction</strong>.</li>
+<li>You <strong>must</strong> change the metadata in your notebook in accordance with the procedures outlined in Lab01. Failure to do so will incur a <strong>25% point deduction</strong>.</li>
+<li>Because this lab is a little more involved than previous labs, you have until <strong>11:59pm on TUESDAY</strong> to submit to Gradescope.
+<ul>
+<li>Please make sure to really grasp the material asked of you in this lab. Next week’s lab will take the form of a project that will be graded in part on <em>correctness</em>; more details will be provided soon.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<p>Also, the format of this lab is a little different in that there aren’t any numbered “Tasks”; instead, there are “Action Items” which you need to perform in a <code>.ipynb</code> file. As such, you don’t need to label your tasks; we will only be looking at your final product (i.e.&nbsp;your final PDF).</p>
+<section id="introduction-to-markdown-syntax" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-markdown-syntax">Introduction to Markdown Syntax</h2>
+<p>Remember way back in Week 1, when we started adding “Markdown Cells” to our Jupyter Notebooks? Unbeknownst to you, you’ve actually been using a <em>different</em> computing language than Python! <a href="https://en.wikipedia.org/wiki/Markdown">Wikipedia</a> defines <strong>Markdown</strong> as:</p>
+<blockquote class="blockquote">
+<p>[…] a lightweight markup language for creating formatted text using a plain-text editor.</p>
+</blockquote>
+<p>What this means is that Markdown is a language that is specifically designed to communicate with your computer and facilitate the formatting of text and equations.</p>
+</section>
+<section id="markdown-syntax" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-syntax">Markdown Syntax</h2>
+<p>As with Python, Markdown has some specific syntax as well. We will take a few moments to explore some of this syntax.</p>
+<section id="headers" class="level3">
+<h3 class="anchored" data-anchor-id="headers">1. Headers</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are several different “levels” of headers:</p>
+<ul>
+<li>A main (first-level) header</li>
+<li>A second-level header</li>
+<li>A third-level header</li>
+<li>And so on and so forth</li>
+</ul>
+<p>In Markdown, the level of the header is specified by how many hashtags (<code>#</code>’s) we include before the header text.</p>
+</div>
+</div>
+<p>For example: all of the headers used in this explanation document are either second- or third-level headers.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add a first-level (main) header that says <code>Section 1: Markdown Syntax</code>. Run this cell, and ensure it displays properly.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After your first-level (main) <code>Section 1: Markdown Syntax</code> header, add a second-level header that says <code>Subsection 1.1</code>. Again, run this cell and ensure that this header appears smaller than the first-level (main) header you created in the action item above.</p>
+</div>
+</div>
+</section>
+<section id="text-formatting" class="level3">
+<h3 class="anchored" data-anchor-id="text-formatting">2. Text Formatting</h3>
+<p>As we have previously seen, text written in a Markdown cell will display exactly as it is written in your final PDF. We can, however, also spice up the formatting of our text!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are several different text formatting options available to us in Markdown:</p>
+<ul>
+<li><strong>Boldface Text</strong>: <code>**Boldface Text**</code></li>
+<li><em>Italicized Text</em>: <code>_Italicized Text_</code> or <code>*Italicized Text*</code></li>
+<li><code>Fixed-Width Text</code>: <code>`Fixed-Width Text`</code></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Underneath your second-level header <code>"Subsection 1.1"</code>, write the following sentence <strong>including all formatting as it appears here</strong>:</p>
+<blockquote class="blockquote">
+<p>The <strong>quick</strong> brown fox <em>jumps</em> over the <code>lazy</code> dog</p>
+</blockquote>
+</div>
+</div>
+<p>By the way, notice how we managed to display the sentence above as a block-quote? The syntax to do that in Markdown is using a single <code>&gt;</code> symbol, followed by a space. For example,</p>
+<blockquote class="blockquote">
+<p>This text</p>
+</blockquote>
+<p>was generated using the code <code>&gt; This text</code>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be mindful about line breaks and spaces when using Markdown syntax.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Underneath your “quick brown fox” text, add a block-quote that says</p>
+<blockquote class="blockquote">
+<p>That was a really cool sentence!</p>
+</blockquote>
+<p>Run your Markdown cell, and ensure the block-quote is displaying properly. (Again: line breaks and indentation will be important!)</p>
+</div>
+</div>
+</section>
+<section id="itemized-and-enumerated-lists" class="level3">
+<h3 class="anchored" data-anchor-id="itemized-and-enumerated-lists">3. Itemized and Enumerated Lists</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are two main types of lists: <strong>itemized</strong> and <strong>enumerated</strong> lists. Itemized lists have no explicit ordering: these are sometimes called “bulleted” lists, and look like this:</p>
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3</li>
+</ul>
+<p>Enumerated lists <em>do</em> have an explicit ordering:</p>
+<ol type="1">
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3</li>
+</ol>
+<p>In Markdown, itemized lists are created by navigating to a new line, writing a dash (<code>-</code>) or an asterisk (<code>*</code>), followed by a space, followed by the text you wish to have displayed in the corresponding item. For instance: the itemized list above was generated using the code</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Item <span class="dv">1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Item <span class="dv">2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Item <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In Markdown, enumerated lists are created by navigating to a new line, writing the number of the item (e.g.&nbsp;1, 2, etc.) either either a close-parenthesis (<code>)</code>), or a period (<code>.</code>) For instance: both of the following codes will generate an enumerated list:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="er">)</span> Item <span class="dv">1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="er">)</span> Item <span class="dv">2</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="er">)</span> Item <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> Item <span class="dv">1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> Item <span class="dv">2</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> Item <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To add sublevel items, navitage to a new line, hit the space bar 4 times, and then add the corresponding item symbol (i.e.&nbsp;<code>-</code> or <code>*</code> for itemized lists; <code>1)</code> or <code>a)</code> or <code>1.</code> or <code>a.</code> for enumerated lists; etc.)</p>
+<ul>
+<li>As an example, this is a main-level item
+<ul>
+<li>Followed by a sublevel item!</li>
+</ul></li>
+</ul>
+<p>This was generated using</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> As an example, this is a main<span class="sc">-</span>level item</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> Followed by a sublevel item<span class="sc">!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add a new second-level header to your document that says <code>Subsection 1.2: Itemized and Enumerated Lists</code>. Underneath this, include the following list (making sure it displays properly when you run the cell!)</p>
+<ul>
+<li>It is very important to check the Binomial Conditions before using the Binomial Distribution!
+<ul>
+<li>Failure to check the necessary conditions can lead to incorrect results.</li>
+<li>Incorrect results are not good!</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="equations-in-markdown" class="level3">
+<h3 class="anchored" data-anchor-id="equations-in-markdown">4. Equations in Markdown</h3>
+<p>One of the very nice things about Markdown is that it is able to (very nicely) combine both plain-text as well as equations!<br>
+</p>
+<p>The language used to specify equations in Markdown is called <code>LaTeX</code> (pronounced “lay-TECH”, or “lah-TECH”). LaTeX equations have two main styles: inline, like <span class="math inline">\(x + y\)</span>, and “display-style”, like <span class="math display">\[ \sum_{i=1}^{k} x_i \]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In LaTeX, inline equations are specified by single dollar signs and display-style equations are specified by double-dollar signs. For instance:</p>
+<ul>
+<li><code>$x + y$</code> will display as <span class="math inline">\(x + y\)</span></li>
+<li><code>$$x + y$$</code> will display as <span class="math display">\[x + y\]</span></li>
+</ul>
+</div>
+</div>
+<p>Inside either an inline or display-style equation environment, we can use LaTeX-specific syntax to generate equations.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Standard mathematical symbols display in LaTeX as they would in text: this includes addition (<code>+</code>), subtraction (<code>-</code>), division (<code>/</code>), and multiplication (<code>*</code>).</li>
+<li>The symbol for “less than or equal to” (≤) is typeset as <code>\leq</code>; the symbol for “greater than or equal to” (≥) is typeset as <code>\geq</code>.</li>
+<li>Exponents are generated using the caret (<code>^</code>): for example, <code>$x^2$</code> displays as <span class="math inline">\(x^2\)</span></li>
+<li>Subscripts are generated using the underscore (<code>_</code>): for example, <code>$x_2$</code> displays as <span class="math inline">\(x_2\)</span></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add a second-level (main) header that says <code>"Subsection 1.3: Typesetting Equations"</code>, and underneath it write the following sentence (including all LaTeX formatting!):</p>
+<blockquote class="blockquote">
+<p>The Pythagorean Theorem states that <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
+</blockquote>
+<p>Run this cell, and ensure it displays properly.</p>
+</div>
+</div>
+<p>We can also typeset more advanced formulas and symbols:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Sums (using sigma-notation) are generated using the <code>\sum</code> command: for example, <code>$\sum_{x = 0}^{1} x$</code> displays as <span class="math inline">\(\sum_{x = 0}^{1} x\)</span></p></li>
+<li><p>Integrals are generated using the <code>\int</code> command: for example, <code>$\int_{a}^{b} f(x) \ dx$</code> displays as <span class="math inline">\(\int_{a}^{b} f(x) \ dx\)</span></p></li>
+<li><p>Fractions are generated using the <code>\frac</code> command: for example, <code>$\frac{1}{2}$</code> displays as <span class="math inline">\(\frac{1}{2}\)</span></p></li>
+<li><p>Square-roots are generated using the <code>\sqrt</code> command: for example, <code>$\sqrt{2}$</code> displays as <span class="math inline">\(\sqrt{2}\)</span></p></li>
+<li><p>The symbol <span class="math inline">\(\pi\)</span> is generated using <code>$\pi$</code></p></li>
+<li><p>Adding a bar on top of a variable can be done using <code>\overline{}</code>; e.g.&nbsp;<code>$\overline{y}$</code> typesets as <span class="math inline">\(\overline{y}\)</span></p></li>
+<li><p>The probability symbol can be typeset using <code>$\mathbb{P}$</code>; e.g.&nbsp;<span class="math inline">\(\mathbb{P}\)</span>.</p></li>
+<li><p>The symbol for Expected Value can be typeset using <code>$\mathbb{E}$</code>; e.g.&nbsp;<span class="math inline">\(\mathbb{E}\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In LaTeX, curly braces (<code>{</code>, <code>}</code>) are used to delineate “chunks” of code/text. For example, if you just write <code>$x^-2$</code>, this displays as <span class="math inline">\(x^-2\)</span>. If we want to display <span class="math inline">\(x^{-2}\)</span>, we need to use <code>$x^{-2}$</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When writing fractions inside parentheses, it is important to use <code>\left(</code> and <code>\right)</code> to ensure the size of the parentheses scale with the fractions. For example, <span class="math display">\[ (\frac{1}{2}) \]</span> which was generated using <code>$$ (\frac{1}{2}) $$</code>, looks a bit worse than <span class="math display">\[ \left(\frac{1}{2}\right) \]</span> which was generated using <code>$$ \left(\frac{1}{2}\right) $$</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add the following equation to your document: <span class="math display">\[ f_X(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2}  \]</span></p>
+</div>
+</div>
+<p>There is nothing stopping us from including equations in itemized and enumerated lists!</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add the following list to your document, ensuring that it displays properly when the cell is run (pay attention to the formatting of the text as well!):</p>
+<ul>
+<li><strong>Pythagorean Theorem:</strong> <span class="math inline">\(a^2 + b^2 = c^2\)</span></li>
+<li><strong>Euler’s Identity:</strong> <span class="math inline">\(e^{i \pi} + 1 = 0\)</span></li>
+</ul>
+</div>
+</div>
+<p>It may also be useful to learn how to make piecewise-defined equations using LaTeX. To typeset piecewise-defined functions, we use the <code>cases</code> environment: <span class="math display">\[ \begin{cases}
+    a   &amp; \text{if condition 1}   \\
+    b   &amp; \text{if condition 2}   \\
+    c   &amp; \text{if condition 3}   \\
+\end{cases} \]</span> was generated using the code</p>
+<pre><code>$$ \begin{cases} 
+    a   &amp; \text{if condition 1}   \\
+    b   &amp; \text{if condition 2}   \\
+    c   &amp; \text{if condition 3}   \\
+\end{cases} $$</code></pre>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add the probability density function <span class="math inline">\(f_X(x)\)</span> of the <span class="math inline">\(\mathrm{Unif}(a, \ b)\)</span> distribution to your Notebook: <span class="math display">\[ f_X(x) = \begin{cases} \frac{1}{b - a} &amp; \text{if } a \leq x \leq b \\ 0 &amp; \text{otherwise} \\ \end{cases} \]</span></p>
+</div>
+</div>
+<p>Finally, we should talk about how to align equations. The easiest way to align display-style equations is using an <code>align*</code> environment. For example: <span class="math display">\[\begin{align*}
+  a + b       &amp; = c + d + e   \\
+  a + b + 0   &amp; = c + d
+\end{align*}\]</span> was typeset using</p>
+<pre><code>\begin{align*}
+  a + b       &amp; = c + d + e   \\
+  a + b + 0   &amp; = c + d + 0
+\end{align*}</code></pre>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add the following set of equations into your Markdown document, taking care to use appropriate alignment.</p>
+<p><span class="math display">\[\begin{align*}
+  \overline{x}            &amp; = \frac{1}{n} \sum_{i=1}^{n} x_i    \\
+  n \overline{x}    &amp; = \sum_{i=1}^{n} x_i
+\end{align*}\]</span></p>
+</div>
+</div>
+<p>This is only just the surface of what LaTeX can do! If you are planning on going into any STEM-related field, we highly encourage you to delve deeper into the world of LaTeX as it will be a very valuable skill to have.</p>
+</section>
+<section id="hyperlinks" class="level3">
+<h3 class="anchored" data-anchor-id="hyperlinks">Hyperlinks</h3>
+<p>Sometimes it will be necessary to include hyperlinks into our reports. With Markdown, this is fairly straightforward!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The syntax of including a hyperlink in a Markdown cell is as follows:</p>
+<blockquote class="blockquote">
+<p><code>[text](link)</code></p>
+</blockquote>
+<p>For example, <a href="https://google.com">Click Here</a> was generated using <code>[Click Here](https://google.com)</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make a new second-level header in your document called <code>Section 1.4: Hyperlinks</code>. Underneath this header, create clickable text that says “<code>PSTAT Department Website</code>” and, when clicked, navigates the user to the main website of the Department of Statistics and Applied Probability here at UCSB (https://pstat.ucsb.edu). Your final result should look and function like <a href="https://pstat.ucsb.edu">PSTAT Department Website</a>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="importing-and-manipulating-data" class="level2">
+<h2 class="anchored" data-anchor-id="importing-and-manipulating-data">Importing and Manipulating Data</h2>
+<p>Finally, let’s play with some real-world data!</p>
+<section id="introduction-to-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-to-the-dataset">Introduction to the Dataset</h3>
+<p>The dataset we will explore is called <code>air22.csv</code>, and can be accessed at <a href="https://pstat5a.github.io/Files/Datasets/air22.csv">https://pstat5a.github.io/Files/Datasets/air22.csv</a>. It contains observations from the Bureau of Transportation Statistics <a href="https://www.transtats.bts.gov/">https://www.transtats.bts.gov/</a> on flights taking place during 2022.</p>
+<p>Here is an abridged version of the data dictionary:</p>
+<ul>
+<li><code>year</code>: the year in which the data was collected</li>
+<li><code>month</code>: the month in which the data was collected</li>
+<li><code>carrier</code>: the carrier abbreviation (e.g.&nbsp;<code>AS</code> for Alaska, <code>AA</code> for American Airlines, etc.)</li>
+<li><code>carrier_name</code>: the full name of the carrier (e.g.&nbsp;Alaska, American, etc.)</li>
+<li><code>airport</code>: the airport IATA code (e.g.&nbsp;<code>SEA</code> for SeaTac International Airport, etc.)</li>
+<li><code>airport_name</code>: the full name of the airport</li>
+<li><code>arr_flights</code>: the number of flights that arrived</li>
+<li><code>arr_del15</code>: the number of flights that were delayed for more than 15 minutes</li>
+<li><code>carrier_ct</code>: the number of flights delayed due to carrier-related issues (e.g.&nbsp;no crew, delayed captain, etc.)</li>
+<li><code>weather_ct</code>: the number of flights delayed due to weather-related issues</li>
+<li><code>nas_ct</code>: the number of flights delayed due to National Air Security (NAS)-related issues (e.g.&nbsp;heavy traffic)</li>
+<li><code>security_ct</code>: the number of flights <strong>cancelled</strong> due to security-related issues</li>
+<li><code>late_aircraft_ct</code>: the number of flights delayed due to the arriving aircraft being delayed</li>
+<li><code>arr_cancelled</code>: the number of cancelled flights</li>
+<li><code>arr_diverted</code>: the number of flights that were diverted</li>
+<li><code>arr_delay</code>: the total time (in minutes) of delayed flight</li>
+<li><code>carrier_delay</code>: the total time (in minutes) of delay due to air carrier-related issues</li>
+<li><code>weather_delay</code>: the total time (in minutes) of delay due to air weather-related issues</li>
+<li><code>nas_delay</code>: the total time (in minutes) of delay due to air NAS-related issues</li>
+<li><code>security_delay</code>: the total time (in minutes) of delay due to air security-related issues</li>
+<li><code>late_aircraft_delay</code>: the total time (in minutes) of delay due to the arriving aircraft being delayed</li>
+</ul>
+</section>
+<section id="part-1-importing" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-importing">Part 1: Importing</h3>
+<p>We should start by importing the dataset into our JupyterHub environment! In this class, we will almost exclusively import datasets to <code>datascience</code> tables (remember those, from Lab 1?) The syntax we use to import a dataset and store it in a table called <code>table_name</code> is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>table_name <span class="op">=</span> Table.read_table(<span class="op">&lt;</span>location of dataset<span class="op">&gt;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>By default, the <code>read_table</code> method will use the first line of data as labels for each of the columns. If, however, your data does not include labels as its first line you will need to manually specify the labels:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>table_name <span class="op">=</span> Table.read_table(<span class="op">&lt;</span>location of dataset<span class="op">&gt;</span>, names <span class="op">=</span> [labl1, ...])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add a first-level header that says <code>Section 2: Importing and Manipulating Data</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Import the <code>air22.csv</code> dataset, and save it as a table called <code>air</code>. <strong>Hint:</strong> make sure you import any necessary modules first!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The list of <code>Table()</code>-related methods at <a href="http://data8.org/datascience/tables.html">http://data8.org/datascience/tables.html</a> may prove very useful for this lab!</p>
+</div>
+</div>
+</section>
+<section id="part-2-getting-a-feel-for-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-getting-a-feel-for-the-dataset">Part 2: Getting a Feel for the Dataset</h3>
+<p>Let’s start of easy by answering a few questions. You should use code to determine the answers to these questions, but should write your answers using descriptive sentences in a markdown cell.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How many rows are in the dataset? (Recall: in the language introduced in Week 1, this is the number of <strong>observational units</strong> in the <strong>data matrix</strong>.)</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How many columns are in the dataset? (Recall: in the language introduced in Week 1, this is the number of <strong>variables</strong> in the data matrix.)</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Return a list of the column names in the dataset. <strong>Hint:</strong> Recall that the column names, in the context of the <code>datascience</code> module, are sometimes called the <strong>labels</strong> of the table. Again, consult the help file if you need help!</p>
+</div>
+</div>
+</section>
+<section id="part-3-accessing-specific-elements-of-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="part-3-accessing-specific-elements-of-the-dataset">Part 3: Accessing Specific Elements of the Dataset</h3>
+<p>There are a few methods we can use to access specific parts of a Table:</p>
+<ul>
+<li><code>table_name.column(&lt;index or label&gt;)</code>: returns an array containing the data in the specified column</li>
+<li><code>table_name.row(&lt;index or label&gt;)</code>: returns an array containing the data in the specified column</li>
+<li><code>table_name.column(i).item(j)</code>: returns the value in column <code>i</code> + 1, row <code>j</code> + 1 (note the plus ones!)</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Display only the <code>arr_del15</code> column of the dataset.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What years are included in the dataset?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Create a histogram of the delay times caused by weather-related issues. Use 100 bins, and include axis labels as well as a plot title.</p>
+</div>
+</div>
+<p>We can also get creative, and use comparisons to subset various parts of our dataset. For example,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>air.column(<span class="st">"carrier"</span>) <span class="op">==</span> <span class="st">"AS"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>will return a Boolean vector (i.e.&nbsp;a vector of <code>True</code> and <code>False</code> elements), with <code>True</code> elements corresponding to values in the <code>carrier</code> column that have value <code>"AS"</code>. In words: this would give us the indices of rows corresponding to data on Alaska Airlines.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How many observational units were recorded from Alaska Airlines? <strong>Hint:</strong> Think about how a sum could help us here.</p>
+</div>
+</div>
+</section>
+<section id="part-4-a-mini-project" class="level3">
+<h3 class="anchored" data-anchor-id="part-4-a-mini-project">Part 4: A Mini-Project</h3>
+<p>Alright, let’s close off this lab with a bit of a mini-project. Our goal is to examine the number of arrivals over time. Specifically, we would ultimately like to plot the average number of arrivals per month vs.&nbsp;month.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Explain, in words, what the following line of code is doing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>air.row(air.column(<span class="dv">1</span>) <span class="op">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Explain, in words, what the following line of code is doing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>air.row(air.column(<span class="dv">1</span>) <span class="op">==</span> <span class="dv">2</span>)[<span class="dv">6</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Hint:</strong> <code>arr_flights</code> is the 7th column in the dataset.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Based on your answers to the previous two Action Items, complete the following code to compute the average number of flights per month:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> []</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> _________________:</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  means.______(np.nanmean(air.row(air.column(___) <span class="op">==</span> ___)[___]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(By the way, the <code>nanmeans()</code> function is a variant of the <code>mean()</code> function from the <code>numpy</code> module that ignores missing values when computing the mean.)</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot your <code>means</code> list against the list containing the integers <code>1</code>, <code>2</code>, <code>3</code>, …, <code>12</code> (this list functions like a list of month names.)</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Site Designed by Ethan Marzban using Quarto; ©2023</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

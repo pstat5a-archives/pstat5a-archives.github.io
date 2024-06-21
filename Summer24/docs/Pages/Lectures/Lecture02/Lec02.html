@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ethan P. Marzban">
+<meta name="dcterms.date" content="2023-06-27">
+
+<title>PSTAT 5A: Summer Session A, 2023 - PSTAT 5A: Lecture 02</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../Images/Logos_Icons/5a_hex.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      PSTAT 5A: Summer Session A, 2023
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../Images/Logos_Icons/5a_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">PSTAT 5A: Summer Session A, 2023</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule of Topics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/calendar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sections and Calendar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/course_staff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Staff / OH</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW and Solns</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Exam Prep</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/exam_prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam Prep</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#where-we-left-off" id="toc-where-we-left-off" class="nav-link active" data-scroll-target="#where-we-left-off">Where We Left Off</a>
+  <ul class="collapse">
+  <li><a href="#last-time" id="toc-last-time" class="nav-link" data-scroll-target="#last-time">Last Time</a></li>
+  <li><a href="#multiple-variables" id="toc-multiple-variables" class="nav-link" data-scroll-target="#multiple-variables">Multiple Variables</a></li>
+  <li><a href="#two-numerical-variables" id="toc-two-numerical-variables" class="nav-link" data-scroll-target="#two-numerical-variables">Two Numerical Variables</a></li>
+  <li><a href="#scatterplot" id="toc-scatterplot" class="nav-link" data-scroll-target="#scatterplot">Scatterplot</a></li>
+  <li><a href="#interpreting-scatterplots" id="toc-interpreting-scatterplots" class="nav-link" data-scroll-target="#interpreting-scatterplots">Interpreting Scatterplots</a></li>
+  <li><a href="#trend" id="toc-trend" class="nav-link" data-scroll-target="#trend">Trend</a></li>
+  <li><a href="#nonlinear-trends" id="toc-nonlinear-trends" class="nav-link" data-scroll-target="#nonlinear-trends">Nonlinear Trends</a></li>
+  <li><a href="#linearity" id="toc-linearity" class="nav-link" data-scroll-target="#linearity">Linearity</a></li>
+  <li><a href="#linearity-1" id="toc-linearity-1" class="nav-link" data-scroll-target="#linearity-1">Linearity</a></li>
+  <li><a href="#linearity-2" id="toc-linearity-2" class="nav-link" data-scroll-target="#linearity-2">Linearity</a></li>
+  <li><a href="#linearity-3" id="toc-linearity-3" class="nav-link" data-scroll-target="#linearity-3">Linearity</a></li>
+  <li><a href="#a-numerical-and-a-categorical-variable" id="toc-a-numerical-and-a-categorical-variable" class="nav-link" data-scroll-target="#a-numerical-and-a-categorical-variable">A Numerical and a Categorical Variable</a></li>
+  <li><a href="#side-by-side-boxplots" id="toc-side-by-side-boxplots" class="nav-link" data-scroll-target="#side-by-side-boxplots">Side-by-Side Boxplots</a></li>
+  <li><a href="#causality" id="toc-causality" class="nav-link" data-scroll-target="#causality">Causality</a></li>
+  </ul></li>
+  <li><a href="#data-revisited" id="toc-data-revisited" class="nav-link" data-scroll-target="#data-revisited">Data, Revisited</a>
+  <ul class="collapse">
+  <li><a href="#quantifying-data" id="toc-quantifying-data" class="nav-link" data-scroll-target="#quantifying-data">Quantifying Data</a></li>
+  <li><a href="#summarizing-data" id="toc-summarizing-data" class="nav-link" data-scroll-target="#summarizing-data">Summarizing Data</a></li>
+  </ul></li>
+  <li><a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link" data-scroll-target="#measures-of-central-tendency">Measures of Central Tendency</a>
+  <ul class="collapse">
+  <li><a href="#quantifying-center" id="toc-quantifying-center" class="nav-link" data-scroll-target="#quantifying-center">Quantifying “Center”</a></li>
+  <li><a href="#quantifying-center-1" id="toc-quantifying-center-1" class="nav-link" data-scroll-target="#quantifying-center-1">Quantifying “Center”</a></li>
+  <li><a href="#the-mean" id="toc-the-mean" class="nav-link" data-scroll-target="#the-mean">The Mean</a></li>
+  <li><a href="#a-note-on-notation" id="toc-a-note-on-notation" class="nav-link" data-scroll-target="#a-note-on-notation">A Note on Notation</a></li>
+  <li><a href="#time-for-an-exercise" id="toc-time-for-an-exercise" class="nav-link" data-scroll-target="#time-for-an-exercise">Time for an Exercise!</a></li>
+  <li><a href="#another-one" id="toc-another-one" class="nav-link" data-scroll-target="#another-one">Another One!</a></li>
+  </ul></li>
+  <li><a href="#measures-of-spread" id="toc-measures-of-spread" class="nav-link" data-scroll-target="#measures-of-spread">Measures of Spread</a>
+  <ul class="collapse">
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range">Range</a></li>
+  <li><a href="#leadup" id="toc-leadup" class="nav-link" data-scroll-target="#leadup">Leadup</a></li>
+  <li><a href="#the-variance" id="toc-the-variance" class="nav-link" data-scroll-target="#the-variance">The Variance</a></li>
+  <li><a href="#time-for-an-exercise-1" id="toc-time-for-an-exercise-1" class="nav-link" data-scroll-target="#time-for-an-exercise-1">Time for an Exercise!</a></li>
+  <li><a href="#iqr" id="toc-iqr" class="nav-link" data-scroll-target="#iqr">IQR</a></li>
+  <li><a href="#five-number-summary" id="toc-five-number-summary" class="nav-link" data-scroll-target="#five-number-summary">Five Number Summary</a></li>
+  <li><a href="#time-for-an-exercise-2" id="toc-time-for-an-exercise-2" class="nav-link" data-scroll-target="#time-for-an-exercise-2">Time for an Exercise!</a></li>
+  </ul></li>
+  <li><a href="#transforming-data" id="toc-transforming-data" class="nav-link" data-scroll-target="#transforming-data">Transforming Data</a>
+  <ul class="collapse">
+  <li><a href="#leadup-1" id="toc-leadup-1" class="nav-link" data-scroll-target="#leadup-1">Leadup</a></li>
+  <li><a href="#transformations" id="toc-transformations" class="nav-link" data-scroll-target="#transformations">Transformations</a></li>
+  <li><a href="#linear-transformations" id="toc-linear-transformations" class="nav-link" data-scroll-target="#linear-transformations">Linear Transformations</a></li>
+  <li><a href="#more-complicated-transformations" id="toc-more-complicated-transformations" class="nav-link" data-scroll-target="#more-complicated-transformations">More Complicated Transformations</a></li>
+  </ul></li>
+  <li><a href="#lecture-summary" id="toc-lecture-summary" class="nav-link" data-scroll-target="#lecture-summary">Lecture Summary</a>
+  <ul class="collapse">
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Lec02.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PSTAT 5A: Lecture 02</h1>
+<p class="subtitle lead">Descriptive Statistics, Part II</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ethan P. Marzban </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 27, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="where-we-left-off" class="level1">
+<h1>Where We Left Off</h1>
+<section id="last-time" class="level2">
+<h2 class="anchored" data-anchor-id="last-time">Last Time</h2>
+<ul>
+<li><p>Last time we started discussing how to produce and interpret visual summaries for datasets consisting of only one variable.</p>
+<ul>
+<li>We learned that histograms and boxplots are good visualizers for numerical variables and barplots are good visualizers for categorical data.</li>
+</ul></li>
+<li><p>But, as we also saw (in the <code>palmerpenguins</code> dataset), data is usually comprised of <em>several</em> variables.</p></li>
+<li><p>A natural question therefore arises: how might we visualize the <em>relationship</em> between multiple variables?</p></li>
+</ul>
+</section>
+<section id="multiple-variables" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-variables">Multiple Variables</h2>
+<ul>
+<li><p>Perhaps unsurprisingly, visualizing the relationship between 3 or more variables can be a bit tricky.</p></li>
+<li><p>As such, we will restrict ourselves to comparing only two variables.</p></li>
+<li><p>Even if we compare only two variables, three cases arise:</p>
+<ul>
+<li>Comparing two numerical variables</li>
+<li>Comparing one numerical and one categorical variable</li>
+<li>Comparing two categorical variables</li>
+</ul></li>
+<li><p>We will examine the first two cases above, and save the third for later.</p></li>
+</ul>
+</section>
+<section id="two-numerical-variables" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="two-numerical-variables">Two Numerical Variables</h2>
+<ul>
+<li><p>Let’s say we have two variables, and we want to visualize their relationship.</p></li>
+<li><p>As an example, let’s return to the <code>palmerpenguins</code> dataset and compare the <code>bill_length_mm</code> and <code>bill_depth_mm</code> variables. Let’s also restrict ourselves to Gentoo penguins.</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre class="hscroll"><code>   bill_length_mm bill_depth_mm
+ 1           46.1          13.2
+ 2           50            16.3
+ 3           48.7          14.1
+ 4           50            15.2
+ 5           47.6          14.5
+ 6           46.5          13.5
+ 7           45.4          14.6
+ 8           46.7          15.3
+ 9           43.3          13.4
+10           46.8          15.4
+# ℹ 114 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<style type="text/css">
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+</style>
+</div>
+</div>
+<hr>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="nonincremental">
+<ul>
+<li>Notice that each observational unit of this data matrix (consisting only of the <code>bill_length_mm</code> and <code>bill_depth_mm</code> variables) is a pair of numbers.</li>
+</ul>
+</div>
+<ul>
+<li>It is fairly natural, then, to imagine plotting these pair of numbers on a Cartesian coordinate system.</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><br>
+<br>
+</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Bill Depth vs. Length in Gentoo Penguins"</span>) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec02_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scatterplot" class="level2">
+<h2 class="anchored" data-anchor-id="scatterplot">Scatterplot</h2>
+<ul>
+<li><p>This type of visualization is called a <strong>scatterplot</strong>.</p></li>
+<li><p>Specifically, when comparing two numerical variables of the same length, we generate a scatterplot by plotting each observational unit on a Cartesian coordinate system where the axes are prescribed by the variables in question.</p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Result</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>When comparing two numerical variables (of the same length), a scatterplot is the best visulization tool.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="interpreting-scatterplots" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-scatterplots">Interpreting Scatterplots</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="nonincremental">
+<ul>
+<li>Let’s return to the scatterplot we generated before:</li>
+</ul>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>gentoo <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Bill Depth vs. Length in Gentoo Penguins"</span>) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Lec02_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div><div class="column" style="width:30%;">
+<ul>
+<li><p>Notice how as the values of <code>bill_length_mm</code> increase, the corresponding values of <code>bill_depth_mm</code> also increase on average?</p>
+<ul>
+<li>This makes intutive sense: longer bills are probably deeper!</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="trend" class="level2">
+<h2 class="anchored" data-anchor-id="trend">Trend</h2>
+<ul>
+<li><p>This is an example of what we call a <strong>trend</strong>; specifically, a <strong>positive linear trend.</strong></p>
+<ul>
+<li><p>A trend is, loosely speaking, any relationship we observe between the two variables in a scatterplot.</p></li>
+<li><p>A trend is said to be <strong>linear</strong> if a one-unit change in one variable corresponds to a fixed amount of change in the other (we’ll talk about nonlinear trends in a bit)</p></li>
+<li><p>A trend is said to be <strong>positive</strong> (or <strong>increasing</strong>) if a one-unit increase in one variable corresponds to a one-unit <em>increase</em> in the other.</p></li>
+</ul></li>
+</ul>
+<hr>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Linear <strong>Negative</strong> Trend:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">2</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(x, y) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Y vs. X"</span>) <span class="sc">+</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec02_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Nonlinear <strong>Negative</strong> Trend:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">/</span> x<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="fl">0.0005</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(x, y) <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Y vs. X"</span>) <span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec02_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Nonlinear <strong>Positive</strong> Trend:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span>x<span class="sc">^</span><span class="dv">2</span>)  <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="fl">0.0007</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(x, y) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Y vs. X"</span>) <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec02_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>No Discernable Trend</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rchisq</span>(<span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(x, y) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Y vs. X"</span>) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec02_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="nonlinear-trends" class="level2">
+<h2 class="anchored" data-anchor-id="nonlinear-trends">Nonlinear Trends</h2>
+<ul>
+<li><p>So, what concretely makes a trend nonlinear?</p></li>
+<li><p>Well, let’s first quickly talk about what makes a <em>function</em> nonlinear.</p></li>
+<li><p>Consider two functions, <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, whose graphs are depicted below:</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x){<span class="fu">return</span>(<span class="sc">-</span><span class="fl">1.5</span><span class="sc">*</span>x)}</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="at">by =</span> <span class="fl">0.1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> f, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"f(x)"</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x){<span class="fu">return</span>(<span class="fl">0.1</span><span class="sc">/</span>((x <span class="sc">+</span> <span class="fl">0.5</span>)<span class="sc">^</span><span class="fl">0.25</span>))}</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="at">by =</span> <span class="fl">0.1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> g, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"g(x)"</span>) <span class="sc">+</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec02_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="linearity" class="level2">
+<h2 class="anchored" data-anchor-id="linearity">Linearity</h2>
+<ul>
+<li><p>The key to determining linearity is to check the <strong>rate of change</strong>.</p></li>
+<li><p>For a linear function: a one-unit change in <code>x</code> corresponds to the same amount of change in <code>y</code>, regardless of where the change in <code>x</code> occurs.</p>
+<ul>
+<li>I.e. as <code>x</code> increases from 0 to 1, <code>y</code> should increase/decrease by the same amount as if <code>x</code> had increased from, say, <code>2</code> to <code>3</code>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="linearity-1" class="level2">
+<h2 class="anchored" data-anchor-id="linearity-1">Linearity</h2>
+<ul>
+<li>For the function <code>f</code> above, this <em>is</em> the case:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec02_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:26px">
+<table class="table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 36%">
+<col style="width: 31%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>x</code>: <span class="math inline">\(0 \to 1\)</span></td>
+<td style="text-align: center;"><code>y</code>: <span class="math inline">\(0 \to -1.5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\Delta\)</span><code>y</code>: <span class="math inline">\((-1.5 - 0) = -1.5\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>x</code>: <span class="math inline">\(2 \to 3\)</span></td>
+<td style="text-align: center;"><code>y</code>: <span class="math inline">\(-3 \to -4.5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\Delta\)</span><code>y</code>: <span class="math inline">\((-4.5 + 3.5) = -1.5\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="linearity-2" class="level2">
+<h2 class="anchored" data-anchor-id="linearity-2">Linearity</h2>
+<ul>
+<li>For the function <code>g</code> above, this is <em>not</em> the case:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec02_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:26px">
+<table class="table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 36%">
+<col style="width: 31%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>x</code>: <span class="math inline">\(0 \to 1\)</span></td>
+<td style="text-align: center;"><code>y</code>: <span class="math inline">\(0.12 \to 0.09\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\Delta\)</span><code>y</code>: <span class="math inline">\((0.09 - 0.12) = -0.03\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>x</code>: <span class="math inline">\(2 \to 3\)</span></td>
+<td style="text-align: center;"><code>y</code>: <span class="math inline">\(0.08 \to 0.073\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\Delta\)</span><code>y</code>: <span class="math inline">\((0.073 - 0.08) = -0.007\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="linearity-3" class="level2">
+<h2 class="anchored" data-anchor-id="linearity-3">Linearity</h2>
+<ul>
+<li><p>The notion of in the context of trends is pretty much the same: if a one-unit change in <code>x</code> corresponds to the same amount of change in <code>y</code> everywhere, then we say that the trend is linear. Otherwise, we say the trend is nonlinear.</p></li>
+<li><p>By the way- another way to talk about trends is to phrase things in terms of the variables being compared.</p>
+<ul>
+<li><p>For example, if the scatterplot of two variables displays a positive linear trend, we might say that the two variables have a positive linear <strong>association</strong>.</p></li>
+<li><p>As a concrete example: bill length and bill depth appear to have a positive linear association, as seen in the scatterplot from a few slides ago.</p></li>
+</ul></li>
+</ul>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>The trends/associations illustrated a few slides ago are probably a little unrealistically clear- most data is “messy”, and it can sometimes be difficult to determine whether or not there is a trend (let alone whether it is linear/nonlinear and positive/negative).</li>
+</ul>
+</div>
+<ul>
+<li><p>We will revisit the notion of trend in the last week of the course, when we talk about something called <strong>regression</strong>.</p></li>
+<li><p>Regression will provide us with a tool for statistically testing for the presence of a trend.</p></li>
+<li><p>So, stay tuned!</p></li>
+</ul>
+</section>
+<section id="a-numerical-and-a-categorical-variable" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="a-numerical-and-a-categorical-variable">A Numerical and a Categorical Variable</h2>
+<ul>
+<li><p>The final case we will consider today is comparing a numerical variable to a categorical one.</p></li>
+<li><p>As a concrete example, here is a (mock) dataset comprised of the following variables:</p></li>
+</ul>
+<div class="fragment">
+<table class="table">
+<colgroup>
+<col style="width: 52%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Variable Name</strong></th>
+<th style="text-align: center;"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>stdy_hrs</code></td>
+<td style="text-align: center;">average amount of time (in hrs) a student spent studying for a particular class each week</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>ltr_grd</code></td>
+<td style="text-align: center;">the final letter grade (<code>A+</code>, <code>A</code>, <code>A-</code>, etc.) the student received in the class</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"grade_data.csv"</span>, <span class="at">header =</span> T)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   ltr_grd  stdy_hrs
+1        A 17.758097
+2        A 19.079290
+3        A 26.234833
+4        A 20.282034
+5        A 20.517151
+6        A 26.860260
+7        A 21.843665
+8        A 14.939755
+9        A 17.252589
+10       A 18.217352
+11       A 24.896327
+12       A 21.439255
+13       A 21.603086
+14       A 20.442731
+15       A 17.776635
+16       A 27.147653
+17       A 21.991402
+18       A 12.133531
+19       A 22.805424
+20       A 18.108834
+21       B 11.728705
+22       B 15.128100
+23       B 11.895982
+24       B 13.084435
+25       B 13.499843
+26       B  9.253227
+27       B 19.351148
+28       B 16.613492
+29       B 11.447452
+30       B 21.015260
+31       B 17.705857
+32       B 14.819714
+33       B 19.580503
+34       B 19.512534
+35       B 19.286324
+36       B 18.754561
+37       B 18.215671
+38       B 15.752353
+39       B 14.776149
+40       B 14.478116
+41       C 15.873819
+42       C 18.064372
+43       C 13.305716
+44       C 28.760302
+45       C 24.435829
+46       C 13.946011
+47       C 17.187018
+48       C 16.900051
+49       C 22.509843
+50       C 18.624839
+51       C 20.139933
+52       C 18.871540
+53       C 18.807083
+54       C 25.158710
+55       C 17.984031
+56       C 25.824118
+57       C 12.030612
+58       C 21.630762
+59       C 19.557344
+60       C 19.971737
+61       C 20.708378
+62       C 16.739544
+63       C 17.500567
+64       C 14.416411
+65       C 14.176939
+66       C 20.365879
+67       C 21.016944
+68       C 19.238519
+69       C 23.150204
+70       C 28.225381
+71       D 12.526907
+72       D  7.072493
+73       D 17.017216
+74       D 11.872398
+75       D 11.935974
+76       D 17.076714
+77       D 13.145681
+78       D 10.337847
+79       D 14.543910
+80       D 13.583326
+81       D 14.017293
+82       D 15.155841
+83       D 12.888020
+84       D 15.933130
+85       D 13.338540
+86       F  5.327128
+87       F  8.387356
+88       F  5.740726
+89       F  2.696274
+90       F  8.595230</code></pre>
+</div>
+</div>
+<div style="font-size:30px">
+<ul>
+<li><p>Note that <code>ltr_grd</code> is categorical (in fact, it is ordinal) and <code>stdy_hrs</code> is numerical (specifically, continuous).</p></li>
+<li><p>Now, even though the observational units of our data matrix are pairs of quantities, they are no longer pairs of <strong>numbers</strong> and it therefore no longer makes sense to plot them as points on a Cartesian coordinate system.</p></li>
+</ul>
+</div>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>The way we get around this is, perhaps surprisingly… boxplots!</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ltr_grd, <span class="at">y =</span> stdy_hrs)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_boxplot</span>(<span class="at">geom =</span> <span class="st">"errorbar"</span>, </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.25</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span>  <span class="st">"#7f9ab5"</span>, </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="dv">1</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">outlier.size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Weekly Study Hrs vs. Letter Grade"</span>) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">10</span>, </span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>,</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">0</span>,</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">10</span>, </span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>))</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec02_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<ul>
+<li>This type of plot is called a <strong>side-by-side boxplot</strong></li>
+</ul>
+</section>
+<section id="side-by-side-boxplots" class="level2">
+<h2 class="anchored" data-anchor-id="side-by-side-boxplots">Side-by-Side Boxplots</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Result</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>When comparing one numerical and one categorical variable, it is best to visualize their relationship using a side-by-side boxplot.</p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Though the notion of trend is slightly different in the context of a side-by-side boxplot, we can still use them to determine relationships.</p></li>
+<li><p>For example, from the plot on the previous slide, we can see that, on average, students who received lower grades tended to study less than those students who received higher grades.</p></li>
+</ul>
+</section>
+<section id="causality" class="level2">
+<h2 class="anchored" data-anchor-id="causality">Causality</h2>
+<ul>
+<li><p>I should make a very important point: identifying trends is not the same thing as identifying <strong>causal relationships</strong>.</p></li>
+<li><p>For example, the side-by-side boxplot from a few slides ago does not tell us that “studying less causes your grade to decrease”</p>
+<ul>
+<li>There are a lot of other <strong>confounding variables</strong> that could contribute to the decrease in grade.</li>
+</ul></li>
+<li><p>We won’t talk too much about causality in this course, but it is an important thing to be aware of: association is not the same thing as causation!</p></li>
+</ul>
+</section>
+</section>
+<section id="data-revisited" class="level1">
+<h1>Data, Revisited</h1>
+<section id="quantifying-data" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="quantifying-data">Quantifying Data</h2>
+<ul>
+<li><p>Let’s once again consider a <em>single</em> numerical variable.</p></li>
+<li><p>As a concrete example, we can consider the exam scores variable from the previous slides:</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre class="hscroll"><code>  [1] 88.236 77.348 81.050 74.431 75.083 79.569 74.998 80.099 74.264 83.850
+ [11] 89.857 81.427 79.439 84.260 78.565 77.570 78.224 73.780 88.085 79.341
+ [21] 80.554 77.317 81.155 83.842 87.051 78.362 81.528 72.148 74.131 78.927
+ [31] 75.446 79.791 78.199 90.769 85.640 78.420 83.484 79.045 97.909 86.736
+ [41] 73.723 76.973 81.320 79.238 85.803 86.621 85.781 81.844 82.896 80.478
+ [51] 75.903 84.565 76.302 83.432 85.448 69.695 81.049 85.575 84.791 82.525
+ [61] 78.361 77.803 86.542 84.171 86.103 72.772 78.730 76.189 75.187 79.194
+ [71] 77.159 82.048 82.661 84.021 76.008 79.474 79.015 86.992 72.524 76.094
+ [81] 78.765 80.623 82.497 75.776 70.614 79.677 81.182 77.943 76.863 85.561
+ [91] 89.569 96.695 73.680 77.770 81.584 81.965 78.373 76.295 73.212 79.229
+[101] 87.273 87.364 82.706 83.843 75.864 82.791 82.637 78.685 72.626 69.302
+[111] 93.408 73.189 83.764 77.832 82.803 80.278 94.962 79.616 85.667 82.710
+[121] 86.823 76.656 74.623 71.508 91.131 78.318 81.058 86.239 76.585 85.652
+[131] 77.122 86.036 83.127 83.234 80.746 83.878 75.544 73.780 81.106 85.523</code></pre>
+</div>
+</div>
+<div class="cell">
+<style type="text/css">
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+</style>
+</div>
+</div>
+<hr>
+<div style="font-size:30px">
+<div class="nonincremental">
+<ul>
+<li>Note that this is really just a list of numbers!</li>
+</ul>
+</div>
+<ul>
+<li><p>Indeed, any numerical variable (or, equivalently, any dataset consisting of just a single numerical variable) will just be a list (or <em>set</em>) of numbers <span class="math display">\[ X = \{x_1, x_2, \cdots, x_n\} \]</span> where I have adopted the standard mathematical convention of denoting the elements of a set between curly braces.</p>
+<ul>
+<li><p>We can use the following notational shorthand: <span class="math display">\[ X = \{x_i\}_{i=1}^{n} \]</span> where:</p>
+<ul>
+<li><span class="math inline">\(n\)</span> denotes the total number of elements in the dataset</li>
+<li><span class="math inline">\(x_i\)</span> denotes the <span class="math inline">\(i\)</span><sup>th</sup> observation</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>For example, in the context of the scores dataset, <span class="math inline">\(x_1\)</span> denotes the score of the first student (88.236%), <span class="math inline">\(x_4\)</span> denotes the score of the fourth student (74.431%), and <span class="math inline">\(x_i\)</span> denotes the score of the <span class="math inline">\(i\)</span><sup>th</sup> student for an <em>arbitrary</em> index <span class="math inline">\(i\)</span></li>
+</ul>
+</div>
+<ul>
+<li><p>We can further borrow the notation of set theory to talk about <strong>data aggregation</strong>: given a set of data <span class="math inline">\(X = \{x_i\}_{i=1}^{n}\)</span> and another set of data <span class="math inline">\(Y = \{y_i\}_{i=1}^{m}\)</span>, we can denote the aggregated set <span class="math inline">\(Z\)</span>, consisting of the elements <span class="math inline">\(x_1, \cdots, x_n, y_1, \cdots, y_m\)</span>, by <span class="math display">\[ Z = X \cup Y \]</span></p>
+<ul>
+<li><p>For example, <span class="math inline">\(\{1, 2, 3\} \cup \{4, 5\} = \{1, 2, 3, 4, 5\}\)</span>.</p></li>
+<li><p>Mathematically, we call this the <strong>union</strong> of two sets.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="summarizing-data" class="level2">
+<h2 class="anchored" data-anchor-id="summarizing-data">Summarizing Data</h2>
+<ul>
+<li><p>The remainder of today’s lecture will be devoted to finding <em>numerical</em> summaries of a dataset <span class="math inline">\(X = \{x_i\}_{i=1}^{n}\)</span>.</p></li>
+<li><p>This will lead us to several different <strong>summary statistics</strong>, which are mathematical quantities that seek to describe different aspects of our data.</p></li>
+</ul>
+</section>
+</section>
+<section id="measures-of-central-tendency" class="level1">
+<h1>Measures of Central Tendency</h1>
+<section id="quantifying-center" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="quantifying-center">Quantifying “Center”</h2>
+<ul>
+<li><p>Here is a very broad question: what is the <em>center</em> of a dataset <span class="math inline">\(X = \{x_i\}_{i=1}^{n}\)</span>?</p></li>
+<li><p>Perhaps the scores dataset from earlier is a bit too complicated- let’s simplify things and look at the dataset <span class="math display">\[ X = \{1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 6\} \]</span></p></li>
+<li><p>As a starting point, I can “plot” these points on a number line (to produce what is known as a <strong>dotplot</strong>):</p></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data.svg" class="img-fluid figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+<hr>
+</section>
+<section id="quantifying-center-1" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="quantifying-center-1">Quantifying “Center”</h2>
+<div class="nonincremental">
+<ul>
+<li>Back to our question: what is the <em>center</em> of this dataset?</li>
+</ul>
+</div>
+<ul>
+<li>Perhaps we can think of <em>center</em> as a <em>balancing point</em>. In other words: where should I place a fulcrum to ensure this number line remains balanced?</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mean.svg" class="img-fluid figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+<ul>
+<li>We call this balancing point the <strong>arithmetic mean</strong> (or just <strong>mean</strong>, or <strong>average</strong>, for short), and denote it <span class="math inline">\(\overline{x}\)</span>.</li>
+</ul>
+<hr>
+<div class="{nonincremental}">
+<ul>
+<li>This notion of a “balancing point” applies to any set of numbers! For example, the dotplot of the exam scores dataset from before looks like:</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="scores.svg" class="img-fluid figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+<hr>
+</section>
+<section id="the-mean" class="level2" style="font-size: 28px">
+<h2 style="font-size: 28px" class="anchored" data-anchor-id="the-mean">The Mean</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Formula:</strong> The Mean
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 28px">
+<p>Given a set of data <span class="math inline">\(x = \{x_i\}_{i=1}^{n}\)</span>, we compute its <strong>mean</strong>, denoted <span class="math inline">\(\overline{x}\)</span>, using the formula <span class="math display">\[ \overline{x} = \frac{1}{n} (x_1 + \cdots + x_n) \]</span> which can be equivalently written as <span class="math display">\[ \overline{x} = \frac{1}{n} \sum_{i=1}^{n} x_i \]</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li>In words: we compute the mean by adding up all of the points included in our dataset, and dividing by the total number of points.</li>
+</ul>
+</section>
+<section id="a-note-on-notation" class="level2">
+<h2 class="anchored" data-anchor-id="a-note-on-notation">A Note on Notation</h2>
+<ul>
+<li><p>Perhaps you haven’t seen the notation <span class="math inline">\(\sum_{i=1}^{n} x_i\)</span> before. Don’t get scared by it! It’s just a shorthand notation for the sum of the points <span class="math inline">\(\{x_1, x_2, \cdots, x_n\}\)</span>.</p></li>
+<li><p>So, if it’s easier for you, you can always think of <span class="math inline">\((x_1 + \cdots x_n)\)</span> in place of <span class="math inline">\(\sum_{i=1}^{n} x_i\)</span>.</p></li>
+<li><p>Having said that, I will often use this notation (called <strong>sigma notation</strong>, as the symbol <span class="math inline">\(\sum\)</span> is the capital Greek letter “sigma”) as it saves quite a bit of time in the long run.</p>
+<ul>
+<li>I also urge you to familiarze yourself with <span class="math inline">\(\Sigma\)</span> notation, as I’m sure you will encounter it even beyond this course!</li>
+</ul></li>
+</ul>
+</section>
+<section id="time-for-an-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="time-for-an-exercise">Time for an Exercise!</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Compute the mean of the set <span class="math inline">\(B = \{-1, 0, 1, 1, 2, 4\}\)</span>. Discuss with your neighbors!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="another-one" class="level2">
+<h2 class="anchored" data-anchor-id="another-one">Another One!</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>A collection of <span class="math inline">\(n = 42\)</span> exam scores have an average 50%. Two additional scores of 100% are reported. How does the average of scores change with the addition of these two new scores?</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="measures-of-spread" class="level1">
+<h1>Measures of Spread</h1>
+<section id="range" class="level2">
+<h2 class="anchored" data-anchor-id="range">Range</h2>
+<ul>
+<li><p>Another way we can summarize a dataset <span class="math inline">\(X = \{x_i\}_{i=1}^{n}\)</span> is to describe how <em>spread out</em> it is.</p></li>
+<li><p>One idea on how we can capture the spread is to say: how far apart is the <em>smallest</em> value from the <em>largest</em> value?</p></li>
+<li><p>Indeed, this statistic has a name: the <strong>range</strong>.</p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Formula:</strong> Range
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 28px">
+<p>Given a set of numbers <span class="math inline">\(X = \{x_1, x_2, \cdots, x_n\}\)</span>, we compute the <strong>range</strong> of <span class="math inline">\(X\)</span> as: <span class="math display">\[ \mathrm{range}(X) = \max\{x_1, \cdots, x_n\} - \min\{x_1, \ \cdots, \ x_n\} \]</span> i.e.&nbsp;the largest value minus the smallest value.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="leadup" class="level2">
+<h2 class="anchored" data-anchor-id="leadup">Leadup</h2>
+<ul>
+<li><p>Now, there is another way to think about spread: suppose we look at the average distance of points from their mean.</p></li>
+<li><p>More specifically: define <span class="math inline">\(d_i := x_i - \overline{x}\)</span> to be the <strong>deviation</strong> of the <span class="math inline">\(i\)</span><sup>th</sup> point from the mean:</p></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sd.svg" class="img-fluid figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>The distance between <span class="math inline">\(x_i\)</span> and <span class="math inline">\(\overline{x}\)</span> is thus the squared deviance <span class="math inline">\(d_i^2\)</span>.</li>
+</ul>
+</div>
+<ul>
+<li><p>Therefore, the average distance of each point from the mean would be <span class="math display">\[ \frac{1}{n} \sum_{i=1}^{n} d_i^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \overline{x})^2 \]</span></p></li>
+<li><p>For reasons that are slightly beyond the scope of this course, we will actually divide by <span class="math inline">\(n - 1\)</span> as opposed to <span class="math inline">\(n\)</span>. (It turns out that this yields a measure that has some slightly nicer properties than the one containing <span class="math inline">\(1/n\)</span> in place of <span class="math inline">\(1/(n - 1)\)</span>): <span class="math display">\[ \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \overline{x})^2 \]</span></p></li>
+</ul>
+</section>
+<section id="the-variance" class="level2">
+<h2 class="anchored" data-anchor-id="the-variance">The Variance</h2>
+<div class="nonincremental">
+<ul>
+<li>This is what we call the <strong>variance</strong> of the set <span class="math inline">\(X\)</span>, denoted by <span class="math inline">\(s_x^2\)</span>.</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Formula:</strong> Variance, and Standard Deviation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 28px">
+<p>Given a set of data <span class="math inline">\(X = \{x_i\}_{i=1}^{n}\)</span>, we compute the <strong>variance</strong> of <span class="math inline">\(X\)</span> by <span class="math display">\[ s_x^2 = \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \overline{x})^2 \]</span> We define the <strong>standard deviation</strong>, denoted by <span class="math inline">\(s_x\)</span>, to be <span class="math inline">\(\sqrt{s_X^2}\)</span>; i.e. <span class="math display">\[ s_x := \sqrt{\frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \overline{x})^2} \]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="time-for-an-exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="time-for-an-exercise-1">Time for an Exercise!</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>For the set <span class="math inline">\(X = \{1, 2, 3, 4, 5\}\)</span>, compute <span class="math inline">\(s_x\)</span>. Discuss with your neighbor!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="iqr" class="level2">
+<h2 class="anchored" data-anchor-id="iqr">IQR</h2>
+<ul>
+<li>There is yet another way to quantify the spread of a dataset, and that is what is known as the <strong>Interquartile Range</strong> (IQR, for short).</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Formula:</strong> The IQR
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 28px">
+<p>Given a set of data <span class="math inline">\(x = \{x_i\}_{i=1}^{n}\)</span>, we compute its <strong>interquartile range</strong> using the formula <span class="math display">\[ \mathrm{IQR} = Q_3 - Q_1 \]</span> where <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span> denote the first and third quartiles, respectively.</p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>In other words, the IQR is just the width of the box in a boxplot!</li>
+</ul>
+</section>
+<section id="five-number-summary" class="level2">
+<h2 class="anchored" data-anchor-id="five-number-summary">Five Number Summary</h2>
+<ul>
+<li><p>Speaking of boxplots, there is a set of numbers that occurs frequently when summarizing numerical data, collectively called the <strong>five number summary</strong>. The elements of the five number summary are:</p>
+<ol type="1">
+<li>The minimum</li>
+<li>The first quartile</li>
+<li>The median</li>
+<li>The third quartile</li>
+<li>The maximum</li>
+</ol></li>
+</ul>
+</section>
+<section id="time-for-an-exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="time-for-an-exercise-2">Time for an Exercise!</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Consider a dataset <span class="math inline">\(X\)</span> that has boxplot given by:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">6</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(x) <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_boxplot</span>(<span class="at">geom =</span> <span class="st">"errorbar"</span>, </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.25</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span>  <span class="st">"#7f9ab5"</span>, </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="dv">1</span>,</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">outlier.size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>(<span class="at">base_size =</span> <span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#f0ebd8"</span>),</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0ebd8"</span>),</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>,</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">margin =</span> <span class="fu">margin</span>(</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">t =</span> <span class="dv">0</span>, </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">r =</span> <span class="dv">10</span>,</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">b =</span> <span class="dv">0</span>, </span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.75</span>, <span class="fl">0.75</span>)) <span class="sc">+</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Boxplot of X"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec02_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Provide the five number summary, along with the IQR. Discuss with your Neighbors!</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="transforming-data" class="level1">
+<h1>Transforming Data</h1>
+<section id="leadup-1" class="level2">
+<h2 class="anchored" data-anchor-id="leadup-1">Leadup</h2>
+<ul>
+<li><p>Suppose <span class="math inline">\(F = \{f_i\}_{i=1}^{n}\)</span> denotes a set of temperature measurements, as recorded in Fahrenheit.</p></li>
+<li><p>Now, let’s say I want to convert the measurements to be in terms of Centigrade, and will store the resulting values in a set called <span class="math inline">\(C = \{c_i\}_{i=1}^{n}\)</span> (for “Centigrade”).</p></li>
+<li><p>The <span class="math inline">\(c_i\)</span> values aren’t new data- they are still linked with our original <span class="math inline">\(f_i\)</span> Fahrenheit measurements! Specifically, they are linked by way of the following formula: <span class="math display">\[ c_i = \frac{5}{9} (f_i - 32) \]</span> (as this is the conversion from Fahrenheit to Centigrade).</p></li>
+</ul>
+</section>
+<section id="transformations" class="level2">
+<h2 class="anchored" data-anchor-id="transformations">Transformations</h2>
+<div class="nonincremental">
+<ul>
+<li>This is a specific example of a more general concept known as <strong>data transformation</strong>.</li>
+</ul>
+</div>
+<ul>
+<li><p>In general, given a set of data <span class="math inline">\(X = \{x_i\}_{i=1}^{n}\)</span>, we can consider the set of points obtained by applying some function (a.k.a. a <em>transformation</em>) <span class="math inline">\(g\)</span> to the points <span class="math inline">\(x_i\)</span>, to obtain a new set <span class="math inline">\(\{g(x_i)\}_{i=1}^{n}\)</span></p>
+<ul>
+<li><p>For instance, we used <span class="math inline">\(g(x) = (5/9) \cdot (x - 32)\)</span> in our Fahrenheit-to-Centigrade example on the previous slide.</p></li>
+<li><p>There are many other functions we could consider! For instance, in certain cases we may need to transform our data using a logarithm function; i.e.&nbsp;<span class="math inline">\(g(x) = \ln(x)\)</span>.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="linear-transformations" class="level2">
+<h2 class="anchored" data-anchor-id="linear-transformations">Linear Transformations</h2>
+<ul>
+<li><p>For now, let’s restrict ourselves to considering linear transformations of our data.</p></li>
+<li><p>Recall that a function <span class="math inline">\(g(x)\)</span> is said to be <strong>linear</strong> if it is of the form <span class="math inline">\(g(x) = ax + b\)</span>.</p>
+<ul>
+<li>So, we are restricting ourselves to functions <span class="math inline">\(g\)</span> of this form.</li>
+</ul></li>
+<li><p>One question we may ask is: what is the mean of our transformed data?</p>
+<ul>
+<li>In other words, given a set <span class="math inline">\(X = \{x_i\}_{i=1}^{n}\)</span> and a new set <span class="math inline">\(Y := \{ax_i + b\}_{i=1}^{n}\)</span> for fixed constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, what can we say about <span class="math inline">\(\overline{Y}\)</span>?</li>
+</ul></li>
+</ul>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>Well, let’s use the definition of the mean!</li>
+</ul>
+</div>
+<ul>
+<li><p>Definitionally, <span class="math inline">\(\overline{y} = \frac{1}{n} \sum_{i=1}^{n} y_i\)</span>.</p></li>
+<li><p>But, we know that <span class="math inline">\(y_i = a x_i + b\)</span>; i.e. <span class="math display">\[\begin{align*}
+\overline{y}    &amp; = \frac{1}{n} \sum_{i=1}^{n} (a x_i + b)    \\
+                &amp; = \frac{1}{n} \left[ (ax_1 + b) + (ax_2 + b) + \cdots + (ax_n + b) \right]
+\end{align*}\]</span></p></li>
+</ul>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>Grouping like terms yields:</li>
+</ul>
+</div>
+<p><span class="math display">\[\begin{align*}
+  \overline{y}    &amp; = \frac{1}{n} \left[ (ax_1 + b) + (ax_2 + b) + \cdots + (ax_n + b) \right]    \\
+      &amp; = \frac{1}{n} \left[ (ax_1 + ax_2 + \cdots + ax_n) + (\underbrace{b + \cdots + b}_{\text{$n$ times}}) \right]    \\
+      &amp; = \frac{1}{n} \left[ a (x_1 + \cdots + x_n) + n \cdot b \right]     \\
+      &amp; = a \cdot \left[ \frac{1}{n} (x_1 + \cdots + x_n) \right] + \frac{1}{n} (n \cdot b)   = \boxed{a \overline{x} + b}
+\end{align*}\]</span></p>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>So, if I take a set of data, multiply every element by some fixed constant <span class="math inline">\(a\)</span>, and then add some other fixed constant <span class="math inline">\(b\)</span> to all of the data points, the mean of the resulting points will be equal to <span class="math inline">\(a\)</span> times the mean of the original data points plus <span class="math inline">\(b\)</span>.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Suppose <span class="math inline">\(12\)</span> measurements of the temperature in <em>Gauchoville</em> have an average of 68<sup>o</sup>F. What is the corresponding average temperature in <sup>o</sup>C? Discuss with your neighbors!</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="more-complicated-transformations" class="level2">
+<h2 class="anchored" data-anchor-id="more-complicated-transformations">More Complicated Transformations</h2>
+<ul>
+<li><p>For more general transformations <span class="math inline">\(g\)</span>, things don’t work out as nicely.</p></li>
+<li><p>For instance, if we take the logarithm of each datapoint, the average of these new points is not necessarily going to be the logarithm of the average.</p>
+<ul>
+<li>To see that, we can consider a specific example: Let <span class="math inline">\(X = \{1, 2, 3\}\)</span> and take <span class="math inline">\(Y = \{\ln(1), \ \ln(2), \ \ln(3)\}\)</span>. Then <span class="math inline">\(\overline{x} = 2\)</span> and <span class="math inline">\(\overline{y} \approx 0.597\)</span>, whereas <span class="math inline">\(\ln(\overline{x}) = \ln(2) \approx 0.693\)</span>.</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Warning</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>If <span class="math inline">\(X = \{x_i\}_{i=1}^{n}\)</span> and <span class="math inline">\(Y = \{g(x_i)\}_{i=1}^{n}\)</span> where <span class="math inline">\(g\)</span> is not a linear transformation, then it is <strong>not</strong> the case that <span class="math inline">\(\overline{y} = g(\overline{x})\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="lecture-summary" class="level1">
+<h1>Lecture Summary</h1>
+<section id="summary" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="summary">Summary</h2>
+<ul>
+<li><p>We started off by finishing our discussion of data visualizing, identifying ways to visualize the relationship between two variables.</p>
+<ul>
+<li><p>Such visualizations included: scatterplots and side-by-side boxplots.</p></li>
+<li><p>We also discussed notions of trend.</p></li>
+</ul></li>
+<li><p>Next, we discussed various numerical summaries of data.</p>
+<ul>
+<li><p>These included measures of central tendency (like the mean or the median), along with measures of spread (like the variance, standard deviation, or IQR).</p></li>
+<li><p>We were also introduced to the five number summary, which is closely related to boxplots.</p></li>
+</ul></li>
+<li><p>Next time we’ll begin our discussion on Probability, which, as we will see, provides a rigorous way of quantifying uncertainty.</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Site Designed by Ethan Marzban using Quarto; ©2023</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

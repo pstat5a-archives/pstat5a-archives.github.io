@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ethan P. Marzban">
+<meta name="dcterms.date" content="2023-07-17">
+
+<title>PSTAT 5A: Summer Session A, 2023 - PSTAT 5A: Lecture 13</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../Images/Logos_Icons/5a_hex.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      PSTAT 5A: Summer Session A, 2023
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../Images/Logos_Icons/5a_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">PSTAT 5A: Summer Session A, 2023</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule of Topics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/calendar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sections and Calendar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/course_staff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Staff / OH</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW and Solns</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Exam Prep</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/exam_prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam Prep</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#previously" id="toc-previously" class="nav-link active" data-scroll-target="#previously">Previously</a></li>
+  <li><a href="#leadup" id="toc-leadup" class="nav-link" data-scroll-target="#leadup">Leadup</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#general-confidence-intervals" id="toc-general-confidence-intervals" class="nav-link" data-scroll-target="#general-confidence-intervals">General Confidence Intervals</a></li>
+  <li><a href="#general-confidence-intervals-1" id="toc-general-confidence-intervals-1" class="nav-link" data-scroll-target="#general-confidence-intervals-1">General Confidence Intervals</a></li>
+  <li><a href="#normal-population" id="toc-normal-population" class="nav-link" data-scroll-target="#normal-population">Normal Population</a></li>
+  <li><a href="#worked-out-example" id="toc-worked-out-example" class="nav-link" data-scroll-target="#worked-out-example">Worked-Out Example</a></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#solutions-1" id="toc-solutions-1" class="nav-link" data-scroll-target="#solutions-1">Solutions</a></li>
+  <li><a href="#non-normal-population" id="toc-non-normal-population" class="nav-link" data-scroll-target="#non-normal-population">Non-Normal Population</a></li>
+  <li><a href="#non-normal-population-n-30" id="toc-non-normal-population-n-30" class="nav-link" data-scroll-target="#non-normal-population-n-30">Non-Normal Population, <span class="math inline">\(n &lt; 30\)</span></a></li>
+  <li><a href="#non-normal-population-n-geq-30" id="toc-non-normal-population-n-geq-30" class="nav-link" data-scroll-target="#non-normal-population-n-geq-30">Non-Normal Population, <span class="math inline">\(n \geq 30\)</span></a></li>
+  <li><a href="#central-limit-theorem-for-the-sample-mean" id="toc-central-limit-theorem-for-the-sample-mean" class="nav-link" data-scroll-target="#central-limit-theorem-for-the-sample-mean">Central Limit Theorem for the Sample Mean</a></li>
+  <li><a href="#worked-out-example-2" id="toc-worked-out-example-2" class="nav-link" data-scroll-target="#worked-out-example-2">Worked-Out Example</a></li>
+  <li><a href="#solutions-2" id="toc-solutions-2" class="nav-link" data-scroll-target="#solutions-2">Solutions</a></li>
+  <li><a href="#solutions-3" id="toc-solutions-3" class="nav-link" data-scroll-target="#solutions-3">Solutions</a></li>
+  <li><a href="#solutions-4" id="toc-solutions-4" class="nav-link" data-scroll-target="#solutions-4">Solutions</a></li>
+  <li><a href="#unknown-sigma" id="toc-unknown-sigma" class="nav-link" data-scroll-target="#unknown-sigma">Unknown <span class="math inline">\(\sigma\)</span>?</a></li>
+  <li><a href="#unknown-sigma-1" id="toc-unknown-sigma-1" class="nav-link" data-scroll-target="#unknown-sigma-1">Unknown <span class="math inline">\(\sigma\)</span>?</a></li>
+  <li><a href="#using-s-in-place-of-sigma" id="toc-using-s-in-place-of-sigma" class="nav-link" data-scroll-target="#using-s-in-place-of-sigma">Using <span class="math inline">\(s\)</span> in place of <span class="math inline">\(\sigma\)</span></a></li>
+  <li><a href="#the-t-distribution" id="toc-the-t-distribution" class="nav-link" data-scroll-target="#the-t-distribution">The <em>t-</em>distribution</a></li>
+  <li><a href="#the-t-distribution-1" id="toc-the-t-distribution-1" class="nav-link" data-scroll-target="#the-t-distribution-1">The <em>t-</em>distribution</a></li>
+  <li><a href="#back-to-confidence-intervals" id="toc-back-to-confidence-intervals" class="nav-link" data-scroll-target="#back-to-confidence-intervals">Back to Confidence Intervals</a></li>
+  <li><a href="#worked-out-example-3" id="toc-worked-out-example-3" class="nav-link" data-scroll-target="#worked-out-example-3">Worked-Out Example</a></li>
+  <li><a href="#solutions-5" id="toc-solutions-5" class="nav-link" data-scroll-target="#solutions-5">Solutions</a></li>
+  <li><a href="#solutions-contd" id="toc-solutions-contd" class="nav-link" data-scroll-target="#solutions-contd">Solutions (cont’d)</a></li>
+  <li><a href="#reading-a-t-table" id="toc-reading-a-t-table" class="nav-link" data-scroll-target="#reading-a-t-table">Reading a <em>t</em>-table</a></li>
+  <li><a href="#solutions-contd-1" id="toc-solutions-contd-1" class="nav-link" data-scroll-target="#solutions-contd-1">Solutions (cont’d)</a></li>
+  <li><a href="#general-flowchart" id="toc-general-flowchart" class="nav-link" data-scroll-target="#general-flowchart">General Flowchart</a></li>
+  <li><a href="#aside-testing-distributional-fits" id="toc-aside-testing-distributional-fits" class="nav-link" data-scroll-target="#aside-testing-distributional-fits">Aside: Testing Distributional Fits</a>
+  <ul class="collapse">
+  <li><a href="#testing-distributional-fits" id="toc-testing-distributional-fits" class="nav-link" data-scroll-target="#testing-distributional-fits">Testing Distributional Fits</a></li>
+  <li><a href="#idea-1-histogram" id="toc-idea-1-histogram" class="nav-link" data-scroll-target="#idea-1-histogram">Idea 1: Histogram</a></li>
+  <li><a href="#downsides" id="toc-downsides" class="nav-link" data-scroll-target="#downsides">Downsides</a></li>
+  <li><a href="#qq-plot" id="toc-qq-plot" class="nav-link" data-scroll-target="#qq-plot">QQ-Plot</a></li>
+  <li><a href="#interpreting-qq-plots" id="toc-interpreting-qq-plots" class="nav-link" data-scroll-target="#interpreting-qq-plots">Interpreting QQ-Plots</a></li>
+  <li><a href="#normal-or-not" id="toc-normal-or-not" class="nav-link" data-scroll-target="#normal-or-not">Normal or Not?</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Lec13.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PSTAT 5A: Lecture 13</h1>
+<p class="subtitle lead">Inference on the Mean</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ethan P. Marzban </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 17, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="previously" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="previously">Previously</h2>
+<ul>
+<li><p>Over the course of the past few lectures, we’ve been dealing primarily with population proportions.</p></li>
+<li><p>A natural point estimate of <span class="math inline">\(p\)</span> is <span class="math inline">\(\widehat{P}\)</span>, the sample proportion.</p>
+<ul>
+<li>The Central Limit Theorem for Proportions helped us even further by providing the sampling distribution of <span class="math inline">\(\widehat{P}\)</span>, under certain conditions (the success-failure conditions).</li>
+</ul></li>
+<li><p>We then used the sampling distribution of <span class="math inline">\(\widehat{P}\)</span> to construct confidence intervals for the true proportion <span class="math inline">\(p\)</span>.</p></li>
+<li><p>Now we will turn our attention to a different population parameter.</p></li>
+</ul>
+</section>
+<section id="leadup" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="leadup">Leadup</h2>
+<ul>
+<li>Recall from last lecture that any of the descriptive statistics we discussed in Week 1 can be viewed as population parameters, when they apply to the population.
+<ul>
+<li>E.g. population proportion (<span class="math inline">\(p\)</span>), population variance (<span class="math inline">\(\sigma^2\)</span>), etc.</li>
+</ul></li>
+<li>Of particular interest to statisticians is often the <strong>population mean</strong>, <span class="math inline">\(\mu\)</span>.</li>
+<li>Let’s try and draw some analogies from our work with population proportions.</li>
+<li>When trying to make inferences on a population proportion <span class="math inline">\(p\)</span>, we used the sample proportion <span class="math inline">\(\widehat{P}\)</span> as a proxy (specifically, a <strong>point estimator</strong>).
+<ul>
+<li>Any guesses on what we might use as a point estimator of <span class="math inline">\(\mu\)</span>?</li>
+<li>That’s right- the <strong>sample mean</strong> <span class="math inline">\(\overline{X}\)</span>!</li>
+</ul></li>
+</ul>
+</section>
+<section id="notation" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="notation">Notation</h2>
+<ul>
+<li><p>Again, it will be useful to establish some notation:</p>
+<ul>
+<li><span class="math inline">\(\mu\)</span> represents the population mean, and is deterministic (i.e.&nbsp;fixed) but unknown.</li>
+<li><span class="math inline">\(\overline{X}\)</span> represents the mean <em>of some hypothetical sample</em>, and is therefore random (as different samples result in different sample means)</li>
+<li><span class="math inline">\(\overline{x}\)</span> represents the mean <em>of a specific sample</em>, and is therefore deterministic (i.e.&nbsp;“we’ve taken <em>this particular sample right here</em> and computed its mean”).</li>
+</ul></li>
+<li><p>Just as <span class="math inline">\(\widehat{P}\)</span> has a <strong>sampling distribution</strong>, so too does <span class="math inline">\(\overline{X}\)</span>.</p></li>
+<li><p>The sampling distribution of <span class="math inline">\(\overline{X}\)</span>, however, will end up requiring a few more considerations than the sampling distribution of <span class="math inline">\(\widehat{P}\)</span>.</p>
+<ul>
+<li>We will need it, however, in order to construct confidence intervals for <span class="math inline">\(\mu\)</span>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="general-confidence-intervals" class="level2">
+<h2 class="anchored" data-anchor-id="general-confidence-intervals">General Confidence Intervals</h2>
+<ul>
+<li><p>We will follow the general idea we used before of constructing confidence intervals as <span class="math inline">\(\widehat{\theta} \pm \mathrm{m.e.}\)</span>.</p></li>
+<li><p>In this case, we use <span class="math inline">\(\overline{X}\)</span> as our point estimator.</p></li>
+<li><p>Here is a useful result from Probability Theory:</p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Result
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>Consider a population with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>. If <span class="math inline">\(\overline{X}\)</span> denotes the mean of a sample of size <span class="math inline">\(n\)</span> taken from this population, then <span class="math display">\[ \mathrm{SD}(\overline{X}) = \frac{\sigma}{\sqrt{n}} \]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="general-confidence-intervals-1" class="level2">
+<h2 class="anchored" data-anchor-id="general-confidence-intervals-1">General Confidence Intervals</h2>
+<ul>
+<li>Therefore, our confidence intervals will take the form <span class="math display">\[ \overline{X} \pm c \cdot \frac{\sigma}{\sqrt{n}} \]</span> where the constant <span class="math inline">\(c\)</span> depends on both the sampling distribution of <span class="math inline">\(\overline{X}\)</span> as well as the confidence level.</li>
+</ul>
+</section>
+<section id="normal-population" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="normal-population">Normal Population</h2>
+<ul>
+<li><p>Let’s work on finding the sampling distribution of <span class="math inline">\(\overline{X}\)</span>.</p></li>
+<li><p>It turns out that the first thing we need to ask is whether the underlying population is normally distributed or not.</p></li>
+<li><p>If the underlying population <em>is</em> normally distributed [again with population mean <span class="math inline">\(\mu\)</span> and population standard deviation <span class="math inline">\(\sigma\)</span>], we have that <span class="math display">\[ \frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim \mathcal{N}(0, \ 1) \]</span> meaning the constant <span class="math inline">\(c\)</span> should be selected as the appropriate percentile of the <em>standard normal</em> distribution: <span class="math display">\[ \overline{x} \pm z^{\ast} \cdot \frac{\sigma}{\sqrt{n}} \]</span></p></li>
+</ul>
+</section>
+<section id="worked-out-example" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="worked-out-example">Worked-Out Example</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Example 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>The heights of adult males are assumed to follow a normal distribution with mean 70 in and standard deviation 15 in. A representative sample of 120 adult males is taken, and the average height of males in this sample is recorded.</p>
+<ol type="a">
+<li>What is the random variable of interest?</li>
+<li>Is the value of 70 in a population parameter or a sample statistic?</li>
+<li>What is the probability that the average height of males in the sample is between 69.5 in and 71.5 in?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="solutions">Solutions</h2>
+<ol type="a">
+<li><p><span class="math inline">\(\overline{X} =\)</span> the average height of a sample of 120 adult males.</p></li>
+<li><p>The value of 70 in is a population parameter, as it is the true average height of all adult males.</p></li>
+<li><p>The quantity we seek is <span class="math inline">\(\mathbb{P}(69.5 \leq \overline{X} \leq 71.5)\)</span>. Because the population is normally distributed, we can use our result above to conclude <span class="math display">\[ \overline{X} \sim \mathcal{N}\left( 70, \ \frac{15}{\sqrt{120}} \right) \sim \mathcal{N}\left( 70, \ 1.369 \right) \]</span></p></li>
+</ol>
+<ul>
+<li>To find <span class="math inline">\(\mathbb{P}(69.5 \leq \overline{X} \leq 71.5)\)</span>, we therefore utilize the same techniques we used previously, when dealing with normal distribution problems: <span class="math display">\[\mathbb{P}(69.5 \leq \overline{X} \leq 71.5) = \mathbb{P}(\overline{X} \leq 71.5) - \mathbb{P}(\overline{X} \leq 69.5) \]</span></li>
+</ul>
+</section>
+<section id="solutions-1" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="solutions-1">Solutions</h2>
+<div class="nonincremental">
+<ul>
+<li>The associated <span class="math inline">\(z-\)</span>scores are <span class="math display">\[\begin{align*}
+z_1     &amp; = \frac{71.5 - 70}{\left( \frac{15}{\sqrt{120}} \right)} \approx 1.10    \\
+z_2     &amp; = \frac{69.5 - 70}{\left( \frac{15}{\sqrt{120}} \right)} \approx -0.37
+\end{align*}\]</span></li>
+</ul>
+</div>
+<ul>
+<li>The associated probabilities (from a <span class="math inline">\(z-\)</span>table) are <span class="math inline">\(0.8643\)</span> and <span class="math inline">\(0.3557\)</span>, respectively, meaning the desired probability is <span class="math display">\[ 0.8643 - 0.3557 = \boxed{ 0.5086 = 50.86\% } \]</span></li>
+</ul>
+<hr>
+</section>
+<section id="non-normal-population" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="non-normal-population">Non-Normal Population</h2>
+<ul>
+<li><p>Alright, so that explains what to do if the population values follow a normal distribution.</p></li>
+<li><p>But what if they don’t? In real-world settings, we don’t typically get to know exactly what the population distribution is.</p></li>
+<li><p>If our population is <em>not</em> normally distributed, we need to ask ourselves whether we have a “large enough sample”.</p></li>
+<li><p>Admittedly, there isn’t a single agreed-upon cutoff for “large enough”- for the purposes of this class, we will use <span class="math inline">\(n \geq 30\)</span> to mean “large enough” and <span class="math inline">\(n &lt; 30\)</span> to therefore be “not large enough.”</p></li>
+</ul>
+</section>
+<section id="non-normal-population-n-30" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="non-normal-population-n-30">Non-Normal Population, <span class="math inline">\(n &lt; 30\)</span></h2>
+<ul>
+<li><p>If the population is non-normal, and the sample size is not large enough…</p></li>
+<li><p>… we can’t do anything.</p></li>
+<li><p>More specifically, there aren’t any results we can use to confidently make inferences about the population mean- there is just too much uncertainty, between the uncertainty regarding the population’s distribution <em>and</em> the small sample size.</p></li>
+</ul>
+</section>
+<section id="non-normal-population-n-geq-30" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="non-normal-population-n-geq-30">Non-Normal Population, <span class="math inline">\(n \geq 30\)</span></h2>
+<ul>
+<li><p>If the population is non-normal, and the sample size <em>is</em> large enough…</p></li>
+<li><p>… we’re still (perhaps surprisingly) in business!</p></li>
+<li><p>It turns out that if <span class="math inline">\(n\)</span> is large enough, <span class="math display">\[ \frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim \mathcal{N}(0, \ 1) \]</span> that is, the sample mean once again has a normal sampling distribution!</p></li>
+<li><p>In fact, this is such an important result, we give it a name:</p></li>
+</ul>
+</section>
+<section id="central-limit-theorem-for-the-sample-mean" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="central-limit-theorem-for-the-sample-mean">Central Limit Theorem for the Sample Mean</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Central Limit Theorem for the Sample Mean</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 28px">
+<p>If we have reasonably representative samples of large enough size <span class="math inline">\(n\)</span>, taken from a population with true mean <span class="math inline">\(\mu\)</span> and true standard deviation <span class="math inline">\(\sigma\)</span>, then <span class="math display">\[ \frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim \mathcal{N}\left(0, \ 1 \right) \]</span> or, equivalently, <span class="math display">\[ \overline{X} \sim \mathcal{N}\left( \mu, \ \frac{\sigma}{\sqrt{n}} \right) \]</span> where <span class="math inline">\(\overline{X}\)</span> denotes the sample mean.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="worked-out-example-2" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="worked-out-example-2">Worked-Out Example</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Example 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>The temperatures collected at all weather stations in Antarctica follow some unknown distribution with unknown mean and known standard deviation 8<sup>o</sup>F. A researcher records the temperature measurements from a representative sample of 81 different weather stations, and finds the average temperature to be 26<sup>o</sup>F.</p>
+<ol type="a">
+<li>What is the population?</li>
+<li>What is the sample?</li>
+<li>Define the random variable of interest.</li>
+<li>What is the probability that this observed average of 26<sup>o</sup>F lies within 1<sup>o</sup>F of the true average temperature across all weather stations in Antarctica?</li>
+<li>Construct a 90% confidence interval for the true average temperature across all weather stations in Antarctica.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions-2" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="solutions-2">Solutions</h2>
+<ol type="a">
+<li><p>The population is the set of all weather stations in Antarctica.</p></li>
+<li><p>The sample is the 81 weather stations selected by the researcher.</p></li>
+<li><p>The random variable of interest is <span class="math inline">\(\overline{X}\)</span>, the average temperature across 81 randomly-selected weather stations in Antarctica.</p></li>
+</ol>
+<div class="fragment">
+<p><strong>Part (d):</strong> This is where things get interesting!</p>
+</div>
+<ul>
+<li>Is the population normally distributed?
+<ul>
+<li>No.&nbsp;Or, at least, we don’t know for certain, so it’s safer <em>not</em> to assume it is.</li>
+</ul></li>
+<li>Is our sample size large enough to invoke the CLT?
+<ul>
+<li>Yes, since <span class="math inline">\(n = 81 \geq 30\)</span>.</li>
+</ul></li>
+<li>Therefore, the CLT applies and tells us that <span class="math display">\[ \overline{X} \sim \mathcal{N}\left(\mu, \ \frac{8}{\sqrt{81}} \right) \sim \mathcal{N}\left(\mu, \ \frac{8}{9} \right) \]</span></li>
+</ul>
+</section>
+<section id="solutions-3" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="solutions-3">Solutions</h2>
+<ul>
+<li><p>Again, what we have found is <span class="math display">\[ \overline{X} \sim \mathcal{N}\left(\mu, \ \frac{8}{\sqrt{81}} \right) \sim \mathcal{N}\left(\mu, \ \frac{8}{9} \right) \]</span></p></li>
+<li><p>We seek <span class="math inline">\(\mathbb{P}(\mu - 1 \leq \overline{X} \leq \mu + 1)\)</span>, which we first write as <span class="math display">\[ \mathbb{P}(\overline{X} \leq \mu + 1) - \mathbb{P}(\overline{X} \leq \mu - 1) \]</span></p></li>
+<li><p>Computing the necessary <span class="math inline">\(z-\)</span>scores yields <span class="math display">\[\begin{align*}
+z_1   &amp;  = \frac{(\mu + 1) - \mu}{8/9} = \frac{9}{8} \approx 1.13    \\
+z_2   &amp;  = \frac{(\mu - 1) - \mu}{8/9} = -\frac{9}{8} \approx -1.13
+\end{align*}\]</span></p></li>
+</ul>
+</section>
+<section id="solutions-4" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="solutions-4">Solutions</h2>
+<ul>
+<li>The corresponding values from the normal table are <span class="math inline">\(0.8708\)</span> and <span class="math inline">\(0.1292\)</span>, respectively, meaning the desired probability is <span class="math display">\[ 0.8708 - 0.1292 = \boxed{74.16\%} \]</span></li>
+</ul>
+</section>
+<section id="unknown-sigma" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="unknown-sigma">Unknown <span class="math inline">\(\sigma\)</span>?</h2>
+<ul>
+<li><p>Notice that in the previous worked-out example (and, indeed, in the CLT for sample means), we need information on the true population standard deviation <span class="math inline">\(\sigma\)</span>.</p></li>
+<li><p>What happens if we don’t have access to <span class="math inline">\(\sigma\)</span>?</p></li>
+<li><p>Well, we encountered a somewhat similar situation in our discussion on proportions; the standard error of <span class="math inline">\(\widehat{P}\)</span> depended on <span class="math inline">\(p\)</span>, which proves to be a problem in practice (as, again, the true value of <span class="math inline">\(p\)</span> is often unknown).</p></li>
+<li><p>Does anyone remember how we solved this issue in the context of population proportions?</p>
+<ul>
+<li>That’s right- we used the substitution approximation!</li>
+<li>Specifically, we replaced the unknown parameter (<span class="math inline">\(p\)</span>) with a natural point estimator of it.</li>
+</ul></li>
+</ul>
+</section>
+<section id="unknown-sigma-1" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="unknown-sigma-1">Unknown <span class="math inline">\(\sigma\)</span>?</h2>
+<ul>
+<li><p>Can anyone propose a point estimator for <span class="math inline">\(\sigma\)</span>?</p></li>
+<li><p>That’s right; <span class="math inline">\(s\)</span>, the sample standard deviation! <span class="math display">\[ s = \sqrt{ \frac{1}{n - 1} \sum_{i=1}^{n} (X_i - \overline{X})^2} \]</span></p></li>
+<li><p>In other words, our proposition is to use confidence intervals of the form <span class="math display">\[ \overline{x} \pm c \cdot \frac{s}{\sqrt{n}} \]</span></p></li>
+<li><p>Notice, however, that this introduces additional uncertainty into the problem as <span class="math inline">\(s\)</span> itself is a random variable (different samples result in different sample standard deviations).</p></li>
+<li><p>It turns out that the additional uncertainty introduced is so large that we become <strong>no longer able to use the normal distribution.</strong></p></li>
+</ul>
+</section>
+<section id="using-s-in-place-of-sigma" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="using-s-in-place-of-sigma">Using <span class="math inline">\(s\)</span> in place of <span class="math inline">\(\sigma\)</span></h2>
+<ul>
+<li><p>Firstly, recall that we used percentiles of the standard normal distribution because <span class="math display">\[ \frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim \mathcal{N}(0, \ 1) \]</span></p></li>
+<li><p>Mathematically, what the above discussion is saying is that the distribution of <span class="math display">\[ \frac{\overline{X} - \mu}{s / \sqrt{n}} \]</span> is no longer normal.</p></li>
+<li><p>It turns out that, still assuming a large enough sample size, the quantity above follows what is known as a <strong><em>t</em>-distribution</strong>.</p></li>
+</ul>
+</section>
+<section id="the-t-distribution" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="the-t-distribution">The <em>t-</em>distribution</h2>
+<ul>
+<li><p>The <span class="math inline">\(t-\)</span>distribution looks very similar to the standard normal distribution in that it is centered at 1, and has a bell-like density curve.</p></li>
+<li><p>However, one key difference is that the <span class="math inline">\(t-\)</span>distribution is parameterized by a <em>single</em> parameter, called the <strong>degrees of freedom</strong>, which we abbreviate <span class="math inline">\(\mathrm{df}\)</span>.</p></li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Lec13_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-t-distribution-1" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="the-t-distribution-1">The <em>t-</em>distribution</h2>
+<ul>
+<li><p>Another key property is that, for all finite degrees of freedom, the tails of the <em>t-</em>distribution density curve are “wider” (i.e.&nbsp;higher) than the tails of the standard normal density curve.</p>
+<ul>
+<li>What this means is that the <em>t-</em>distribution allows for higher probabilities of tail events, thereby incorporating the additional uncertainty injected into our confidence intervals by using <span class="math inline">\(s\)</span> in place of <span class="math inline">\(\sigma\)</span></li>
+</ul></li>
+<li><p>An interesting fact is that the <em>t-</em>distribution with <span class="math inline">\(\infty\)</span> degrees of freedom is equivalent to the standard normal distribution.</p>
+<ul>
+<li>As such, with greater degrees of freedom, the <em>t-</em>distribution - and its percentiles - more and more closely resembles the standard normal distribution.</li>
+</ul></li>
+</ul>
+</section>
+<section id="back-to-confidence-intervals" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="back-to-confidence-intervals">Back to Confidence Intervals</h2>
+<ul>
+<li><p>Here is the result we’ve been working toward: with samples of reasonably large size <span class="math inline">\(n\)</span> from a distribution with mean <span class="math inline">\(mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>, <span class="math display">\[ \frac{\overline{X} - \mu}{s / \sqrt{n}} \sim t_{n - 1} \]</span> where <span class="math inline">\(t_{n - 1}\)</span> denotes the <span class="math inline">\(t-\)</span>distribution with <span class="math inline">\(n - 1\)</span> degrees of freedom.</p></li>
+<li><p>As such, our confidence intervals become <span class="math display">\[ \overline{x} \pm t_{n - 1, \ \alpha} \cdot \frac{s}{\sqrt{n}} \]</span> where <span class="math inline">\(t_{n - 1, \ \alpha}\)</span> denotes the appropriate quantile (corresponding to our desired confidence level) of the <span class="math inline">\(t_{n - 1}\)</span> distribution.</p></li>
+</ul>
+</section>
+<section id="worked-out-example-3" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="worked-out-example-3">Worked-Out Example</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Example 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="nonincremental">
+<div style="font-size: 30px">
+<p>A sociologist is interested in performing inference on the true average monthly income (in thousands of dollars) of all citizens of the nation of <em>Gauchonia</em>. As such, she takes a representative sample of 49 people, and finds that these 49 people have an average monthly income of 2.25 and a standard deviation of 1.66.</p>
+<ol type="a">
+<li>What is the population?</li>
+<li>What is the sample?</li>
+<li>Define the random variable of interest.</li>
+<li>Construct a 95% confidence interval for the true average monthly income (in thousands of dollars) of <em>Gauchonian</em> citizens.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="solutions-5" class="level2" style="font-size:32px">
+<h2 style="font-size:32px" class="anchored" data-anchor-id="solutions-5">Solutions</h2>
+<ol type="a">
+<li><p>The population is the set of all <em>Gauchonian</em> residents.</p></li>
+<li><p>The sample is the set of 49 <em>Gauchonian</em> residents included in the sociologist’s sample.</p></li>
+<li><p>The random variable of interest is <span class="math inline">\(\overline{X}\)</span>, the sample average monthly income (in thousands of dollars) of a representative sample of 49 Gauchonian* residents.</p></li>
+</ol>
+</section>
+<section id="solutions-contd" class="level2" style="font-size:28px">
+<h2 style="font-size:28px" class="anchored" data-anchor-id="solutions-contd">Solutions (cont’d)</h2>
+<p><strong>Part (d)</strong></p>
+<ul>
+<li><p>Is the population normally distributed?</p>
+<ul>
+<li>No.</li>
+</ul></li>
+<li><p>Is the sample size large enough?</p>
+<ul>
+<li>Yes; <span class="math inline">\(n = 49 \geq 30\)</span>.</li>
+</ul></li>
+<li><p>Do we know the population standard deviation?</p>
+<ul>
+<li>No, we only know <span class="math inline">\(s\)</span>.</li>
+</ul></li>
+<li><p>Therefore, we need to use the <em>t-</em>distribution with <span class="math inline">\(n - 1 = 49 - 1 = 48\)</span> degrees of freedom.</p></li>
+<li><p>Specifically, we need to find the 2.5<sup>th</sup> percentile of the <span class="math inline">\(t_{48}\)</span> distribution.</p></li>
+<li><p>Let’s go over how to read a <em>t</em>-table.</p></li>
+</ul>
+</section>
+<section id="reading-a-t-table" class="level2">
+<h2 class="anchored" data-anchor-id="reading-a-t-table">Reading a <em>t</em>-table</h2>
+<p>(In-Class Exercise)</p>
+</section>
+<section id="solutions-contd-1" class="level2" style="font-size:24px">
+<h2 style="font-size:24px" class="anchored" data-anchor-id="solutions-contd-1">Solutions (cont’d)</h2>
+<ul>
+<li>I’d also like to mention that we can use Python to help us:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> sps</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sps.t.ppf(<span class="fl">0.025</span>, <span class="dv">48</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-2.010634754696446</code></pre>
+</div>
+</div>
+</div>
+<ul>
+<li><p>You’ll learn more about this code during Lab today!</p></li>
+<li><p>Therefore, our 95% confidence interval takes the form <span class="math display">\[ \overline{x} \pm 2.01 \cdot \frac{s}{\sqrt{49}} \]</span> or, equivalently, <span class="math display">\[ (2.25) \pm (2.01) \cdot \frac{1.66}{7} = 2.25 \pm 0.477 = \boxed{[1.773 \ , \ 2.727]}\]</span></p></li>
+<li><p>The interpretation of this interval is much the same as our intervals for proportions:</p></li>
+</ul>
+<div class="fragment">
+<blockquote class="blockquote">
+<p>We are 95% confident that the true average monthly income (in thousands of dollars) of <em>Gauchonian</em> residents is between 1.773 and 2.727.</p>
+</blockquote>
+</div>
+</section>
+<section id="general-flowchart" class="level2">
+<h2 class="anchored" data-anchor-id="general-flowchart">General Flowchart</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph TB
+  A[Is the population Normal?  . ] --&gt; |Yes| B{{Use Normal .}}
+  A --&gt; |No| C[Is n &gt;= 30?  .]
+  C --&gt; |Yes| D[sigma or s?  .]
+  C --&gt; |No| E{{cannot proceed   .}}
+  D --&gt; |sigma| F{{Use Normal .}}
+  D --&gt; |s| G{{Use t }}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="aside-testing-distributional-fits" class="level1">
+<h1>Aside: Testing Distributional Fits</h1>
+<section id="testing-distributional-fits" class="level2">
+<h2 class="anchored" data-anchor-id="testing-distributional-fits">Testing Distributional Fits</h2>
+<ul>
+<li><p>Notice that the first question we need to ask ourselves when trying to perform inference on a sample mean is whether or not we believe our population to be normally distributed.</p></li>
+<li><p>This begs the question: given a set of numbers, how can we tell if these numbers were drawn from a normal distribution or not?</p></li>
+<li><p>For example, consider the following set of numbers (which have been assigned to a variable called <code>x</code>):</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[ 1.3315865   0.71527897 -1.54540029 -0.00838385  0.62133597 -0.72008556
+  0.26551159  0.10854853  0.00429143 -0.17460021  0.43302619  1.20303737
+ -0.96506567  1.02827408  0.22863013  0.44513761 -1.13660221  0.13513688
+  1.484537   -1.07980489 -1.97772828 -1.7433723   0.26607016  2.38496733
+  1.12369125  1.67262221  0.09914922  1.39799638 -0.27124799  0.61320418
+ -0.26731719 -0.54930901  0.1327083  -0.47614201  1.30847308  0.19501328
+  0.40020999 -0.33763234  1.25647226 -0.7319695   0.66023155 -0.35087189
+ -0.93943336 -0.48933722 -0.80459114 -0.21269764 -0.33914025  0.31216994
+  0.56515267 -0.14742026 -0.02590534  0.2890942  -0.53987907  0.70816002
+  0.84222474  0.2035808   2.39470366  0.91745894 -0.11227247 -0.36218045
+ -0.23218226 -0.5017289   1.12878515 -0.69781003 -0.08112218 -0.52929608
+  1.04618286 -1.41855603 -0.36249918 -0.12190569  0.31935642  0.4609029
+ -0.21578989  0.98907246  0.31475378  2.46765106 -1.50832149  0.62060066
+ -1.04513254 -0.79800882  1.98508459  1.74481415 -1.85618548 -0.2227737
+ -0.06584785 -2.13171211 -0.04883051  0.39334122  0.21726515 -1.99439377
+  1.10770823  0.24454398 -0.06191203 -0.75389296  0.71195902  0.91826915
+ -0.48209314  0.08958761  0.82699862 -1.95451212]</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="idea-1-histogram" class="level2">
+<h2 class="anchored" data-anchor-id="idea-1-histogram">Idea 1: Histogram</h2>
+<ul>
+<li>One idea would be to generate the histogram of <code>x</code>:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-whitegrid'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.figure(facecolor<span class="op">=</span><span class="st">"#f0ebd8"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>plt.hist(x,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        edgecolor <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        density <span class="op">=</span> <span class="va">True</span>)<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x"</span>, fontsize <span class="op">=</span> <span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"density"</span>, fontsize <span class="op">=</span> <span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Histogram of x"</span>, fontsize <span class="op">=</span> <span class="dv">30</span>, fontweight <span class="op">=</span> <span class="st">"bold"</span>)<span class="op">;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec13_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="614"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="downsides" class="level2">
+<h2 class="anchored" data-anchor-id="downsides">Downsides</h2>
+<ul>
+<li><p>However, we know that histograms are visually very dependent on the binwidth that was selected!</p>
+<ul>
+<li>Furthermore, there are some distributions that <em>look</em> bell-shaped, but are <em>not</em> normal; e.g.&nbsp;the <em>t</em>-distribution!</li>
+</ul></li>
+<li><p>As such, we would like a slightly more rigorous way to check for normality.</p></li>
+<li><p>The tool statisticians most often use is called a <strong>quantile-quantile plot</strong>, or <strong>QQ-Plot</strong> for short.</p></li>
+<li><p>You don’t have to worry too much (for now) about the details of how they are constructed; for now, we’ll just use Python to generate them and then interpret them ourselves.</p></li>
+</ul>
+</section>
+<section id="qq-plot" class="level2">
+<h2 class="anchored" data-anchor-id="qq-plot">QQ-Plot</h2>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>scipy.stats.probplot(x, plot <span class="op">=</span> plt)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sps.probplot(x, plot <span class="op">=</span> plt)<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Theoretical quantiles"</span>, fontsize <span class="op">=</span> <span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Ordered Values"</span>, fontsize <span class="op">=</span> <span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"QQ-Plot of x"</span>, fontsize <span class="op">=</span> <span class="dv">30</span>, fontweight <span class="op">=</span> <span class="st">"bold"</span>)<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec13_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="interpreting-qq-plots" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-qq-plots">Interpreting QQ-Plots</h2>
+<ul>
+<li><p>The more linear the QQ-plot, the more likely it is that the data came from a normal distribution.</p></li>
+<li><p>When checking for deviations from linearity, however, make sure to check the tails as that is most often where non-normality manifests itself the clearest.</p></li>
+</ul>
+</section>
+<section id="normal-or-not" class="level2">
+<h2 class="anchored" data-anchor-id="normal-or-not">Normal or Not?</h2>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sps.t.rvs(<span class="dv">1</span>, size <span class="op">=</span> <span class="dv">100</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sps.probplot(y, plot <span class="op">=</span> plt)<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Theoretical quantiles"</span>, fontsize <span class="op">=</span> <span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Ordered Values"</span>, fontsize <span class="op">=</span> <span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"QQ-Plot of x"</span>, fontsize <span class="op">=</span> <span class="dv">30</span>, fontweight <span class="op">=</span> <span class="st">"bold"</span>)<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Lec13_files/figure-html/unnamed-chunk-8-5.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Site Designed by Ethan Marzban using Quarto; ©2023</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

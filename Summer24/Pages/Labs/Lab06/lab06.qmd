@@ -1,0 +1,382 @@
+---
+title: "Lab06"
+subtitle: "A Trip to the Movies"
+author:
+  - name: "PSTAT 5A, with Ethan Marzban"
+    affiliations:
+      - name: "Summer Session A 2023"
+author-title: "Course"
+affiliation-title: "Quarter"
+format: html
+title-block-banner: "#4144a6"
+css: styles.css
+---
+
+------------------------------------------------------------------------
+
+Welcome to the final PSTAT 5A Lab of the quarter! In this lab, we will put everything we learned together and work on a mini-project of sorts. In addition to being a way for you to review the material in the course thus far, I hope this also provides you with a fun opportunity to start engaging in real-world data science applications!
+
+## What To Submit
+
+At the end of this lab, you should have a well-formatted lab report containing selected figures and code. As a general practice, though, most Data Scientists perefer **not** to include the entirety of their code in their reports, opting instead to only summarize the code they used and then provide the full code in an appendix. We will not ask you to do this for this report; you may leave your full code in your report. \
+
+**Please pay attention to the formatting of your document**. Make sure your equations render properly, and make sure any hyperlinks you include function properly. Also ensure you update your Notebook Metadata to include your name on your `.pdf`; failure to do so will incur a 50\% penalty. \
+
+Make sure all plots you generate are properly labelled and include titles.
+
+
+
+::: {.callout-caution}
+
+## Caution
+
+Here is how this lab will be graded:
+
+- You will get 0.5pts of the total points for submitting both a `.pdf` and a `.ipnyb` file. 
+
+- Your TA will then examine two of your plots (exactly which plots will not be revealed to you until after grading is done) and award you 0.15pts for each correct plot.
+
+- Your TA will then examine one of your statistical analyses (exactly which analyses will not be revealed to you until after grading is done) and award you 0.2pts for each correct analysis.
+
+:::
+
+
+
+
+## Getting To Know the Dataset
+
+The **Internet Movie Database** (IMdB) very graciously provides a quite comprehensive suite of media-related datasets, available to download at [this link](https://developer.imdb.com/non-commercial-datasets/). The dataset we will work with in this lab has been truncated to only include movies released in the 2000s, and has the following data dictionary (with entried copied from the official IMdB documentation):
+
+- `tconst` (string) - alphanumeric unique identifier of the title
+- `titleType` (string) – the type/format of the title (e.g. movie, short, tvseries, tvepisode, video, etc)
+- `primaryTitle` (string) – the more popular title / the title used by the filmmakers on promotional materials at the point of release
+- `originalTitle` (string) - original title, in the original language
+- `isAdult` (boolean) - 0: non-adult title; 1: adult title
+- `startYear` (YYYY) – represents the release year of a title. In the case of TV Series, it is the series start year
+- `endYear` (YYYY) – TV Series end year. ‘\N’ for all other title types
+- `runtimeMinutes` – primary runtime of the title, in minutes
+- `genres` (string array) – includes up to three genres associated with the title
+genres (string array) – includes up to three genres associated with the title
+- `averageRating` – weighted average of all the individual user ratings
+- `numVotes` - number of votes the title has received
+
+The dataset itself can be found at this link: https://pstat5a.github.io/Files/Datasets/movies_2000s.csv
+
+::: {.callout-important}
+
+## Action Item
+
+Import any necessary modules, using nicknames if you so choose. (You may need to continually modify this code cell as you progress through the lab, if you encounter the need for a module you haven't imported.)
+
+:::
+
+
+::: {.callout-tip}
+
+## Tip
+
+It is considered good practice (by some Data Scientists) to load all modules at the start of a report.
+:::
+
+::: {.callout-important}
+
+## Action Item
+
+Import the data as a `datascience` table, and call the table `movies`.
+
+:::
+
+
+## Exploratory Data Analysis
+
+Most data science projects begin with what is known as **exploratory data analysis**.  John Tukey, one of the pioneers of modern statistics and also one of the first people to introduce the notion of EDA (as it is commonly abbreviate) describes it as 
+
+> "[...] actively incisive rather than passively descriptive, with a real emphasis on the discovery of the unexpected - if necessary by figuratively knocking the analyst's head against the wall until he notices it."
+
+Perhaps more concretely, EDA is designed to summarize the main characteristics of a dataset. Crucially, as Tukey indicates, this does *not* just mean generating plots and numerical summaries (though these are often integral parts of EDA), but also *interpreting* these plots to draw conclusions about the data. Tukey goes as far as to insinuate that, when good EDA is performed, statistical modeling can be thought of as merely "confirmatory" in the sense that it only confirms what EDA originally revealed! (see *Exploratory Data Analysis*, by John Tukey; ISBN 0-201-07616-0) \
+
+As such, let us start our project with EDA.
+
+::: {.callout-important}
+
+## Action Item
+
+Add a first-level header to your document titled "Exploratory Data Analysis"
+
+:::
+
+::: {.callout-important}
+
+## Action Item
+
+Use code to figure out how many movies are included in the dataset. Below your code cell, add a Markdown cell in which you explicitly state "There were ____ movies represented in the dataset", where you replace the "____" with the number of movies.
+
+:::
+
+
+### Times
+
+Let's start by getting a feel for the years that are represented in our dataset. 
+
+::: {.callout-important}
+
+## Action Item
+
+Generate a histogram of the years (more specifically, the `startYear` variable) included in the dataset. Use this to discuss which year or years seem to be the most represented in the dataset.
+:::
+
+
+::: {.callout-tip}
+
+## Tip
+
+Every plot in a report should contain some discussion below it; no plot should simply be displayed and left alone! For this report, use Markdown cells to format your discussions.
+:::
+
+
+### Times
+
+Let's start by getting a feel for the years that are represented in our dataset. 
+
+::: {.callout-important}
+
+## Action Item
+
+Generate a histogram of the years (more specifically, the `startYear` variable) included in the dataset. Use this to discuss which year or years seem to be the most represented in the dataset.
+:::
+
+
+::: {.callout-tip}
+
+## Tip
+
+Every plot in a report should contain some discussion below it; no plot should simply be displayed and left alone! For this report, use Markdown cells to format your discussions.
+:::
+
+::: {.callout-important}
+
+## Action Item
+
+Are any of the `startYear` values missing (i.e. are any of the values `nan`)? Write a line of code to answer this; as a hint, consider how you can combine the `sum()` and `numpy.isnan()` functions.
+:::
+
+
+## Average Rating
+
+Let's also take a look at the average ratings of movies included in the dataset. 
+
+::: {.callout-important}
+
+## Action Item
+
+Generate a histogram of the average ratings included in the dataset, and use this to discuss the distribution of ratings. Some things to include in your discussion:
+
+- Is the distribution of ratings symmetric?
+- Does there appear to be a tendency to give higher or lower average ratings?
+:::
+
+
+::: {.callout-important}
+
+## Action Item
+
+Compute the mean and median of the average ratings. 
+:::
+
+
+::: {.callout-important}
+
+## Action Item
+
+What proportion of movies received an average rating higher than 8.0?
+:::
+
+::: {.callout-important}
+
+## Action Item
+
+What average rating is at the first quartile of all average ratings? (Hint: take a look at Lab02 and see what functions we used to compute percentiles.)
+:::
+
+### Runtimes
+
+We should also take a look at the runtimes of the movies included in the dataset. 
+
+::: {.callout-important}
+
+## Action Item
+
+Generate a histogram of the runtimes (in minutes) of the movies included in the dataset.
+:::
+
+Hm.... that's a peculiar-looking histogram! Let's see if we can get to the bottom of this.
+
+::: {.callout-important}
+
+## Action Item
+
+What is the longest runtime included in the dataset? What is the title of the movie with this runtime?
+:::
+
+Indeed, you are reading that correct- there is actually a movie that has a runtime of nearly 100 hours! (If you're curious- [here](https://www.imdb.com/title/tt10844584/?ref_=adv_li_tt) is its IMdB page.) 
+
+Now that's going to throw off a lot of our observations. Typically, it's not considered a good idea to simply remove data from our dataset, but since this is an introductory course and we want to make our lives simpler let's just go ahead and do some trimming.
+
+::: {.callout-important}
+
+## Action Item
+
+Remove all rows from the `movies` table corresponding to movies with runtimes longer than 300 minutes. Some hints:
+
+- If `k` represents the number of rows in the `movies` table, what does `numpy.arange(k)[movies.column("runtimeMinutes") > 300]` give? What about `list(numpy.arange(k)[movies.column("runtimeMinutes") > 300])`?
+
+- Take a look at how the `.remove()` method works by consulting its help file on this page: [http://www.data8.org/datascience/tables.html](http://www.data8.org/datascience/tables.html)
+
+
+After removing these rows, check that the maximum runtime is now 300 minutes.
+:::
+
+
+::: {.callout-caution}
+
+## Caution
+
+Depending on how you structure your code, you may encounter an error when running your code more than once. A simple way to avoid this error is to recompute the number of rows in the dataset at the start of this cell.
+:::
+
+
+## Comparisons across Years
+
+
+::: {.callout-important}
+
+## Action Item
+
+Generate a plot that displays how the average `averageRating` changes over years. That is, on the `x-`axis include the years `2000` through `2023` and for each year have point whose `y-`value is equal to the average of `averageRating` values for that corresponding year. **Hint:** Take a look at how we did a similar problem in last week's lab. 
+
+Use this to comment on whether or not you think the average average rating changed over the years.
+:::
+
+::: {.callout-important}
+
+## Action Item
+
+Generate a plot that displays the total number of films released in each year. That is, on the `x-`axis include the years `2000` through `2023` and for each year have point whose `y-`value is equal to the number of films released in that particular year.
+
+Use this plot to discuss any trends you see in the relationship between year of release and the number of movies released.
+:::
+
+::: {.callout-important}
+
+## Action Item
+
+Generate a plot that displays how the average runtime of movies changes over years. That is, on the `x-`axis include the years `2000` through `2023` and for each year have point whose `y-`value is equal to the average of runtimes of movies that were released in that year. **Hint:** This will be very similar to your work from the previous action item above. Additionally, you may want to make use of the `numpy.nanmean()` function as opposed to the standard `numpy.mean()` function as `numpy.nanmean()` computes the mean of a list of numbers after ignoring missing values.
+
+Use this to comment on whether or not you think the average movie runtime has changed over the years.
+:::
+
+
+## Statistical Tests
+
+Based on the plot generated from our section on EDA, it seems that there may have been some changes in the average runtime of films across the years. \
+
+Let's focus on the following claim:
+
+> The average runtime of a film in 2001 is the same as the average runtime of a film in 2012.
+
+This sounds an awful like a hypothesis test... meaning we should be able to statistically test its validity! \
+
+Specifically, let us test the above claim against the one-sided alternative that the average runtime of a film in 2012 is smaller than the average runtime of a film in 2001. Let us also use a 5\% level of significance wherever necessary.
+
+
+::: {.callout-important}
+
+## Action Item
+
+Add a first-level header to your document titled "Statistical Tests"
+
+:::
+
+::: {.callout-important}
+
+## Action Item
+
+In a markdown cell, define the parameters $\mu_1$ and $\mu_2$. Also state the null and alternative hypotheses. **Make sure your equations render properly, both in your notebook file but also your `.pdf`!**
+
+:::
+
+
+::: {.callout-important}
+
+## Action Item
+
+Compute the observed value of the test statistic. (**Hint:** `np.nanstd()` also exists, in addition to `np.std()`.)
+
+By the way, you can ignore the fact that when we remove `NA` values the sample sizes change; it turns out that there weren't too many missing values for that to be a problem.
+:::
+
+
+::: {.callout-important}
+
+## Action Item
+
+Identify the distribution that the test statistic follows under the null.
+
+:::
+
+::: {.callout-important}
+
+## Action Item
+
+Calculate the $p-$value of the observed test statistic, and use this to conduct the test. Phrase your conclusions in the context of the problem, using a Markdown cell.
+
+:::
+
+## A Regression
+
+It is plausible that perhaps titles with more votes have higher scores. Let's see if the data supports this.
+
+
+
+::: {.callout-important}
+
+## Action Item
+
+Generate a scatterplot with the number of votes on the `x-`axis and the average rating on the `y-`axis. Comment on whether there appears to be an association between these two variables and, if applicable, what type of association there appears to be (e.g. non/linear, positive/negative).
+
+:::
+
+Regardless of the results of your previous plot, let's go ahead and run a regression using "average rating" as the response variable and "number of votes" as the explanatory variable. 
+
+
+
+::: {.callout-important}
+
+## Action Item
+
+In a Markdown cell, write down the model assuming a linear form for the signal function.
+
+:::
+
+
+The specific function we will use to perform the regression is called `.linregress()` from the `scipy.stats` module. You can read more about the function and its documentation [here](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html).
+
+
+
+::: {.callout-important}
+
+## Action Item
+
+Run a regression of "average rating" on "number of votes". Report the estimated slope and intercept, as well as the $p-$value associated with testing $H_0: \ \beta_1 = 0$ against $H_A: \ \beta_1 \neq 0$. Also re-generate a scatterplot of the original data with the OLS line superimposed on top (**the aforementioned help file will be of IMMENSE help for this**).
+
+:::
+
+
+::: {.callout-important}
+
+## Action Item
+
+Include a QQ-plot of both the explanatory and response variables, and comment.
+
+:::
+

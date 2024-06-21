@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="PSTAT 5A, with Ethan Marzban">
+
+<title>PSTAT 5A: Summer Session A, 2023 - Lab04</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../Images/Logos_Icons/5a_hex.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #4144a6;
+      }
+</style>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      PSTAT 5A: Summer Session A, 2023
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Lab04</h1>
+            <p class="subtitle lead">Simulations, Sampling, and Loops</p>
+                      </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Course</div>
+    <div class="quarto-title-meta-heading">Quarter</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">PSTAT 5A, with Ethan Marzban </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Summer Session A, 2023
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../Images/Logos_Icons/5a_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">PSTAT 5A: Summer Session A, 2023</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule of Topics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/calendar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sections and Calendar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/course_staff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Staff / OH</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW and Solns</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Exam Prep</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/exam_prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam Prep</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#distributions-in-python" id="toc-distributions-in-python" class="nav-link active" data-scroll-target="#distributions-in-python">Distributions in Python</a></li>
+  <li><a href="#percentiles" id="toc-percentiles" class="nav-link" data-scroll-target="#percentiles">Percentiles</a></li>
+  <li><a href="#simulation" id="toc-simulation" class="nav-link" data-scroll-target="#simulation">Simulation</a>
+  <ul class="collapse">
+  <li><a href="#setting-the-seed" id="toc-setting-the-seed" class="nav-link" data-scroll-target="#setting-the-seed">Setting the Seed</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-loops" id="toc-introduction-to-loops" class="nav-link" data-scroll-target="#introduction-to-loops">Introduction to Loops</a>
+  <ul class="collapse">
+  <li><a href="#quick-aside-arange-vs-linspace" id="toc-quick-aside-arange-vs-linspace" class="nav-link" data-scroll-target="#quick-aside-arange-vs-linspace">Quick Aside: <code>arange()</code> vs <code>linspace()</code></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="distributions-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="distributions-in-python">Distributions in Python</h2>
+<p>If you recall, one of the first things we did in Lab (back in Week 1!) was to use Python as a calculator. At the time, we only used Python to compute relatively simple quantities. Now that we’ve talked a bit about distributions, you can see how Python might be able to simpliy our lives greatly!</p>
+<p>For instance, take the probability mass function (p.m.f.) of the <span class="math inline">\(\mathrm{Bin}(n, p)\)</span> distribution: if <span class="math inline">\(X \sim \mathrm{Bin}(n, p)\)</span>, then <span class="math display">\[ \mathbb{P}(X = k) = \binom{n}{k} \cdot p^k \cdot (1 - p)^{n - k} \]</span> Can we get Python to compute this for us? Or, remember how when we want to find areas under a normal density curve we have to use tables- can we perhaps compute these areas using Python?</p>
+<p>The answer to both of these questions is, naturally, “yes”! Specifically, we will make use of the <code>scipy.stats</code> module which contains a plethora of functions relating to the distributions we learned in this class (as well as other distributions we won’t have time to cover).</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> sps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s tackle the Binomial distribution first. The function <code>sps.binom.pmf()</code> allows us to compute the p.m.f. of the Binomial distribution (with specified parameters) at a particular point.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X \sim \mathrm{Bin}(143, 0.153)\)</span>. Compute the following using the <code>sps.binom.pmf()</code> function:</p>
+<ol type="a">
+<li><span class="math inline">\(\mathbb{P}(X = 20)\)</span></li>
+<li><span class="math inline">\(\mathbb{P}(X = 40)\)</span> [make sure you understand the output of this; feel free to ask your TA if you are confused!]</li>
+</ol>
+</div>
+</div>
+<p>Now, let’s talk about areas under the normal curve. If we want to find the following area:</p>
+<p><img src="tail_area.svg" class="img-fluid" style="width:60.0%"></p>
+<p>we would run the following code:</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sps.norm.cdf(t, mu, sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>If <span class="math inline">\(X \sim \mathcal{N}(3, 0.5)\)</span>, compute <span class="math inline">\(\mathbb{P}(X \leq 2)\)</span>.</li>
+<li>If <span class="math inline">\(X \sim \mathcal{N}(-2, \ 1)\)</span>, compute <span class="math inline">\(\mathbb{P}(X \geq 1)\)</span>.</li>
+<li>If <span class="math inline">\(X \sim \mathcal{N}(0, 1)\)</span>, compute <span class="math inline">\(\mathbb{P}(-1 \leq X \leq 1)\)</span>.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>Look up how to compute the c.d.f. of the Uniform distribution.</p></li>
+<li><p>If <span class="math inline">\(X \sim \mathrm{Unif}(-1, \ 1)\)</span>, use Python to compute <span class="math inline">\(\mathbb{P}(X \leq 0.1532)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="percentiles" class="level2">
+<h2 class="anchored" data-anchor-id="percentiles">Percentiles</h2>
+<p>As we have seen in lecture, confidence intervals for a population parameter <span class="math inline">\(\theta\)</span> take the form <span class="math display">\[ \widehat{\theta} \pm c \cdot \mathrm{s.e.} \]</span> where <span class="math inline">\(\mathrm{s.e.}\)</span> denotes the standard error (i.e.&nbsp;standard deviation) of the point estimator <span class="math inline">\(\widehat{\Theta}\)</span>, and <span class="math inline">\(c\)</span> is an appropriately-selected percentile from the distribution of <span class="math inline">\(\widehat{\Theta}\)</span>.</p>
+<p>Up until now, we have primarily been finding the constant <span class="math inline">\(c\)</span> using the various tables at our disposal. Though being able to read these tables is a useful skill (and a skill that is potentially testable on quizzes and exams…), using computers to compute these percentiles can greatly increase efficiency.</p>
+<p>The syntax</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>scipy.stats.norm.ppf(p, m, s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>computes the <code>p</code><sup>th</sup> percentile of the <span class="math inline">\(\mathcal{N}\)</span>(<code>m</code>, <code>s</code>) distribution. We will revisit this fairly soon, once we are exposed to another continuous distribution in a few lectures. There are analagous functions that allow us to compute percentiles of other distributions; for example, <code>scipy.stats.t.ppf()</code> can be used to find the percentiles of the <span class="math inline">\(t\)</span> distribution.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>Use Python to find the confidence coefficient of a 95% confidence interval for a population proportion.</p></li>
+<li><p>Use Python to find the confidence coefficient of an 82% confidence interval for a population proportion.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="simulation" class="level2">
+<h2 class="anchored" data-anchor-id="simulation">Simulation</h2>
+<p>Now, let’s tie things together slightly. As data scientists, we obviously love to use data! However, sometimes data can be too time-consuming, costly, or otherwise unfeasible to collect in large quantities. In certain situations, <strong>simulations</strong> can help address these issues.</p>
+<p>When asked to define a “simulation” in the context of data science, ChatGPT returned the following:</p>
+<blockquote class="blockquote">
+<p>[…] a simulation is a computational model or program that is used to replicate real-world scenarios or systems in order to analyze their behavior, predict outcomes, or test hypotheses.</p>
+</blockquote>
+<p>This is actually a great definition: simulations are designed to <em>simulate</em> (i.e.&nbsp;mimic) real-world situations to generate new observations/outcomes that (we hope) closely resemble the real-world outcomes.</p>
+<p>For example, suppose we believe that weights of rats in a particular situation are normally distributed with mean 3.8oz and a standard deviation of 0.5oz. Instead of actually going out and collecting the weights of, say, 10 different rats and recording them, we could <em>simulate</em> collecting these weights by generating a series of random numbers that follow the <span class="math inline">\(\mathcal{N}(3.8, \ 0.5)\)</span> distribution:</p>
+<div class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>array([3.2571847 , 4.29867272, 3.94148925, 3.04685264, 3.51069987,
+       4.62571827, 2.58666038, 3.58554369, 4.43296813, 3.3666298 ])</code></pre>
+</div>
+</div>
+<p>There are (once again) several modules that contain functions designed to simulate draws from different distributions: for now, we’ll stick with the <code>scipy.stats</code> module.</p>
+<p>To simulate <code>n</code> draws from a <span class="math inline">\(\mathcal{N}(\)</span><code>mu</code>, <code>sigma</code><span class="math inline">\()\)</span> distribution we use the code</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sps.norm.rvs(mu, sigma, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(note that, by default, the sample size comes at the end!) To simulate <code>n</code> draws from a <span class="math inline">\(\mathrm{Unif}(\)</span><code>a</code>, <code>b</code><span class="math inline">\()\)</span> distribution we use the code</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sps.uniform.rvs(a, b, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>The time spent waiting in line at <em>Romaine’s</em> is uniformly distributed between 2 mins and 10 mins. Simulate the process of waiting in line at <em>Romaine’s</em> one hundred times; store your result in a variable called <code>x</code> and us the command <code>x[0:11]</code> to display only the first 10 elements of <code>x</code>. (<strong>Aside:</strong> See if you can understand the syntax used here!)</p></li>
+<li><p>The temperature of a healthy adult is normally distributed with mean 98.2 degrees Fahrenheit and standard deviation 2.4 degrees Fahrenheit. Simulate the process of selecting 150 healthy adults and recording their temperatures (in degrees Fahrenheit); store your result in a variable called <code>y</code> and display only the first 10 elements of <code>y</code>. (<strong>Hint:</strong> Remember how to index variables!)</p></li>
+</ol>
+</div>
+</div>
+<p>How might we simulate the experiment of picking <span class="math inline">\(k\)</span> numbers from a specified set? There are several different ways to do this in Python- the way we will do this is the same way we conducted this experiment during the Lecture 11 demo, using the <code>np.random.choice()</code> function.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Import the <code>numpy.random</code> module with the nickname <code>npr</code>. Simulate the experiment of rolling a fair six-sided die 10 times and recording the outcome of each roll. Think about how you can translate this experiment into an experiment consisting of drawing numbers at random from a set of specified numbers.</p>
+</div>
+</div>
+<section id="setting-the-seed" class="level3">
+<h3 class="anchored" data-anchor-id="setting-the-seed">Setting the Seed</h3>
+<p>Now, when it comes to simulations, there is a very important concept known as <strong>setting a seed</strong>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>Write <code>npr.choice([1, 2, 3], size = 4)</code> in a code cell, and run it three times. In a Markdown cell just below this cell, answer the following question: did you get the same result each time you ran the code cell?</p></li>
+<li><p>In a new code cell write</p></li>
+</ol>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>npr.seed(<span class="dv">15</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>npr.choice([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], size <span class="op">=</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Run this new cell three times and again answer the question: did you get the same result each time you ran the code cell?</p>
+<ol start="3" type="a">
+<li>Now, turn to your neighbor and check whether you both got the same result as each other when completing task (b) above?</li>
+</ol>
+</div>
+</div>
+<p>As you can see, setting a seed, in a sense, removes a certain amount of randomness in Python. After you set a seed, your random number generator will generate the same number (or set of numbers) every time you run it. Though it may seem unclear as to why we would want this, you may be able to imagine that setting the seed is extremely important when it comes to <strong>replicability</strong>, a concept we will return to later in the course.</p>
+</section>
+</section>
+<section id="introduction-to-loops" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-loops">Introduction to Loops</h2>
+<p>Suppose we have the following outcomes of an experiment:</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">'success'</span>, <span class="st">'failure'</span>, <span class="st">'failure'</span>, <span class="st">'success'</span>, <span class="st">'failure'</span>, <span class="st">'failure'</span>, <span class="st">'failure'</span>, <span class="st">'success'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>How might we write code to count the number of successes in this string of outcomes? There are several different ways to accomplish this: one involves what is known as a <strong><code>for</code> loop</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.kym-cdn.com/photos/images/newsfeed/001/393/656/da7.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">figure source: https://i.kym-cdn.com/photos/images/newsfeed/001/393/656/da7.jpg</figcaption>
+</figure>
+</div>
+<p>Here’s the general idea: we would like to perform an element-wise comparison; that is, we would like to iteratively check whether <em>each element</em> of <code>x</code> is a success or a failure. The “brute-force” way would be to check each element individually, using comparisons:</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">0</span>] <span class="op">==</span> <span class="st">'success'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="op">==</span> <span class="st">'success'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span>] <span class="op">==</span> <span class="st">'success'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>False</code></pre>
+</div>
+</div>
+<p>As you can imagine, though, this would get incredibly tedious, especially if <code>x</code> were large! This is where <code>for</code> loops become useful: they allow us to automate this iterative process.</p>
+<p>Before returning to this success/failure problem, let’s look at an example to see how <code>for</code> loops work.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit <span class="kw">in</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'pear'</span>]:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>apple
+banana
+pear</code></pre>
+</div>
+</div>
+<p>Here are how the different components work:</p>
+<ol type="1">
+<li>The <code>for</code> keyword signifies the beginning of the <code>for</code> loop.</li>
+<li>The name <code>fruit</code> is the variable.</li>
+<li>The list following the <code>in</code> keyword contains all of the different values the variable will take during the execution of the for loop.</li>
+<li>The code after the initial colon <code>:</code> is called the <strong>body</strong> of the loop. (Note that the body of a for loop <em>must</em> be indented properly!) Here is how the body is executed:
+<ul>
+<li>First, the variable <code>fruit</code> is assigned the first value in the list of possible values specified in the first line of the loop</li>
+<li>Then, after assigning <code>fruit</code> this value, the code in the body is executed once.</li>
+<li>Next, the variable <code>fruit</code> is assigned the <em>second</em> value of the list of values, and the body is run again.</li>
+<li>This continues until the list of all possible values is exhausted.</li>
+</ul></li>
+</ol>
+<p>Sometimes, it may be useful to sketch a diagram/table to keep track of the code at each iteration of the loop:</p>
+
+<table style="border: 1px solid black;">
+<tbody><tr>
+<td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2">
+<b>FIRST ITERATION</b>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>Start of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>fruit</code>: <code>‘apple’</code>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>End of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>fruit</code>: <code>‘apple’</code>
+</li>
+</ul>
+</td>
+</tr>
+<!-- second iteration -->
+<tr>
+<td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2">
+<b>SECOND ITERATION</b>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>Start of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>fruit</code>: <code>‘banana’</code>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>End of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>fruit</code>: <code>‘banana’</code>
+</li>
+</ul>
+</td>
+</tr>
+<!-- third iteration -->
+<tr>
+<td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2">
+<b>THIRD ITERATION</b>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>Start of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>fruit</code>: <code>‘pear’</code>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>End of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>fruit</code>: <code>‘pear’</code>
+</li>
+</ul>
+</td>
+</tr>
+
+</tbody></table>
+<p>It may seem strange to keep track of the values of the variables at the end of each iteration. The reason we do so is because sometimes the body of the loop will actually change the value of a variable! For example, consider the code</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  n <span class="op">+=</span> <span class="dv">2</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3
+4
+5</code></pre>
+</div>
+</div>
+<p>the associated diagram would look like</p>
+
+<table style="border: 1px solid black;">
+<tbody><tr>
+<td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2">
+<b>FIRST ITERATION</b>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>Start of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>n</code>: <code>1</code>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>End of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>n</code>: <code>3</code>
+</li>
+</ul>
+</td>
+</tr>
+<!-- second iteration -->
+<tr>
+<td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2">
+<b>SECOND ITERATION</b>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>Start of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>n</code>: <code>2</code>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>End of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>n</code>: <code>4</code>
+</li>
+</ul>
+</td>
+</tr>
+<!-- third iteration -->
+<tr>
+<td colspan="2" style="border: 1px solid black; padding-left:10px; background-color: #c4eef2">
+<b>THIRD ITERATION</b>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>Start of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>n</code>: <code>3</code>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="border: 1px solid black; padding-right:15px;  padding-left:25px">
+<b>End of Iteration</b>
+</td>
+<td style="border: 1px solid black;">
+<ul>
+<li style="padding-right:15px">
+<code>n</code>: <code>5</code>
+</li>
+</ul>
+</td>
+</tr>
+
+</tbody></table>
+<p>By the way, notice the shorthand notation <code>+=</code> that was used above:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The code <code>x += y</code> is equivalent to <code>x = x + y</code>.</p>
+</div>
+</div>
+<p>Finally, one thing that should be mentioned is that you can call the variable in a loop whatever you like!</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> yummy <span class="kw">in</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'pear'</span>]:</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(yummy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>apple
+banana
+pear</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Copy-paste the code</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">'success'</span>, <span class="st">'failure'</span>, <span class="st">'failure'</span>, <span class="st">'success'</span>, <span class="st">'failure'</span>, <span class="st">'failure'</span>, <span class="st">'failure'</span>, <span class="st">'success'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>into a cell, and run it. Then, create a <code>for</code> loop that iterates through the elements of <code>x</code> and at each iteration prints <code>True</code> if the corresponding element of <code>x</code> is a <code>'success'</code> and <code>False</code> if the corresponding element of <code>x</code> is a <code>'failure'</code>. Your final output should look like:</p>
+<div class="cell" data-execution_count="16">
+<div class="cell-output cell-output-stdout">
+<pre><code>True
+False
+False
+True
+False
+False
+False
+True</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>By the way, the set of values a variable will take during a <code>for</code> loop doesn’t have to be a list- it could also be an array! This is particularly useful when there are multiple things we would like to iterate over. For example:</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datascience <span class="im">as</span> ds</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>credit_scores <span class="op">=</span> ds.make_array(</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Anne"</span>, <span class="dv">750</span>],</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Barbara"</span>, <span class="dv">755</span>],</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Cassandra"</span>, <span class="dv">745</span>]</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> credit_scores:</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(k[<span class="dv">0</span>], <span class="st">"has a credit score of"</span>, k[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Anne has a credit score of 750
+Barbara has a credit score of 755
+Cassandra has a credit score of 745</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make a table like the one above that keeps track of the variables and their values in the above loop. <strong>You do not need to turn this in; do it on a separate sheet of paper</strong> and in your <code>.ipynb</code> file simply state “I have done Task 2 on a separate sheet of paper.”</p>
+</div>
+</div>
+<p>Now, we never quite finished our problem of counting the number of successes in the variable <code>x</code>. We were able to iterate through the elements of <code>x</code> to determine which were successes and which were failures, but we never <em>counted</em> the number of successes.<br>
+</p>
+<p>Here is the general idea:</p>
+<ol type="1">
+<li>We initialize a <em>counter</em> variable, which starts off with the value of <code>0</code>.</li>
+<li>Then, we iterate through the elements of <code>x</code> as we did in Task 1 above. Instead of printing <code>True</code> or <code>False</code>, however, we use a <em>conditional</em> statement to add <code>1</code> to <code>count</code> if the corresponding element of <code>x</code> (i.e.&nbsp;the element of <code>x</code> under consideration in the current iteration of the loop).</li>
+<li>Finally, we see what the value of our counter variable is- this will be exactly the number of successes in <code>x</code>!</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Combine everything we’ve learned so far to count the number of successes in <code>x</code>. Here is a rough template of how your code should look:</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span>     <span class="co"># initialize the counter variable</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="cf">for</span> loop code here, containing a conditional <span class="kw">and</span> a <span class="st">'count += 1'</span><span class="op">&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>count       <span class="co"># display the final value of our counter variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>There is another way to iterate through the elements in a list, and this is to use indexing. Before talking about how this works, we should quickly introduce another function: the <code>arange()</code> function from the <code>numpy</code> module. Here is how a general call to <code>numpy.arange()</code> works:</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>numpy.arange(a, b, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This code returns the array of evenly spaced integers between <code>a</code> and <code>b</code> - including <code>a</code> but <em>excluding</em> <code>b</code>, where each element is <code>s</code> more than the previous element. That is, the code above is equivalent to <code>array([a, a+s, a+2s, ...])</code> As a concrete example:</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>array([0, 2, 4])</code></pre>
+</div>
+</div>
+<p>The <code>arange()</code> function is particularly useful when we are iterating using indices. For example, given a list <code>x = [1, 2, 3, 4, 5]</code>, we can loop through the entries of <code>x</code> using:</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> np.arange(<span class="dv">0</span>, <span class="bu">len</span>(x)):</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x[k])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1
+2
+3
+4
+5</code></pre>
+</div>
+</div>
+<p>Note that this is equivalent to</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> x:</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1
+2
+3
+4
+5</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 11
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rewrite your loop from Task 10, except now iterate through the <em>indices</em> of <code>x</code>. Check that your output is the same as in Task 10.</p>
+</div>
+</div>
+<section id="quick-aside-arange-vs-linspace" class="level3">
+<h3 class="anchored" data-anchor-id="quick-aside-arange-vs-linspace">Quick Aside: <code>arange()</code> vs <code>linspace()</code></h3>
+<p>Some of you may recall that we previously used the <code>numpy.linspace()</code> function to generate a list of numbers between two specified endpoints. The key difference between these two functions is that:</p>
+<ul>
+<li><code>arange()</code> allows you to specify the <em>step size</em></li>
+<li><code>linspace()</code> allows you to specify <em>the final number of elements</em></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 12
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Generate the list of numbers <code>[1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 2.9, 2]</code> in two ways: one using <code>arange()</code> and the other using <code>linspace()</code>.</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Site Designed by Ethan Marzban using Quarto; ©2023</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

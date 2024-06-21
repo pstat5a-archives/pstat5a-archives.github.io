@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="PSTAT 5A, with Ethan Marzban">
+
+<title>PSTAT 5A: Archives - Lab01</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../Images/Logos_Icons/5a_hex.png" rel="icon" type="image/png">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #4144a6;
+      }
+</style>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      PSTAT 5A: Archives
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Lab01</h1>
+            <p class="subtitle lead">Getting to Know Python</p>
+                      </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Course</div>
+    <div class="quarto-title-meta-heading">Quarter</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">PSTAT 5A, with Ethan Marzban </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Summer Session A, 2023
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../../index.html" class="sidebar-logo-link">
+      <img src="../../../../Images/Logos_Icons/5a_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../../">PSTAT 5A: Archives</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#structure-of-labs" id="toc-structure-of-labs" class="nav-link active" data-scroll-target="#structure-of-labs">Structure of Labs</a></li>
+  <li><a href="#what-is-programming" id="toc-what-is-programming" class="nav-link" data-scroll-target="#what-is-programming">What Is Programming?</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a>
+  <ul class="collapse">
+  <li><a href="#jupyterhub-environment" id="toc-jupyterhub-environment" class="nav-link" data-scroll-target="#jupyterhub-environment">JupyterHub Environment</a></li>
+  <li><a href="#cells" id="toc-cells" class="nav-link" data-scroll-target="#cells">Cells</a></li>
+  </ul></li>
+  <li><a href="#coding-with-python" id="toc-coding-with-python" class="nav-link" data-scroll-target="#coding-with-python">Coding with Python</a></li>
+  <li><a href="#python-as-a-calculator" id="toc-python-as-a-calculator" class="nav-link" data-scroll-target="#python-as-a-calculator">Python as a Calculator</a></li>
+  <li><a href="#python-modules" id="toc-python-modules" class="nav-link" data-scroll-target="#python-modules">Python Modules</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#variable-assignment" id="toc-variable-assignment" class="nav-link" data-scroll-target="#variable-assignment">Variable Assignment</a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments">Comments</a></li>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data Types</a></li>
+  <li><a href="#final-formatting" id="toc-final-formatting" class="nav-link" data-scroll-target="#final-formatting">Final Formatting</a></li>
+  <li><a href="#what-to-turn-in" id="toc-what-to-turn-in" class="nav-link" data-scroll-target="#what-to-turn-in">What to Turn In</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><strong>Welcome to the first PSTAT 5A Computing Lab!</strong> As we will soon learn, computers play an integral part in effectively and efficiently performing statistical analyses. The primary goal of these Computing Labs is to develop the skills to be able to communicate with computers, and also learn the basic principles and language of programming.</p>
+<section id="structure-of-labs" class="level2">
+<h2 class="anchored" data-anchor-id="structure-of-labs">Structure of Labs</h2>
+<p>Every week we (the course staff) will publish a lab document, which is intended to be completed during your Lab Section (i.e.&nbsp;your first Section) of the week. Each lab document will consist of a combination of text, tips, and the occasional task for you to complete based on the text provided. Your TA will cover exactly what you need to turn in at the end of each lab in order to receive credit, but you should read all lab material carefully and thoroughly as content from labs will appear on quizzes and exams.</p>
+</section>
+<section id="what-is-programming" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-programming">What Is Programming?</h2>
+<p>Computers, though incredibly useful, are fairly complex machines. To communicate with them, we need to use a specific language, known as a <strong>Programming Language.</strong> There are a number of programming languages currently in use, with names such as <code>R</code>, <code>Julia</code>, <code>MatLab</code>, and - the language we will use for this course - <strong>Python</strong>.<br>
+</p>
+<p>Python programs can be written in a number of different environments, such as a text editor (e.g.&nbsp;Notepad, VS Code, etc.) or a Terminal window. For this class, we will use <strong>Jupyter Notebook</strong> (where <code>Jupyter</code> is pronounced like the planet), an interactive environment that has the added benefit of being hosted online meaning you do not have to download anything onto your personal machines in order to run Python code!</p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<ol type="1">
+<li>Navigate to <a href="https://pstat5a.lsit.ucsb.edu" target="_blank">https://pstat5a.lsit.ucsb.edu</a></li>
+<li>Click the “<strong>Sign in with your UCSB NetID</strong>” button, and sign in.</li>
+<li>Under “Notebook”, click “Python 3 (ipykernel)” (see below).</li>
+</ol>
+<p><img src="launcher.png" width="65%"></p>
+<p>Congratulations- you have just made your first Jupyter notebook! Now, it’s time for our first task:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Change the name of your notebook to “Lab01” using the following steps:</p>
+<ol type="1">
+<li>In the lefthand menu bar, find the notebook you just created (by default this will be something like “Untitled” or “Untitled1”), and right-click and click “Rename” (see picture below)</li>
+</ol>
+<p><img src="rename.png" width="45%"></p>
+<ol start="2" type="1">
+<li>Rename your file to “Lab01”, and then hit the return (enter) key on your keyboard. You should see the filename in the menubar update:</li>
+</ol>
+<p><img src="newname.png" width="35%"></p>
+</div>
+</div>
+<section id="jupyterhub-environment" class="level3">
+<h3 class="anchored" data-anchor-id="jupyterhub-environment">JupyterHub Environment</h3>
+<p>Let’s take a minute to familiarize ourselves with the JupyterHub <strong>environment</strong>. Every Jupyter notebook is comprised of what are known as <strong>cells</strong>; these are the shaded grey rectangles that appear in a Jupyter notebook.</p>
+<p><img src="inactive.png" width="75%"></p>
+<p>If your cell has a grey background (like in the image above), it is <strong>inactive</strong>. To activate a cell, place your cursor inside it, and click:</p>
+<p><img src="active.png" width="75%"></p>
+<p>means it is <strong>selected</strong> and <strong>active</strong>, and ready to be populated with text and/or code.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you run code using the “Run” button at the top of your environment, only the active cell will be executed.</p>
+</div>
+</div>
+</section>
+<section id="cells" class="level3">
+<h3 class="anchored" data-anchor-id="cells">Cells</h3>
+<p>There are two main types of cells we will be using in this class: <strong>Markdown cells</strong> (which include text/descriptions, but no code) and <strong>code cells</strong> (which contain code that needs to be run). We’ll be talking a bit more about Markdown cells in a few weeks.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>If you haven’t already, click into the code cell that was automatically created when you created your document to activate it.</p></li>
+<li><p>Click on the dropdown menu that currently says “code” (near the center of the top of your interface), and select “Markdown”</p></li>
+</ol>
+<p><img src="markdown.png" width="75%"></p>
+<ol start="3" type="1">
+<li>Click back into the cell, copy-paste the text [including the hashtag!] <code># Task 2</code>, and then run the cell by clicking on the button that looks like a “play” symbol at the top of your window:</li>
+</ol>
+<p><img src="run.png" width="75%"></p>
+<ol start="4" type="1">
+<li>Note that after running your cell from step 3 above, Jupyter automatically created a new code cell. Click into this code cell and run the code <code>2 + 2</code>.</li>
+</ol>
+<p>When you are done, your notebook should look something like this:</p>
+<p><img src="task2.png" width="75%"></p>
+</div>
+</div>
+<p>Notice that after running a cell, Jupyter automatically adds a new cell right after it!</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To run a cell and automatically create a new cell underneath it, use the keyboard shortcut <code>SHIFT + ENTER</code>.</p>
+</div>
+</div>
+<p>By the way, do you notice the little <code>In [1]:</code> at the left of our first cell? This is Jupyter’s way of letting us know the order in which the code cells have been executed. The <code>1</code> in our cell from Task 2 above corresponds to the fact that this was the <strong>1</strong><sup>st</sup> code cell we executed in our document.</p>
+</section>
+</section>
+<section id="coding-with-python" class="level2">
+<h2 class="anchored" data-anchor-id="coding-with-python">Coding with Python</h2>
+<p>There is a reason we use the word “language” to describe programming languages- that is because they function quite like a human language. This means that they each have their own <strong>syntax</strong> (i.e.&nbsp;set of grammar rules). It is precisely the syntax of the Python language that we will be learning over the course of these Computing Labs!<br>
+</p>
+<p>Programs are made up of <strong>expressions</strong>, like <code>2 + 2</code>. We <strong>evaluate</strong> expressions by <strong>running</strong> (or <strong>executing</strong>) them in a programming language. Expressions are like the sentences of programming- they contain complex pieces of information that are conveyed between the user and the computer.<br>
+</p>
+<p>Much like sentences in other languages, expressions must obey a rigid syntax. For example, when we want to perform addition in Python we must use the <code>+</code> symbol; we can’t, for example, say <code>2 plus 2</code>.<br>
+</p>
+<p>What happens when we violate a syntax rule? Well…</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Create a mardown cell and write <code># Task 3</code></li>
+<li>Create a code cell, and run <code>2 plus 2</code>. (You should get an error!)</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For this class, we expect you to precede each code cell from a particular task with a markdown cell that says <code># Task X</code> (where <code>X</code> is the number of the task).<br>
+</p>
+<p>We will stop explicitly writing this step in the tasks below, but you are still expected to include a labeling cell!</p>
+</div>
+</div>
+<p>Well, what is this error saying? Let’s examine it more closely.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  File <span class="st">"&lt;ipython-input-2-5196071441ec&gt;"</span>, line <span class="dv">1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span> plus <span class="dv">2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      <span class="op">^</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="pp">SyntaxError</span>: invalid syntax</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Indeed, Python is telling us exactly what went wrong- the <code>SyntaxError</code> part of the error message tells us that we violated one of the syntax rules of Python, and the <code>^</code> pointing to the <code>p</code> in <code>plus</code> is telling us that the exact syntax error occurred when we tried to use the word <code>plus</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Always read error messages!</p>
+</div>
+</div>
+<p>The messages that Python displays when we get an error are Python’s way of trying to communicate with us what is going wrong!</p>
+</section>
+<section id="python-as-a-calculator" class="level2">
+<h2 class="anchored" data-anchor-id="python-as-a-calculator">Python as a Calculator</h2>
+<p>Alright, let’s get our hands dirty with some real programming! One of the many uses of Python is to help us compute arithmetic quantities very quickly. As a rule-of-thumb, Python adheres to the <strong>order of operations</strong>:</p>
+<ul>
+<li><strong>P</strong>arentheses</li>
+<li><strong>E</strong>xponents</li>
+<li><strong>M</strong>ultiplication</li>
+<li><strong>D</strong>ivision</li>
+<li><strong>A</strong>ddition</li>
+<li><strong>S</strong>ubtraction</li>
+</ul>
+<p>Here is a list of mathematical operators and their corresponding Python syntax:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Operation</strong></th>
+<th style="text-align: left;"><strong>Python Operator</strong></th>
+<th style="text-align: left;"><strong>Example</strong></th>
+<th style="text-align: left;"><strong>Result</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Addition</td>
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: left;"><code>2 + 2</code></td>
+<td style="text-align: left;"><code>4</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Subtraction</td>
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: left;"><code>2 - 2</code></td>
+<td style="text-align: left;"><code>0</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Multiplication</td>
+<td style="text-align: left;"><code>*</code></td>
+<td style="text-align: left;"><code>2 * 2</code></td>
+<td style="text-align: left;"><code>4</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Division</td>
+<td style="text-align: left;"><code>/</code></td>
+<td style="text-align: left;"><code>2 / 2</code></td>
+<td style="text-align: left;"><code>1</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Exponentiation</td>
+<td style="text-align: left;"><code>**</code></td>
+<td style="text-align: left;"><code>2 ** 2</code></td>
+<td style="text-align: left;"><code>4</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Compute the following:</p>
+<ul>
+<li><p><span class="math inline">\(\displaystyle \frac{2 + 3}{4 + 5^6}\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle (1 - 3 \cdot 4^5)^{6}\)</span></p></li>
+</ul>
+</div>
+</div>
+<p>Naturally, Python is capable of much more than just basic arithmetic!</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Create a code chunk and run <code>sin(1)</code> to compute the sine of 1.</p>
+</div>
+</div>
+<p>Uh-oh- looks like we’ve encountered another error! Indeed, even the most experience coder will often run up against errors like this, and need to subsequently enter the stage of <strong>debugging</strong> their code.<br>
+</p>
+<p>We’re now getting a new error: this time, it’s a <code>NameError</code>. As the name suggests, this is Python’s way of telling us that it doesn’t recognize the name of something we’ve written. In fact, it’s explicitly saying:</p>
+<blockquote class="blockquote">
+<p><code>NameError: name 'sin' is not defined</code>,</p>
+</blockquote>
+<p>Specifically, Python is telling us that it (somehow) doesn’t know what <code>sin</code> means. Why? Well, to answer that, we need to take a bit of a detour into the world of <strong>modules</strong>.</p>
+</section>
+<section id="python-modules" class="level2">
+<h2 class="anchored" data-anchor-id="python-modules">Python Modules</h2>
+<p>It is important to note that all Python objects take up space in the form of memory (i.e.&nbsp;storage space on your computer). Nowadays, with recent innovations in computers and computer memory, this is not so much of an issue but historically, when many of these programming languages were first being created, optimizing space was of the utmost concern. (Even today, <strong>efficiency</strong> is a guiding tenet of most programmers!)<br>
+</p>
+<p>Think of it this way- if you are doing work on code that doesn’t involve much trigonometry, there isn’t a whole lot of need to have the <code>sin</code> function readily available. The idea programmers had was to compartmentalize, and store certain functions in what are known as <strong>modules</strong>.<br>
+</p>
+<p>Modules are Python files containing definitions for functions and classes (we’ll talk about data classes a little later). While data types and built-in functions in the Python standard library are available for immediate use, modules need to be <strong>imported</strong> first.<br>
+</p>
+<p>The syntax for importing <em>all</em> functions from a module is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> <span class="op">&lt;</span>module name<span class="op">&gt;</span> <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Sometimes, we may not want to import the entirety of a module and instead import only a couple of functions from that module. In that case, we would use the syntax:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> <span class="op">&lt;</span>module name<span class="op">&gt;</span> <span class="im">import</span> <span class="op">&lt;</span>function name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We’ll talk a bit more about modules in a future lab. For now, let’s return to our task of computing <span class="math inline">\(\sin(1)\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 5 (cont’d)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It turns out that the <code>sin()</code> function is located in the <code>math</code> module Load all functions from the <code>math</code> module, and then try re-running <code>sin(1)</code>.</p>
+</div>
+</div>
+</section>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions">Functions</h2>
+<p>We will talk extensively about Python functions in a few weeks. For now, suffice it to say that Python functions work just like mathematical functions: for example, note how we used the <code>sin()</code> function in the previous task. One piece of terminology that is somewhat specific to programming is the notion of <strong>calling</strong>- when we say we <strong>call a function</strong> on an argument, we mean that we’re passing that argument through the function. So, for example, in Task 5 we <em>called</em> the <code>sin()</code> function on the argument <code>1</code>.</p>
+</section>
+<section id="variable-assignment" class="level2">
+<h2 class="anchored" data-anchor-id="variable-assignment">Variable Assignment</h2>
+<p>Let’s talk a bit about <strong>variables.</strong> Just like in math, variables in a programming language refer to a placeholder name for a particular piece of information (be it a function, value, etc.) The act of storing information in a variable is called <strong>assignment</strong>, and in Python variable assignment is performed using the <code>=</code> symbol.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>variable name<span class="op">&gt;</span> <span class="op">=</span> <span class="op">&lt;</span>what you want to associate <span class="cf">with</span> the variable<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For example, after running</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>the quantity <code>x</code> will always be synonymous with the quantity <code>2</code>, and running <code>x + 2</code> will return a value of <code>4</code> (as 2 + 2 = 4).<br>
+</p>
+<p>Python affords a lot of flexibility when it comes to variable names- that is, we can pick almost anything we want to be a variable name! There are, however, some exceptions:</p>
+<ul>
+<li>Variable names cannot start with a number</li>
+<li>Variable names cannot include a space</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is a good programming practice to give your variables names that are descriptive, but not overly long.</p>
+</div>
+</div>
+<p>If we want to view the value stored in a variable, we have two options: we could simply type the name of the variable, and run the cell:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2</code></pre>
+</div>
+</div>
+<p>or we could pass the variable name into a call to the <code>print()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>(a)</strong> Define a variable called <code>my_variable</code>, and assign it the value <code>5</code>.</p>
+<p><strong>(b)</strong> Now, run the command <code>print(My_variable)</code> (note the capitalization!)</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Python is case-sensitive.</p>
+</div>
+</div>
+<p>Sometimes it will be necessary to <strong>update</strong> or <strong>re-assign</strong> a new value to an existing variable. For example, let’s examine the structure of the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> x <span class="op">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What do you think running <code>x</code> will return? If you said <code>5</code>, you’d be correct! The key point of this is:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In variable assignment, Python starts by executing the righthand side of the equality <em>before</em> executing the lefthand side.</p>
+</div>
+</div>
+<p>So, in code example above, Python first executed <code>x + 3</code> (which is equivalent to <code>2 + 3</code>; i.e.&nbsp;<code>5</code>), and <em>then</em> re-assigned <code>x</code> the value <code>5</code>.</p>
+</section>
+<section id="comments" class="level2">
+<h2 class="anchored" data-anchor-id="comments">Comments</h2>
+<p>When writing large pieces of code, programmers will often utilize <strong>comments</strong> to annotate their work and help readers understand what their code is doing. In Python there are two types of comments: <strong>inline comments</strong> and <strong>multiline comments.</strong> Inline comments are created using the hashtag (<code>#</code>) and multiline comments must be enclosed in three quotation marks (<code>"""</code>). As an example of both, consider the following snippet of code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span>             <span class="co"># define x</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span>             <span class="co"># define y</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> (x <span class="op">+</span> y) <span class="op">**</span> <span class="dv">2</span>  <span class="co"># define z</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> z <span class="op">/</span> <span class="dv">3</span>         <span class="co"># redefine y</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""This code is defines 3 variables,</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">called 'x', 'y', and 'z'."""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Go back and add some descriptive comments to some of your previous code cells. (You don’t need a separate markdown cell indicating you have done so.)</p>
+</div>
+</div>
+</section>
+<section id="data-types" class="level2">
+<h2 class="anchored" data-anchor-id="data-types">Data Types</h2>
+<p>Before closing out this lab, we should talk a bit about the quantities we assign to variables- i.e.&nbsp;the different <strong>data types</strong> in Python.<br>
+</p>
+<p>The term <strong>data type</strong> loosely refers to the actual type of a particular quantity (e.g.&nbsp;numerical, character, etc.) The main data types we will discuss in this lab are:</p>
+<ul>
+<li><code>float</code>: refers to numerical (real-valued) quantities</li>
+<li><code>int</code>: short for <code>integer</code>; refers to numerical quantities that are integers</li>
+<li><code>str</code>: short for <code>string</code>; refers to character- or text-type data (and will always be enclosed in either single quotation marks or double quotation marks)</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Run each of the following:</p>
+<ul>
+<li><code>type(1)</code></li>
+<li><code>type(1.1)</code></li>
+<li><code>type("hello")</code></li>
+</ul>
+</div>
+</div>
+<p>Let’s combine our knowledge of variable assignment with our newfound knowledge of data types!</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>(a)</strong> Perform the following variable assignments:</p>
+<ul>
+<li><code>course = "PSTAT 5A"</code></li>
+<li><code>num_sections = 4</code></li>
+<li><code>section_capacity = 25</code></li>
+</ul>
+<p><strong>(c)</strong> A new section has been added! Update the variable <code>num_sections</code> to be one more than when you initially defined it above. (Don’t just use <code>num_sections = 5</code>- think about our discussion on updating variables above!)</p>
+<p><strong>(b)</strong> Using comments, write down what you think the output of each of the following expressions will be:</p>
+<ul>
+<li><code>type(course)</code></li>
+<li><code>type(num_sections)</code></li>
+<li><code>num_sections * section_capacity</code></li>
+</ul>
+<p>Then, run each expression in a separate code chunk and comment on the results.</p>
+<p><strong>(c)</strong> Create a new variable called <code>course_capacity</code> and assign it the value of the maximum capacity of the course. (<strong>Hint:</strong> there are only 5 sections, and each section has a maximum capacity of 25. Try to use your already-defined variables as much as possible!)</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>type()</code> function can be used to identify the data type of a particular quantity.</p>
+</div>
+</div>
+</section>
+<section id="final-formatting" class="level2">
+<h2 class="anchored" data-anchor-id="final-formatting">Final Formatting</h2>
+<p>It’s time to start adding the finishing touches to our first lab!</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task 10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Click on the gear-shaped icon in the top-right of your console:</li>
+</ol>
+<p><img src="gear_icon.png" width="30%"></p>
+<ol start="2" type="1">
+<li>Scroll down until you see the <code>Notebook Metadata</code>:</li>
+</ol>
+<p><img src="metadata.png" width="30%"></p>
+<ol start="3" type="1">
+<li>Right after the second-to-last brace (<code>}</code>), add a comma <code>,</code> and then the following code:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="st">"authors"</span><span class="sc">:</span> [</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span><span class="sc">:</span> <span class="st">"&lt;YOUR NAME&gt;"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"name"</span><span class="sc">:</span> <span class="st">"&lt;YOUR NETID&gt;"</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>where you replace <code>&lt;YOUR NAME&gt;</code> and <code>&lt;YOUR NETID&gt;</code> with your name and NetID, respectively. For example, after performing the above steps, my Notebook Metadata would look like:</p>
+<p><img src="metadata_mod.png" width="30%"></p>
+<p><strong>IMPORTANT:</strong> If your NetID contains an underscore, e.g.&nbsp;<code>my_netid</code>, then you need to replace the underscore with the text <code>\\textunderscore</code> (<strong>with</strong> the two backslashes at the beginning) followed by a space. Otherwise, your Lab will not convert to a PDF properly. So, for example, if your NetID is <code>my_netid</code> then you should write your NetID as <code>my\\textunderscore netid</code>. Your TA will go over how to update your Notebook Metadata in the last few minutes of Lab.</p>
+</div>
+</div>
+</section>
+<section id="what-to-turn-in" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-turn-in">What to Turn In</h2>
+<p>Congrats on finishing the first PSTAT 5A Computing Lab! Here’s what you need to submit:</p>
+<ol type="1">
+<li>Your downloaded <code>.ipynb</code> file</li>
+<li>Your downloaded <code>.PDF</code> file</li>
+</ol>
+<p>(Please consult the video on Canvas showing you how to upload your work to Gradescope). Toward the end of Lab, your TA will show you how to download the above files. <strong>You will have until 40 minutes after the end of your Section (e.g.&nbsp;if your Section ends at 1:20pm, then you have until 2:00pm to submit) to turn in your work in order to get credit for the lab.</strong> Also, please remember that you need to upload <em>both</em> a <code>.ipynb</code> file <em>and</em> a <code>.pdf</code>. We will be grading labs based on effort, so just turn in what you are able to!</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Site Designed by Ethan Marzban using Quarto; ©2023</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ethan P. Marzban">
+<meta name="dcterms.date" content="2023-07-03">
+
+<title>PSTAT 5A: Summer Session A, 2023 - PSTAT 5A: Lecture 05</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../Images/Logos_Icons/5a_hex.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      PSTAT 5A: Summer Session A, 2023
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../Images/Logos_Icons/5a_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">PSTAT 5A: Summer Session A, 2023</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Course Info</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule of Topics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/calendar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sections and Calendar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/course_staff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Staff / OH</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW and Solns</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Exam Prep</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../Pages/exam_prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam Prep</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#leadup" id="toc-leadup" class="nav-link active" data-scroll-target="#leadup">Leadup</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a>
+  <ul class="collapse">
+  <li><a href="#penguins-revisited" id="toc-penguins-revisited" class="nav-link" data-scroll-target="#penguins-revisited">Penguins, Revisited</a></li>
+  <li><a href="#penguins-subsetted" id="toc-penguins-subsetted" class="nav-link" data-scroll-target="#penguins-subsetted">Penguins, Subsetted</a></li>
+  <li><a href="#some-questions" id="toc-some-questions" class="nav-link" data-scroll-target="#some-questions">Some Questions</a></li>
+  <li><a href="#why-bring-this-up-now" id="toc-why-bring-this-up-now" class="nav-link" data-scroll-target="#why-bring-this-up-now">Why Bring This Up Now?</a></li>
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability">Conditional Probability</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
+  <li><a href="#worked-out-example" id="toc-worked-out-example" class="nav-link" data-scroll-target="#worked-out-example">Worked-Out Example</a></li>
+  <li><a href="#multiplication-rule" id="toc-multiplication-rule" class="nav-link" data-scroll-target="#multiplication-rule">Multiplication Rule</a></li>
+  <li><a href="#leadup-1" id="toc-leadup-1" class="nav-link" data-scroll-target="#leadup-1">Leadup</a></li>
+  <li><a href="#bayes-rule" id="toc-bayes-rule" class="nav-link" data-scroll-target="#bayes-rule">Bayes’ Rule</a></li>
+  <li><a href="#worked-out-example-1" id="toc-worked-out-example-1" class="nav-link" data-scroll-target="#worked-out-example-1">Worked-Out Example</a></li>
+  <li><a href="#hang-in-there" id="toc-hang-in-there" class="nav-link" data-scroll-target="#hang-in-there">Hang In There!</a></li>
+  <li><a href="#leadup-2" id="toc-leadup-2" class="nav-link" data-scroll-target="#leadup-2">Leadup</a></li>
+  <li><a href="#law-of-total-probability" id="toc-law-of-total-probability" class="nav-link" data-scroll-target="#law-of-total-probability">Law of Total Probability</a></li>
+  <li><a href="#worked-out-example-2" id="toc-worked-out-example-2" class="nav-link" data-scroll-target="#worked-out-example-2">Worked-Out Example</a></li>
+  <li><a href="#step-1-define-events" id="toc-step-1-define-events" class="nav-link" data-scroll-target="#step-1-define-events">Step 1: Define Events</a></li>
+  <li><a href="#step-2-translate-the-information" id="toc-step-2-translate-the-information" class="nav-link" data-scroll-target="#step-2-translate-the-information">Step 2: Translate the Information</a></li>
+  <li><a href="#step-2-translate-the-information-1" id="toc-step-2-translate-the-information-1" class="nav-link" data-scroll-target="#step-2-translate-the-information-1">Step 2: Translate the Information</a></li>
+  <li><a href="#step-2-translate-the-information-2" id="toc-step-2-translate-the-information-2" class="nav-link" data-scroll-target="#step-2-translate-the-information-2">Step 2: Translate the Information</a></li>
+  <li><a href="#step-3-solve-the-problem" id="toc-step-3-solve-the-problem" class="nav-link" data-scroll-target="#step-3-solve-the-problem">Step 3: Solve the Problem</a></li>
+  <li><a href="#step-3-solve-the-problem-1" id="toc-step-3-solve-the-problem-1" class="nav-link" data-scroll-target="#step-3-solve-the-problem-1">Step 3: Solve the Problem</a></li>
+  <li><a href="#step-3-solve-the-problem-2" id="toc-step-3-solve-the-problem-2" class="nav-link" data-scroll-target="#step-3-solve-the-problem-2">Step 3: Solve the Problem</a></li>
+  <li><a href="#some-terminology" id="toc-some-terminology" class="nav-link" data-scroll-target="#some-terminology">Some Terminology</a></li>
+  <li><a href="#some-problems-to-think-on" id="toc-some-problems-to-think-on" class="nav-link" data-scroll-target="#some-problems-to-think-on">Some Problems To Think On:</a></li>
+  </ul></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence">Independence</a>
+  <ul class="collapse">
+  <li><a href="#leadup-3" id="toc-leadup-3" class="nav-link" data-scroll-target="#leadup-3">Leadup</a></li>
+  <li><a href="#independence-1" id="toc-independence-1" class="nav-link" data-scroll-target="#independence-1">Independence</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Lec05.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PSTAT 5A: Lecture 05</h1>
+<p class="subtitle lead">Conditional Probability and Independence</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ethan P. Marzban </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 3, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="leadup" class="level2">
+<h2 class="anchored" data-anchor-id="leadup">Leadup</h2>
+<ul>
+<li><p>Remember how, last week, we discussed ways to compare two variables?</p></li>
+<li><p>At the time, we only considered comparing two numerical variables and comparing one numerical and one categorical variable.</p></li>
+<li><p>What about comparing two categorical variables?</p></li>
+<li><p>As a concrete example, let’s return to…</p></li>
+</ul>
+</section>
+<section id="section" class="level1" data-background-color="black" data-background-image="https://media1.giphy.com/media/ewHSMEx2TtEo8/giphy.gif?cid=ecf05e473oli5unidr1x52elmg1gi4ghtyrzg8na14wjuhcr&amp;rid=giphy.gif&amp;ct=g" data-background-size="contain">
+<h1 data-background-color="black" data-background-image="https://media1.giphy.com/media/ewHSMEx2TtEo8/giphy.gif?cid=ecf05e473oli5unidr1x52elmg1gi4ghtyrzg8na14wjuhcr&amp;rid=giphy.gif&amp;ct=g" data-background-size="contain"></h1>
+<section id="penguins-revisited" class="level2">
+<h2 class="anchored" data-anchor-id="penguins-revisited">Penguins, Revisited</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre class="hscroll"><code>   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<style type="text/css">
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+</style>
+</div>
+</section>
+<section id="penguins-subsetted" class="level2">
+<h2 class="anchored" data-anchor-id="penguins-subsetted">Penguins, Subsetted</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre class="hscroll"><code>   species island   
+ 1 Adelie  Torgersen
+ 2 Adelie  Torgersen
+ 3 Adelie  Torgersen
+ 4 Adelie  Torgersen
+ 5 Adelie  Torgersen
+ 6 Adelie  Torgersen
+ 7 Adelie  Torgersen
+ 8 Adelie  Torgersen
+ 9 Adelie  Torgersen
+10 Adelie  Torgersen
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<style type="text/css">
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+</style>
+</div>
+</section>
+<section id="some-questions" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="some-questions">Some Questions</h2>
+<ul>
+<li><p>Here are some questions we could ask:</p>
+<ul>
+<li>How many Adelie penguins were found on Biscoe island?</li>
+<li>Were any Gentoo penguins found on Torgersen island?</li>
+<li>What proportion of Chinstrap penguins were found on Dream island?</li>
+</ul></li>
+<li><p>These sorts of questions are very nicely answered by way of what is known as a <strong>contingency table</strong>:</p></li>
+</ul>
+<div class="fragment" style="text-align:center">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           
+            Biscoe Dream Torgersen
+  Adelie        44    56        52
+  Chinstrap      0    68         0
+  Gentoo       124     0         0</code></pre>
+</div>
+</div>
+</div>
+<ul>
+<li>Thus, the answers to the questions above are: “44”, “no”, and “100%”, respectively.</li>
+</ul>
+</section>
+<section id="why-bring-this-up-now" class="level2">
+<h2 class="anchored" data-anchor-id="why-bring-this-up-now">Why Bring This Up Now?</h2>
+<ul>
+<li><p>You may be asking yourselves: “why bring this up now? Weren’t we talking about <em>probability</em>?”</p></li>
+<li><p>Let’s re-examine the third question we asked on the previous slide: What proportion of Chinstrap penguins were found on Dream island?</p></li>
+<li><p>What we really did when we answered this was to first restrict ourselves to the row of the contingency table corresponding to Chinstrap penguins, tally up the entries in that row, and then divided the number of penguins that were <em>both</em> Chinstrap <em>and</em> found on Dream Island by the row total.</p></li>
+</ul>
+<hr>
+<div style="font-size:32px">
+<div class="nonincremental">
+<ul>
+<li>Let’s walk through another example. Suppose we want to know what proportion of Adelie penguins were found on Dream Island.</li>
+</ul>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           
+            Biscoe Dream Torgersen
+  Adelie        44    56        52
+  Chinstrap      0    68         0
+  Gentoo       124     0         0</code></pre>
+</div>
+</div>
+<ul>
+<li><p>By obtaining the first row total (i.e.&nbsp;the sum of the entries in the first row), we see there were <span class="math inline">\(44 + 56 + 52 = 152\)</span> Adelie penguins in total.</p>
+<ul>
+<li>Of these <span class="math inline">\(152\)</span> Adelie penguins, only 56 were found on Dream Island. Hence, the desired probability is <span class="math display">\[ \frac{56}{152} \approx 36.84\% \]</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="conditional-probability" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-probability">Conditional Probability</h2>
+<ul>
+<li>This leads us to the main topic of today’s lecture: <strong>conditional probabilities.</strong></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Definition</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>If <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> are two events with <span class="math inline">\(\mathbb{P}(F) \neq 0\)</span>, then we define the probability of <span class="math inline">\(E\)</span> <strong>given</strong> <span class="math inline">\(F\)</span>, notated <span class="math inline">\(\mathbb{P}(E \mid F)\)</span>, to be <span class="math display">\[ \mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)} \]</span> If <span class="math inline">\(\mathbb{P}(F) = 0\)</span>, then <span class="math inline">\(\mathbb{P}(E \mid F)\)</span> is not defined.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="interpretation" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="interpretation">Interpretation</h2>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}(E \mid F)\)</span> essentially gives us the proportion of <span class="math inline">\(F\)</span> that is explained by <span class="math inline">\(E\)</span>.</p>
+<ul>
+<li>As such, another way to think about conditional probabilities is as an “if-then” statement: if <span class="math inline">\(F\)</span> has occurred, what is the probability that <span class="math inline">\(E\)</span> also occurs?</li>
+</ul></li>
+<li><p>If we adopt the classical approach to probability, we have <span class="math display">\[\begin{align*}
+\mathbb{P}(E \mid F)    &amp; = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)}    \\
+  &amp; = \frac{\left( \frac{\#(E \cap F)}{\#(\Omega)} \right)}{\left( \frac{\#(F)}{\#(\Omega)} \right)} = \frac{\#(E \cap F)}{\#(F)}
+\end{align*}\]</span></p></li>
+<li><p>This is also why contingency tables are so useful in the context of probability- the numerator above will be an entry in the table, and the denominator will be either a row-sum or a column-sum (depending on how the table was constructed).</p></li>
+</ul>
+</section>
+<section id="worked-out-example" class="level2" style="font-size:32px">
+<h2 style="font-size:32px" class="anchored" data-anchor-id="worked-out-example">Worked-Out Example</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Exercise 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>75 UCSB students were surveyed about whether they like pineapple on pizza or not. In addition to their pineapple preference, their standing was also recorded.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>         Standing
+Pineapple Freshman Junior Senior Sophomore
+      No        15      6      1        18
+      Yes       10      7      5        13</code></pre>
+</div>
+</div>
+<p>A student is to be randomly selected. If the student is a Freshman, what is the probability that they like pineapple on pizza?</p>
+</div>
+</div>
+</div>
+<ul>
+<li>As always, we begin by defining events and notation. Let <span class="math inline">\(P =\)</span> “the student likes pineapple on pizza” and <span class="math inline">\(F =\)</span> “the student is a freshman”. We then seek <span class="math inline">\(\mathbb{P}(P \mid F)\)</span>.</li>
+</ul>
+<hr>
+<div style="font-size:33px">
+<div class="nonincremental">
+<ul>
+<li>Because the selection of the student is to be done <em>at random</em>, we can use the classical approach to probability.</li>
+</ul>
+</div>
+<ul>
+<li><p>As such, we need only to divide the number of students who are both Freshmen and like pineapple on pizza by the total number of Freshman.</p>
+<ul>
+<li>The number of students who are both Freshmen and like pineapple on pizza is 10</li>
+<li>The total number of Freshman is <span class="math inline">\(15 + 10 = 25\)</span>; i.e.&nbsp;the first column-sum</li>
+<li>Hence, the desired probability is <span class="math display">\[ \mathbb{P}(P \mid F) = \frac{10}{25} = \boxed{ \frac{2}{5} = 40\%} \]</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="multiplication-rule" class="level2">
+<h2 class="anchored" data-anchor-id="multiplication-rule">Multiplication Rule</h2>
+<ul>
+<li>Recall that. provided <span class="math inline">\(\mathbb{P}(F) \neq 0\)</span> <span class="math display">\[ \mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)} \]</span></li>
+<li>We can multiply both sides of this equation by <span class="math inline">\(\mathbb{P}(F)\)</span> to obtain the so-called <strong>multiplication rule</strong>:</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>The Multiplication Rule</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p><span class="math inline">\(\mathbb{P}(E \cap F) = \mathbb{P}(E \mid F) \cdot \mathbb{P}(F)\)</span>, for any events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> with <span class="math inline">\(\mathbb{P}(F) \neq 0\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="leadup-1" class="level2">
+<h2 class="anchored" data-anchor-id="leadup-1">Leadup</h2>
+<ul>
+<li><p>Note that “<span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>” is the same as “<span class="math inline">\(F\)</span> and <span class="math inline">\(E\)</span>”.</p></li>
+<li><p>That is: <span class="math inline">\(\mathbb{P}(E \cap F) = \mathbb{P}(F \cap E)\)</span>.</p></li>
+<li><p>So, if we interchange the place of <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> in the multiplication rule, we obtain <span class="math display">\[ \mathbb{P}(E \cap F) = \mathbb{P}(F \cap E) = \mathbb{P}(F \mid E) \cdot \mathbb{P}(E) \]</span></p></li>
+<li><p>That is to say, we have <span class="math display">\[\begin{align*}
+\mathbb{P}(E \cap F)    &amp; = \mathbb{P}(E \mid F) \cdot \mathbb{P}(F) = \mathbb{P}(F \mid E) \cdot \mathbb{P}(E)
+\end{align*}\]</span></p></li>
+<li><p>Dividing the last equation by <span class="math inline">\(\mathbb{P}(F)\)</span> yields an important result:</p></li>
+</ul>
+</section>
+<section id="bayes-rule" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-rule">Bayes’ Rule</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Baeys’ Rule</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p><span class="math display">\[ \mathbb{P}(E \mid F) = \frac{\mathbb{P}(F \mid E) \cdot \mathbb{P}(E)}{\mathbb{P}(F)} \]</span> for events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> with <span class="math inline">\(\mathbb{P}(E) \neq 0\)</span> and <span class="math inline">\(\mathbb{P}(F) \neq 0\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>In a sense, Bayes’ Rule gives us a way to “reverse the order of a conditional”</li>
+</ul>
+</section>
+<section id="worked-out-example-1" class="level2">
+<h2 class="anchored" data-anchor-id="worked-out-example-1">Worked-Out Example</h2>
+<ul>
+<li>As an illustration, let’s return to our pineapple-on-pizza contingency table:</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>         Standing
+Pineapple Freshman Junior Senior Sophomore
+      No        15      6      1        18
+      Yes       10      7      5        13</code></pre>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Letting <span class="math inline">\(P\)</span> and <span class="math inline">\(F\)</span> be defined as before, let’s compute <span class="math inline">\(\mathbb{P}(P \mid F)\)</span> using Bayes’ Rule.</p></li>
+<li><p>We need to first compute <span class="math inline">\(\mathbb{P}(F \mid P)\)</span>, which we see to be <span class="math display">\[ \mathbb{P}(F \mid P) = \frac{10}{10 + 7 + 5 + 13} = \frac{10}{35} \]</span></p></li>
+</ul>
+<hr>
+<div class="nonincremental">
+<ul>
+<li>Additionally, we find <span class="math display">\[\begin{align*}
+\mathbb{P}(P)     &amp; = \frac{10 + 7 + 5 + 13}{75} = \frac{35}{75}    \\
+\mathbb{P}(F)     &amp; = \frac{15 + 10}{75} = \frac{25}{75}
+\end{align*}\]</span></li>
+</ul>
+</div>
+<ul>
+<li>Hence, by Bayes’ Rule, <span class="math display">\[\begin{align*}
+\mathbb{P}(P \mid F)    &amp; = \frac{\mathbb{P}(F \mid P) \cdot \mathbb{P}(P)}{\mathbb{P}(F)}   \\
+  &amp; = \frac{\left( \frac{10}{35} \right) \cdot \left( \frac{35}{75} \right) }{ \left( \frac{25}{75} \right) } = \frac{10}{75} \cdot \frac{75}{25} = \frac{10}{25} = \boxed{\frac{2}{5} = 40\%}
+\end{align*}\]</span></li>
+</ul>
+</section>
+<section id="hang-in-there" class="level2">
+<h2 class="anchored" data-anchor-id="hang-in-there">Hang In There!</h2>
+<ul>
+<li><p>At the moment, it may not seem obvious why Bayes’ Rule is helpful.</p>
+<ul>
+<li>It seems like it just makes more work!</li>
+</ul></li>
+<li><p>But, rest assured, we will see a very practical application of Bayes’ Rule in a few slides.</p></li>
+<li><p>Before we do, there’s just one more concept we need to discuss.</p></li>
+</ul>
+</section>
+<section id="leadup-2" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="leadup-2">Leadup</h2>
+<ul>
+<li>Consider an event <span class="math inline">\(F\)</span>, and another event <span class="math inline">\(E\)</span>.</li>
+<li>If <span class="math inline">\(F\)</span> happened, it could have happened along with <span class="math inline">\(E\)</span> or it could have happened along with not-<span class="math inline">\(E\)</span>.</li>
+<li>That is, <span class="math display">\[ F = (F \cap E) \cup (F \cap E^\complement)\]</span></li>
+<li>Now, let’s take the probability of both sides. Since the events on the RHS are disjoint, the probability on the RHS just becomes a sum of probabilities: <span class="math display">\[ \mathbb{P}(F) = \mathbb{P}(F \cap E) + \mathbb{P}(F \cap E^\complement) \]</span></li>
+<li>Finally, we apply the Multiplication Rule to the probabilities on the RHS to obtain <span class="math display">\[ \mathbb{P}(F) = \mathbb{P}(F \mid E) \cdot \mathbb{P}(E) + \mathbb{P}(F \mid E^\complement) \cdot \mathbb{P}(E^\complement) \]</span></li>
+</ul>
+</section>
+<section id="law-of-total-probability" class="level2">
+<h2 class="anchored" data-anchor-id="law-of-total-probability">Law of Total Probability</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>The Law of Total Probability</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Given two events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> with <span class="math inline">\(\mathbb{P}(E) \neq 0\)</span> and <span class="math inline">\(\mathbb{P}(F) \neq 0\)</span>, we have <span class="math display">\[ \mathbb{P}(F) = \mathbb{P}(F \mid E) \cdot \mathbb{P}(E) + \mathbb{P}(F \mid E^\complement) \cdot \mathbb{P}(E^\complement) \]</span></p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>This is often useful in the context of a Bayes’ Rule problem.</li>
+</ul>
+</section>
+<section id="worked-out-example-2" class="level2">
+<h2 class="anchored" data-anchor-id="worked-out-example-2">Worked-Out Example</h2>
+<ul>
+<li>Alright, let’s get down to business and tackle a slightly more real-world problem.</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked-Out Exercise 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>It is known that a particular disease affects 5% of the population. There exists a test for this disease, but it is not perfect: there is a 10% chance it will return a “negative” result for a person who is actually infected, and there is a 8% chance it will return a “positive” result for a person who is actually healthy.<br>
+</p>
+<p>Arasha has taken a test for the disease, and it has indicated a “positive” result. What is the probability that Arasha actually has the disease?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-1-define-events" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-define-events">Step 1: Define Events</h2>
+<ul>
+<li><p>As always, we start by defining events.</p></li>
+<li><p>Let + denote “the test returns a positive result” and let <span class="math inline">\(D\)</span> denote “Arasha actually has the disease.”</p></li>
+<li><p>First of all, note that we are <strong>not</strong> interested in simply finding <span class="math inline">\(\mathbb{P}(D)\)</span>; rather, we are interested in finding <span class="math inline">\(\mathbb{P}(D \mid +)\)</span>.</p>
+<ul>
+<li>This is because Arasha has already been tested and received a positive result; this is information we need to incorporate into our beliefs!</li>
+</ul></li>
+</ul>
+</section>
+<section id="step-2-translate-the-information" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="step-2-translate-the-information">Step 2: Translate the Information</h2>
+<ul>
+<li><p>With our events from Step 1, we now turn our attention to translating the information provided in the problem.</p></li>
+<li><p>Since there is a <span class="math inline">\(10\%\)</span> chance that the test returns a negative result <strong>given</strong> that a person actually has the disease, we have <span class="math display">\[ \mathbb{P}(+^\complement \mid D) = 0.1 \]</span></p></li>
+<li><p>Additionally, we are told that there is an <span class="math inline">\(8\%\)</span> chance that the test returns a positive result <strong>given</strong> that a person does not have disease, we have <span class="math display">\[ \mathbb{P}(+ \mid D^\complement) = 0.08 \]</span></p></li>
+<li><p>Finally, we are told that 5% of the population has the disease; hence, <span class="math display">\[ \mathbb{P}(D) = 0.05 \]</span></p></li>
+</ul>
+</section>
+<section id="step-2-translate-the-information-1" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="step-2-translate-the-information-1">Step 2: Translate the Information</h2>
+<ul>
+<li><p>But wait- there’s more!</p></li>
+<li><p>Given that a person <em>has</em> the disease, they will either test positive or test negative.</p>
+<ul>
+<li><p>What that means is that <span class="math display">\[ \mathbb{P}(+ \mid D) = 1 - \mathbb{P}(+^\complement \mid D) = 1 - 0.1 = 0.9 \]</span></p></li>
+<li><p>Think of this as a modified complement rule</p></li>
+</ul></li>
+<li><p>Similarly, <span class="math display">\[ \mathbb{P}(+^\complement \mid D^\complement) = 1 - \mathbb{P}(+ \mid D^\complement) = 1 - 0.08 = 0.92 \]</span></p></li>
+<li><p>Additionally, <span class="math display">\[ \mathbb{P}(D^\complement) =  1 - \mathbb{P}(D) = 1 - 0.05 = 0.95 \]</span></p></li>
+</ul>
+</section>
+<section id="step-2-translate-the-information-2" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="step-2-translate-the-information-2">Step 2: Translate the Information</h2>
+<ul>
+<li>So, here’s a summary of everything we know, just from the problem statement: <span class="math display">\[\begin{align*}
+\mathbb{P}(+ \mid D) = 0.9    &amp; \hspace{15mm} \mathbb{P}(+^\complement \mid D) = 0.1    \\
+\mathbb{P}(+ \mid D^\complement) = 0.08   &amp; \hspace{15mm}  \mathbb{P}(P^\complement \mid D^\complement) = 0.92   \\
+\mathbb{P}(D) = 0.05    &amp; \hspace{15mm}  \mathbb{P}(D^\complement) = 0.95
+\end{align*}\]</span></li>
+</ul>
+</section>
+<section id="step-3-solve-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-solve-the-problem">Step 3: Solve the Problem</h2>
+<ul>
+<li>Now we are in a position to begin solving the problem.</li>
+<li>Recall that we seek <span class="math inline">\(\mathbb{P}(D \mid +)\)</span>.</li>
+<li>But, we only have information on <span class="math inline">\(\mathbb{P}(+ \mid D)\)</span>.</li>
+<li>Any ideas what rule/tool we should use?
+<ul>
+<li>That’s right; <strong>Bayes’ Rule!</strong></li>
+</ul></li>
+<li>We use Bayes’ Rule to write <span class="math display">\[ \mathbb{P}(D \mid +) = \frac{\mathbb{P}(+ \mid D) \cdot \mathbb{P}(D)}{\mathbb{P}(+)} \]</span></li>
+</ul>
+</section>
+<section id="step-3-solve-the-problem-1" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-solve-the-problem-1">Step 3: Solve the Problem</h2>
+<ul>
+<li>Do we have <span class="math inline">\(\mathbb{P}(+)?\)</span>
+<ul>
+<li>No…</li>
+<li>But how can we get it?</li>
+<li>Yup- Law of Total Probability!</li>
+</ul></li>
+<li>We use the <strong>Law of Total Probability</strong> to write</li>
+</ul>
+<div class="fragment" style="text-align:center">
+<p><span class="math display">\[\begin{align*}
+  \mathbb{P}(+)   &amp; = \mathbb{P}(+ \mid D) \cdot \mathbb{P}(D) + \mathbb{P}(+ \mid D^\complement) \cdot \mathbb{P}(D^\complement)    \\
+    &amp; = (0.9) \cdot (0.05) + (0.08) \cdot (0.95) = 0.121
+\end{align*}\]</span></p>
+</div>
+</section>
+<section id="step-3-solve-the-problem-2" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-solve-the-problem-2">Step 3: Solve the Problem</h2>
+<ul>
+<li>Finally, putting everything together:</li>
+</ul>
+<div class="fragment" style="text-align:center">
+<p><span class="math display">\[\begin{align*}
+  \mathbb{P}(D \mid +)    &amp; = \frac{\mathbb{P}(+ \mid D) \cdot \mathbb{P}(D)}{\mathbb{P}(+)}   \\
+    &amp; = \frac{(0.9) \cdot (0.05)}{0.121} \boxed{\approx 37.19\%}
+\end{align*}\]</span></p>
+</div>
+<ul>
+<li>If that seems low… you’re right! But, it is actually in line with the problem- the test for the disease is pretty bad, considering how often it gets things wrong. This is why this probability is low- because the test is so bad, we cannot be confident that Arasha actually has the disease, even though she tested positive!</li>
+</ul>
+</section>
+<section id="some-terminology" class="level2" style="font-size:30px">
+<h2 style="font-size:30px" class="anchored" data-anchor-id="some-terminology">Some Terminology</h2>
+<ul>
+<li><p>By the way, there’s some terminology I’d like to quickly introduce to make our lives easier going forward.</p></li>
+<li><p>The <strong>False Positive Rate</strong> of a test is the proportion of times it returns a “positive” result, when the truth is actually “negative”.</p>
+<ul>
+<li>So, in the context of epidemiology, the false positive rate of a test is the proportion of times it says someone has a disease when they do <em>not</em> actually have the disease.</li>
+</ul></li>
+<li><p>Analogously, the <strong>False Negative Rate</strong> of a test is the proportion of times it returns a “negative” result, when the truth is actually “positive”.</p>
+<ul>
+<li>So, in the context of epidemiology, the false negative rate of a test is the proportion of times it says someone does not have a disease when they <em>do</em> actually have the disease.</li>
+</ul></li>
+</ul>
+</section>
+<section id="some-problems-to-think-on" class="level2">
+<h2 class="anchored" data-anchor-id="some-problems-to-think-on">Some Problems To Think On:</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<div class="nonincremental">
+<p>A recent survey interviewed several UCSB students about their pets. The following data was collected:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>             Animal
+Adopted       Bunny Cat Dog Hamster
+  Adopted         3   5   8       4
+  Not Adopted     1   5   7       7</code></pre>
+</div>
+</div>
+<ol type="a">
+<li><p>If a pet is to be selected at random, what is the probability that it is either a cat or adopted?</p></li>
+<li><p>A pet is selected at random: what is the probability that it is an adopted dog?</p></li>
+<li><p>A pet is selected at random: if it is a dog, what is the probability that it was adopted?</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<div class="nonincremental">
+<p>Two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are such that <span class="math inline">\(\mathbb{P}(A) = 5/10\)</span>, &nbsp;<span class="math inline">\(\mathbb{P}(B) = 6/10\)</span>, &nbsp;and <span class="math inline">\(\mathbb{P}(B \mid A) = 2/5\)</span>.</p>
+<ol type="a">
+<li>Find <span class="math inline">\(\mathbb{P}(A \cup B)\)</span></li>
+<li>Find <span class="math inline">\(\mathbb{P}(A \mid B)\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="independence" class="level1">
+<h1>Independence</h1>
+<section id="leadup-3" class="level2">
+<h2 class="anchored" data-anchor-id="leadup-3">Leadup</h2>
+<ul>
+<li><p>There is a very important concept we need to discuss before concluding our initial discussion on Conditional Probabilities.</p></li>
+<li><p>Consider two events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\mathbb{P}(E)\)</span> represents our beliefs on the event <span class="math inline">\(E\)</span>.</li>
+<li><span class="math inline">\(\mathbb{P}(E \mid F)\)</span> represents our beliefs on the event <span class="math inline">\(E\)</span>, in the presence of the additional information contained in <span class="math inline">\(F\)</span>.</li>
+</ul></li>
+<li><p>What happens if <span class="math inline">\(\mathbb{P}(E) = \mathbb{P}(E \mid F)\)</span>?</p>
+<ul>
+<li><p>This asserts that our beliefs on <span class="math inline">\(E\)</span> remain <em>unchanged</em> in the presence of <span class="math inline">\(F\)</span>.</p></li>
+<li><p>That is, <span class="math inline">\(E\)</span> is “unaffected” by <span class="math inline">\(F\)</span> ; i.e.&nbsp;<span class="math inline">\(E\)</span> is <em>independent of</em> <span class="math inline">\(F\)</span>.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="independence-1" class="level2">
+<h2 class="anchored" data-anchor-id="independence-1">Independence</h2>
+<div class="fragment">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Definition</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div style="font-size: 30px">
+<p>Two events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> are defined to be <strong>independent</strong> (notated <span class="math inline">\(E \perp F\)</span>) if <em>any</em> of the following hold:</p>
+<ul>
+<li><span class="math inline">\(\mathbb{P}(E \mid F) = \mathbb{P}(E)\)</span></li>
+<li><span class="math inline">\(\mathbb{P}(F \mid E) = \mathbb{P}(F)\)</span></li>
+<li><span class="math inline">\(\mathbb{P}(E \cap F) = \mathbb{P}(E) \cdot \mathbb{P}(F)\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Note- the probability of an intersection equals the product of unconditional (i.e.&nbsp;<strong>marginal</strong>) probabilities ONLY WHEN THE EVENTS ARE INDEPENDENT.</p>
+<ul>
+<li>In general, the only way to compute the probability of an intersection is to use the Multiplication Rule.</li>
+</ul></li>
+<li><p>I’ll show you one of the equivalencies on the board.</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Site Designed by Ethan Marzban using Quarto; ©2023</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
